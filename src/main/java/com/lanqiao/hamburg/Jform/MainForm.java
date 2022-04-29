@@ -4,6 +4,8 @@
 
 package com.lanqiao.hamburg.Jform;
 
+import com.lanqiao.hamburg.Main;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -224,6 +226,11 @@ public class MainForm extends JFrame {
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        new MainForm().setVisible(true);
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
