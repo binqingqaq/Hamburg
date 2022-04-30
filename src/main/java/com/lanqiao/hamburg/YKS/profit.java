@@ -19,9 +19,33 @@ public class profit extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        label1 = new JLabel();
+        label2 = new JLabel();
+        textField1 = new JTextField();
+        label3 = new JLabel();
 
         //======== this ========
         setLayout(null);
+
+        //---- label1 ----
+        label1.setText("\u65e5");
+        add(label1);
+        label1.setBounds(180, 55, 35, label1.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setText("\u5468");
+        add(label2);
+        label2.setBounds(260, 55, 20, label2.getPreferredSize().height);
+
+        //---- textField1 ----
+        textField1.setText("\u6708");
+        add(textField1);
+        textField1.setBounds(335, 50, 30, textField1.getPreferredSize().height);
+
+        //---- label3 ----
+        label3.setText("\u9009\u62e9\u65e5\u671f");
+        add(label3);
+        label3.setBounds(new Rectangle(new Point(85, 55), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -43,5 +67,9 @@ public class profit extends JPanel {
         //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel")
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JLabel label1;
+    private JLabel label2;
+    private JTextField textField1;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
