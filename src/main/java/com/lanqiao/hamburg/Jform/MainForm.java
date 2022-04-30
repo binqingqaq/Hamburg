@@ -24,10 +24,10 @@ public class MainForm extends JFrame {
         panel2 = new JPanel();
         panel3 = new JPanel();
         panel4 = new JPanel();
+        panel5 = new JPanel();
         panel6 = new JPanel();
         panel7 = new JPanel();
         panel8 = new JPanel();
-        panel5 = new JPanel();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -35,7 +35,6 @@ public class MainForm extends JFrame {
 
         //======== tabbedPane1 ========
         {
-            tabbedPane1.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
             tabbedPane1.setTabPlacement(SwingConstants.LEFT);
 
             //======== panel1 ========
@@ -83,21 +82,6 @@ public class MainForm extends JFrame {
             //======== panel3 ========
             {
                 panel3.setLayout(null);
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < panel3.getComponentCount(); i++) {
-                        Rectangle bounds = panel3.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = panel3.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    panel3.setMinimumSize(preferredSize);
-                    panel3.setPreferredSize(preferredSize);
-                }
             }
             tabbedPane1.addTab("\u83dc\u54c1\u4f9b\u5e94", panel3);
 
@@ -121,6 +105,27 @@ public class MainForm extends JFrame {
                 }
             }
             tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", panel4);
+
+            //======== panel5 ========
+            {
+                panel5.setLayout(null);
+
+                {
+                    // compute preferred size
+                    Dimension preferredSize = new Dimension();
+                    for(int i = 0; i < panel5.getComponentCount(); i++) {
+                        Rectangle bounds = panel5.getComponent(i).getBounds();
+                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                    }
+                    Insets insets = panel5.getInsets();
+                    preferredSize.width += insets.right;
+                    preferredSize.height += insets.bottom;
+                    panel5.setMinimumSize(preferredSize);
+                    panel5.setPreferredSize(preferredSize);
+                }
+            }
+            tabbedPane1.addTab("\u8ba2\u5355\u4e2d\u5fc3", panel5);
 
             //======== panel6 ========
             {
@@ -185,26 +190,7 @@ public class MainForm extends JFrame {
             }
             tabbedPane1.addTab("\u5229\u6da6\u7edf\u8ba1", panel8);
 
-            //======== panel5 ========
-            {
-                panel5.setLayout(null);
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < panel5.getComponentCount(); i++) {
-                        Rectangle bounds = panel5.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = panel5.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    panel5.setMinimumSize(preferredSize);
-                    panel5.setPreferredSize(preferredSize);
-                }
-            }
-            tabbedPane1.addTab("\u8ba2\u5355\u4e2d\u5fc3", panel5);
+            tabbedPane1.setSelectedIndex(4);
         }
         contentPane.add(tabbedPane1);
         tabbedPane1.setBounds(0, 0, 910, 595);
@@ -239,9 +225,9 @@ public class MainForm extends JFrame {
     private JPanel panel2;
     private JPanel panel3;
     private JPanel panel4;
+    private JPanel panel5;
     private JPanel panel6;
     private JPanel panel7;
     private JPanel panel8;
-    private JPanel panel5;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

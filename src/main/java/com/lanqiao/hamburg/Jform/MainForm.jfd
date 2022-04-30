@@ -7,8 +7,8 @@ new FormModel {
 			name: "this"
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
-				"tabLayoutPolicy": 1
 				"tabPlacement": 2
+				"selectedIndex": 4
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 					name: "panel1"
 				}, new FormLayoutConstraints( null ) {
@@ -19,7 +19,9 @@ new FormModel {
 				}, new FormLayoutConstraints( null ) {
 					"title": "菜品管理"
 				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) {
+					"autoSize": false
+				} ) {
 					name: "panel3"
 				}, new FormLayoutConstraints( null ) {
 					"title": "菜品供应"
@@ -28,6 +30,11 @@ new FormModel {
 					name: "panel4"
 				}, new FormLayoutConstraints( null ) {
 					"title": "菜品销售"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+					name: "panel5"
+				}, new FormLayoutConstraints( null ) {
+					"title": "订单中心"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 					name: "panel6"
@@ -43,11 +50,6 @@ new FormModel {
 					name: "panel8"
 				}, new FormLayoutConstraints( null ) {
 					"title": "利润统计"
-				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
-					name: "panel5"
-				}, new FormLayoutConstraints( null ) {
-					"title": "订单中心"
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 0
