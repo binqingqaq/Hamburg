@@ -5,6 +5,7 @@
 package com.lanqiao.hamburg.Jform;
 
 import com.lanqiao.hamburg.Main;
+import com.lanqiao.hamburg.YKS.profit;
 
 import java.awt.*;
 import javax.swing.*;
@@ -170,7 +171,8 @@ public class MainForm extends JFrame {
             tabbedPane1.addTab("\u5546\u54c1\u9500\u91cf", panel7);
 
             //======== panel8 ========
-            {
+            profit profit = new profit();
+           /* {
                 panel8.setLayout(null);
 
                 {
@@ -187,8 +189,8 @@ public class MainForm extends JFrame {
                     panel8.setMinimumSize(preferredSize);
                     panel8.setPreferredSize(preferredSize);
                 }
-            }
-            tabbedPane1.addTab("\u5229\u6da6\u7edf\u8ba1", panel8);
+            }*/
+            tabbedPane1.addTab("\u5229\u6da6\u7edf\u8ba1", profit);
 
             tabbedPane1.setSelectedIndex(4);
         }
