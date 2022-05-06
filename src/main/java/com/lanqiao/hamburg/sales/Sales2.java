@@ -22,6 +22,9 @@ public class Sales2<CalendarTest> extends JPanel {
     public Sales2() {
         initComponents();
     }
+
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
@@ -29,6 +32,7 @@ public class Sales2<CalendarTest> extends JPanel {
         button1 = new JButton();
         button2 = new JButton();
         button3 = new JButton();
+        JButton button4 = new JButton();
 
         //======== this ========
         setLayout(null);
@@ -111,6 +115,26 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
         );
 
+        button4.setText("刷新数据");
+        add(button4);
+        button4.setBounds(new Rectangle(new Point(5, 270), button4.getPreferredSize()));
+        button4.addActionListener(
+                (e)-> {
+                    {
+                        scrollPane1.setViewportView(table1);
+                    }
+
+                    DefaultTableModel tableModel1 = new DefaultTableModel(getDataFromDatabase1(), head) {
+                        public boolean isCellEditable(int row, int column) {
+                            return false;
+                        }
+                    };
+                    table1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                    table1.setModel(tableModel1);
+                    add(scrollPane1);
+                }
+        );
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -129,8 +153,7 @@ public class Sales2<CalendarTest> extends JPanel {
     }
 
 
-
-    public Object[][] getDataFromDatabase() {
+    public Object[][] getDataFromDatabase1() {
 
         java.util.List<Sale> list = new ArrayList<Sale>();
         Connection conn = null;
@@ -143,7 +166,6 @@ public class Sales2<CalendarTest> extends JPanel {
         Statement stmt4 = null;
         Statement stmt5 = null;
         Statement stmt6 = null;
-
         String sql;
         ResultSet rs = null;
         ResultSet rs2 = null;
@@ -153,10 +175,10 @@ public class Sales2<CalendarTest> extends JPanel {
         ResultSet rs6 = null;
 
         int test [] =new int[20];
-       String test0 [] =new String[20];
-       int test1 [] =new int[6];
+        String test0 [] =new String[20];
+        int test1 [] =new int[6];
         String test2 [] =new String[6];
-         int test3 [] =new int[6];
+        int test3 [] =new int[6];
         int test4 [] =new int[6];
         int test5 [] =new int[6];
         int num [] =new int[6];
@@ -173,8 +195,8 @@ public class Sales2<CalendarTest> extends JPanel {
             String sql1="SELECT * FROM Sale";
             conn = DriverManager.getConnection(url, user, dbPassword);
             stmt = conn.createStatement();
-             rs= stmt.executeQuery(sql1);
-             test[0]=0;
+            rs= stmt.executeQuery(sql1);
+            test[0]=0;
             while (rs.next()) {
                 test1[test[0]]=rs.getInt(1);
                 test2[test[0]]=rs.getString(2);
@@ -185,27 +207,27 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
 
-               String sql2 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[0]+"'";
-                stmt2 = conn.createStatement();
-                rs2= stmt2.executeQuery(sql2);
-                test5[0]=0;
-                test4[0]=0;
-                test3[0]=0;
-                while (rs2.next()){
-                    test0[0]=rs2.getString(1).substring(0, 4);
-                    test0[1]=rs2.getString(1).substring(5, 7);
-                    test0[2]=rs2.getString(1).substring(8, 10);
-                    num[0]=rs2.getInt(2);
-                    if(test0[0].equals(year)){
-                        test5[0]=test5[0]+num[0];
-                        if(test0[1].equals(month)){
-                            test4[0]=test4[0]+num[0];
-                            if(test0[2].equals(daily)){
-                                test3[0]=test3[0]+num[0];
-                            }
+            String sql2 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[0]+"'";
+            stmt2 = conn.createStatement();
+            rs2= stmt2.executeQuery(sql2);
+            test5[0]=0;
+            test4[0]=0;
+            test3[0]=0;
+            while (rs2.next()){
+                test0[0]=rs2.getString(1).substring(0, 4);
+                test0[1]=rs2.getString(1).substring(5, 7);
+                test0[2]=rs2.getString(1).substring(8, 10);
+                num[0]=rs2.getInt(2);
+                if(test0[0].equals(year)){
+                    test5[0]=test5[0]+num[0];
+                    if(test0[1].equals(month)){
+                        test4[0]=test4[0]+num[0];
+                        if(test0[2].equals(daily)){
+                            test3[0]=test3[0]+num[0];
                         }
                     }
                 }
+            }
 
 
             String sql3 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[1]+"'";
@@ -327,6 +349,98 @@ public class Sales2<CalendarTest> extends JPanel {
 
 
         if(a==1){
+            sql = "SELECT * FROM Sale ORDER BY daily DESC";
+        }
+        else if(a==2){
+            sql = "SELECT * FROM Sale ORDER BY month DESC";
+        }
+        else if(a==3){
+            sql = "SELECT * FROM Sale ORDER BY year DESC";
+        }
+        else{
+            sql = "SELECT * FROM Sale ";}
+
+        try {
+            conn = DriverManager.getConnection(url, user, dbPassword);
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Sale sale = new Sale();
+                sale.setID(rs.getInt(1));
+                sale.setTitle(rs.getString(2));
+                sale.setDaily(rs.getInt(3));
+                sale.setMonth(rs.getInt(4));
+                sale.setYear(rs.getInt(5));
+
+                list.add(sale);
+
+
+            }
+            /*for (Sale sale1 : list) {
+                System.out.println(sale1.getTitle());
+            }*/
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        }
+        // 把集合的数据（商品信息）转换成二维数组
+        data = new Object[list.size()][head.length];
+
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < head.length; j++) {
+                data[i][0] = list.get(i).getID();
+                data[i][1] = list.get(i).getTitle();
+                data[i][2] = list.get(i).getDaily();
+                data[i][3] = list.get(i).getMonth();
+                data[i][4] = list.get(i).getYear();
+
+            }
+        }
+        return data;
+    }
+
+    public Object[][] getDataFromDatabase() {
+
+        java.util.List<Sale> list = new ArrayList<Sale>();
+        Connection conn = null;
+        String user = "root";
+        String dbPassword = "Binqing31";
+        String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        Statement stmt = null;
+        String sql;
+        ResultSet rs = null;
+        try {
+            String sql1="SELECT * FROM Sale";
+            conn = DriverManager.getConnection(url, user, dbPassword);
+            stmt = conn.createStatement();
+             rs= stmt.executeQuery(sql1);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        }
+
+
+
+        if(a==1){
              sql = "SELECT * FROM Sale ORDER BY daily DESC";
         }
         else if(a==2){
@@ -349,15 +463,9 @@ public class Sales2<CalendarTest> extends JPanel {
                 sale.setDaily(rs.getInt(3));
                 sale.setMonth(rs.getInt(4));
                 sale.setYear(rs.getInt(5));
-
                 list.add(sale);
 
-
             }
-            /*for (Sale sale1 : list) {
-                System.out.println(sale1.getTitle());
-            }*/
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
