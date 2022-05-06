@@ -1,5 +1,7 @@
 package com.lanqiao.hamburg.enti;
 
+import java.util.Objects;
+
 public class Sale {
     private int ID;
     private String title;
@@ -58,5 +60,32 @@ public class Sale {
         this.year = year;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sale sale = (Sale) o;
+        return ID == sale.ID &&
+                daily == sale.daily &&
+                month == sale.month &&
+                year == sale.year &&
+                Objects.equals(title, sale.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, title, daily, month, year);
+    }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "ID=" + ID +
+                ", title='" + title + '\'' +
+                ", daily=" + daily +
+                ", month=" + month +
+                ", year=" + year +
+                '}';
+    }
 }
 
