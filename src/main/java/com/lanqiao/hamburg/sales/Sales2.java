@@ -185,7 +185,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
 
-               String sql2 = "SELECT order_time,amount FROM order_info WHERE transaction_id='可乐'";
+               String sql2 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[0]+"'";
                 stmt2 = conn.createStatement();
                 rs2= stmt2.executeQuery(sql2);
                 test5[0]=0;
@@ -208,7 +208,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
 
 
-            String sql3 = "SELECT order_time,amount FROM order_info WHERE transaction_id='鸡肉卷'";
+            String sql3 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[1]+"'";
             stmt3 = conn.createStatement();
             rs3= stmt3.executeQuery(sql3);
             test5[1]=0;
@@ -231,7 +231,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
 
-            String sql4 = "SELECT order_time,amount FROM order_info WHERE transaction_id='汉堡炸鸡'";
+            String sql4 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[2]+"'";
             stmt4 = conn.createStatement();
             rs4= stmt4.executeQuery(sql4);
             test5[2]=0;
@@ -253,7 +253,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
             }
 
-            String sql5 = "SELECT order_time,amount FROM order_info WHERE transaction_id='柠檬水'";
+            String sql5 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[3]+"'";
             stmt5 = conn.createStatement();
             rs5= stmt5.executeQuery(sql5);
             test5[3]=0;
@@ -275,7 +275,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
             }
 
-            String sql6 = "SELECT order_time,amount FROM order_info WHERE transaction_id='薯条'";
+            String sql6 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[4]+"'";
             stmt6 = conn.createStatement();
             rs6= stmt6.executeQuery(sql6);
             test5[4]=0;

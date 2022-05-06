@@ -5,6 +5,7 @@
 package com.lanqiao.hamburg.Jform;
 
 import com.lanqiao.hamburg.Main;
+import com.lanqiao.hamburg.sales.Sales2;
 
 import java.awt.*;
 import javax.swing.*;
@@ -148,8 +149,10 @@ public class MainForm extends JFrame {
             }
             tabbedPane1.addTab("\u6d3b\u52a8\u4f18\u60e0", panel6);
 
+            Sales2 sales2 = new Sales2();
+
             //======== panel7 ========
-            {
+         /*   {
                 panel7.setLayout(null);
 
                 {
@@ -166,8 +169,8 @@ public class MainForm extends JFrame {
                     panel7.setMinimumSize(preferredSize);
                     panel7.setPreferredSize(preferredSize);
                 }
-            }
-            tabbedPane1.addTab("\u5546\u54c1\u9500\u91cf", panel7);
+            }*/
+            tabbedPane1.addTab("\u5546\u54c1\u9500\u91cf", sales2);
 
             //======== panel8 ========
             {
@@ -215,7 +218,7 @@ public class MainForm extends JFrame {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         new MainForm().setVisible(true);
     }
 

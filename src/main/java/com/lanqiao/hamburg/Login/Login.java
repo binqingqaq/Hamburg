@@ -16,6 +16,8 @@ import javax.swing.*;
  */
 public class Login extends JFrame {
 
+    private static Component login;
+
     public Login() {
         initComponents();
     }
@@ -59,55 +61,6 @@ public class Login extends JFrame {
         button1.setText("\u767b\u5165");
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));
-        button1.addActionListener(
-                (e)->{
-/*
-                    实现登录
-                    1、先拿到登录界面的用户名和密码
-                    2、去数据库比对用户名和密码
-                    就是去执行一条SQL语句，但是是什么样的SQL语句呢？
-                     */
-                    String username = textField2.getText();
-                    String password = textField3.getText();
-
-                    String sql = "SELECT * FROM user WHERE user_name='" + username + "' AND user_key='" + password + "'";
-                    System.out.println(sql);
-
-                    /*
-                    1、连接数据库（添加mysql的maven依赖）
-                    2、执行SQL语句，验证用户名和密码
-                     */
-                    Connection conn = null;
-                    String user = "root";
-                    String dbPassword = "Binqing31";
-                    String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-
-                    Statement statement = null;//语句对象
-                    ResultSet rs = null;//结果集：游标（虚拟的指针）
-
-                    try {
-                        conn = DriverManager.getConnection(url, user, dbPassword);
-                        System.out.println(conn);
-
-                        statement = conn.createStatement();
-                        rs = statement.executeQuery(sql);//刚刚执行完查询的时候，游标不指向任何记录
-
-                        // 如何判断用户名和密码是否正确？
-                        if (rs.next()) {
-                            //登入成功打开主界面
-                            System.out.println("登录成功");
-                            new MainForm().setVisible(true);
-                            login.setVisible(false);
-                        } else {
-                            System.out.println("用户名或密码错误");
-                        }
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
-
-
-                }
-        );
 
         {
             // compute preferred size
@@ -140,7 +93,6 @@ public class Login extends JFrame {
     private JLabel label4;
     private JTextField textField3;
     private JButton button1;
-    static Login login=new Login();
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
         login.setVisible(true);
