@@ -1,4 +1,4 @@
-package com.lanqiao.hamburg.enti;
+package com.lanqiao.hamburg.entity;
 
 public class User {
     private int user_id;

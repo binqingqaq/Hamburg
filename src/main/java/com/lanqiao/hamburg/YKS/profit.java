@@ -4,7 +4,7 @@
 
 package com.lanqiao.hamburg.YKS;
 
-import com.lanqiao.hamburg.Jform.MainForm;
+
 
 import java.awt.*;
 import javax.swing.*;
