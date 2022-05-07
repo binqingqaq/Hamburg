@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.11" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.4" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -37,7 +37,7 @@ new FormModel {
 				"y": 55
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 95, 75 )
+			"location": new java.awt.Point( 145, 55 )
 			"size": new java.awt.Dimension( 600, 465 )
 		} )
 	}

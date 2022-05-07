@@ -1,7 +1,6 @@
 package com.lanqiao.hamburg.Login;
 
 import com.lanqiao.hamburg.Jform.MainForm;
-
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -142,9 +141,9 @@ public class Login extends JFrame {
     private JButton button1;
     static Login login=new Login();
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         login.setVisible(true);
-    }
+    }*/
 
 
 }
