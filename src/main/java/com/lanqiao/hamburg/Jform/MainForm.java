@@ -5,10 +5,13 @@ package com.lanqiao.hamburg.Jform;/*
 
 
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
+import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
+import com.lanqiao.hamburg.supply.Supply;
 
 
 import java.awt.*;
+import java.sql.SQLException;
 import javax.swing.*;
 
 
@@ -18,7 +21,7 @@ import javax.swing.*;
  * @date 2022/5/7
  */
 public class MainForm extends JFrame {
-    public MainForm() {
+    public MainForm() throws SQLException {
         //初始化加载内容
         initComponents();
     }
@@ -31,7 +34,7 @@ public class MainForm extends JFrame {
      * @return void
      */
 
-    private void initComponents() {
+    private void initComponents() throws SQLException {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         tabbedPane1 = new JTabbedPane();
         panel1 = new JPanel();
@@ -87,46 +90,14 @@ public class MainForm extends JFrame {
             tabbedPane1.addTab("\u83dc\u54c1\u7ba1\u7406", foodManagePanel);
 
             //======== panel3 ========
-            {
-                panel3.setLayout(null);
 
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < panel3.getComponentCount(); i++) {
-                        Rectangle bounds = panel3.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = panel3.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    panel3.setMinimumSize(preferredSize);
-                    panel3.setPreferredSize(preferredSize);
-                }
-            }
-            tabbedPane1.addTab("\u83dc\u54c1\u4f9b\u5e94", panel3);
+
+            Supply supply = new Supply();
+            tabbedPane1.addTab("\u83dc\u54c1\u4f9b\u5e94",supply);
 
             //======== panel4 ========
-            {
-                panel4.setLayout(null);
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < panel4.getComponentCount(); i++) {
-                        Rectangle bounds = panel4.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = panel4.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    panel4.setMinimumSize(preferredSize);
-                    panel4.setPreferredSize(preferredSize);
-                }
-            }
-            tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", panel4);
+            MySalse2 mySalse2 = new MySalse2(this);
+            tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", mySalse2);
 
             //======== panel5 ========
             {

@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Wed May 04 16:46:41 CST 2022
  */
 
-package com.lanqiao.hamburg.Supply;
+package com.lanqiao.hamburg.supply;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -56,23 +56,23 @@ public class Supply extends JPanel {
         textField2.setBounds(125, 35, 95, textField2.getPreferredSize().height);
 
 
-//åº“å­˜è¿‡ä½æ—¶ å‘å‡ºæé†’
+//¿â´æ¹ıµÍÊ± ·¢³öÌáĞÑ
         int a = 0;
         int rows = table1.getRowCount();
         while (a<=rows-1) {
             String getdate = table1.getValueAt(a, 1).toString();
             int g = Integer.parseInt(getdate);
             if (g <= 40) {
-                label3.setText("å•†å“åº“å­˜ä¸è¶³ï¼è¯·åŠæ—¶è¡¥è´§ï¼è€é“ï¼");
+                label3.setText("ÉÌÆ·¿â´æ²»×ã£¡Çë¼°Ê±²¹»õ£¡ÀÏÌú£¡");
                 break;
             } else {
-                label3.setText("OK è€é“ å•†å“åº“å­˜å……è¶³ï¼");
+                label3.setText("OK ÀÏÌú ÉÌÆ·¿â´æ³ä×ã£¡");
             }
             a++;
         }
         //---- label1 ----
-        label1.setText("  è¯·è¾“å…¥å•†å“idï¼š");
-        label2.setText("è¯·è¾“å…¥è¡¥è´§æ•°é‡ï¼š");
+        label1.setText("  ÇëÊäÈëÉÌÆ·id£º");
+        label2.setText("ÇëÊäÈë²¹»õÊıÁ¿£º");
         
         
         add(label1);
@@ -83,7 +83,7 @@ public class Supply extends JPanel {
         label3.setBounds(290, 40, 200, label3.getPreferredSize().height);
 
         //---- button1 ----
-        button1.setText("æŸ¥è¯¢");
+        button1.setText("²éÑ¯");
         add(button1);
         button1.setBounds(new
 
@@ -112,7 +112,7 @@ public class Supply extends JPanel {
 
 
         //---- button2 ----
-        button2.setText("å…¨éƒ¨");
+        button2.setText("È«²¿");
 
         add(button2);
         button2.setBounds(new
@@ -137,7 +137,7 @@ public class Supply extends JPanel {
         scrollPane1.setBounds(25,60,495,195);
 
         //---- button3 ----
-        button3.setText("è¡¥è´§");
+        button3.setText("²¹»õ");
 
         add(button3);
         button3.setBounds(new
@@ -149,7 +149,7 @@ public class Supply extends JPanel {
 
         button3.addActionListener(e -> {
 
-            int index1 = table1.getSelectedRow();//è·å–é€‰ä¸­è¡Œ
+            int index1 = table1.getSelectedRow();//»ñÈ¡Ñ¡ÖĞĞĞ
             System.out.println(index1);
 
             String product_id= (String)table1.getValueAt(index1,2);
@@ -175,7 +175,7 @@ public class Supply extends JPanel {
         });
 
         //---- button4 ----
-        button4.setText("æ’åº");
+        button4.setText("ÅÅĞò");
         add(button4);
         button4.setBounds(new
                 Rectangle(new Point(465, 5),button4.
@@ -209,11 +209,11 @@ public class Supply extends JPanel {
 
         public static Connection getConn() throws SQLException {
         /*
-        ä¸ºäº†ä¿è¯OrderDaoImplå’ŒStockDaoImplä¸­çš„Connectionæ˜¯åŒä¸€ä¸ªï¼Œæˆ‘ä»¬åšå¦‚ä¸‹å¤„ç†
+        ÎªÁË±£Ö¤OrderDaoImplºÍStockDaoImplÖĞµÄConnectionÊÇÍ¬Ò»¸ö£¬ÎÒÃÇ×öÈçÏÂ´¦Àí
          */
             Connection conn=threadLocal.get();
         /*
-        nullè¯´æ˜ä»€ä¹ˆï¼Ÿ
+        nullËµÃ÷Ê²Ã´£¿
          */
             if(conn==null){
                 String user = "root";
@@ -244,7 +244,7 @@ public class Supply extends JPanel {
             pstmt1.executeQuery();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            throw new SQLException("æŸ¥è¯¢å¤±è´¥");
+            throw new SQLException("²éÑ¯Ê§°Ü");
         }
     }
 
@@ -260,7 +260,7 @@ public class Supply extends JPanel {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            throw new SQLException("æŸ¥è¯¢å¤±è´¥");
+            throw new SQLException("²éÑ¯Ê§°Ü");
         }
     }
 //    private void selectStock2()  throws  SQLException {
@@ -280,7 +280,7 @@ public class Supply extends JPanel {
 //
 //        } catch (SQLException throwables) {
 //            throwables.printStackTrace();
-//            throw new SQLException("æŸ¥è¯¢å¤±è´¥");
+//            throw new SQLException("²éÑ¯Ê§°Ü");
 //        }
 //    }
 
@@ -289,7 +289,7 @@ public class Supply extends JPanel {
             int sum = stock+current_stock;
 
             Connection conn = ConnectionHandler.getConn();
-            //System.out.println("StockDaoImplï¼š"+conn.hashCode());
+            //System.out.println("StockDaoImpl£º"+conn.hashCode());
             String sql1="UPDATE item SET stock="+sum+"  WHERE product_id="+"'"+product_id+"'";
             PreparedStatement pstmt = conn.prepareStatement(sql1);
 
@@ -299,7 +299,7 @@ public class Supply extends JPanel {
             pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            throw new SQLException("åº“å­˜æ›´æ–°å¤±è´¥");
+            throw new SQLException("¿â´æ¸üĞÂÊ§°Ü");
         }
     }
 
@@ -307,22 +307,22 @@ public class Supply extends JPanel {
 
     public  Object[][] queryData() {
 
-        java.util.List<Item_stock> list=new ArrayList<Item_stock>();
+        java.util.List<com.lanqiao.hamburg.Supply.Item_stock> list=new ArrayList<com.lanqiao.hamburg.Supply.Item_stock>();
         Connection conn = null;
         String user = "root";
         String dbPassword = "Binqing31";
         String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-        Statement stmt = null;//SQLè¯­å¥å¯¹è±¡ï¼Œæ‹¼SQL
+        Statement stmt = null;//SQLÓï¾ä¶ÔÏó£¬Æ´SQL
         String sql = "SELECT * FROM item";
-        System.out.println("å³å°†æ‰§è¡Œçš„sqlï¼š" + sql);
+        System.out.println("¼´½«Ö´ĞĞµÄsql£º" + sql);
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection(url, user, dbPassword);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                //æ¯å¾ªç¯ä¸€æ¬¡å°±æ˜¯ä¸€ä¸ªå¯¹è±¡ï¼ŒæŠŠè¿™ä¸ªå¯¹è±¡æ”¾å…¥å®¹å™¨ï¼ˆListï¼ˆæœ‰åºå¯é‡å¤ï¼‰ã€Setï¼ˆæ— åºä¸å¯é‡å¤ï¼‰ã€Mapï¼ˆkeyã€valueç»“æ„ï¼‰
-                Item_stock item_stock=new Item_stock();
+                //Ã¿Ñ­»·Ò»´Î¾ÍÊÇÒ»¸ö¶ÔÏó£¬°ÑÕâ¸ö¶ÔÏó·ÅÈëÈİÆ÷£¨List£¨ÓĞĞò¿ÉÖØ¸´£©¡¢Set£¨ÎŞĞò²»¿ÉÖØ¸´£©¡¢Map£¨key¡¢value½á¹¹£©
+                com.lanqiao.hamburg.Supply.Item_stock item_stock=new com.lanqiao.hamburg.Supply.Item_stock();
                 item_stock.setId(rs.getInt(1));
                 item_stock.setStock(rs.getInt(7));
                 item_stock.setItem_id(rs.getString(2));
@@ -331,17 +331,17 @@ public class Supply extends JPanel {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            //é‡Šæ”¾èµ„æºï¼šæ•°æ®åº“è¿æ¥å¾ˆæ˜‚è´µ
+            //ÊÍ·Å×ÊÔ´£ºÊı¾İ¿âÁ¬½ÓºÜ°º¹ó
             try {
                 rs.close();
                 stmt.close();
-                conn.close();//å…³è¿æ¥
+                conn.close();//¹ØÁ¬½Ó
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
         data = new Object[list.size()][head.length];
-        //æŠŠé›†åˆé‡Œçš„æ•°æ®æ”¾å…¥Obejctè¿™äºŒä¸ªç»´æ•°ç»„
+        //°Ñ¼¯ºÏÀïµÄÊı¾İ·ÅÈëObejctÕâ¶ş¸öÎ¬Êı×é
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < head.length; j++) {
                 data[i][0] = list.get(i).getId();
@@ -355,23 +355,23 @@ public class Supply extends JPanel {
 
     public Object[][] queryData1() {
 
-        java.util.List<Item_stock> list=new ArrayList<Item_stock>();
+        java.util.List<com.lanqiao.hamburg.Supply.Item_stock> list=new ArrayList<com.lanqiao.hamburg.Supply.Item_stock>();
         Connection conn = null;
         String user = "root";
         String dbPassword = "Binqing31";
         String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String product_id=textField1.getText();
-        Statement stmt = null;//SQLè¯­å¥å¯¹è±¡ï¼Œæ‹¼SQL
+        Statement stmt = null;//SQLÓï¾ä¶ÔÏó£¬Æ´SQL
         String sql2 = "SELECT * FROM item WHERE product_id="+"'"+product_id+"'";
-        System.out.println("å³å°†æ‰§è¡Œçš„sqlï¼š" + sql2);
+        System.out.println("¼´½«Ö´ĞĞµÄsql£º" + sql2);
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection(url, user, dbPassword);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql2);
             while (rs.next()) {
-                //æ¯å¾ªç¯ä¸€æ¬¡å°±æ˜¯ä¸€ä¸ªå¯¹è±¡ï¼ŒæŠŠè¿™ä¸ªå¯¹è±¡æ”¾å…¥å®¹å™¨ï¼ˆListï¼ˆæœ‰åºå¯é‡å¤ï¼‰ã€Setï¼ˆæ— åºä¸å¯é‡å¤ï¼‰ã€Mapï¼ˆkeyã€valueç»“æ„ï¼‰
-                Item_stock item_stock=new Item_stock();
+                //Ã¿Ñ­»·Ò»´Î¾ÍÊÇÒ»¸ö¶ÔÏó£¬°ÑÕâ¸ö¶ÔÏó·ÅÈëÈİÆ÷£¨List£¨ÓĞĞò¿ÉÖØ¸´£©¡¢Set£¨ÎŞĞò²»¿ÉÖØ¸´£©¡¢Map£¨key¡¢value½á¹¹£©
+                com.lanqiao.hamburg.Supply.Item_stock item_stock=new com.lanqiao.hamburg.Supply.Item_stock();
                 item_stock.setId(rs.getInt(1));
                 item_stock.setStock(rs.getInt(7));
                 item_stock.setItem_id(rs.getString(2));
@@ -380,18 +380,18 @@ public class Supply extends JPanel {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            //é‡Šæ”¾èµ„æºï¼šæ•°æ®åº“è¿æ¥å¾ˆæ˜‚è´µ
+            //ÊÍ·Å×ÊÔ´£ºÊı¾İ¿âÁ¬½ÓºÜ°º¹ó
             try {
                 rs.close();
                 stmt.close();
-                conn.close();//å…³è¿æ¥
+                conn.close();//¹ØÁ¬½Ó
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
 
         }
         data = new Object[list.size()][head.length];
-        //æŠŠé›†åˆé‡Œçš„æ•°æ®æ”¾å…¥Obejctè¿™ä¸ªäºŒç»´æ•°ç»„
+        //°Ñ¼¯ºÏÀïµÄÊı¾İ·ÅÈëObejctÕâ¸ö¶şÎ¬Êı×é
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < head.length; j++) {
                 data[i][0] = list.get(i).getId();
@@ -406,22 +406,22 @@ public class Supply extends JPanel {
 
     public Object[][] queryData3() {
 
-        java.util.List<Item_stock> list=new ArrayList<Item_stock>();
+        java.util.List<com.lanqiao.hamburg.Supply.Item_stock> list=new ArrayList<com.lanqiao.hamburg.Supply.Item_stock>();
         Connection conn = null;
         String user = "root";
         String dbPassword = "Binqing31";
         String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-        Statement stmt = null;//SQLè¯­å¥å¯¹è±¡ï¼Œæ‹¼SQL
+        Statement stmt = null;//SQLÓï¾ä¶ÔÏó£¬Æ´SQL
         String sql3 = "SELECT * FROM  item  ORDER BY stock ASC";
-        System.out.println("å³å°†æ‰§è¡Œçš„sqlï¼š" + sql3);
+        System.out.println("¼´½«Ö´ĞĞµÄsql£º" + sql3);
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection(url, user, dbPassword);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql3);
             while (rs.next()) {
-                //æ¯å¾ªç¯ä¸€æ¬¡å°±æ˜¯ä¸€ä¸ªå¯¹è±¡ï¼ŒæŠŠè¿™ä¸ªå¯¹è±¡æ”¾å…¥å®¹å™¨ï¼ˆListï¼ˆæœ‰åºå¯é‡å¤ï¼‰ã€Setï¼ˆæ— åºä¸å¯é‡å¤ï¼‰ã€Mapï¼ˆkeyã€valueç»“æ„ï¼‰
-                Item_stock item_stock=new Item_stock();
+                //Ã¿Ñ­»·Ò»´Î¾ÍÊÇÒ»¸ö¶ÔÏó£¬°ÑÕâ¸ö¶ÔÏó·ÅÈëÈİÆ÷£¨List£¨ÓĞĞò¿ÉÖØ¸´£©¡¢Set£¨ÎŞĞò²»¿ÉÖØ¸´£©¡¢Map£¨key¡¢value½á¹¹£©
+                com.lanqiao.hamburg.Supply.Item_stock item_stock=new com.lanqiao.hamburg.Supply.Item_stock();
                 item_stock.setId(rs.getInt(1));
                 item_stock.setStock(rs.getInt(7));
                 item_stock.setItem_id(rs.getString(2));
@@ -430,17 +430,17 @@ public class Supply extends JPanel {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            //é‡Šæ”¾èµ„æºï¼šæ•°æ®åº“è¿æ¥å¾ˆæ˜‚è´µ
+            //ÊÍ·Å×ÊÔ´£ºÊı¾İ¿âÁ¬½ÓºÜ°º¹ó
             try {
                 rs.close();
                 stmt.close();
-                conn.close();//å…³è¿æ¥
+                conn.close();//¹ØÁ¬½Ó
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
         data = new Object[list.size()][head.length];
-        //æŠŠé›†åˆé‡Œçš„æ•°æ®æ”¾å…¥Obejctè¿™ä¸ªäºŒç»´æ•°ç»„
+        //°Ñ¼¯ºÏÀïµÄÊı¾İ·ÅÈëObejctÕâ¸ö¶şÎ¬Êı×é
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < head.length; j++) {
                 data[i][0] = list.get(i).getId();

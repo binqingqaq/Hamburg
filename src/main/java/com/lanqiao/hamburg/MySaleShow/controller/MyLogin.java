@@ -59,14 +59,14 @@ public class MyLogin extends JFrame {
                     try {
                         user user = new user();
                         user.setUser_name(username);
-                        user.setUser_key(password);   // ������ʱuser��
-                        //ɾ����ǰ�û�--���û���¼ʱ���ܻ�����⣬��Ҫ�����ݱ���Զ��ύʱ���֣����˳�bug��˵
+                        user.setUser_key(password);   // ???????user??
+                        //?????????--??????????????????????????????????????????????bug???
                         CurrentUserDao cud = new CurrentUserDaoImpl();
                         if((cud.QueryUser().getUser_name())!=null){
-                            //�����ǰ�û����ڴ������ݣ���ɾ������
+                            //??????????????????????????????
                             cud.DelLoginData();
                         }
-                        if(loginService.LoginAndRecord(user)==1){ // ������¼���¼����)
+                        if(loginService.LoginAndRecord(user)==1){ // ???????????????)
                             new MainForm().setVisible(true);
                             this.setVisible(false);
                         }
@@ -87,7 +87,7 @@ public class MyLogin extends JFrame {
         setLocationRelativeTo(getOwner());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setVisible(true);//��������ɼ�
+        this.setVisible(true);//??????????
     }
 
     private JLabel label1;

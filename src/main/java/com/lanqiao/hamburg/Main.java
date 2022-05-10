@@ -5,9 +5,10 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.lanqiao.hamburg.Jform.MainForm;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, SQLException {
         /**
          * 给界面设置主题
          */

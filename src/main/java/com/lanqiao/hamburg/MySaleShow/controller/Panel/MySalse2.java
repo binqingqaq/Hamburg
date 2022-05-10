@@ -30,10 +30,14 @@ import java.util.ArrayList;
  */
 public class MySalse2 extends JPanel {
 
-    Frame frame; //传入panel所在容器的Frame窗体对象便于利用panel中的按钮有Frame窗体的控制权
+    Frame frame; //????panel??????????Frame??????????????panel?е?????Frame?????????
     public MySalse2(Frame frame) throws SQLException {
        this.frame=frame;
         initComponents();
+    }
+
+    public MySalse2(){
+
     }
 
     private void initComponents() throws SQLException {
@@ -43,13 +47,13 @@ public class MySalse2 extends JPanel {
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         label2 = new JLabel();
-        label4 = new JLabel("模糊搜索:");
+        label4 = new JLabel("???????:");
         jTextField = new JTextField();
         comboBox1 = new JComboBox();
         button1 = new JButton();
         button2 = new JButton();
         button3 = new JButton();
-        button4 = new JButton("开始搜索");
+        button4 = new JButton("???????");
         this.setPreferredSize(new Dimension(815,595));
         //======== this ========
         setLayout(null);
@@ -69,19 +73,19 @@ public class MySalse2 extends JPanel {
         label2.setBounds(new Rectangle(new Point(15, 380), label2.getPreferredSize()));
         add(comboBox1);
         comboBox1.setBounds(new Rectangle(70,380,80,25));
-        comboBox1.addItem("全部商品");
-        comboBox1.addItem("美味小食");
-        comboBox1.addItem("招牌全鸡");
-        comboBox1.addItem("超值套餐");
-        comboBox1.addItem("缤纷饮品");
-        comboBox1.addItem("精选主食");
+        comboBox1.addItem("??????");
+        comboBox1.addItem("??ζС?");
+        comboBox1.addItem("???????");
+        comboBox1.addItem("??????");
+        comboBox1.addItem("??????");
+        comboBox1.addItem("??????");
         comboBox1.addActionListener(a->{
             String str= String.valueOf(comboBox1.getSelectedItem());
             ItemDao itemDao = new ItemDaoImpl();
             ResultSet rs=null;
             DefaultTableModel tableModel1=null;
-            //--参数比对
-            if(str.equals("全部商品")){
+            //--???????
+            if(str.equals("??????")){
                 System.out.println("all");
                 try{
 
@@ -93,7 +97,7 @@ public class MySalse2 extends JPanel {
                 } ;
 
 
-            }else if(str.equals("美味小食")){
+            }else if(str.equals("??ζС?")){
                 System.out.println("DeliciousStaple");
                 try{
                     jPanelTable.setVisible(false);
@@ -102,7 +106,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("招牌全鸡")){
+            }else if(str.equals("???????")){
                 System.out.println("SignatureWholeChicken");
                 try{
                     jPanelTable.setVisible(false);
@@ -111,7 +115,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("超值套餐")){
+            }else if(str.equals("??????")){
                 System.out.println("SignaturePackage");
                 try{
                     jPanelTable.setVisible(false);
@@ -120,7 +124,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("缤纷饮品")){
+            }else if(str.equals("??????")){
                 System.out.println("ColorfulDrinks");
                 try{
                     jPanelTable.setVisible(false);
@@ -141,7 +145,7 @@ public class MySalse2 extends JPanel {
             }
         });
 
-        // --- 模糊搜索---
+        // --- ???????---
         add(label4);
         label4.setBounds(new Rectangle(new Point(15,420),label4.getPreferredSize()));
         add(jTextField);
@@ -149,7 +153,7 @@ public class MySalse2 extends JPanel {
         add(button4);
         button4.setBounds(new Rectangle(new Point(170,420),button4.getPreferredSize()));
         button4.addActionListener(a->{
-            JOptionPane.showMessageDialog(this,"这个功能还在开发中","警告",2);
+            JOptionPane.showMessageDialog(this,"???????????????","????",2);
         });
         //---- button1 ----
         button1.setText("\u52a0\u5165\u8d2d\u7269\u8f66");
@@ -157,7 +161,7 @@ public class MySalse2 extends JPanel {
         button1.setBounds(new Rectangle(new Point(170, 380), button1.getPreferredSize()));
         button1.addActionListener(
                 (e)->{
-                    int rowNo = table1.getSelectedRow();//获取所选的行号，获取商品展示的全部信息，用于存入购物车表
+                    int rowNo = table1.getSelectedRow();//?????????к???????????????????????????????
                     int Id=(int)table1.getValueAt(rowNo, 0);
                     String FoodName=(String)table1.getValueAt(rowNo, 1);
                     Float Price=(Float)table1.getValueAt(rowNo, 2);
@@ -165,22 +169,22 @@ public class MySalse2 extends JPanel {
                     int Sock=(int)table1.getValueAt(rowNo, 4);
                     String Tastes=(String)table1.getValueAt(rowNo, 5);
                     String FoodType=(String)table1.getValueAt(rowNo, 6);
-                    //String ImgUrl=(String)table1.getValueAt(rowNo,7); //转换为图片需要Jpanel容器，Jpanel不能转换为String类
+                    //String ImgUrl=(String)table1.getValueAt(rowNo,7); //?????????Jpanel??????Jpanel????????String??
                     /* Item item=new Item(id,title,price,description,sales,img_url,FoodType);*/
-                    // 分表操作，默认每次行默认数量为1，手动修改数量，colnum初始设为1，事物提交自动增长
-                    //new 一个购物车单元对象，存放一个商品的部分信息
+                    // ????????????????????????1??????????????colnum??????1???????????????
+                    //new ??????????????????????????????
                     ShopCar shopCar = new ShopCar();
                     shopCar.setId(Id);
                     shopCar.setPrice(ProPrice);
-                    shopCar.setNum(1); //默认数量为1,胃口应该没那么大,可自调
+                    shopCar.setNum(1); //????????1,θ???????????,?????
                     shopCar.setTitle(FoodName);
                     ItemDao itemDao = new ItemDaoImpl();
-                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true); //加入购物车
+                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true); //??????
                 }
         );
 
         //---- button2 ----
-        button2.setText("我的购物车");
+        button2.setText("??????");
         add(button2);
         button2.setBounds(new Rectangle(new Point(275, 380), button2.getPreferredSize()));
         button2.addActionListener(a->{
@@ -192,15 +196,15 @@ public class MySalse2 extends JPanel {
             }
         });
         //---- button3 ----
-        button3.setText("退出登录");
+        button3.setText("??????");
         add(button3);
         button3.setBounds(new Rectangle(new Point(390, 380), button3.getPreferredSize()));
         button3.addActionListener(a->{
-            System.out.println("--------注销--------");
-            System.out.println("清理用户登录信息");
-            //清除当前用户登录信息，每次登录只能有一个用户，加入购物车时支付生成订单和完成订单需要
-            // 若遇到多用户登录应用数据表更新脏读，再自己处理
-            //获取当前Frame对象--并结束程序进程--下次登录数据表更新
+            System.out.println("--------???--------");
+            System.out.println("?????????????");
+            //???????????????????ε???????????????????????????????????????????
+            // ???????????????????????????????????????
+            //??????Frame????--?????????????--??ε??????????
             String sql = "DELETE FROM currentuser";
             try {
                 conn = ConnectionHandler.getConn();
@@ -233,7 +237,7 @@ public class MySalse2 extends JPanel {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
-        //外部提供结果集
+        //?????????
         java.util.List<Item> list = new ArrayList<Item>();
 
         try {
@@ -260,7 +264,7 @@ public class MySalse2 extends JPanel {
             }
 
         }
-        // 把集合的数据（商品信息）转换成二维数组
+        // ??????????????????????????????
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -272,7 +276,7 @@ public class MySalse2 extends JPanel {
                 data[i][4] = list.get(i).getStock();
                 data[i][5] = list.get(i).getTaste();
                 data[i][6] = list.get(i).getPro_cate();
-                data[i][7] = TmageFollower(list.get(i).getImg_url()) ; //自行截获数据并根据它生成图片
+                data[i][7] = TmageFollower(list.get(i).getImg_url()) ; //???н???????????????????
             }
         }
         return data;
@@ -282,18 +286,18 @@ public class MySalse2 extends JPanel {
     private JLabel label1;
     private JLabel FoodLabel;
     private JLabel FoodJL;
-    private JPanel jPanelTable;  //布局用
-    private JPanel jPanelButton; //布局用
+    private JPanel jPanelTable;  //??????
+    private JPanel jPanelButton; //??????
     private JScrollPane scrollPane1;
-    private JScrollPane scrollPane2;  //用于放置多组图片
-    private String head[] = {"id","商品名称","源价","促销价","库存","口味","类型","图片"};
+    private JScrollPane scrollPane2;  //????????????
+    private String head[] = {"id","???????","???","??????","???","??ζ","????","??"};
     private Object[][] data = null;
     private JTable table1;
     private JLabel label2;
     private JTextField jTextField;
     private JLabel label4;
     private JButton button4;
-    private JLabel label3;  //图片标题
+    private JLabel label3;  //??????
     private JComboBox comboBox1;
     private JButton button1;
     private JButton button2;
@@ -302,18 +306,18 @@ public class MySalse2 extends JPanel {
     public Connection conn=null;
     private TableColumn column;
 
-    //本界面显示菜品图片
+    //??????????????
     public void ShowFood(String FoodUrl){
         JLabel FoodJL;
         ImageIcon image= new ImageIcon(FoodUrl);
         image.setImage(image.getImage().getScaledInstance(100,80,Image.SCALE_DEFAULT));
         FoodJL = new JLabel(image);
-        this.add(FoodJL);  //添加进Panel
+        this.add(FoodJL);  //????Panel
         FoodJL.setBounds(new Rectangle(new Point(30, 250), FoodJL.getPreferredSize()));
     }
-    //调节单元格大小
+    //?????????С
     public void JTRowSize(JTable table){
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);// 以下设置表格列宽
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);// ???????????п?
         for (int i = 0; i < 8; i++) {
             column = table.getColumnModel().getColumn(i);
             if (i == 0) {
@@ -322,9 +326,9 @@ public class MySalse2 extends JPanel {
             }
         }
     }
-    //图片生成器--单元格显示图片
-    //参数选择Icon则显示图标
-    //参数选择ImageIcon显示图片
+    //????????--??????????
+    //???????Icon????????
+    //???????ImageIcon?????
     public JPanel TmageFollower(String url){
         JLabel labelA = new JLabel();
         ImageIcon imageIcon = new ImageIcon(url);
@@ -334,7 +338,7 @@ public class MySalse2 extends JPanel {
         jPanel.add(labelA);
         return jPanel;
     }
-    //表格生成嵌套工具
+    //?????????????
     public void TableInit(ResultSet rs) throws SQLException {
         jPanelTable = new JPanel();
         //======== scrollPane1 ========
@@ -348,7 +352,7 @@ public class MySalse2 extends JPanel {
                 return false;
             }
         };
-        table1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //展示默认列表
+        table1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //??????б?
         table1.setModel(tableModel);
         JTRowSize(table1);
         table1.getColumnModel().getColumn(7).setCellRenderer(new JTableCellRender());
@@ -359,10 +363,10 @@ public class MySalse2 extends JPanel {
         jPanelTable.setBounds(10,45,800,320);
     }
 
-    //图标截获器配合生成器使用
+    //???????????????????
 
     public static void main(String[] args) throws SQLException {
-        // 界面测试
+        // ???????
         Frame frame=new Frame("MySalesPanel");
         frame.add(new MySalse2(frame),BorderLayout.CENTER);
         frame.pack();
