@@ -39,6 +39,16 @@ public interface ItemDao {
      */
 
     public String SelectImgAdd(String FoodName);
+    
+    /**
+     * @description: 因字符集问题久久不能解决，只能调用数据库的字符来避免
+     * @param : 
+     * @return java.sql.ResultSet
+     * @author: DavidNan
+     * @date: 2022/5/11 1:00
+     */
+    
+    public ResultSet SelectFoodType();
 
 
 }

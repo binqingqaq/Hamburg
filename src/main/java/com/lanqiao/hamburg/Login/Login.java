@@ -103,8 +103,6 @@ public class Login extends JFrame {
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-
-
                 }
         );
 

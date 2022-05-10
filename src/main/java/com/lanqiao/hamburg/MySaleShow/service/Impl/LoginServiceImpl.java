@@ -19,8 +19,8 @@ import java.sql.SQLException;
  */
 public class LoginServiceImpl implements LoginService {
     /**
-     * @description: ִ�е�¼�Ĳ�ѯ�ȶ���ɹ���¼���¼��¼���ݵ�ҵ��
-     * @param user: �����ڿ����������µ�user����ȡ�ڿ������ػ�ı�����
+     * @description: Login and record login service
+     * @param user:
      * @return void
      * @author: DavidNan
      * @date: 2022/5/8 20:52
@@ -33,15 +33,16 @@ public class LoginServiceImpl implements LoginService {
         user TestUser = userDao.LoginSelect(user);
         currentUserDao.RegistrationRecord(TestUser);
         if(TestUser.getUser_id()==0){
-            return 0; //˵��userDaoImplִ�еķ���user��δ����ID,��Ĭ��Ϊ0
+            return 0; //Can not find return zero
         }
-        System.out.println("��ϲ" + TestUser.getUser_name() + "�����ɹ���¼");
-        return 1;  //�ɹ���¼
+        //Congratulations to someone who has successfully logged in
+        System.out.println("Congratulations to" + TestUser.getUser_name() + "who has successfully logged in");
+        return 1;
     }
 
     /**
-     * @description: �û�ע����ҵ���ж������û������ó���ID��1������Ĭ��IDΪ1
-     * @param :�����user�������ı����ṩ
+     * @description: register implementation insert
+     * @param :
      * @return void
      * @author: DavidNan
      * @date: 2022/5/10 11:04
@@ -49,11 +50,11 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public void RegisteredUser(user user) {
         UserDao userDao = new UserDaoImpl();
-        int id = 1;  //Ĭ��Ϊ1����ѯ�����û�������
+        int id = 1;
         if((userDao.SelectEndID().getUser_id())!=0){
-            id=userDao.SelectEndID().getUser_id()+1; //��ȡ���һλ�û�����1
+            id=userDao.SelectEndID().getUser_id()+1;
         }
-        user.setUser_id(id); //����user��id
-        userDao.register(user); //����Ϊ���ı����ȡ�û���������������user�Ķ���
+        user.setUser_id(id);
+        userDao.register(user);
     }
 }

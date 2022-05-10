@@ -5,9 +5,9 @@ package com.lanqiao.hamburg.Jform;/*
 
 
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
-import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
+import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
-import com.lanqiao.hamburg.supply.Supply;
+import com.lanqiao.hamburg.Supply.Supply;
 
 
 import java.awt.*;
@@ -96,8 +96,8 @@ public class MainForm extends JFrame {
             tabbedPane1.addTab("\u83dc\u54c1\u4f9b\u5e94",supply);
 
             //======== panel4 ========
-            MySalse2 mySalse2 = new MySalse2(this);
-            tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", mySalse2);
+            MySalse mySalse = new MySalse(this);
+            tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", mySalse);
 
             //======== panel5 ========
             {

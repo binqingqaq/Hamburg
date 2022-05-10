@@ -10,8 +10,10 @@
         <module name="Hamburg" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-encoding GBK" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Hamburg" options="-parameters" />
     </option>

@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * @author unknown
+ * @author qin
  */
 public class ShopCarD extends JDialog {
     static Object k;
@@ -28,7 +28,7 @@ public class ShopCarD extends JDialog {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        this.setTitle("���빺�ﳵ");
+        this.setTitle("ModCar");
         label1 = new JLabel();
         label2 = new JLabel();
         label3 = new JLabel();
@@ -45,40 +45,40 @@ public class ShopCarD extends JDialog {
         contentPane.setLayout(null);
 
         //---- label1 ----
-        label1.setText("\u5546\u54c1ID:");
+        label1.setText("FoodID:");
         contentPane.add(label1);
         label1.setBounds(new Rectangle(new Point(20, 30), label1.getPreferredSize()));
 
         //---- label2 ----
-        label2.setText("\u5546\u54c1\u540d\u79f0\uff1a");
+        label2.setText("FoodName:");
         contentPane.add(label2);
         label2.setBounds(new Rectangle(new Point(20, 65), label2.getPreferredSize()));
 
         //---- label3 ----
-        label3.setText("����:");
+        label3.setText("Total:");
         contentPane.add(label3);
         label3.setBounds(new Rectangle(new Point(20, 95), label3.getPreferredSize()));
 
         //--- button2---
-        button2.setText("ȡ��");
+        button2.setText("Cancel");
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(190, 175), button2.getPreferredSize()));
         button2.addActionListener(a->{
             this.setVisible(false);
         });
 
-        ImageIcon image= new ImageIcon(img); //����ʱ��ʾͼƬ
+        ImageIcon image= new ImageIcon(img);
         image.setImage(image.getImage().getScaledInstance(130,100,Image.SCALE_DEFAULT));
         JLabel FoodJL = new JLabel(image);
-        this.add(FoodJL);  //????Panel
+        this.add(FoodJL);
         FoodJL.setBounds(new Rectangle(new Point(250, 30), FoodJL.getPreferredSize()));
 
         //---- button1 ----
-        button1.setText("\u786e\u8ba4");
+        button1.setText("OK");
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(120, 175), button1.getPreferredSize()));
         button1.addActionListener(a->{
-            //��ӹ��ﳵ����
+
             ShopCarService shopCarService = new ShopCarServiceImpl();
             try {
                 shopCarService.JoinCarService(shopCar,Integer.parseInt(textField3.getText()));
@@ -88,7 +88,7 @@ public class ShopCarD extends JDialog {
             this.setVisible(false);
         });
         //---- label4 ----
-        label4.setText("����:");
+        label4.setText("Price:");
         contentPane.add(label4);
         label4.setBounds(new Rectangle(new Point(20, 120), label4.getPreferredSize()));
         contentPane.add(textField1);
@@ -126,7 +126,6 @@ public class ShopCarD extends JDialog {
     String name="";
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
-        //-- ����
         JFrame frame = new JFrame();
         Container container = frame.getContentPane();
         JButton jButton = new JButton();

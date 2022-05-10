@@ -12,33 +12,16 @@ import java.sql.SQLException;
  */
 public interface UserDao {
 
-    /**
-     * @description: ���ڲ�ѯ�û�
-     * @param user: �û�ʵ����
-     * @return int:��������
-     * @author: DavidNan
-     * @date: 2022/5/8 17:46
-     */
+
+   //See implementation class UserDaoImpl
 
    public user LoginSelect(user user) throws SQLException;
 
-   /**
-    * @description: �û�ע�ᣬ���û���user����������
-    * @param user: �û�ʵ����
-    * @return user: ���ر����µ�ʵ����
-    * @author: DavidNan
-    * @date: 2022/5/8 17:48
-    */
+   //See implementation class UserDaoImpl
 
    public void register(user user);
 
-   /**
-    * @description: ��ѯ���һλ�û�ID
-    * @param :
-    * @return void
-    * @author: DavidNan
-    * @date: 2022/5/10 10:52
-    */
+   //See implementation class UserDaoImpl
 
    public user SelectEndID();
 

@@ -118,8 +118,8 @@ public class ModTool extends JDialog {
                     ShopCarDao shopCarDao = new ShopCarDaoImpl();
                     car.setColnum(Integer.parseInt(label2.getText()));
                     car.setNum(Integer.parseInt(textField1.getText()));
-                    shopCarDao.UpdateNum(car); //�����ı����������
-                    this.setVisible(false);  //��ʧ
+                    shopCarDao.UpdateNum(car);
+                    this.setVisible(false);
                 }
         );
         //---- button3 ----
@@ -127,7 +127,7 @@ public class ModTool extends JDialog {
         contentPane.add(button3);
         button3.setBounds(235, 185, 100, button3.getPreferredSize().height);
         button3.addActionListener(a->{
-            this.setVisible(false);  //ȡ��
+            this.setVisible(false);
         });
         {
             // compute preferred size
@@ -167,7 +167,7 @@ public class ModTool extends JDialog {
     public static void main(String[] args) {
         JFrame jf=new JFrame();
         Container container = jf.getContentPane();
-        JButton jb = new JButton("���԰�ť");
+        JButton jb = new JButton("TestBT");
         jb.setBounds(10,10,100,20);
         jb.addActionListener(a->{
             new ModTool(new ShopCar()).setVisible(true);

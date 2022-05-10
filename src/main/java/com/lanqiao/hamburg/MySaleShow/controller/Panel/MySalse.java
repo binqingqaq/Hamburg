@@ -1,7 +1,3 @@
-/*
- * Created by JFormDesigner on Tue May 03 11:00:17 CST 2022
- */
-
 package com.lanqiao.hamburg.MySaleShow.controller.Panel;
 
 import com.lanqiao.hamburg.MySaleShow.controller.Dialog.ShopCarD;
@@ -28,15 +24,15 @@ import java.util.ArrayList;
 /**
  * @author unknown
  */
-public class MySalse2 extends JPanel {
+public class MySalse extends JPanel {
 
-    Frame frame; //????panel??????????Frame??????????????panel?§Ö?????Frame?????????
-    public MySalse2(Frame frame) throws SQLException {
-       this.frame=frame;
+    Frame frame;
+    public MySalse(Frame frame) throws SQLException {
+        this.frame=frame;
         initComponents();
     }
 
-    public MySalse2(){
+    public MySalse(){
 
     }
 
@@ -47,13 +43,13 @@ public class MySalse2 extends JPanel {
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         label2 = new JLabel();
-        label4 = new JLabel("???????:");
+        label4 = new JLabel("Search:");
         jTextField = new JTextField();
         comboBox1 = new JComboBox();
         button1 = new JButton();
         button2 = new JButton();
         button3 = new JButton();
-        button4 = new JButton("???????");
+        button4 = new JButton("OK");
         this.setPreferredSize(new Dimension(815,595));
         //======== this ========
         setLayout(null);
@@ -73,19 +69,21 @@ public class MySalse2 extends JPanel {
         label2.setBounds(new Rectangle(new Point(15, 380), label2.getPreferredSize()));
         add(comboBox1);
         comboBox1.setBounds(new Rectangle(70,380,80,25));
-        comboBox1.addItem("??????");
-        comboBox1.addItem("??¦Æ§³?");
-        comboBox1.addItem("???????");
-        comboBox1.addItem("??????");
-        comboBox1.addItem("??????");
-        comboBox1.addItem("??????");
+        ItemDao itemDaot = new ItemDaoImpl();
+        ResultSet rst = itemDaot.SelectFoodType();
+        comboBox1.addItem("All");
+        comboBox1.addItem("ç¾Žå‘³å°é£Ÿ");
+        comboBox1.addItem("æ‹›ç‰Œå…¨é¸¡");
+        comboBox1.addItem("è¶…å€¼å¥—é¤");
+        comboBox1.addItem("ç¼¤çº·é¥®å“");
+        comboBox1.addItem("ç²¾é€‰ä¸»é£Ÿ");
+
         comboBox1.addActionListener(a->{
             String str= String.valueOf(comboBox1.getSelectedItem());
             ItemDao itemDao = new ItemDaoImpl();
             ResultSet rs=null;
             DefaultTableModel tableModel1=null;
-            //--???????
-            if(str.equals("??????")){
+            if(str.equals("All")){
                 System.out.println("all");
                 try{
 
@@ -97,7 +95,7 @@ public class MySalse2 extends JPanel {
                 } ;
 
 
-            }else if(str.equals("??¦Æ§³?")){
+            }else if(str.equals("ç¾Žå‘³å°é£Ÿ")){
                 System.out.println("DeliciousStaple");
                 try{
                     jPanelTable.setVisible(false);
@@ -106,7 +104,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("???????")){
+            }else if(str.equals("æ‹›ç‰Œå…¨é¸¡")){
                 System.out.println("SignatureWholeChicken");
                 try{
                     jPanelTable.setVisible(false);
@@ -115,7 +113,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("??????")){
+            }else if(str.equals("è¶…å€¼å¥—é¤")){
                 System.out.println("SignaturePackage");
                 try{
                     jPanelTable.setVisible(false);
@@ -124,7 +122,7 @@ public class MySalse2 extends JPanel {
                 }catch (SQLException EX){
                     EX.printStackTrace();
                 }
-            }else if(str.equals("??????")){
+            }else if(str.equals("ç¼¤çº·é¥®å“")){
                 System.out.println("ColorfulDrinks");
                 try{
                     jPanelTable.setVisible(false);
@@ -145,23 +143,23 @@ public class MySalse2 extends JPanel {
             }
         });
 
-        // --- ???????---
+
         add(label4);
         label4.setBounds(new Rectangle(new Point(15,420),label4.getPreferredSize()));
         add(jTextField);
         jTextField.setBounds(70,420,90,25);
         add(button4);
-        button4.setBounds(new Rectangle(new Point(170,420),button4.getPreferredSize()));
+        button4.setBounds(175,420,80,30);
         button4.addActionListener(a->{
-            JOptionPane.showMessageDialog(this,"???????????????","????",2);
+            JOptionPane.showMessageDialog(this,"To be developed","Warn",2);
         });
         //---- button1 ----
-        button1.setText("\u52a0\u5165\u8d2d\u7269\u8f66");
+        button1.setText("AddCar");
         add(button1);
-        button1.setBounds(new Rectangle(new Point(170, 380), button1.getPreferredSize()));
+        button1.setBounds(175,380,80,30);
         button1.addActionListener(
                 (e)->{
-                    int rowNo = table1.getSelectedRow();//?????????§Ü???????????????????????????????
+                    int rowNo = table1.getSelectedRow();
                     int Id=(int)table1.getValueAt(rowNo, 0);
                     String FoodName=(String)table1.getValueAt(rowNo, 1);
                     Float Price=(Float)table1.getValueAt(rowNo, 2);
@@ -169,24 +167,20 @@ public class MySalse2 extends JPanel {
                     int Sock=(int)table1.getValueAt(rowNo, 4);
                     String Tastes=(String)table1.getValueAt(rowNo, 5);
                     String FoodType=(String)table1.getValueAt(rowNo, 6);
-                    //String ImgUrl=(String)table1.getValueAt(rowNo,7); //?????????Jpanel??????Jpanel????????String??
-                    /* Item item=new Item(id,title,price,description,sales,img_url,FoodType);*/
-                    // ????????????????????????1??????????????colnum??????1???????????????
-                    //new ??????????????????????????????
                     ShopCar shopCar = new ShopCar();
                     shopCar.setId(Id);
                     shopCar.setPrice(ProPrice);
-                    shopCar.setNum(1); //????????1,¦È???????????,?????
+                    shopCar.setNum(1);
                     shopCar.setTitle(FoodName);
                     ItemDao itemDao = new ItemDaoImpl();
-                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true); //??????
+                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true);
                 }
         );
 
         //---- button2 ----
-        button2.setText("??????");
+        button2.setText("ModCar");
         add(button2);
-        button2.setBounds(new Rectangle(new Point(275, 380), button2.getPreferredSize()));
+        button2.setBounds(275,380,80,30);
         button2.addActionListener(a->{
             try {
                 ModShopCart modShopCar = new ModShopCart();
@@ -196,16 +190,12 @@ public class MySalse2 extends JPanel {
             }
         });
         //---- button3 ----
-        button3.setText("??????");
+        button3.setText("æ³¨é”€"); //
         add(button3);
-        button3.setBounds(new Rectangle(new Point(390, 380), button3.getPreferredSize()));
+        button3.setBounds(375,380,80,30);
         button3.addActionListener(a->{
-            System.out.println("--------???--------");
-            System.out.println("?????????????");
-            //???????????????????¦Å???????????????????????????????????????????
-            // ???????????????????????????????????????
-            //??????Frame????--?????????????--??¦Å??????????
-            String sql = "DELETE FROM currentuser";
+
+            String sql = "DELETE FROM CurrentUser";
             try {
                 conn = ConnectionHandler.getConn();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -237,7 +227,7 @@ public class MySalse2 extends JPanel {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
     public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
-        //?????????
+
         java.util.List<Item> list = new ArrayList<Item>();
 
         try {
@@ -264,7 +254,7 @@ public class MySalse2 extends JPanel {
             }
 
         }
-        // ??????????????????????????????
+
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -276,7 +266,7 @@ public class MySalse2 extends JPanel {
                 data[i][4] = list.get(i).getStock();
                 data[i][5] = list.get(i).getTaste();
                 data[i][6] = list.get(i).getPro_cate();
-                data[i][7] = TmageFollower(list.get(i).getImg_url()) ; //???§ß???????????????????
+                data[i][7] = TmageFollower(list.get(i).getImg_url()) ;
             }
         }
         return data;
@@ -286,18 +276,18 @@ public class MySalse2 extends JPanel {
     private JLabel label1;
     private JLabel FoodLabel;
     private JLabel FoodJL;
-    private JPanel jPanelTable;  //??????
-    private JPanel jPanelButton; //??????
+    private JPanel jPanelTable;
+    private JPanel jPanelButton;
     private JScrollPane scrollPane1;
-    private JScrollPane scrollPane2;  //????????????
-    private String head[] = {"id","???????","???","??????","???","??¦Æ","????","??"};
+    private JScrollPane scrollPane2;
+    private String head[] = {"Id","FoodName","Price","CPrice","Stock","Taste","Type","Pic"};
     private Object[][] data = null;
     private JTable table1;
     private JLabel label2;
     private JTextField jTextField;
     private JLabel label4;
     private JButton button4;
-    private JLabel label3;  //??????
+    private JLabel label3;
     private JComboBox comboBox1;
     private JButton button1;
     private JButton button2;
@@ -306,18 +296,18 @@ public class MySalse2 extends JPanel {
     public Connection conn=null;
     private TableColumn column;
 
-    //??????????????
+
     public void ShowFood(String FoodUrl){
         JLabel FoodJL;
         ImageIcon image= new ImageIcon(FoodUrl);
         image.setImage(image.getImage().getScaledInstance(100,80,Image.SCALE_DEFAULT));
         FoodJL = new JLabel(image);
-        this.add(FoodJL);  //????Panel
+        this.add(FoodJL);
         FoodJL.setBounds(new Rectangle(new Point(30, 250), FoodJL.getPreferredSize()));
     }
-    //?????????§³
+
     public void JTRowSize(JTable table){
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);// ???????????§á?
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
         for (int i = 0; i < 8; i++) {
             column = table.getColumnModel().getColumn(i);
             if (i == 0) {
@@ -326,9 +316,7 @@ public class MySalse2 extends JPanel {
             }
         }
     }
-    //????????--??????????
-    //???????Icon????????
-    //???????ImageIcon?????
+
     public JPanel TmageFollower(String url){
         JLabel labelA = new JLabel();
         ImageIcon imageIcon = new ImageIcon(url);
@@ -338,7 +326,7 @@ public class MySalse2 extends JPanel {
         jPanel.add(labelA);
         return jPanel;
     }
-    //?????????????
+
     public void TableInit(ResultSet rs) throws SQLException {
         jPanelTable = new JPanel();
         //======== scrollPane1 ========
@@ -352,7 +340,7 @@ public class MySalse2 extends JPanel {
                 return false;
             }
         };
-        table1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //??????§Ò?
+        table1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //????????
         table1.setModel(tableModel);
         JTRowSize(table1);
         table1.getColumnModel().getColumn(7).setCellRenderer(new JTableCellRender());
@@ -363,12 +351,12 @@ public class MySalse2 extends JPanel {
         jPanelTable.setBounds(10,45,800,320);
     }
 
-    //???????????????????
+
 
     public static void main(String[] args) throws SQLException {
-        // ???????
+
         Frame frame=new Frame("MySalesPanel");
-        frame.add(new MySalse2(frame),BorderLayout.CENTER);
+        frame.add(new MySalse(frame),BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
     }
@@ -381,3 +369,4 @@ class JTableCellRender extends JPanel implements TableCellRenderer {
         return (JPanel)value;
     }
 }
+

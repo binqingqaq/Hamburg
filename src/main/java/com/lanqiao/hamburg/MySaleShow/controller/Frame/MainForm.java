@@ -4,14 +4,14 @@
 
 package com.lanqiao.hamburg.MySaleShow.controller.Frame;
 
-import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
+import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse;
 
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
 
 /**
- * @author 1
+ * @author qin
  */
 public class MainForm extends JFrame {
     public MainForm() throws SQLException {
@@ -88,8 +88,8 @@ public class MainForm extends JFrame {
 
             //======== panel4 ========
             {
-                //---------ÎÒµÄÏúÊÛ°å¿é--------
-                panel4=new MySalse2(this);
+                //---------æˆ‘çš„é”€å”®æ¿å—--------
+                panel4=new MySalse(this);
                 panel4.setLayout(null);
 
                 {

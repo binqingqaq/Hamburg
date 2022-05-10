@@ -12,23 +12,11 @@ import java.sql.SQLException;
  */
 public interface ShopCarService {
 
-    /**
-     * @description: 你懂的
-     * @param :
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 12:50
-     */
+    //The code is a comment, the specific function depends on the implementation class
 
     public void JoinCarService(ShopCar shopCar,int num) throws SQLException;
 
-    /**
-     * @description: 重置与全局查询
-     * @param :
-     * @return: 返回重置后全部查询的游标
-     * @author: DavidNan
-     * @date: 2022/5/9 16:40
-     */
+    //The code is a comment, the specific function depends on the implementation class
 
     public ResultSet ResetQueryService();
 }
