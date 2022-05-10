@@ -1,6 +1,12 @@
 package com.lanqiao.hamburg.Login;
 
 import com.lanqiao.hamburg.Jform.MainForm;
+import com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;
+import com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;
+import com.lanqiao.hamburg.MySaleShow.entity.user;
+import com.lanqiao.hamburg.MySaleShow.service.Impl.LoginServiceImpl;
+import com.lanqiao.hamburg.MySaleShow.service.LoginService;
+
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -22,128 +28,99 @@ public class Login extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();
+        textField1 = new JTextField("tongxin");
         label2 = new JLabel();
-        label3 = new JLabel();
-        textField2 = new JTextField();
-        label4 = new JLabel();
-        textField3 = new JTextField();
+        textField2 = new JTextField("123456");
         button1 = new JButton();
+        button2 = new JButton();
+        button3 = new JButton();
 
         //======== this ========
-        Container contentPane = getContentPane();
+        var contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
-        label1.setText("\u5929\u5929\u534e\u83b1\u58eb");
+        label1.setText("\u7528\u6237\u540d\uff1a");
         contentPane.add(label1);
-        label1.setBounds(new Rectangle(new Point(165, 35), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(115, 90), label1.getPreferredSize()));
+        contentPane.add(textField1);
+        textField1.setBounds(185, 85, 100, textField1.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setText("\u5bc6\u7801\uff1a");
         contentPane.add(label2);
-        label2.setBounds(new Rectangle(new Point(150, 75), label2.getPreferredSize()));
-
-        //---- label3 ----
-        label3.setText("\u7528\u6237\u540d");
-        contentPane.add(label3);
-        label3.setBounds(new Rectangle(new Point(130, 85), label3.getPreferredSize()));
+        label2.setBounds(new Rectangle(new Point(120, 125), label2.getPreferredSize()));
         contentPane.add(textField2);
-        textField2.setBounds(180, 80, 95, textField2.getPreferredSize().height);
-
-        //---- label4 ----
-        label4.setText("\u5bc6   \u7801");
-        contentPane.add(label4);
-        label4.setBounds(new Rectangle(new Point(130, 135), label4.getPreferredSize()));
-        contentPane.add(textField3);
-        textField3.setBounds(180, 130, 95, textField3.getPreferredSize().height);
+        textField2.setBounds(185, 120, 100, textField2.getPreferredSize().height);
 
         //---- button1 ----
-        button1.setText("\u767b\u5165");
-        contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));
         button1.addActionListener(
-                (e)->{
-/*
-                    å®ç°ç™»å½•
-                    1ã€å…ˆæ‹¿åˆ°ç™»å½•ç•Œé¢çš„ç”¨æˆ·åå’Œå¯†ç 
-                    2ã€å»æ•°æ®åº“æ¯”å¯¹ç”¨æˆ·åå’Œå¯†ç 
-                    å°±æ˜¯å»æ‰§è¡Œä¸€æ¡SQLè¯­å¥ï¼Œä½†æ˜¯æ˜¯ä»€ä¹ˆæ ·çš„SQLè¯­å¥å‘¢ï¼Ÿ
-                     */
-                    String username = textField2.getText();
-                    String password = textField3.getText();
-
-                    String sql = "SELECT * FROM user WHERE user_name='" + username + "' AND user_key='" + password + "'";
-                    System.out.println(sql);
-
-                    /*
-                    1ã€è¿æ¥æ•°æ®åº“ï¼ˆæ·»åŠ mysqlçš„mavenä¾èµ–ï¼‰
-                    2ã€æ‰§è¡ŒSQLè¯­å¥ï¼ŒéªŒè¯ç”¨æˆ·åå’Œå¯†ç 
-                     */
-                    Connection conn = null;
-                    String user = "root";
-                    String dbPassword = "Binqing31";
-                    String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-
-                    Statement statement = null;//è¯­å¥å¯¹è±¡
-                    ResultSet rs = null;//ç»“æœé›†ï¼šæ¸¸æ ‡ï¼ˆè™šæ‹Ÿçš„æŒ‡é’ˆï¼‰
-
+                (e) -> {
+                    String username = textField1.getText();
+                    String password = textField2.getText();
+                    LoginService loginService = new LoginServiceImpl();
                     try {
-                        conn = DriverManager.getConnection(url, user, dbPassword);
-                        System.out.println(conn);
-
-                        statement = conn.createStatement();
-                        rs = statement.executeQuery(sql);//åˆšåˆšæ‰§è¡Œå®ŒæŸ¥è¯¢çš„æ—¶å€™ï¼Œæ¸¸æ ‡ä¸æŒ‡å‘ä»»ä½•è®°å½•
-
-                        // å¦‚ä½•åˆ¤æ–­ç”¨æˆ·åå’Œå¯†ç æ˜¯å¦æ­£ç¡®ï¼Ÿ
-                        if (rs.next()) {
-                            //ç™»å…¥æˆåŠŸæ‰“å¼€ä¸»ç•Œé¢
-                            System.out.println("ç™»å½•æˆåŠŸ");
-                            new MainForm().setVisible(true);
-                            login.setVisible(false);
-                        } else {
-                            System.out.println("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
+                        user user = new user();
+                        user.setUser_name(username);
+                        user.setUser_key(password);   // ¸üĞÂÁÙÊ±user±í
+                        //É¾³ıÏÈÇ°ÓÃ»§--¶àÓÃ»§µÇÂ¼Ê±¿ÉÄÜ»á³öÎÊÌâ£¬Ö÷ÒªÊÇÊı¾İ±í»á×Ô¶¯Ìá½»Ê±³öÏÖ£¬ËãÁË³öbugÔÙËµ
+                        CurrentUserDao cud = new CurrentUserDaoImpl();
+                        if((cud.QueryUser().getUser_name())!=null){
+                            //Èç¹ûµ±Ç°ÓÃ»§±íÄÚ´æÔÚÊı¾İ£¬ÔòÉ¾³ıËùÓĞ
+                            cud.DelLoginData();
                         }
+                        if(loginService.LoginAndRecord(user)==1){ // Æô¶¯µÇÂ¼Óë¼ÇÂ¼·şÎñ)
+                            JOptionPane.showMessageDialog(this,"¹§Ï²"+username+"³É¹¦µÇÂ¼","ÌáÊ¾",JOptionPane.PLAIN_MESSAGE);
+                            new MainForm().setVisible(true);
+                            this.setVisible(false);
+                        }else {
+                            JOptionPane.showMessageDialog(this,"ÓÃ»§Ãû´íÎó»òÃÜÂë´íÎó","¾¯¸æ",2);
+                        }
+
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
 
-
                 }
         );
+        button1.setText("\u767b\u5f55");
+        contentPane.add(button1);
+        button1.setBounds(new Rectangle(new Point(90, 185), button1.getPreferredSize()));
 
-        {
-            // compute preferred size
-            Dimension preferredSize = new Dimension();
-            for(int i = 0; i < contentPane.getComponentCount(); i++) {
-                Rectangle bounds = contentPane.getComponent(i).getBounds();
-                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-            }
-            Insets insets = contentPane.getInsets();
-            preferredSize.width += insets.right;
-            preferredSize.height += insets.bottom;
-            contentPane.setMinimumSize(preferredSize);
-            contentPane.setPreferredSize(preferredSize);
-        }
+        //---- ×¢²á-----
+        button2.setText("×¢²á");
+        contentPane.add(button2);
+        button2.setBounds(new Rectangle(new Point(170,185),button2.getPreferredSize()));
+        button2.addActionListener(a->{
+            JOptionPane.showMessageDialog(this,"ÁªÏµ¹ÜÀíÔ±DavidNan:2926594808@qq.com","ÎÂÜ°ÌáÊ¾",2);
+        });
+
+        //--- Íü¼ÇÃÜÂë----
+        button3.setText("Íü¼ÇÃÜÂë");
+        contentPane.add(button3);
+        button3.setBounds(new Rectangle(new Point(260,185),button3.getPreferredSize()));
+        button3.addActionListener(a->{
+            JOptionPane.showMessageDialog(this,"ÁªÏµ¹ÜÀíÔ±DavidNan:2926594808@qq.com","ÎÂÜ°ÌáÊ¾",2);
+        });
+
+        contentPane.setPreferredSize(new Dimension(400, 300));
         pack();
         setLocationRelativeTo(getOwner());
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
-        setBounds(750, 350, 400, 300);
-
-        setResizable(false);
-
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);//ÉèÖÃ×é¼ş¿É¼û
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JLabel label1;
+    private JTextField textField1;
     private JLabel label2;
-    private JLabel label3;
     private JTextField textField2;
-    private JLabel label4;
-    private JTextField textField3;
     private JButton button1;
-    static Login login=new Login();
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
-  /*  public static void main(String[] args) {
-        login.setVisible(true);
-    }*/
+    private JButton button2; //×¢²á
+    private JButton button3; //Íü¼ÇÃÜÂë
 
-
+    public static void main(String[] args) {
+        new Login();
+    }
+    
 }

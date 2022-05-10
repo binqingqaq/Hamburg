@@ -3,6 +3,7 @@ package com.lanqiao.hamburg;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.lanqiao.hamburg.Jform.MainForm;
+import com.lanqiao.hamburg.Login.Login;
 
 import javax.swing.*;
 
@@ -22,6 +23,6 @@ public class Main {
         //UIManager.setLookAndFeel( new FlatLightLaf() );
         //主题五：黑色
         UIManager.setLookAndFeel( new FlatDarculaLaf() );
-        new MainForm().setVisible(true);
+        new Login();
     }
 }

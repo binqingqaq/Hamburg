@@ -5,10 +5,12 @@ package com.lanqiao.hamburg.Jform;/*
 
 
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
+import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
 
 
 import java.awt.*;
+import java.sql.SQLException;
 import javax.swing.*;
 
 
@@ -109,6 +111,11 @@ public class MainForm extends JFrame {
 
             //======== panel4 ========
             {
+                try {
+                    panel4 = new MySalse2(this);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 panel4.setLayout(null);
 
                 {
