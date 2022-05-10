@@ -1,7 +1,7 @@
 package com.lanqiao.hamburg.MySaleShow.dao;
 
 import com.lanqiao.hamburg.MySaleShow.entity.user;
-import com.lanqiao.hamburg.entity.User;
+import com.lanqiao.hamburg.MySaleShow.entity.*;
 
 import java.sql.SQLException;
 
@@ -13,9 +13,9 @@ import java.sql.SQLException;
 public interface UserDao {
 
     /**
-     * @description: 用于查询用户
-     * @param user: 用户实体类
-     * @return int:返回整数
+     * @description: 锟斤拷锟节诧拷询锟矫伙拷
+     * @param user: 锟矫伙拷实锟斤拷锟斤拷
+     * @return int:锟斤拷锟斤拷锟斤拷锟斤拷
      * @author: DavidNan
      * @date: 2022/5/8 17:46
      */
@@ -23,9 +23,9 @@ public interface UserDao {
    public user LoginSelect(user user) throws SQLException;
 
    /**
-    * @description: 用户注册，向用户表user插入新数据
-    * @param user: 用户实体类
-    * @return user: 返回被更新的实体类
+    * @description: 锟矫伙拷注锟结，锟斤拷锟矫伙拷锟斤拷user锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+    * @param user: 锟矫伙拷实锟斤拷锟斤拷
+    * @return user: 锟斤拷锟截憋拷锟斤拷锟铰碉拷实锟斤拷锟斤拷
     * @author: DavidNan
     * @date: 2022/5/8 17:48
     */
@@ -33,7 +33,7 @@ public interface UserDao {
    public void register(user user);
 
    /**
-    * @description: 查询最后一位用户ID
+    * @description: 锟斤拷询锟斤拷锟揭晃伙拷没锟絀D
     * @param :
     * @return void
     * @author: DavidNan

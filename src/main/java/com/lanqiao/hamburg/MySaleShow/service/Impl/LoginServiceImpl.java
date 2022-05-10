@@ -8,7 +8,7 @@ import com.lanqiao.hamburg.MySaleShow.dao.UserDao;
 import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
 import com.lanqiao.hamburg.MySaleShow.entity.user;
 import com.lanqiao.hamburg.MySaleShow.service.LoginService;
-import com.lanqiao.hamburg.entity.User;
+import com.lanqiao.hamburg.MySaleShow.entity.*;
 
 import java.sql.SQLException;
 
@@ -19,8 +19,8 @@ import java.sql.SQLException;
  */
 public class LoginServiceImpl implements LoginService {
     /**
-     * @description: Ö´ĞĞµÇÂ¼µÄ²éÑ¯±È¶ÔÓë³É¹¦µÇÂ¼ºó¼ÇÂ¼µÇÂ¼Êı¾İµÄÒµÎñ
-     * @param user: ´«ÈëÔÚ¿ØÖÆÆ÷±»¸üĞÂµÄuser£¬»ñÈ¡ÔÚ¿ØÖÆÆ÷½Ø»ñµÄ±íµ¥Êı¾İ
+     * @description: Ö´ï¿½Ğµï¿½Â¼ï¿½Ä²ï¿½Ñ¯ï¿½È¶ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Â¼ï¿½ï¿½ï¿½İµï¿½Òµï¿½ï¿½
+     * @param user: ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½userï¿½ï¿½ï¿½ï¿½È¡ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
      * @return void
      * @author: DavidNan
      * @date: 2022/5/8 20:52
@@ -33,15 +33,15 @@ public class LoginServiceImpl implements LoginService {
         user TestUser = userDao.LoginSelect(user);
         currentUserDao.RegistrationRecord(TestUser);
         if(TestUser.getUser_id()==0){
-            return 0; //ËµÃ÷userDaoImplÖ´ĞĞµÄ·µ»Øuser±íÎ´¸üĞÂID,¼´Ä¬ÈÏÎª0
+            return 0; //Ëµï¿½ï¿½userDaoImplÖ´ï¿½ĞµÄ·ï¿½ï¿½ï¿½userï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ID,ï¿½ï¿½Ä¬ï¿½ï¿½Îª0
         }
-        System.out.println("¹§Ï²" + TestUser.getUser_name() + "ÏÈÉú³É¹¦µÇÂ¼");
-        return 1;  //³É¹¦µÇÂ¼
+        System.out.println("ï¿½ï¿½Ï²" + TestUser.getUser_name() + "ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½Â¼");
+        return 1;  //ï¿½É¹ï¿½ï¿½ï¿½Â¼
     }
 
     /**
-     * @description: ÓÃ»§×¢²á°å¿éÒµÎñ£¬ÅĞ¶ÏÓĞÎóÓÃ»§ÓĞÔòÄÃ³öÀ´ID¼Ó1£¬ÎŞÔòÄ¬ÈÏIDÎª1
-     * @param :´«ÈëµÄuserÓÉÃÜÂëÎÄ±¾ÓòÌá¹©
+     * @description: ï¿½Ã»ï¿½×¢ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½IDï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½IDÎª1
+     * @param :ï¿½ï¿½ï¿½ï¿½ï¿½userï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½á¹©
      * @return void
      * @author: DavidNan
      * @date: 2022/5/10 11:04
@@ -49,11 +49,11 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public void RegisteredUser(user user) {
         UserDao userDao = new UserDaoImpl();
-        int id = 1;  //Ä¬ÈÏÎª1Èô²éÑ¯µ½ÓĞÓÃ»§ÔÙÉèÖÃ
+        int id = 1;  //Ä¬ï¿½ï¿½Îª1ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if((userDao.SelectEndID().getUser_id())!=0){
-            id=userDao.SelectEndID().getUser_id()+1; //»ñÈ¡×îºóÒ»Î»ÓÃ»§²¢¼Ó1
+            id=userDao.SelectEndID().getUser_id()+1; //ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ò»Î»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½1
         }
-        user.setUser_id(id); //¸üĞÂuserµÄid
-        userDao.register(user); //²ÎÊıÎªÔÚÎÄ±¾Óò»ñÈ¡ÓÃ»§ÃûºÍÃÜÂëÉèÖÃÔÚuserµÄ¶ÔÏó
+        user.setUser_id(id); //ï¿½ï¿½ï¿½ï¿½userï¿½ï¿½id
+        userDao.register(user); //ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½userï¿½Ä¶ï¿½ï¿½ï¿½
     }
 }

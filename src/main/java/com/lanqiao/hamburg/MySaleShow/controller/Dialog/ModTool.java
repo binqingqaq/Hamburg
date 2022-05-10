@@ -42,7 +42,7 @@ public class ModTool extends JDialog {
 
         //======== this ========
         setTitle("ModCar");
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
@@ -55,9 +55,9 @@ public class ModTool extends JDialog {
         contentPane.add(label2);
         label2.setBounds(new Rectangle(new Point(120, 25), label2.getPreferredSize()));
 
-        //--- ÏÔÊ¾Í¼Æ¬----
+        //--- ï¿½ï¿½Ê¾Í¼Æ¬----
         ItemDao itemDao = new ItemDaoImpl();
-        ImageIcon image= new ImageIcon(itemDao.SelectImgAdd(car.getTitle())); //Ìø³öÊ±ÏÔÊ¾Í¼Æ¬
+        ImageIcon image= new ImageIcon(itemDao.SelectImgAdd(car.getTitle())); //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¾Í¼Æ¬
         image.setImage(image.getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT));
         JLabel FoodJL = new JLabel(image);
         this.add(FoodJL);
@@ -118,8 +118,8 @@ public class ModTool extends JDialog {
                     ShopCarDao shopCarDao = new ShopCarDaoImpl();
                     car.setColnum(Integer.parseInt(label2.getText()));
                     car.setNum(Integer.parseInt(textField1.getText()));
-                    shopCarDao.UpdateNum(car); //ÒÀ¾ÝÎÄ±¾Óò¸üÐÂÊý¾Ý
-                    this.setVisible(false);  //ÏûÊ§
+                    shopCarDao.UpdateNum(car); //ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    this.setVisible(false);  //ï¿½ï¿½Ê§
                 }
         );
         //---- button3 ----
@@ -127,7 +127,7 @@ public class ModTool extends JDialog {
         contentPane.add(button3);
         button3.setBounds(235, 185, 100, button3.getPreferredSize().height);
         button3.addActionListener(a->{
-            this.setVisible(false);  //È¡Ïû
+            this.setVisible(false);  //È¡ï¿½ï¿½
         });
         {
             // compute preferred size
@@ -167,7 +167,7 @@ public class ModTool extends JDialog {
     public static void main(String[] args) {
         JFrame jf=new JFrame();
         Container container = jf.getContentPane();
-        JButton jb = new JButton("²âÊÔ°´Å¥");
+        JButton jb = new JButton("ï¿½ï¿½ï¿½Ô°ï¿½Å¥");
         jb.setBounds(10,10,100,20);
         jb.addActionListener(a->{
             new ModTool(new ShopCar()).setVisible(true);

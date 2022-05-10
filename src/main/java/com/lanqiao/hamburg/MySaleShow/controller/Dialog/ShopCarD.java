@@ -28,7 +28,7 @@ public class ShopCarD extends JDialog {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        this.setTitle("¼ÓÈë¹ºÎï³µ");
+        this.setTitle("ï¿½ï¿½ï¿½ë¹ºï¿½ï³µ");
         label1 = new JLabel();
         label2 = new JLabel();
         label3 = new JLabel();
@@ -41,7 +41,7 @@ public class ShopCarD extends JDialog {
         textField4 = new JTextField();
 
         //======== this ========
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
@@ -55,19 +55,19 @@ public class ShopCarD extends JDialog {
         label2.setBounds(new Rectangle(new Point(20, 65), label2.getPreferredSize()));
 
         //---- label3 ----
-        label3.setText("ÊýÁ¿:");
+        label3.setText("ï¿½ï¿½ï¿½ï¿½:");
         contentPane.add(label3);
         label3.setBounds(new Rectangle(new Point(20, 95), label3.getPreferredSize()));
 
         //--- button2---
-        button2.setText("È¡Ïû");
+        button2.setText("È¡ï¿½ï¿½");
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(190, 175), button2.getPreferredSize()));
         button2.addActionListener(a->{
             this.setVisible(false);
         });
 
-        ImageIcon image= new ImageIcon(img); //Ìø³öÊ±ÏÔÊ¾Í¼Æ¬
+        ImageIcon image= new ImageIcon(img); //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¾Í¼Æ¬
         image.setImage(image.getImage().getScaledInstance(130,100,Image.SCALE_DEFAULT));
         JLabel FoodJL = new JLabel(image);
         this.add(FoodJL);  //????Panel
@@ -78,7 +78,7 @@ public class ShopCarD extends JDialog {
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(120, 175), button1.getPreferredSize()));
         button1.addActionListener(a->{
-            //Ìí¼Ó¹ºÎï³µ·þÎñ
+            //ï¿½ï¿½Ó¹ï¿½ï¿½ï³µï¿½ï¿½ï¿½ï¿½
             ShopCarService shopCarService = new ShopCarServiceImpl();
             try {
                 shopCarService.JoinCarService(shopCar,Integer.parseInt(textField3.getText()));
@@ -88,7 +88,7 @@ public class ShopCarD extends JDialog {
             this.setVisible(false);
         });
         //---- label4 ----
-        label4.setText("µ¥¼Û:");
+        label4.setText("ï¿½ï¿½ï¿½ï¿½:");
         contentPane.add(label4);
         label4.setBounds(new Rectangle(new Point(20, 120), label4.getPreferredSize()));
         contentPane.add(textField1);
@@ -126,7 +126,7 @@ public class ShopCarD extends JDialog {
     String name="";
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
-        //-- ²âÊÔ
+        //-- ï¿½ï¿½ï¿½ï¿½
         JFrame frame = new JFrame();
         Container container = frame.getContentPane();
         JButton jButton = new JButton();

@@ -34,7 +34,7 @@ public class MyPay extends JDialog {
 
         //======== this ========
         setTitle("Pay");
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
@@ -48,7 +48,7 @@ public class MyPay extends JDialog {
         label2.setBounds(new Rectangle(new Point(100, 25), label2.getPreferredSize()));
 
         //---- label3 ----
-        label3.setText("ÐèÖ§¸¶:");
+        label3.setText("ï¿½ï¿½Ö§ï¿½ï¿½:");
         contentPane.add(label3);
         label3.setBounds(new Rectangle(new Point(30, 60), label3.getPreferredSize()));
 
@@ -69,7 +69,7 @@ public class MyPay extends JDialog {
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(110, 145), button1.getPreferredSize()));
         button1.addActionListener(a->{
-            //ÏÔÊ¾Î¢ÐÅÖ§¸¶Í¼Æ¬
+            //ï¿½ï¿½Ê¾Î¢ï¿½ï¿½Ö§ï¿½ï¿½Í¼Æ¬
             try {
                 //new WXPay().UsePay();
                 ImageIcon imageIcon  = new ImageIcon("src/main/java/ImageDemo/new.jpg");

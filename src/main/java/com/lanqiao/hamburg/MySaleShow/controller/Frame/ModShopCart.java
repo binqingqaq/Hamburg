@@ -41,7 +41,7 @@ public class ModShopCart extends JFrame {
         button4 = new JButton();
 
         //======== this ========
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
@@ -73,7 +73,7 @@ public class ModShopCart extends JFrame {
         button1.setBounds(new Rectangle(new Point(40, 190), button1.getPreferredSize()));
         button1.addActionListener(a->{
             try {
-                //²éÑ¯È«²¿
+                //ï¿½ï¿½Ñ¯È«ï¿½ï¿½
                 ShopCarService scs =new ShopCarServiceImpl();
                 DefaultTableModel tableModel1 = new DefaultTableModel(getDataFromDatabase(scs.ResetQueryService()), head) {
                     public boolean isCellEditable(int row, int column) {
@@ -86,12 +86,12 @@ public class ModShopCart extends JFrame {
                 e.printStackTrace();
             }
         });
-        //---- button2 ---- //ÐÞ¸Ä¹ºÎï³µ
+        //---- button2 ---- //ï¿½Þ¸Ä¹ï¿½ï¿½ï³µ
         button2.setText("\u4fee\u6539\u8d2d\u7269\u8f66");
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(145, 190), button2.getPreferredSize()));
         button2.addActionListener(a->{
-            int rowNo = table1.getSelectedRow();//»ñÈ¡ÐÐ¶ÔÏó
+            int rowNo = table1.getSelectedRow();//ï¿½ï¿½È¡ï¿½Ð¶ï¿½ï¿½ï¿½
             int colnum= (int) table1.getValueAt(rowNo,0);
             int id = (int) table1.getValueAt(rowNo,1);
             String title= (String) table1.getValueAt(rowNo,6);
@@ -100,11 +100,11 @@ public class ModShopCart extends JFrame {
             int user_id = (int)table1.getValueAt(rowNo,4);
             String name = (String) table1.getValueAt(rowNo,5);
             Container container = this.getContentPane();
-            ShopCar shopCar = new ShopCar(colnum,id,price,num,user_id,name,title);//´´½¨¹ºÎï³µ¶ÔÏñ
+            ShopCar shopCar = new ShopCar(colnum,id,price,num,user_id,name,title);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï³µï¿½ï¿½ï¿½ï¿½
             new ModTool(shopCar).setVisible(true);
             container.add(button2);
         });
-        //---- button3 ----//È·ÈÏ¶©µ¥--ÔÝ²»´¦Àí
+        //---- button3 ----//È·ï¿½Ï¶ï¿½ï¿½ï¿½--ï¿½Ý²ï¿½ï¿½ï¿½ï¿½ï¿½
         button3.setText("\u786e\u8ba4\u8ba2\u5355");
         contentPane.add(button3);
         button3.setBounds(new Rectangle(new Point(250, 190), button3.getPreferredSize()));
@@ -119,7 +119,7 @@ public class ModShopCart extends JFrame {
             }
 
         });
-        //---- button4 ----//Çå¿Õ¹ºÎï³µ--µ÷ÓÃÎ¢ÐÅ½Ó¿Ú
+        //---- button4 ----//ï¿½ï¿½Õ¹ï¿½ï¿½ï³µ--ï¿½ï¿½ï¿½ï¿½Î¢ï¿½Å½Ó¿ï¿½
         button4.setText("\u6e05\u7a7a\u8d2d\u7269\u8f66/\u652f\u4ed8");
         contentPane.add(button4);
         button4.setBounds(new Rectangle(new Point(210, 225), button4.getPreferredSize()));
@@ -151,7 +151,7 @@ public class ModShopCart extends JFrame {
     }
 
     public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
-        //Íâ²¿Ìá¹©½á¹û¼¯
+        //ï¿½â²¿ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½
         java.util.List<ShopCar> list = new ArrayList<ShopCar>();
 
         try {
@@ -178,7 +178,7 @@ public class ModShopCart extends JFrame {
             }
 
         }
-        // °Ñ¼¯ºÏµÄÊý¾Ý£¨ÉÌÆ·ÐÅÏ¢£©×ª»»³É¶þÎ¬Êý×é
+        // ï¿½Ñ¼ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢ï¿½ï¿½×ªï¿½ï¿½ï¿½É¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -204,7 +204,7 @@ public class ModShopCart extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
-    private String head[] = {"ÐòÁÐ","ID","´ÙÏú¼Û","ÊýÁ¿","ÓÃ»§ID","ÐÕÃû:","ÉÌÆ·Ãû:"};
+    private String head[] = {"ï¿½ï¿½ï¿½ï¿½","ID","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½","ï¿½Ã»ï¿½ID","ï¿½ï¿½ï¿½ï¿½:","ï¿½ï¿½Æ·ï¿½ï¿½:"};
     private Object[][] data = null;
     Connection conn=null;
     static String name;

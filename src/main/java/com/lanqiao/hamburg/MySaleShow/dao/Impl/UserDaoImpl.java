@@ -3,7 +3,7 @@ package com.lanqiao.hamburg.MySaleShow.dao.Impl;
 import com.lanqiao.hamburg.MySaleShow.dao.UserDao;
 import com.lanqiao.hamburg.MySaleShow.entity.user;
 import com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;
-import com.lanqiao.hamburg.entity.User;
+import com.lanqiao.hamburg.MySaleShow.entity.*;
 
 import java.sql.*;
 
@@ -20,9 +20,9 @@ public class UserDaoImpl implements UserDao {
     Connection conn=null;
     
     /**
-     * @description: ²éÑ¯user±íÖÐÖ¸¶¨ÓÃ»§ÃûºÍÃÜÂë¼ÇÂ¼
+     * @description: ï¿½ï¿½Ñ¯userï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
      * @param user: 
-     * @return user: ·µ»Ø±»¸üÐÂµÄÊµÌåÀà¶ÔÏó
+     * @return user: ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Âµï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @author: DavidNan
      * @date: 2022/5/8 19:44
      */
@@ -33,16 +33,16 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM user WHERE user_name='" +
                 user.getUser_name()
                 + "' AND user_key='" + user.getUser_key() + "'";
-        System.out.println("Ö´ÐÐÓï¾ä:"+sql);
-        ResultSet rs = null;//½á¹û¼¯£ºÄÚ´æ£¬´æ´¢ÁË²éÑ¯µ½µÄÊý¾Ý£»ÄÚ´æÇøÓÐÒ»¸öÓÎ±ê£¬Ö´ÐÐÍê²éÑ¯µÄÊ±ºò£¬²»Ö¸ÏòÈÎºÎ¼ÇÂ¼
-        Statement stmt = null;//Óï¾ä¶ÔÏó£¬ÈÝÒ×²úÉú×¢Èë¹¥»÷
+        System.out.println("Ö´ï¿½ï¿½ï¿½ï¿½ï¿½:"+sql);
+        ResultSet rs = null;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´æ£¬ï¿½æ´¢ï¿½Ë²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Î±ê£¬Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ê±ï¿½ò£¬²ï¿½Ö¸ï¿½ï¿½ï¿½ÎºÎ¼ï¿½Â¼
+        Statement stmt = null;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½×¢ï¿½ë¹¥ï¿½ï¿½
         try {
-            conn = ConnectionHandler.getConn(); //ÐèÒªÓÅ»¯Òì³£ËùÒÔÑ¡Ôñ²»Ö´ÐÐÖ±½ÓÅ×³ö
+            conn = ConnectionHandler.getConn(); //ï¿½ï¿½Òªï¿½Å»ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ö´ï¿½ï¿½Ö±ï¿½ï¿½ï¿½×³ï¿½
             System.out.println("UserDaoImpl:" + conn.hashCode());
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            while (rs.next()){    // ÈôÕÒ²»µ½Ôò²»Ö´ÐÐ
-                //²éÑ¯µ½µÄ¹Ø¼ü¸üÐÂµ½user±í -- ¾¡Á¿½µµÍÓë¿ØÖÆÆ÷µÄñîºÏ¶È
+            while (rs.next()){    // ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
+                //ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ä¹Ø¼ï¿½ï¿½ï¿½ï¿½Âµï¿½userï¿½ï¿½ -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
                 user.setUser_id(rs.getInt(1));
                 user.setUser_name(rs.getString(2));
                 user.setUser_key(rs.getString(3));
@@ -51,12 +51,12 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-      return user;  // ×îºó·µ»ØÓÃ»§ÊµÌåÀà¶ÔÏó
+      return user;  // ï¿½ï¿½ó·µ»ï¿½ï¿½Ã»ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     /**
-     * @description: ÓÃÓÚ×¢²áÊ±²åÈëuser±í
-     * @param user: ´Ó²éÑ¯IDºÍÎÄ±¾Óò¹¹Ôì²¢´«Èë
+     * @description: ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½userï¿½ï¿½
+     * @param user: ï¿½Ó²ï¿½Ñ¯IDï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ì²¢ï¿½ï¿½ï¿½ï¿½
      * @return void
      * @author: DavidNan
      * @date: 2022/5/8 19:46
@@ -64,7 +64,7 @@ public class UserDaoImpl implements UserDao {
     
     @Override
     public void register(user user) {
-        String sql = "insert into user(user_id,user_name,user_key) values(?,?,?)"; //ÏÈÐÞ¸ÄÓÃ»§±íÖ÷¼ü×Ô¶¯Ôö³¤
+        String sql = "insert into user(user_id,user_name,user_key) values(?,?,?)"; //ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
         String date = "";
         try {
             pstmt = conn.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * @description: »ñÈ¡×îºóÒ»¸öID£¬Ö»ÓÐÓÐuser±íÓÐIDÊ±ÓÃµ½
+     * @description: ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ò»ï¿½ï¿½IDï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½userï¿½ï¿½ï¿½ï¿½IDÊ±ï¿½Ãµï¿½
      * @param :
      * @return void
      * @author: DavidNan
@@ -94,16 +94,16 @@ public class UserDaoImpl implements UserDao {
     public user SelectEndID() {
 
         user user = new user();
-        String sql = "select max(user_id) from user;"; //ÒòÎªIDÓÐÐòÔö³¤
-        System.out.println("Ö´ÐÐÓï¾ä:"+sql);
+        String sql = "select max(user_id) from user;"; //ï¿½ï¿½ÎªIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        System.out.println("Ö´ï¿½ï¿½ï¿½ï¿½ï¿½:"+sql);
 
         try {
-            conn = ConnectionHandler.getConn(); //ÐèÒªÓÅ»¯Òì³£ËùÒÔÑ¡Ôñ²»Ö´ÐÐÖ±½ÓÅ×³ö
+            conn = ConnectionHandler.getConn(); //ï¿½ï¿½Òªï¿½Å»ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ö´ï¿½ï¿½Ö±ï¿½ï¿½ï¿½×³ï¿½
             System.out.println("UserDaoImpl:" + conn.hashCode());
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            while (rs.next()){    // ÈôÕÒ²»µ½Ôò²»Ö´ÐÐ
-                //²éÑ¯µ½µÄ¹Ø¼ü¸üÐÂµ½user±í -- ¾¡Á¿½µµÍÓë¿ØÖÆÆ÷µÄñîºÏ¶È
+            while (rs.next()){    // ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
+                //ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ä¹Ø¼ï¿½ï¿½ï¿½ï¿½Âµï¿½userï¿½ï¿½ -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
                user.setUser_id(rs.getInt(1));
             }
             ConnectionHandler.closeConnection();

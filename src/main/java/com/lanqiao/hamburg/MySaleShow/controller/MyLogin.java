@@ -32,7 +32,7 @@ public class MyLogin extends JFrame {
         button1 = new JButton();
 
         //======== this ========
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //---- label1 ----
@@ -59,14 +59,14 @@ public class MyLogin extends JFrame {
                     try {
                         user user = new user();
                         user.setUser_name(username);
-                        user.setUser_key(password);   // ¸üÐÂÁÙÊ±user±í
-                        //É¾³ýÏÈÇ°ÓÃ»§--¶àÓÃ»§µÇÂ¼Ê±¿ÉÄÜ»á³öÎÊÌâ£¬Ö÷ÒªÊÇÊý¾Ý±í»á×Ô¶¯Ìá½»Ê±³öÏÖ£¬ËãÁË³öbugÔÙËµ
+                        user.setUser_key(password);   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±userï¿½ï¿½
+                        //É¾ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ã»ï¿½--ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼Ê±ï¿½ï¿½ï¿½Ü»ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½á½»Ê±ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½Ë³ï¿½bugï¿½ï¿½Ëµ
                         CurrentUserDao cud = new CurrentUserDaoImpl();
                         if((cud.QueryUser().getUser_name())!=null){
-                            //Èç¹ûµ±Ç°ÓÃ»§±íÄÚ´æÔÚÊý¾Ý£¬ÔòÉ¾³ýËùÓÐ
+                            //ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                             cud.DelLoginData();
                         }
-                        if(loginService.LoginAndRecord(user)==1){ // Æô¶¯µÇÂ¼Óë¼ÇÂ¼·þÎñ)
+                        if(loginService.LoginAndRecord(user)==1){ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½)
                             new MainForm().setVisible(true);
                             this.setVisible(false);
                         }
@@ -87,7 +87,7 @@ public class MyLogin extends JFrame {
         setLocationRelativeTo(getOwner());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setVisible(true);//ÉèÖÃ×é¼þ¿É¼û
+        this.setVisible(true);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½
     }
 
     private JLabel label1;
