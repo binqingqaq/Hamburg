@@ -5,21 +5,23 @@ package com.lanqiao.hamburg.Jform;/*
 
 
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
+import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
 
 
 import java.awt.*;
+import java.sql.SQLException;
 import javax.swing.*;
 
 /**
  * 系统主界面
  */
 public class MainForm extends JFrame {
-    public MainForm() {
+    public MainForm() throws SQLException {
         initComponents();
     }
 
-    private void initComponents() {
+    private void initComponents() throws SQLException {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         tabbedPane1 = new JTabbedPane();
         panel1 = new JPanel();
@@ -97,6 +99,7 @@ public class MainForm extends JFrame {
 
             //======== panel4 ========
             {
+                panel4 = new MySalse2(this);
                 panel4.setLayout(null);
 
                 {

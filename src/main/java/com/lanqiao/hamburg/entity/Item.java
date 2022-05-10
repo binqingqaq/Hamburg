@@ -15,8 +15,8 @@ public class Item {
     private int stock;//库存
     private String img_url;//图片路径
     private float cost_price;//成本价
-    private String specification;
     private String taste;
+    private String specification;
 
     public Item(int id, String product_id, String pro_cate, String pro_name, Float price, Float prefer_price, int stock, String img_url) {
         this.id = id;

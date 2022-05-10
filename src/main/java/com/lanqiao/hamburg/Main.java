@@ -4,22 +4,23 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.lanqiao.hamburg.Jform.MainForm;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, SQLException {
         /**
-         * ç»™ç•Œé¢è®¾ç½®ä¸»é¢˜
+         * ¸ø½çÃæÉèÖÃÖ÷Ìâ
          */
-        //ä¸»é¢˜ä¸€
+        //Ö÷ÌâÒ»
         //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        //ä¸»é¢˜äºŒ
+        //Ö÷Ìâ¶ş
        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
-        //ä¸»é¢˜ä¸‰
+        //Ö÷ÌâÈı
        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
-        //ä¸»é¢˜å››
+        //Ö÷ÌâËÄ
        // UIManager.setLookAndFeel( new FlatLightLaf() );
-        //ä¸»é¢˜äº”ï¼šé»‘è‰²
+        //Ö÷ÌâÎå£ººÚÉ«
         UIManager.setLookAndFeel( new FlatDarculaLaf() );
         new MainForm().setVisible(true);
     }
