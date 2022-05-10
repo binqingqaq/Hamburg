@@ -73,7 +73,6 @@ public class ModShopCart extends JFrame {
         button1.setBounds(new Rectangle(new Point(40, 190), button1.getPreferredSize()));
         button1.addActionListener(a->{
             try {
-                //??????
                 ShopCarService scs =new ShopCarServiceImpl();
                 DefaultTableModel tableModel1 = new DefaultTableModel(getDataFromDatabase(scs.ResetQueryService()), head) {
                     public boolean isCellEditable(int row, int column) {
@@ -86,12 +85,12 @@ public class ModShopCart extends JFrame {
                 e.printStackTrace();
             }
         });
-        //---- button2 ---- //??????
+        //---- button2 ----
         button2.setText("\u4fee\u6539\u8d2d\u7269\u8f66");
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(145, 190), button2.getPreferredSize()));
         button2.addActionListener(a->{
-            int rowNo = table1.getSelectedRow();//????§Ø???
+            int rowNo = table1.getSelectedRow();//????ï¿½ï¿½???
             int colnum= (int) table1.getValueAt(rowNo,0);
             int id = (int) table1.getValueAt(rowNo,1);
             String title= (String) table1.getValueAt(rowNo,6);
@@ -119,7 +118,7 @@ public class ModShopCart extends JFrame {
             }
 
         });
-        //---- button4 ----//??????--?????????
+        //---- button4 ----//
         button4.setText("\u6e05\u7a7a\u8d2d\u7269\u8f66/\u652f\u4ed8");
         contentPane.add(button4);
         button4.setBounds(new Rectangle(new Point(210, 225), button4.getPreferredSize()));
@@ -151,7 +150,6 @@ public class ModShopCart extends JFrame {
     }
 
     public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
-        //?????????
         java.util.List<ShopCar> list = new ArrayList<ShopCar>();
 
         try {
@@ -178,7 +176,6 @@ public class ModShopCart extends JFrame {
             }
 
         }
-        // ??????????????????????????????
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -204,7 +201,7 @@ public class ModShopCart extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
-    private String head[] = {"????","ID","??????","????","???ID","????:","?????:"};
+    private String head[] = {"ID","FoodID","Price","Num","UserID","UserName","FoodName"};
     private Object[][] data = null;
     Connection conn=null;
     static String name;

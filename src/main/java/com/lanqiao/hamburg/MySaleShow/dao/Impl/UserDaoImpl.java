@@ -20,29 +20,27 @@ public class UserDaoImpl implements UserDao {
     Connection conn=null;
     
     /**
-     * @description: ��ѯuser����ָ���û����������¼
+     * @description: According to the name and password, go
+     * to the database to find the same data and load it with
+     * the user object and return it
      * @param user: 
-     * @return user: ���ر����µ�ʵ�������
+     * @return user:
      * @author: DavidNan
      * @date: 2022/5/8 19:44
      */
     
     @Override
     public user LoginSelect(user user){
-        Connection conn=null;
         String sql = "SELECT * FROM user WHERE user_name='" +
                 user.getUser_name()
                 + "' AND user_key='" + user.getUser_key() + "'";
-        System.out.println("ִ�����:"+sql);
-        ResultSet rs = null;//��������ڴ棬�洢�˲�ѯ�������ݣ��ڴ�����һ���αִ꣬�����ѯ��ʱ�򣬲�ָ���κμ�¼
-        Statement stmt = null;//���������ײ���ע�빥��
+
         try {
-            conn = ConnectionHandler.getConn(); //��Ҫ�Ż��쳣����ѡ��ִ��ֱ���׳�
+            conn = ConnectionHandler.getConn();
             System.out.println("UserDaoImpl:" + conn.hashCode());
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            while (rs.next()){    // ���Ҳ�����ִ��
-                //��ѯ���Ĺؼ����µ�user�� -- �������������������϶�
+            while (rs.next()){
                 user.setUser_id(rs.getInt(1));
                 user.setUser_name(rs.getString(2));
                 user.setUser_key(rs.getString(3));
@@ -51,12 +49,12 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-      return user;  // ��󷵻��û�ʵ�������
+      return user;
     }
 
     /**
-     * @description: ����ע��ʱ����user��
-     * @param user: �Ӳ�ѯID���ı����첢����
+     * @description: register insert user table
+     * @param user:
      * @return void
      * @author: DavidNan
      * @date: 2022/5/8 19:46
@@ -64,7 +62,7 @@ public class UserDaoImpl implements UserDao {
     
     @Override
     public void register(user user) {
-        String sql = "insert into user(user_id,user_name,user_key) values(?,?,?)"; //���޸��û��������Զ�����
+        String sql = "insert into user(user_id,user_name,user_key) values(?,?,?)";
         String date = "";
         try {
             pstmt = conn.prepareStatement(sql);
@@ -83,7 +81,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * @description: ��ȡ���һ��ID��ֻ����user����IDʱ�õ�
+     * @description: Query the last ID of the table
+     * Returns a user object for loading other data
      * @param :
      * @return void
      * @author: DavidNan
@@ -94,16 +93,13 @@ public class UserDaoImpl implements UserDao {
     public user SelectEndID() {
 
         user user = new user();
-        String sql = "select max(user_id) from user;"; //��ΪID��������
-        System.out.println("ִ�����:"+sql);
-
+        String sql = "select max(user_id) from user;";
         try {
-            conn = ConnectionHandler.getConn(); //��Ҫ�Ż��쳣����ѡ��ִ��ֱ���׳�
+            conn = ConnectionHandler.getConn();
             System.out.println("UserDaoImpl:" + conn.hashCode());
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            while (rs.next()){    // ���Ҳ�����ִ��
-                //��ѯ���Ĺؼ����µ�user�� -- �������������������϶�
+            while (rs.next()){
                user.setUser_id(rs.getInt(1));
             }
             ConnectionHandler.closeConnection();

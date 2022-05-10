@@ -1,6 +1,6 @@
 package com.lanqiao.hamburg.MySaleShow.controller;
 
-import com.lanqiao.hamburg.MySaleShow.controller.Frame.MainForm;
+import com.lanqiao.hamburg.Jform.MainForm;
 import com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;
 import com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;
 import com.lanqiao.hamburg.MySaleShow.entity.user;
@@ -59,16 +59,18 @@ public class MyLogin extends JFrame {
                     try {
                         user user = new user();
                         user.setUser_name(username);
-                        user.setUser_key(password);   // ???????user??
-                        //?????????--??????????????????????????????????????????????bug???
+                        user.setUser_key(password);
                         CurrentUserDao cud = new CurrentUserDaoImpl();
                         if((cud.QueryUser().getUser_name())!=null){
-                            //??????????????????????????????
+
                             cud.DelLoginData();
                         }
-                        if(loginService.LoginAndRecord(user)==1){ // ???????????????)
+                        if(loginService.LoginAndRecord(user)==1){
+                            JOptionPane.showMessageDialog(this,"登录成功","提示",JOptionPane.PLAIN_MESSAGE);
                             new MainForm().setVisible(true);
                             this.setVisible(false);
+                        }else{
+                            JOptionPane.showMessageDialog(this,"用户名或密码错误！","错误 ",0);
                         }
 
                     } catch (SQLException ex) {
@@ -87,7 +89,7 @@ public class MyLogin extends JFrame {
         setLocationRelativeTo(getOwner());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setVisible(true);//??????????
+        this.setVisible(true);
     }
 
     private JLabel label1;

@@ -15,22 +15,22 @@ import java.awt.*;
 
 /**
  * @author Binqing
- * @ÀàËµÃ÷ ²ÍÆ·¹ÜÀí±êÇ©µÄÃæ°åJPanel
+ * @ç±»è¯´æ˜ é¤å“ç®¡ç†æ ‡ç­¾çš„é¢æ¿JPanel
  * @date 2022/5/7
  */
 public class FoodManagePanel extends JPanel {
     public FoodManagePanel() {
-        initComponents();//Ãæ°åµÄ³õÊ¼»¯£¬¼ÓÔØ
+        initComponents();//é¢æ¿çš„åˆå§‹åŒ–ï¼ŒåŠ è½½
     }
 
     /**
-     * @·½·¨ËµÃ÷ Ë¢ĞÂtable±í¸ñÖĞËùÏÔÊ¾ÄÚÈİ
+     * @æ–¹æ³•è¯´æ˜ åˆ·æ–°tableè¡¨æ ¼ä¸­æ‰€æ˜¾ç¤ºå†…å®¹
      * @author Binqing
      * @date 2022/5/7 20:35
      * @param mark
-     * µ±mark=0£¬»ñÈ¡Êı¾İ¿âitem±íµÄÈ«²¿ÄÚÈİ
-     * µ±mark=1£¬°´ÕÕĞòºÅidÉ¸Ñ¡item±íÄÚÈİ
-     * µ±mark=10~15£¬·Ö±ğ°´ÉÌÆ·ÖÖÀà£º£¨±¤¾íÖ÷Ê³£¬Õ¨¼¦¿¾¼¦£¬ĞİÏĞĞ¡³Ô£¬³¬ÖµÌ×²Í£¬ÌØÒû£¬µ÷ÁÏ£©É¸Ñ¡
+     * å½“mark=0ï¼Œè·å–æ•°æ®åº“itemè¡¨çš„å…¨éƒ¨å†…å®¹
+     * å½“mark=1ï¼ŒæŒ‰ç…§åºå·idç­›é€‰itemè¡¨å†…å®¹
+     * å½“mark=10~15ï¼Œåˆ†åˆ«æŒ‰å•†å“ç§ç±»ï¼šï¼ˆå ¡å·ä¸»é£Ÿï¼Œç‚¸é¸¡çƒ¤é¸¡ï¼Œä¼‘é—²å°åƒï¼Œè¶…å€¼å¥—é¤ï¼Œç‰¹é¥®ï¼Œè°ƒæ–™ï¼‰ç­›é€‰
      * @return void
      */
     public static void updateTable(int mark){
@@ -63,15 +63,15 @@ public class FoodManagePanel extends JPanel {
             gDFT = new GetDataFromDatabaseImpl(mark,id);
         }
 
-        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);//»ñÈ¡Ä¬ÈÏ±íÄ£ĞÍ£¬Êı¾İºÍ±íÍ·
-        table1.setModel(model);//°ÑÄ£ĞÍ´«¸øtable1
-        new TableServiceImpl().tableOptimize(table1,head);//ÓÅ»¯table1
+        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);//è·å–é»˜è®¤è¡¨æ¨¡å‹ï¼Œæ•°æ®å’Œè¡¨å¤´
+        table1.setModel(model);//æŠŠæ¨¡å‹ä¼ ç»™table1
+        new TableServiceImpl().tableOptimize(table1,head);//ä¼˜åŒ–table1
         table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
-        scrollPane2.setViewportView(table1);//ÉèÖÃÊÓ¿ÚÊÓÍ¼
+        scrollPane2.setViewportView(table1);//è®¾ç½®è§†å£è§†å›¾
     }
 
     /**
-     * @·½·¨ËµÃ÷ ³õÊ¼»¯×é¼ş
+     * @æ–¹æ³•è¯´æ˜ åˆå§‹åŒ–ç»„ä»¶
      * @author Binqing
      * @date 2022/5/7 21:00
      * @param
@@ -84,7 +84,7 @@ public class FoodManagePanel extends JPanel {
          model = new DefaultTableModel(gDFD.getDataFromDatabase(), head);
 
          table1 = new JTable(model) {
-            //ÖØĞ´·½·¨£¬»ñÈ¡ÁĞµÄÀà£¬¼´£ºµÚÆßÁĞ·µ»ØµÄÊÇÍ¼±êÀà
+            //é‡å†™æ–¹æ³•ï¼Œè·å–åˆ—çš„ç±»ï¼Œå³ï¼šç¬¬ä¸ƒåˆ—è¿”å›çš„æ˜¯å›¾æ ‡ç±»
             public Class getColumnClass(int column) {
                 return (column == 7) ? Icon.class : Object.class;
             }
@@ -114,37 +114,37 @@ public class FoodManagePanel extends JPanel {
         scrollPane2.setBounds(0, 60, 800, 500);
 
         //---- button1 ----
-        button1.setText("ÕĞÅÆÈ«¼¦");
+        button1.setText("æ‹›ç‰Œå…¨é¸¡");
         add(button1);
         button1.setBounds(new Rectangle(new Point(120, 35), button1.getPreferredSize()));
         button1.addActionListener(e->updateTable(11));
 
         //---- button2 ----
-        button2.setText("ÃÀÎ¶Ğ¡Ê³");
+        button2.setText("ç¾å‘³å°é£Ÿ");
         add(button2);
         button2.setBounds(new Rectangle(new Point(240, 35), button2.getPreferredSize()));
         button2.addActionListener(e->updateTable(12));
 
         //---- button3 ----
-        button3.setText("çÍ·×ÒûÆ·");
+        button3.setText("ç¼¤çº·é¥®å“");
         add(button3);
         button3.setBounds(new Rectangle(new Point(480, 35), button3.getPreferredSize()));
         button3.addActionListener(e->updateTable(14));
 
         //---- button5 ----
-        button5.setText("µ÷ÁÏ");
+        button5.setText("è°ƒæ–™");
         add(button5);
         button5.setBounds(new Rectangle(new Point(600, 35), button5.getPreferredSize()));
         button5.addActionListener(e->updateTable(15));
 
         //---- button6 ----
-        button6.setText("¾«Ñ¡Ö÷Ê³");
+        button6.setText("ç²¾é€‰ä¸»é£Ÿ");
         add(button6);
         button6.setBounds(new Rectangle(new Point(0, 35), button6.getPreferredSize()));
         button6.addActionListener(e-> updateTable(10));
 
         //---- button7 ----
-        button7.setText("³¬ÖµÌ×²Í");
+        button7.setText("è¶…å€¼å¥—é¤");
         add(button7);
         button7.setBounds(new Rectangle(new Point(360, 35), button7.getPreferredSize()));
         add(textField1);
@@ -152,7 +152,7 @@ public class FoodManagePanel extends JPanel {
         button7.addActionListener(e->updateTable(13));
 
         //---- button8 ----
-        button8.setText("²éÑ¯");
+        button8.setText("æŸ¥è¯¢");
         add(button8);
         button8.setBounds(new Rectangle(new Point(300, 600), button8.getPreferredSize()));
         button8.addActionListener(e-> {
@@ -163,19 +163,19 @@ public class FoodManagePanel extends JPanel {
         });
 
         //---- button9 ----
-        button9.setText("ĞÂÔö");
+        button9.setText("æ–°å¢");
         add(button9);
         button9.setBounds(new Rectangle(new Point(500, 600), button9.getPreferredSize()));
         button9.addActionListener(e->new AddItemForm().setVisible(true));
 
         //---- button10 ----
-        button10.setText("É¾³ı");
+        button10.setText("åˆ é™¤");
         add(button10);
         button10.setBounds(new Rectangle(new Point(400, 600), button10.getPreferredSize()));
         button10.addActionListener(e->new DishesManageImpl(table1).deleteDishes());
 
         //---- button11 ----
-        button11.setText("ĞŞ¸Ä");
+        button11.setText("ä¿®æ”¹");
         add(button11);
         button11.setBounds(new Rectangle(new Point(600, 600), button11.getPreferredSize()));
         button11.addActionListener(e->{
@@ -184,15 +184,15 @@ public class FoodManagePanel extends JPanel {
         });
 
         //---- button12 ----
-        button12.setText("ÏÔÊ¾È«²¿");
+        button12.setText("æ˜¾ç¤ºå…¨éƒ¨");
         add(button12);
         button12.setBounds(new Rectangle(new Point(20, 600), button12.getPreferredSize()));
         button12.addActionListener(e-> updateTable(0));
 
         //---- label2 ----
-        label2.setText("ÊÇĞÖµÜ¾ÍÀ´¿³ÎÒ(#^.^#)");
+        label2.setText("æ˜¯å…„å¼Ÿå°±æ¥ç æˆ‘(#^.^#)");
         label2.setMaximumSize(new Dimension(600, 50));
-        Font font=new Font("ËÎÌå",Font.BOLD,36);
+        Font font=new Font("å®‹ä½“",Font.BOLD,36);
         label2.setFont(font);
         label2.setForeground(Color.green);
 
@@ -203,7 +203,7 @@ public class FoodManagePanel extends JPanel {
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     public static JScrollPane scrollPane2;
-    public static String head[] = {"ĞòºÅ", "²ÍÆ·±àºÅ", "²ÍÆ·Àà±ğ", "²ÍÆ·Ãû³Æ", "Ô­¼Û", "ÓÅ»İ¼Û","¿â´æ","Í¼Æ¬"};
+    public static String head[] = {"åºå·", "é¤å“ç¼–å·", "é¤å“ç±»åˆ«", "é¤å“åç§°", "åŸä»·", "ä¼˜æƒ ä»·","åº“å­˜","å›¾ç‰‡"};
     public static JTable table1;
     public static DefaultTableModel model;
     private static JButton button1;

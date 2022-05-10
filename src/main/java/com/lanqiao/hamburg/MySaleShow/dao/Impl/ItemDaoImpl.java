@@ -91,4 +91,25 @@ public class ItemDaoImpl implements ItemDao {
         }
         return ImgPath;
     }
+
+    /**
+     * @description: 解决字符集问题，避免中文字符异常
+     * @param :
+     * @return java.sql.ResultSet
+     * @author: DavidNan
+     * @date: 2022/5/11 0:41
+     */
+
+    @Override
+    public ResultSet SelectFoodType() {
+        try {
+            String sql = "SELECT DISTINCT product_category FROM item;";
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }
