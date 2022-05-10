@@ -11,19 +11,31 @@ import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
 import java.awt.*;
 import javax.swing.*;
 
+
 /**
- * 系统主界面
+ * @author Binqing
+ * @类说明 天天华莱士管理系统主界面窗口
+ * @date 2022/5/7
  */
 public class MainForm extends JFrame {
     public MainForm() {
+        //初始化加载内容
         initComponents();
     }
+
+    /**
+     * @方法说明 初始化组件
+     * @author Binqing
+     * @date 2022/5/7 20:46
+     * @param
+     * @return void
+     */
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         tabbedPane1 = new JTabbedPane();
         panel1 = new JPanel();
-        label1 = new JLabel();
+        //label1 = new JLabel();
         panel3 = new JPanel();
         panel4 = new JPanel();
         panel5 = new JPanel();
@@ -32,13 +44,13 @@ public class MainForm extends JFrame {
         panel8 = new JPanel();
 
         //======== this ========
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);//窗口关闭，程序退出
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
         //setUndecorated(true);// 把边框去了，优化的效果能看的更明显
 
         Font font=new Font("宋体",Font.BOLD,12);
-        tabbedPane1.setFont(font);
+        tabbedPane1.setFont(font);//设置选项卡式窗格字体的样式
         tabbedPane1.setUI(new MyTabbedPaneUI());
         //======== tabbedPane1 ========
         {
@@ -47,8 +59,8 @@ public class MainForm extends JFrame {
             //======== panel1 ========
             {
                 panel1.setLayout(null);
-                panel1.add(label1);
-                label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));
+                //panel1.add(label1);
+                //label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));
 
                 {
                     // compute preferred size
@@ -198,14 +210,16 @@ public class MainForm extends JFrame {
                     panel8.setPreferredSize(preferredSize);
                 }
             }
-            tabbedPane1.addTab("\u5229\u6da6\u7edf\u8ba1", panel8);
+            tabbedPane1.addTab("利润统计", panel8);
         }
         contentPane.add(tabbedPane1);
         tabbedPane1.setBounds(0, 5, 1000, 700);
 
-        contentPane.setPreferredSize(new Dimension(1000, 700));
-        setSize(1000, 700);
-        setLocationRelativeTo(getOwner());
+        setTitle("天天华莱士管理系统界面");
+        //contentPane.setPreferredSize(new Dimension(1000, 700));
+        setSize(1000, 700);//设置窗口的大小
+        setLocationRelativeTo(null);//设置窗口在屏幕中的位置
+       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );//窗口关闭，程序退出
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -214,7 +228,6 @@ public class MainForm extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JTabbedPane tabbedPane1;
     private JPanel panel1;
-    private JLabel label1;
     private JPanel panel3;
     private JPanel panel4;
     private JPanel panel5;

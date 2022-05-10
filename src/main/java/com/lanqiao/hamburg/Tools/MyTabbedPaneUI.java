@@ -11,7 +11,9 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 
 /**
- * 工具类，优化JTabbedPane标签
+ * @author Binqing
+ * @类说明 工具类，优化JTabbedPane标签
+ * @date 2022/5/7
  */
 public class MyTabbedPaneUI extends BasicTabbedPaneUI {
 

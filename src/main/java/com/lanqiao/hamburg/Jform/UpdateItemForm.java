@@ -12,21 +12,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 /**
- * 修改餐品界面
+ * @author Binqing
+ * @类说明 修改餐品界面
+ * @date 2022/5/7
  */
 public class UpdateItemForm extends JFrame {
     Item item;
-    //String s = "Hamburg/src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg";
 
     public UpdateItemForm(Item item)  {
         this.item = item;
         initComponents();
     }
+
+
+    /**
+     * @方法说明 保存修改后的商品信息，与数据库交互
+     * @author Binqing
+     * @date 2022/5/7 20:34
+     * @param
+     * @return void
+     */
     public void Savemodify() {
-       // System.out.println("准备保存");
         Connection conn = JDBCtil.getConnection();
-        //  Statement stmt = null;
         String sql = "UPDATE item SET product_name =? , product_category = ? , price = ? , img_url = ?, Preferential_price =? , product_id =?  WHERE id="+item.getId();
         PreparedStatement pstmt= null;
         try {
@@ -38,17 +47,16 @@ public class UpdateItemForm extends JFrame {
             pstmt.setFloat(5,Float.valueOf(textField6.getText()));
             pstmt.setString(6,textField5.getText());
 
-            System.out.println(sql);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "已保存！");
-            DishesManageImpl.updateItemForm.setVisible(false);
+            this.dispose();//调用方法关闭当前窗口
+
 
             FoodManagePanel.updateTable(0);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }finally {
             JDBCtil.close(conn,null,pstmt,null);
-
         }
 
     }
@@ -124,9 +132,6 @@ public class UpdateItemForm extends JFrame {
         contentPane.add(button1);
         button1.setBounds(200, 300, 100, 30);
         button1.addActionListener((e)->Savemodify());
-
-
-
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -141,8 +146,9 @@ public class UpdateItemForm extends JFrame {
             contentPane.setMinimumSize(preferredSize);
             contentPane.setPreferredSize(preferredSize);
         }
-        pack();
-        setLocationRelativeTo(getOwner());
+        //pack();
+        setTitle("餐品信息修改");
+        setLocationRelativeTo(null);
         this.setBounds(600, 300, 480, 400);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }

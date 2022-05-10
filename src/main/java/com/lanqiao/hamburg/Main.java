@@ -1,6 +1,7 @@
 package com.lanqiao.hamburg;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.lanqiao.hamburg.Jform.MainForm;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ public class Main {
        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
         //主题四
-       // UIManager.setLookAndFeel( new FlatLightLaf() );
+        //UIManager.setLookAndFeel( new FlatLightLaf() );
         //主题五：黑色
         UIManager.setLookAndFeel( new FlatDarculaLaf() );
         new MainForm().setVisible(true);

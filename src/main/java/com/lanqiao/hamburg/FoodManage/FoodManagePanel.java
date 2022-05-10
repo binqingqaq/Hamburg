@@ -12,8 +12,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+
 /**
- * 餐品管理标签的面板JPanel
+ * @author Binqing
+ * @类说明 餐品管理标签的面板JPanel
+ * @date 2022/5/7
  */
 public class FoodManagePanel extends JPanel {
     public FoodManagePanel() {
@@ -21,10 +24,17 @@ public class FoodManagePanel extends JPanel {
     }
 
     /**
-     * 更新table的显示内容
+     * @方法说明 刷新table表格中所显示内容
+     * @author Binqing
+     * @date 2022/5/7 20:35
+     * @param mark
+     * 当mark=0，获取数据库item表的全部内容
+     * 当mark=1，按照序号id筛选item表内容
+     * 当mark=10~15，分别按商品种类：（堡卷主食，炸鸡烤鸡，休闲小吃，超值套餐，特饮，调料）筛选
+     * @return void
      */
     public static void updateTable(int mark){
-        GetDataFromDatabaseImpl gDFT = null;
+        GetDataFromDatabaseImpl gDFT = null;//
         if (mark>=10&&mark<=15) {
             if (mark == 10) {
                 gDFT = new GetDataFromDatabaseImpl(mark, button6.getText());
@@ -42,36 +52,41 @@ public class FoodManagePanel extends JPanel {
 
             }else if (mark==15){
                 gDFT = new GetDataFromDatabaseImpl(mark, button5.getText());
-
             }
         }
         if (mark==0){
             gDFT = new GetDataFromDatabaseImpl(mark);
         }
+
         if (mark==1){
-            int id =Integer.valueOf(textField1.getText()) ;
+            int id =Integer.valueOf(textField1.getText());
             gDFT = new GetDataFromDatabaseImpl(mark,id);
         }
-        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);
-        table1.setModel(model);
 
-        new TableServiceImpl().tableOptimize(table1,head);
+        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);//获取默认表模型，数据和表头
+        table1.setModel(model);//把模型传给table1
+        new TableServiceImpl().tableOptimize(table1,head);//优化table1
         table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
-        scrollPane2.setViewportView(table1);
+        scrollPane2.setViewportView(table1);//设置视口视图
     }
 
     /**
-     * 初始化Panel
+     * @方法说明 初始化组件
+     * @author Binqing
+     * @date 2022/5/7 21:00
+     * @param
+     * @return void
      */
     public void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-
         GetDataFromDatabaseImpl gDFD = new GetDataFromDatabaseImpl(0);
         scrollPane2 = new JScrollPane();
          model = new DefaultTableModel(gDFD.getDataFromDatabase(), head);
+
          table1 = new JTable(model) {
+            //重写方法，获取列的类，即：第七列返回的是图标类
             public Class getColumnClass(int column) {
-                return (column == 7) ? Icon.class : Object.class;//重写方法，指定第八列为图片处理
+                return (column == 7) ? Icon.class : Object.class;
             }
         };
         button1 = new JButton();
@@ -99,19 +114,19 @@ public class FoodManagePanel extends JPanel {
         scrollPane2.setBounds(0, 60, 800, 500);
 
         //---- button1 ----
-        button1.setText("炸鸡烤鸡");
+        button1.setText("招牌全鸡");
         add(button1);
         button1.setBounds(new Rectangle(new Point(120, 35), button1.getPreferredSize()));
         button1.addActionListener(e->updateTable(11));
 
         //---- button2 ----
-        button2.setText("休闲小吃");
+        button2.setText("美味小食");
         add(button2);
         button2.setBounds(new Rectangle(new Point(240, 35), button2.getPreferredSize()));
         button2.addActionListener(e->updateTable(12));
 
         //---- button3 ----
-        button3.setText("特饮");
+        button3.setText("缤纷饮品");
         add(button3);
         button3.setBounds(new Rectangle(new Point(480, 35), button3.getPreferredSize()));
         button3.addActionListener(e->updateTable(14));
@@ -123,7 +138,7 @@ public class FoodManagePanel extends JPanel {
         button5.addActionListener(e->updateTable(15));
 
         //---- button6 ----
-        button6.setText("堡卷主食");
+        button6.setText("精选主食");
         add(button6);
         button6.setBounds(new Rectangle(new Point(0, 35), button6.getPreferredSize()));
         button6.addActionListener(e-> updateTable(10));

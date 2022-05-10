@@ -10,7 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * @author Binqing
+ * @类说明 实现GetDataFromDatabaseDAO接口，与数据库进行交互，获取数据库表的数据
+ * @date 2022/5/7
+ */
 public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
     private String head[] = {"序号", "餐品编号", "餐品类别", "餐品名称", "价格", "优惠价","库存","图片"};
     private Object[][] data = null;
@@ -51,12 +55,22 @@ public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
     }
 
 
+    /**
+     * @方法说明 从数据库中表中取获取数据，存储到二维数据中（一行接一行）
+     * @author Binqing
+     * @date 2022/5/7 21:06
+     * @param
+     * @return java.lang.Object[][]
+     */
+
     @Override
     public  Object[][] getDataFromDatabase() {
-        java.util.List<Item> list = new ArrayList<Item>();
+        //集合list 存放一条获取出来的记录
+        java.util.List<Item> list = new ArrayList<>();
         Connection conn=null;
         String sql=null;
         Statement stmt = null;
+        //通过mark 选择所要选择的sql语句
         if (mark==0){
             sql = "SELECT * FROM item";
         }
@@ -70,10 +84,15 @@ public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
         ResultSet rs = null;
         try {
             conn = JDBCtil.getConnection();
+            //获取执行sql的对象Statement
             stmt = conn.createStatement();
+
+            //执行sql，获取结果集
             rs = stmt.executeQuery(sql);
+            ////处理结果集
             while (rs.next()) {
-                Item item = new Item();
+                Item item = new Item();//创建一个item实例并赋值
+                //获取每一行的字段数据，赋值给item
                 item.setId(rs.getInt(1));
                 item.setProduct_id(rs.getString(2));
                 item.setPro_cate(rs.getString(3));
@@ -82,22 +101,15 @@ public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
                 item.setPrefer_price(rs.getFloat(6));
                 item.setStock(rs.getInt(7));
                 item.setImg_url(rs.getString(8));
-                list.add(item);
+                list.add(item);//把item一条数据存放到集合中
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            try {
-                rs.close();
-                stmt.close();
-                conn.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            JDBCtil.close(conn,stmt,null,rs);//关闭资源
         }
         // 把集合的数据（商品信息）转换成二维数组
         data = new Object[list.size()][head.length];
-
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < head.length; j++) {
                 data[i][0] = list.get(i).getId();
@@ -107,45 +119,22 @@ public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
                 data[i][4] = list.get(i).getPrice();
                 data[i][5] = list.get(i).getPrefer_price();
                 data[i][6] = list.get(i).getStock();
-                data[i][7] = list.get(i).getImg_url();
-                //ImageIcon imageIcon = new ImageIcon(getClass().getResource("/com/sad/面板/img/dishes/兰花.png"));
-               // ImageIcon imageIcon = new ImageIcon(getClass().getResource("/com/sad/面板/img/dishes/兰花.png"));
-                //https://github.com/binqingqaq/Hamburg/blob/master/%E9%A4%90%E5%93%81images/%E5%85%B0%E8%8A%B1.png
-                //https://avatar.csdnimg.cn/3/F/F/3_toto1297488504_1548903051.jpg
-          /*      ImageIcon icon = null;
-                try {
-                    icon = new ImageIcon(new URL("https://raw.githubusercontent.com/binqingqaq/Hamburg/master/%E9%A4%90%E5%93%81images/%E8%8C%89%E8%8E%89%E8%8A%B1.png"));
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }*/
 
-              //  ImageIcon imageIcon = new ImageIcon( list.get(i).getImg_url());
+                ImageIcon icon= new ImageIcon(list.get(i).getImg_url());//获取项目相对路径的图片
+                icon.setImage(icon.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));//设置图片的尺寸
+                data[i][7] =icon;
 
-                //String url_dishes = "\""+list.get(i).getImg_url()+"\"";
-             //   String url_dishes = list.get(i).getImg_url();
-               // System.out.println( url_dishes);
-
-
-               // String path = "src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg";
-               // System.out.println(ClassLoader.getSystemResource(path));
-                ImageIcon icon= new ImageIcon(list.get(i).getImg_url());
-                //ImageIcon icon= new ImageIcon(path);
-                     //   new ImageIcon(ClassLoader.getSystemResource(path));
-
-
-                /*try {
-
-
-                    URL url1 = new URL("https://i.postimg.cc/yYdYbMX1/image.png");*/
-                  //  icon = new ImageIcon(this.getClass().getResource());
-
-
-                //imageIcon.setImage(imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-                icon.setImage(icon.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
-                //icon.setImage(imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-                data[i][7] = icon;
-
-                //System.out.println(data[i][7]);
+                /**
+                 * 获取图片的三种方式
+                 * 一：绝对路径获取：必须给出照片的绝对路径
+                 eg：ImageIcon icon = new ImageIcon（"C:\Users\Acer\Desktop\77777\玫瑰.png"）
+                 * 二：绝对路径
+                 eg：ImageIcon icon= new ImageIcon(src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg);
+                 * 三：网络图片：给出照片的URL地址
+                 eg：
+                 ImageIcon icon = null;
+                 icon = new ImageIcon(new URL("https://raw.githubusercontent.com/binqingqaq/Hamburg/master/%E9%A4%90%E5%93%81images/%E8%8C%89%E8%8E%89%E8%8A%B1.png"));
+                 */
             }
         }
         return data;

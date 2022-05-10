@@ -23,17 +23,22 @@ public class DishesManageImpl implements DishesManageDAO {
         this.textField1 = textField1;
     }
     public DishesManageImpl(){
-
     }
+    /**
+     * @方法说明 修改商品信息，获取表中信息并且传给窗口updateItemForm
+     * @author Binqing
+     * @date 2022/5/7 22:00
+     * @param
+     * @return void
+     */
+
     @Override
     public void modifyDishes() {
-        System.out.println("执行到这里");
         int rowNo = table1.getSelectedRow();//获取所选的行号
-
         if (rowNo==-1){
             JOptionPane.showMessageDialog(null, "请选择需要修改的餐品！");
         }else{
-            //获取选中行
+            //获取选中行中的各列信息
             int id=(Integer) table1.getValueAt(rowNo, 0) ;
             String product_id=(String)table1.getValueAt(rowNo, 1);
             String pro_cate=(String) table1.getValueAt(rowNo, 2);
@@ -48,6 +53,14 @@ public class DishesManageImpl implements DishesManageDAO {
         }
 
     }
+
+    /**
+     * @方法说明 与数据库交互删除一条记录
+     * @author Binqing
+     * @date 2022/5/7 22:01
+     * @param
+     * @return void
+     */
 
     @Override
     public void deleteDishes() {

@@ -4,8 +4,6 @@
 
 package com.lanqiao.hamburg.Jform;
 
-
-
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
 import com.lanqiao.hamburg.Tools.JDBCtil;
 import javax.swing.*;
@@ -14,27 +12,34 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 /**
- * 添加商品界面
+ * @author Binqing
+ * @类说明 新增商品界面
+ * @date 2022/5/7
  */
 public class AddItemForm extends JFrame {
     public AddItemForm() {
         initComponents();
     }
 
+    /**
+     * @方法说明 商品信息填完后，执行刷新，与数据库交互，添加一条记录
+     * @author Binqing
+     * @date 2022/5/7 21:57
+     * @param
+     * @return void
+     */
+
     public void refreshItem(){
 
+        //只要新增界面没有填完信息，就会提示
         if (textField1.getText().equals("")||(textField2.getText().equals("")||textField4.getText().equals("")||textField6.getText().equals("")
                 ||textField7.getText().equals("")||textField8.getText().equals(""))){
             JOptionPane.showMessageDialog(null, "请填完信息！");
-
-
         }else{
             Connection conn = JDBCtil.getConnection();
-            //  Statement stmt = null;
             String sql="INSERT INTO item VALUES(null,?,?,?,?,0,0,?,?,?,?)";
-
-            // String sql = "UPDATE item SET product_name =? , product_category = ? , price = ? , img_url = ?, Preferential_price =? , product_id =?  WHERE id="+item.getId();
             PreparedStatement pstmt= null;
             try {
                 pstmt = conn.prepareStatement(sql);
@@ -49,22 +54,17 @@ public class AddItemForm extends JFrame {
 
                 System.out.println(sql);
                 pstmt.executeUpdate();
+
                 JOptionPane.showMessageDialog(null, "已保存！");
 
                 this.dispose();
                 FoodManagePanel.updateTable(0);
-
-
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }finally {
                 JDBCtil.close(conn,null,pstmt,null);
-
             }
-
-
         }
-
     }
 
 
@@ -168,6 +168,7 @@ public class AddItemForm extends JFrame {
 
         contentPane.setPreferredSize(new Dimension(500, 420));
         pack();
+        setTitle("新增餐品");
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -193,5 +194,4 @@ public class AddItemForm extends JFrame {
     private JTextField textField7;
     private JTextField textField8;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
 }

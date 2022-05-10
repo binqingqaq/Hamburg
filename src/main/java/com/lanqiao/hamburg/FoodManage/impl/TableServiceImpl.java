@@ -8,7 +8,21 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import java.awt.*;
 
+/**
+ * @author Binqing
+ * @类说明 实现TableService  接口  对表操作
+ * @date 2022/5/7
+ */
 public class TableServiceImpl implements TableService {
+
+    /**
+     * @方法说明 进行表的优化，包括行列大小字体样式的设置
+     * @author Binqing
+     * @date 2022/5/7 22:05
+     * @param table1 所要优化的表
+     * @param head 表头信息
+     * @return void
+     */
 
     @Override
     public void tableOptimize(JTable table1, String[] head) {
@@ -47,9 +61,5 @@ public class TableServiceImpl implements TableService {
         for (int i = 0; i < 7; i++) {
             table1.getColumn(head[i]).setCellRenderer(ter);
         }
-
     }
-
-
-
 }
