@@ -27,13 +27,13 @@ public class DishesManageImpl implements DishesManageDAO {
     }
     @Override
     public void modifyDishes() {
-        System.out.println("æ‰§è¡Œåˆ°è¿™é‡Œ");
-        int rowNo = table1.getSelectedRow();//è·å–æ‰€é€‰çš„è¡Œå·
+        System.out.println("Ö´ĞĞµ½ÕâÀï");
+        int rowNo = table1.getSelectedRow();//»ñÈ¡ËùÑ¡µÄĞĞºÅ
 
         if (rowNo==-1){
-            JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©éœ€è¦ä¿®æ”¹çš„é¤å“ï¼");
+            JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñĞèÒªĞŞ¸ÄµÄ²ÍÆ·£¡");
         }else{
-            //è·å–é€‰ä¸­è¡Œ
+            //»ñÈ¡Ñ¡ÖĞĞĞ
             int id=(Integer) table1.getValueAt(rowNo, 0) ;
             String product_id=(String)table1.getValueAt(rowNo, 1);
             String pro_cate=(String) table1.getValueAt(rowNo, 2);
@@ -51,9 +51,9 @@ public class DishesManageImpl implements DishesManageDAO {
 
     @Override
     public void deleteDishes() {
-        int rowNo = table1.getSelectedRow();//è·å–æ‰€é€‰çš„è¡Œå·
+        int rowNo = table1.getSelectedRow();//»ñÈ¡ËùÑ¡µÄĞĞºÅ
         if (rowNo==-1){
-            JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©éœ€è¦åˆ é™¤çš„é¤å“ï¼");
+            JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñĞèÒªÉ¾³ıµÄ²ÍÆ·£¡");
         }else{
             int id=(int)table1.getValueAt(rowNo, 0);
             Connection conn=null;
@@ -86,7 +86,7 @@ public class DishesManageImpl implements DishesManageDAO {
     public void seekDishes() {
 
         if (textField1.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null, "è¯·è¾“å…¥æœ‰æ•ˆä¿¡æ¯ï¼");
+            JOptionPane.showMessageDialog(null, "ÇëÊäÈëÓĞĞ§ĞÅÏ¢£¡");
         }
     }
 }

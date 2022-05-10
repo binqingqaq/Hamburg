@@ -13,15 +13,15 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 /**
- * é¤å“ç®¡ç†æ ‡ç­¾çš„é¢æ¿JPanel
+ * ²ÍÆ·¹ÜÀí±êÇ©µÄÃæ°åJPanel
  */
 public class FoodManagePanel extends JPanel {
     public FoodManagePanel() {
-        initComponents();//é¢æ¿çš„åˆå§‹åŒ–ï¼ŒåŠ è½½
+        initComponents();//Ãæ°åµÄ³õÊ¼»¯£¬¼ÓÔØ
     }
 
     /**
-     * æ›´æ–°tableçš„æ˜¾ç¤ºå†…å®¹
+     * ¸üĞÂtableµÄÏÔÊ¾ÄÚÈİ
      */
     public static void updateTable(int mark){
         GetDataFromDatabaseImpl gDFT = null;
@@ -61,7 +61,7 @@ public class FoodManagePanel extends JPanel {
     }
 
     /**
-     * åˆå§‹åŒ–Panel
+     * ³õÊ¼»¯Panel
      */
     public void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -71,7 +71,7 @@ public class FoodManagePanel extends JPanel {
          model = new DefaultTableModel(gDFD.getDataFromDatabase(), head);
          table1 = new JTable(model) {
             public Class getColumnClass(int column) {
-                return (column == 7) ? Icon.class : Object.class;//é‡å†™æ–¹æ³•ï¼ŒæŒ‡å®šç¬¬å…«åˆ—ä¸ºå›¾ç‰‡å¤„ç†
+                return (column == 7) ? Icon.class : Object.class;//ÖØĞ´·½·¨£¬Ö¸¶¨µÚ°ËÁĞÎªÍ¼Æ¬´¦Àí
             }
         };
         button1 = new JButton();
@@ -99,37 +99,37 @@ public class FoodManagePanel extends JPanel {
         scrollPane2.setBounds(0, 60, 800, 500);
 
         //---- button1 ----
-        button1.setText("ç‚¸é¸¡çƒ¤é¸¡");
+        button1.setText("Õ¨¼¦¿¾¼¦");
         add(button1);
         button1.setBounds(new Rectangle(new Point(120, 35), button1.getPreferredSize()));
         button1.addActionListener(e->updateTable(11));
 
         //---- button2 ----
-        button2.setText("ä¼‘é—²å°åƒ");
+        button2.setText("ĞİÏĞĞ¡³Ô");
         add(button2);
         button2.setBounds(new Rectangle(new Point(240, 35), button2.getPreferredSize()));
         button2.addActionListener(e->updateTable(12));
 
         //---- button3 ----
-        button3.setText("ç‰¹é¥®");
+        button3.setText("ÌØÒû");
         add(button3);
         button3.setBounds(new Rectangle(new Point(480, 35), button3.getPreferredSize()));
         button3.addActionListener(e->updateTable(14));
 
         //---- button5 ----
-        button5.setText("è°ƒæ–™");
+        button5.setText("µ÷ÁÏ");
         add(button5);
         button5.setBounds(new Rectangle(new Point(600, 35), button5.getPreferredSize()));
         button5.addActionListener(e->updateTable(15));
 
         //---- button6 ----
-        button6.setText("å ¡å·ä¸»é£Ÿ");
+        button6.setText("±¤¾íÖ÷Ê³");
         add(button6);
         button6.setBounds(new Rectangle(new Point(0, 35), button6.getPreferredSize()));
         button6.addActionListener(e-> updateTable(10));
 
         //---- button7 ----
-        button7.setText("è¶…å€¼å¥—é¤");
+        button7.setText("³¬ÖµÌ×²Í");
         add(button7);
         button7.setBounds(new Rectangle(new Point(360, 35), button7.getPreferredSize()));
         add(textField1);
@@ -137,7 +137,7 @@ public class FoodManagePanel extends JPanel {
         button7.addActionListener(e->updateTable(13));
 
         //---- button8 ----
-        button8.setText("æŸ¥è¯¢");
+        button8.setText("²éÑ¯");
         add(button8);
         button8.setBounds(new Rectangle(new Point(300, 600), button8.getPreferredSize()));
         button8.addActionListener(e-> {
@@ -148,19 +148,19 @@ public class FoodManagePanel extends JPanel {
         });
 
         //---- button9 ----
-        button9.setText("æ–°å¢");
+        button9.setText("ĞÂÔö");
         add(button9);
         button9.setBounds(new Rectangle(new Point(500, 600), button9.getPreferredSize()));
         button9.addActionListener(e->new AddItemForm().setVisible(true));
 
         //---- button10 ----
-        button10.setText("åˆ é™¤");
+        button10.setText("É¾³ı");
         add(button10);
         button10.setBounds(new Rectangle(new Point(400, 600), button10.getPreferredSize()));
         button10.addActionListener(e->new DishesManageImpl(table1).deleteDishes());
 
         //---- button11 ----
-        button11.setText("ä¿®æ”¹");
+        button11.setText("ĞŞ¸Ä");
         add(button11);
         button11.setBounds(new Rectangle(new Point(600, 600), button11.getPreferredSize()));
         button11.addActionListener(e->{
@@ -169,15 +169,15 @@ public class FoodManagePanel extends JPanel {
         });
 
         //---- button12 ----
-        button12.setText("æ˜¾ç¤ºå…¨éƒ¨");
+        button12.setText("ÏÔÊ¾È«²¿");
         add(button12);
         button12.setBounds(new Rectangle(new Point(20, 600), button12.getPreferredSize()));
         button12.addActionListener(e-> updateTable(0));
 
         //---- label2 ----
-        label2.setText("æ˜¯å…„å¼Ÿå°±æ¥ç æˆ‘(#^.^#)");
+        label2.setText("ÊÇĞÖµÜ¾ÍÀ´¿³ÎÒ(#^.^#)");
         label2.setMaximumSize(new Dimension(600, 50));
-        Font font=new Font("å®‹ä½“",Font.BOLD,36);
+        Font font=new Font("ËÎÌå",Font.BOLD,36);
         label2.setFont(font);
         label2.setForeground(Color.green);
 
@@ -188,7 +188,7 @@ public class FoodManagePanel extends JPanel {
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     public static JScrollPane scrollPane2;
-    public static String head[] = {"åºå·", "é¤å“ç¼–å·", "é¤å“ç±»åˆ«", "é¤å“åç§°", "åŸä»·", "ä¼˜æƒ ä»·","åº“å­˜","å›¾ç‰‡"};
+    public static String head[] = {"ĞòºÅ", "²ÍÆ·±àºÅ", "²ÍÆ·Àà±ğ", "²ÍÆ·Ãû³Æ", "Ô­¼Û", "ÓÅ»İ¼Û","¿â´æ","Í¼Æ¬"};
     public static JTable table1;
     public static DefaultTableModel model;
     private static JButton button1;
