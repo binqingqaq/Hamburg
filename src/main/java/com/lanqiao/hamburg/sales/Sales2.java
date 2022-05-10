@@ -52,7 +52,7 @@ public class Sales2<CalendarTest> extends JPanel {
         scrollPane1.setBounds(0, 5, 395, 195);
 
         //---- button1 ----
-        button1.setText("æ—¥é”€é‡æ’åº");
+        button1.setText("ÈÕÏúÁ¿ÅÅĞò");
         add(button1);
         button1.setBounds(new Rectangle(new Point(90, 270), button1.getPreferredSize()));
         button1.addActionListener(
@@ -73,7 +73,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
         );
         //---- button2 ----
-        button2.setText("æœˆé”€é‡æ’åº");
+        button2.setText("ÔÂÏúÁ¿ÅÅĞò");
         add(button2);
         button2.setBounds(new Rectangle(new Point(195, 270), button2.getPreferredSize()));
         button2.addActionListener(
@@ -94,7 +94,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
         );
         //---- button3 ----
-        button3.setText("å¹´é”€é‡æ’åº");
+        button3.setText("ÄêÏúÁ¿ÅÅĞò");
         add(button3);
         button3.setBounds(new Rectangle(new Point(295, 270), button3.getPreferredSize()));
         button3.addActionListener(
@@ -115,7 +115,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
         );
 
-        button4.setText("åˆ·æ–°æ•°æ®");
+        button4.setText("Ë¢ĞÂÊı¾İ");
         add(button4);
         button4.setBounds(new Rectangle(new Point(5, 270), button4.getPreferredSize()));
         button4.addActionListener(
@@ -184,9 +184,9 @@ public class Sales2<CalendarTest> extends JPanel {
         int num [] =new int[6];
 
         Calendar c = Calendar.getInstance();
-        int y=c.get(Calendar.YEAR);//å¹´
-        int M = c.get(Calendar.MONTH)+1;//æœˆ,æ³¨æ„è¿™é‡Œè¦åŠ 1,è®¡ç®—æœºç¬¬ä¸€ä¸ªæœˆä»0å¼€å§‹
-        int d = c.get(Calendar.DATE);//æ—¥
+        int y=c.get(Calendar.YEAR);//Äê
+        int M = c.get(Calendar.MONTH)+1;//ÔÂ,×¢ÒâÕâÀïÒª¼Ó1,¼ÆËã»úµÚÒ»¸öÔÂ´Ó0¿ªÊ¼
+        int d = c.get(Calendar.DATE);//ÈÕ
         String year = y+"";
         String month = (M<10?"0":"")+M;
         String daily = (d<10?"0":"")+d;
@@ -393,7 +393,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
         }
-        // æŠŠé›†åˆçš„æ•°æ®ï¼ˆå•†å“ä¿¡æ¯ï¼‰è½¬æ¢æˆäºŒç»´æ•°ç»„
+        // °Ñ¼¯ºÏµÄÊı¾İ£¨ÉÌÆ·ĞÅÏ¢£©×ª»»³É¶şÎ¬Êı×é
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -479,7 +479,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
         }
-        // æŠŠé›†åˆçš„æ•°æ®ï¼ˆå•†å“ä¿¡æ¯ï¼‰è½¬æ¢æˆäºŒç»´æ•°ç»„
+        // °Ñ¼¯ºÏµÄÊı¾İ£¨ÉÌÆ·ĞÅÏ¢£©×ª»»³É¶şÎ¬Êı×é
         data = new Object[list.size()][head.length];
 
         for (int i = 0; i < list.size(); i++) {
@@ -500,7 +500,7 @@ public class Sales2<CalendarTest> extends JPanel {
     private JButton button1;
     private JButton button2;
     private JButton button3;
-    private String head[] = {"ID", "å•†å“åç§°", "æ—¥é”€é‡", "æœˆé”€é‡", "å¹´é”€é‡"};
+    private String head[] = {"ID", "ÉÌÆ·Ãû³Æ", "ÈÕÏúÁ¿", "ÔÂÏúÁ¿", "ÄêÏúÁ¿"};
     private Object[][] data = null;
     private int a;
 
