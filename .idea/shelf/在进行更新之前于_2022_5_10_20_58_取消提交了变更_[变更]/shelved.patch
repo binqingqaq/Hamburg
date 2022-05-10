@@ -1,0 +1,1344 @@
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+--- a/.idea/encodings.xml	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/.idea/encodings.xml	(date 1652187214599)
+@@ -1,0 +1,35 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Login/Login.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Main.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ModTool.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/MyPay.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Frame/MainForm.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Frame/ModShopCart.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/CurrentUserDao.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/UserDaoImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/UserDao.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/CurrentUser.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/user.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShopCarServiceImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShowItemServiceImpl.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" charset="GBK" />
++    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/util/ConnectionHandler.java" charset="GBK" />
++    <file url="PROJECT" charset="GBK" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.MySaleShow.dao.Impl;\r\n\r\nimport com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.CurrentUser;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.user;\r\nimport com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;\r\n\r\nimport java.sql.*;\r\n\r\n/**\r\n * @version 1.0\r\n * @Author qin\r\n * @Date 2022/5/8 19:39\r\n */\r\npublic class CurrentUserDaoImpl implements CurrentUserDao {\r\n    ResultSet rs=null;\r\n    Statement stmt = null;\r\n    PreparedStatement pstmt = null;\r\n    Connection conn=null;\r\n    /**\r\n     * @description: 登录成功时记录实现接口方法,注意关系表执行有先后不要贪杯\r\n     * @param user: \r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/8 19:48\r\n     */\r\n\r\n    @Override\r\n    public void RegistrationRecord(user user){\r\n        String SQL[]={\"SELECT NOW()\",\"insert into CurrentUser(user_id,user_name,Logintime) values(?,?,?)\"};\r\n        String date = \"\";\r\n        try {\r\n            conn = ConnectionHandler.getConn();\r\n            stmt = conn.createStatement();\r\n            rs = stmt.executeQuery(SQL[0]);\r\n            while(rs.next()){\r\n                System.out.println(rs.getString(1));//测试获取当前时间查询一定会成功因此用while;\r\n                date = rs.getString(1);\r\n            }\r\n            pstmt = conn.prepareStatement(SQL[1]);\r\n            pstmt.setInt(1,user.getUser_id());\r\n            pstmt.setString(2,user.getUser_name());\r\n            pstmt.setString(3,date);\r\n            pstmt.executeUpdate();\r\n            rs.close();\r\n            pstmt.close();\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n    /**\r\n     * @description: 查询当前用户和ID,只要第一行,每次切换用户记得删除该表数据再插入\r\n     * @param : \r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/9 11:56\r\n     */\r\n    \r\n    @Override\r\n    public CurrentUser QueryUser(){\r\n      \r\n        CurrentUser currentUser = new CurrentUser();\r\n        String sql = \"select distinct * from CurrentUser\";\r\n        try {\r\n            conn = ConnectionHandler.getConn();\r\n            stmt = conn.createStatement();\r\n            rs = stmt.executeQuery(sql);\r\n            while(rs.next()){\r\n                System.out.println(rs.getString(1));\r\n                currentUser.setUser_id(rs.getInt(2));\r\n                currentUser.setUser_name(rs.getString(3));\r\n            }\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n        }\r\n        return currentUser;\r\n    }\r\n    /**\r\n     * @description: 简单粗暴删除整个表数据，保证每次登录数据的唯一性\r\n     * @param : \r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/9 19:00\r\n     */\r\n    \r\n    @Override\r\n    public void DelLoginData() {\r\n        String sql = \"delete from CurrentUser\";\r\n        try {\r\n            conn = ConnectionHandler.getConn();\r\n            pstmt = conn.prepareStatement(sql);\r\n            pstmt.executeUpdate();\r\n            pstmt.close();\r\n            ConnectionHandler.closeConnection();\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @description: 测试代码\r\n     * @param args: \r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/8 20:19\r\n     */\r\n    \r\n    public static void main(String[] args) throws SQLException {\r\n        CurrentUserDao test = new CurrentUserDaoImpl();\r\n        test.RegistrationRecord(new user());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java b/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java
+--- a/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java	(date 1652187214283)
+@@ -77,6 +77,7 @@
+     }
+     /**
+      * @description: 简单粗暴删除整个表数据，保证每次登录数据的唯一性
++     * sql2,里的内容分别是，重置主键的ID自动增长初始值
+      * @param : 
+      * @return void
+      * @author: DavidNan
+@@ -85,11 +86,15 @@
+     
+     @Override
+     public void DelLoginData() {
+-        String sql = "delete from CurrentUser";
+         try {
+             conn = ConnectionHandler.getConn();
+-            pstmt = conn.prepareStatement(sql);
+-            pstmt.executeUpdate();
++            String sql2[] ={"delete from CurrentUser","SET @auto_id = 0;",
++                    "UPDATE CurrentUser  SET loginNum = (@auto_id := @auto_id + 1);",
++                    "ALTER TABLE CurrentUser  AUTO_INCREMENT = 1;"};
++            for(String item:sql2){
++                pstmt = conn.prepareStatement(item);
++                pstmt.executeUpdate();
++            }
+             pstmt.close();
+             ConnectionHandler.closeConnection();
+         } catch (SQLException e) {
+Index: src/main/java/com/lanqiao/hamburg/Tools/MyTabbedPaneUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Tools;\r\n\r\nimport javax.swing.UIManager;\r\nimport javax.swing.plaf.basic.BasicTabbedPaneUI;\r\nimport java.awt.Color;\r\nimport java.awt.FontMetrics;\r\nimport java.awt.GradientPaint;\r\nimport java.awt.Graphics;\r\nimport java.awt.Graphics2D;\r\nimport java.awt.Insets;\r\nimport java.awt.Rectangle;\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 工具类，优化JTabbedPane标签\r\n * @date 2022/5/7\r\n */\r\npublic class MyTabbedPaneUI extends BasicTabbedPaneUI {\r\n\r\n    // 不知道是个什么东西，绘制pane时，计算坐标和宽高的方法需要用到，直接从父类拷贝过来的\r\n    private boolean tabsOverlapBorder = UIManager.getBoolean(\"TabbedPane.tabsOverlapBorder\");\r\n\r\n    // 边框和背景的颜色\r\n    private Color SELECT_COLOR = new Color(57, 181, 215);\r\n\r\n    /*// 绘制整个选项卡区域\r\n    @Override\r\n    protected void paintTabArea(Graphics g, int tabPlacement, int selectedIndex) {\r\n        // 如果没有特殊要求，就使用默认的绘制方案\r\n        super.paintTabArea(g, tabPlacement, selectedIndex);\r\n    }*/\r\n\r\n    // 绘制tab页签的边框\r\n    @Override\r\n    protected void paintTabBorder(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {\r\n        // 测试了一下，发现没有边框更好看一点儿\r\n        /*g.setColor(SELECT_COLOR);\r\n        switch (tabPlacement) {\r\n            case LEFT:\r\n                g.drawLine(x, y, x, y + h - 1);\r\n                g.drawLine(x, y, x + w - 1, y);\r\n                g.drawLine(x, y + h - 1, x + w - 1, y + h - 1);\r\n                break;\r\n            case RIGHT:\r\n                g.drawLine(x, y, x + w - 1, y);\r\n                g.drawLine(x, y + h - 1, x + w - 1, y + h - 1);\r\n                g.drawLine(x + w - 1, y, x + w - 1, y + h - 1);\r\n                break;\r\n            case BOTTOM:\r\n                g.drawLine(x, y, x, y + h - 1);\r\n                g.drawLine(x + w - 1, y, x + w - 1, y + h - 1);\r\n                g.drawLine(x, y + h - 1, x + w - 1, y + h - 1);\r\n                break;\r\n            case TOP:\r\n            default:\r\n                g.drawLine(x, y, x, y + h - 1);\r\n                g.drawLine(x, y, x + w - 1, y);\r\n                g.drawLine(x + w - 1, y, x + w - 1, y + h - 1);\r\n        }*/\r\n    }\r\n\r\n    // 绘制选中的选项卡背景色\r\n    @Override\r\n    protected void paintTabBackground(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {\r\n        Graphics2D g2d = (Graphics2D) g;\r\n        GradientPaint gradient;\r\n        switch (tabPlacement) {\r\n            case LEFT:\r\n                if (isSelected) {\r\n                    gradient = new GradientPaint(x + 1, y, SELECT_COLOR, x + w, y, Color.red, true);\r\n                } else {\r\n                    gradient = new GradientPaint(x + 1, y, Color.DARK_GRAY, x + w, y, Color.DARK_GRAY, true);\r\n                }\r\n                g2d.setPaint(gradient);\r\n                g.fillRect(x + 1, y + 1, w - 1, h - 2);\r\n                break;\r\n            case RIGHT:\r\n                if (isSelected) {\r\n                    gradient = new GradientPaint(x + w, y, SELECT_COLOR, x + 1, y, Color.WHITE, true);\r\n                } else {\r\n                    gradient = new GradientPaint(x + w, y, Color.LIGHT_GRAY, x + 1, y, Color.WHITE, true);\r\n                }\r\n                g2d.setPaint(gradient);\r\n                g.fillRect(x, y + 1, w - 1, h - 2);\r\n                break;\r\n            case BOTTOM:\r\n                if (isSelected) {\r\n                    gradient = new GradientPaint(x + 1, y + h, SELECT_COLOR, x + 1, y, Color.WHITE, true);\r\n                } else {\r\n                    gradient = new GradientPaint(x + 1, y + h, Color.LIGHT_GRAY, x + 1, y, Color.WHITE, true);\r\n                }\r\n                g2d.setPaint(gradient);\r\n                g.fillRect(x + 1, y, w - 2, h - 1);\r\n                break;\r\n            case TOP:\r\n            default:\r\n                if (isSelected) {\r\n                    gradient = new GradientPaint(x + 1, y, SELECT_COLOR, x + 1, y + h, Color.WHITE, true);\r\n                } else {\r\n                    gradient = new GradientPaint(x + 1, y, Color.LIGHT_GRAY, x + 1, y + h, Color.WHITE, true);\r\n                }\r\n                g2d.setPaint(gradient);\r\n                g2d.fillRect(x + 1, y + 1, w - 2, h - 1);\r\n        }\r\n\r\n    }\r\n\r\n    // 绘制TabbedPane容器的四周边框样式\r\n    @Override\r\n    protected void paintContentBorder(Graphics g, int tabPlacement, int selectedIndex) {\r\n        // 如果不想要边框，直接重写一个空方法\r\n        // super.paintContentBorder(g, tabPlacement, selectedIndex);\r\n\r\n        // 这些计算坐标和宽高的代码，直接从父类拷贝出来重用即可\r\n        int width = tabPane.getWidth();\r\n        int height = tabPane.getHeight();\r\n        Insets insets = tabPane.getInsets();\r\n        Insets tabAreaInsets = getTabAreaInsets(tabPlacement);\r\n\r\n        int x = insets.left;\r\n        int y = insets.top;\r\n        int w = width - insets.right - insets.left;\r\n        int h = height - insets.top - insets.bottom;\r\n\r\n        switch (tabPlacement) {\r\n            case LEFT:\r\n                x += calculateTabAreaWidth(tabPlacement, runCount, maxTabWidth);\r\n                if (tabsOverlapBorder) {\r\n                    x -= tabAreaInsets.right;\r\n                }\r\n                w -= (x - insets.left);\r\n                break;\r\n            case RIGHT:\r\n                w -= calculateTabAreaWidth(tabPlacement, runCount, maxTabWidth);\r\n                if (tabsOverlapBorder) {\r\n                    w += tabAreaInsets.left;\r\n                }\r\n                break;\r\n            case BOTTOM:\r\n                h -= calculateTabAreaHeight(tabPlacement, runCount, maxTabHeight);\r\n                if (tabsOverlapBorder) {\r\n                    h += tabAreaInsets.top;\r\n                }\r\n                break;\r\n            case TOP:\r\n            default:\r\n                y += calculateTabAreaHeight(tabPlacement, runCount, maxTabHeight);\r\n                if (tabsOverlapBorder) {\r\n                    y -= tabAreaInsets.bottom;\r\n                }\r\n                h -= (y - insets.top);\r\n        }\r\n\r\n        // 四个边框的绘制方法，都自己重写一遍，方便控制颜色和一些特效\r\n        paintContentBorderTopEdge(g, tabPlacement, selectedIndex, x, y, w, h);\r\n        paintContentBorderLeftEdge(g, tabPlacement, selectedIndex, x, y, w, h);\r\n        paintContentBorderBottomEdge(g, tabPlacement, selectedIndex, x, y, w, h);\r\n        paintContentBorderRightEdge(g, tabPlacement, selectedIndex, x, y, w, h);\r\n    }\r\n\r\n    // 绘制容器左侧边框，不是tab，是pane\r\n    // 上下左右，都可以重写方法来绘制，相应的方法：paintContentBorder*Edge()，由paintContentBorder()方法统一调用\r\n    @Override\r\n    protected void paintContentBorderLeftEdge(Graphics g, int tabPlacement, int selectedIndex, int x, int y, int w, int h) {\r\n        /*g.setColor(SELECT_COLOR);\r\n        g.drawLine(x, y, x, y + h - 2);*/\r\n    }\r\n\r\n    @Override\r\n    protected void paintContentBorderTopEdge(Graphics g, int tabPlacement, int selectedIndex, int x, int y, int w, int h) {\r\n        /*g.setColor(SELECT_COLOR);\r\n        g.drawLine(x, y, x + w - 2, y);*/\r\n    }\r\n\r\n    // 右边和下边，这两个需要注意，x + w 和 y + h 已达到边框临界，必须减掉几个数值，否则边框会显示不出来\r\n    @Override\r\n    protected void paintContentBorderRightEdge(Graphics g, int tabPlacement, int selectedIndex, int x, int y, int w, int h) {\r\n       /* g.setColor(SELECT_COLOR);\r\n        g.drawLine(x + w - 1, y, x + w - 1, y + h - 1);*/\r\n    }\r\n\r\n    @Override\r\n    protected void paintContentBorderBottomEdge(Graphics g, int tabPlacement, int selectedIndex, int x, int y, int w, int h) {\r\n        /*g.setColor(SELECT_COLOR);\r\n        g.drawLine(x, y + h - 1, x + w - 1, y + h - 1);*/\r\n    }\r\n\r\n    // 绘制选中某个Tab后，获得焦点的样式\r\n    @Override\r\n    protected void paintFocusIndicator(Graphics g, int tabPlacement, Rectangle[] rects, int tabIndex, Rectangle iconRect, Rectangle textRect, boolean isSelected) {\r\n        // 重写空方法，主要用来去掉虚线\r\n    }\r\n\r\n    // 计算tab页签的宽度\r\n    @Override\r\n    protected int calculateTabWidth(int tabPlacement, int tabIndex, FontMetrics metrics) {\r\n        // 可根据placement来做不同的调整\r\n        return super.calculateTabWidth(tabPlacement, tabIndex, metrics) + 20;\r\n    }\r\n\r\n    // 计算tab页签的高度\r\n    @Override\r\n    protected int calculateTabHeight(int tabPlacement, int tabIndex, int fontHeight) {\r\n        // 可根据placement来做不同的调整\r\n        return super.calculateTabHeight(tabPlacement, tabIndex, fontHeight) + 50;\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Tools/MyTabbedPaneUI.java b/src/main/java/com/lanqiao/hamburg/Tools/MyTabbedPaneUI.java
+--- a/src/main/java/com/lanqiao/hamburg/Tools/MyTabbedPaneUI.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Tools/MyTabbedPaneUI.java	(date 1652187214275)
+@@ -11,9 +11,7 @@
+ import java.awt.Rectangle;
+ 
+ /**
+- * @author Binqing
+- * @类说明 工具类，优化JTabbedPane标签
+- * @date 2022/5/7
++ * 工具类，优化JTabbedPane标签
+  */
+ public class MyTabbedPaneUI extends BasicTabbedPaneUI {
+ 
+Index: src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Created by JFormDesigner on Tue May 03 14:08:50 CST 2022\r\n */\r\n\r\npackage com.lanqiao.hamburg.MySaleShow.controller.Dialog;\r\n\r\nimport com.lanqiao.hamburg.MySaleShow.entity.ShopCar;\r\nimport com.lanqiao.hamburg.MySaleShow.service.Impl.ShopCarServiceImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.service.ShopCarService;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.Connection;\r\nimport java.sql.SQLException;\r\n\r\n/**\r\n * @author unknown\r\n */\r\npublic class ShopCarD extends JDialog {\r\n    static Object k;\r\n    String img=\"\";\r\n    ShopCar shopCar;\r\n    public ShopCarD(ShopCar shopCar,String img) {\r\n        this.shopCar=shopCar;\r\n        this.img=img;\r\n        initComponents();\r\n    }\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        this.setTitle(\"加入购物车\");\r\n        label1 = new JLabel();\r\n        label2 = new JLabel();\r\n        label3 = new JLabel();\r\n        button1 = new JButton();\r\n        button2 = new JButton();\r\n        label4 = new JLabel();\r\n        textField1 = new JTextField();\r\n        textField2 = new JTextField();\r\n        textField3 = new JTextField();\r\n        textField4 = new JTextField();\r\n\r\n        //======== this ========\r\n        var contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"\\u5546\\u54c1ID:\");\r\n        contentPane.add(label1);\r\n        label1.setBounds(new Rectangle(new Point(20, 30), label1.getPreferredSize()));\r\n\r\n        //---- label2 ----\r\n        label2.setText(\"\\u5546\\u54c1\\u540d\\u79f0\\uff1a\");\r\n        contentPane.add(label2);\r\n        label2.setBounds(new Rectangle(new Point(20, 65), label2.getPreferredSize()));\r\n\r\n        //---- label3 ----\r\n        label3.setText(\"数量:\");\r\n        contentPane.add(label3);\r\n        label3.setBounds(new Rectangle(new Point(20, 95), label3.getPreferredSize()));\r\n\r\n        //--- button2---\r\n        button2.setText(\"取消\");\r\n        contentPane.add(button2);\r\n        button2.setBounds(new Rectangle(new Point(190, 175), button2.getPreferredSize()));\r\n        button2.addActionListener(a->{\r\n            this.setVisible(false);\r\n        });\r\n\r\n        ImageIcon image= new ImageIcon(img); //跳出时显示图片\r\n        image.setImage(image.getImage().getScaledInstance(130,100,Image.SCALE_DEFAULT));\r\n        JLabel FoodJL = new JLabel(image);\r\n        this.add(FoodJL);  //????Panel\r\n        FoodJL.setBounds(new Rectangle(new Point(250, 30), FoodJL.getPreferredSize()));\r\n\r\n        //---- button1 ----\r\n        button1.setText(\"\\u786e\\u8ba4\");\r\n        contentPane.add(button1);\r\n        button1.setBounds(new Rectangle(new Point(120, 175), button1.getPreferredSize()));\r\n        button1.addActionListener(a->{\r\n            //添加购物车服务\r\n            ShopCarService shopCarService = new ShopCarServiceImpl();\r\n            try {\r\n                shopCarService.JoinCarService(shopCar,Integer.parseInt(textField3.getText()));\r\n            } catch (SQLException e) {\r\n                e.printStackTrace();\r\n            }\r\n            this.setVisible(false);\r\n        });\r\n        //---- label4 ----\r\n        label4.setText(\"单价:\");\r\n        contentPane.add(label4);\r\n        label4.setBounds(new Rectangle(new Point(20, 120), label4.getPreferredSize()));\r\n        contentPane.add(textField1);\r\n        textField1.setBounds(110, 25, 110, textField1.getPreferredSize().height);\r\n        contentPane.add(textField2);\r\n        textField1.setText(String.valueOf(shopCar.getId()));\r\n        textField2.setBounds(110, 60, 110, textField2.getPreferredSize().height);\r\n        textField2.setText(shopCar.getTitle());\r\n        contentPane.add(textField3);\r\n        textField3.setBounds(110, 95, 110, textField3.getPreferredSize().height);\r\n        contentPane.add(textField4);\r\n        textField3.setText(String.valueOf(shopCar.getNum()));\r\n        textField4.setBounds(110, 130, 110, textField4.getPreferredSize().height);\r\n        textField4.setText(String.valueOf(shopCar.getPrice()));\r\n        contentPane.setPreferredSize(new Dimension(400, 300));\r\n        pack();\r\n        setLocationRelativeTo(getOwner());\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JLabel label1;\r\n    private JLabel label2;\r\n    private JLabel label3;\r\n    private JButton button1;\r\n    private JButton button2;\r\n    private JLabel label4;\r\n    private JTextField textField1;\r\n    private JTextField textField2;\r\n    private JTextField textField3;\r\n    private JTextField textField4;\r\n    Connection conn=null;\r\n    int id=0;\r\n    String name=\"\";\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n    public static void main(String[] args) {\r\n        //-- 测试\r\n        JFrame frame = new JFrame();\r\n        Container container = frame.getContentPane();\r\n        JButton jButton = new JButton();\r\n        jButton.setBounds(10,10,100,20);\r\n        jButton.addActionListener(a->\r\n        {\r\n            new ShopCarD(new ShopCar(),\"\").setVisible(true);\r\n        });\r\n        container.add(jButton);\r\n        frame.setTitle(\"------shopCat-----\");\r\n        frame.pack();\r\n        frame.setVisible(true);\r\n        frame.setBounds(200,200,200,200);\r\n        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java
+--- a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java	(date 1652187214306)
+@@ -76,7 +76,7 @@
+         //---- button1 ----
+         button1.setText("\u786e\u8ba4");
+         contentPane.add(button1);
+-        button1.setBounds(new Rectangle(new Point(120, 175), button1.getPreferredSize()));
++        button1.setBounds(new Rectangle(new Point(100, 175), button1.getPreferredSize()));
+         button1.addActionListener(a->{
+             //添加购物车服务
+             ShopCarService shopCarService = new ShopCarServiceImpl();
+Index: src/main/java/com/lanqiao/hamburg/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg;\r\n\r\nimport com.formdev.flatlaf.FlatDarculaLaf;\r\nimport com.formdev.flatlaf.FlatLightLaf;\r\nimport com.lanqiao.hamburg.Jform.MainForm;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {\r\n        /**\r\n         * 缁欑晫闈㈣\uE195缃\uE1BB富棰�\r\n         */\r\n        //涓婚\uE57D涓�\r\n        //UIManager.setLookAndFeel(\"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel\");\r\n        //涓婚\uE57D浜�\r\n       // UIManager.setLookAndFeel(\"com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel\");\r\n        //涓婚\uE57D涓�\r\n       // UIManager.setLookAndFeel(\"com.sun.java.swing.plaf.windows.WindowsLookAndFeel\");\r\n\r\n        //涓婚\uE57D鍥�\r\n        //UIManager.setLookAndFeel( new FlatLightLaf() );\r\n        //涓婚\uE57D浜旓細榛戣壊\r\n        UIManager.setLookAndFeel( new FlatDarculaLaf() );\r\n        new MainForm().setVisible(true);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Main.java b/src/main/java/com/lanqiao/hamburg/Main.java
+--- a/src/main/java/com/lanqiao/hamburg/Main.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Main.java	(date 1652187214267)
+@@ -1,27 +1,29 @@
+ package com.lanqiao.hamburg;
+ 
+ import com.formdev.flatlaf.FlatDarculaLaf;
+-import com.formdev.flatlaf.FlatLightLaf;
+ import com.lanqiao.hamburg.Jform.MainForm;
++import com.lanqiao.hamburg.Login.Login;
+ 
+ import javax.swing.*;
++import java.sql.SQLException;
+ 
+ public class Main {
+-    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
++    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, SQLException {
+         /**
+-         * 缁欑晫闈㈣缃富棰�
++         * 给界面设置主题
+          */
+-        //涓婚涓�
++        //主题一
+         //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+-        //涓婚浜�
++        //主题二
+        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+-        //涓婚涓�
++        //主题三
+        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+ 
+-        //涓婚鍥�
+-        //UIManager.setLookAndFeel( new FlatLightLaf() );
+-        //涓婚浜旓細榛戣壊
++        //主题四
++       // UIManager.setLookAndFeel( new FlatLightLaf() );
++        //主题五：黑色
+         UIManager.setLookAndFeel( new FlatDarculaLaf() );
+-        new MainForm().setVisible(true);
++        new Login();
++
+     }
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"JavaScriptSettings\">\r\n    <option name=\"languageLevel\" value=\"ES6\" />\r\n  </component>\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/.idea/misc.xml	(date 1652187409227)
+@@ -11,7 +11,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Created by JFormDesigner on Tue May 03 11:00:17 CST 2022\r\n */\r\n\r\npackage com.lanqiao.hamburg.MySaleShow.controller.Panel;\r\n\r\nimport com.lanqiao.hamburg.MySaleShow.controller.Dialog.ShopCarD;\r\nimport com.lanqiao.hamburg.MySaleShow.controller.Frame.ModShopCart;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.Impl.ItemDaoImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.ItemDao;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.Item;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.ShopCar;\r\nimport com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.filechooser.FileSystemView;\r\nimport javax.swing.table.DefaultTableModel;\r\nimport javax.swing.table.TableCellRenderer;\r\nimport javax.swing.table.TableColumn;\r\nimport java.awt.*;\r\nimport java.io.File;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\n\r\n/**\r\n * @author unknown\r\n */\r\npublic class MySalse2 extends JPanel {\r\n\r\n    Frame frame; //传入panel所在容器的Frame窗体对象便于利用panel中的按钮有Frame窗体的控制权\r\n    public MySalse2(Frame frame) throws SQLException {\r\n       this.frame=frame;\r\n        initComponents();\r\n    }\r\n\r\n    private void initComponents() throws SQLException {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        label1 = new JLabel(String.valueOf(JLabel.CENTER));\r\n        scrollPane1 = new JScrollPane();\r\n        scrollPane2 = new JScrollPane();\r\n        table1 = new JTable();\r\n        label2 = new JLabel();\r\n        label4 = new JLabel(\"模糊搜索:\");\r\n        jTextField = new JTextField();\r\n        comboBox1 = new JComboBox();\r\n        button1 = new JButton();\r\n        button2 = new JButton();\r\n        button3 = new JButton();\r\n        button4 = new JButton(\"开始搜索\");\r\n        this.setPreferredSize(new Dimension(815,595));\r\n        //======== this ========\r\n        setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"\\u5929\\u5929\\u83dc\\u5355\");\r\n        add(label1);\r\n        label1.setBounds(new Rectangle(new Point(330,20), label1.getPreferredSize()));\r\n        ItemDao itemDao1 =null;\r\n        itemDao1=new ItemDaoImpl();\r\n\r\n        TableInit(itemDao1.SelectItem());\r\n\r\n        //---- label2 ----\r\n        label2.setText(\"\\u83dc\\u5355\\u5206\\u7c7b\");\r\n        add(label2);\r\n        label2.setBounds(new Rectangle(new Point(15, 380), label2.getPreferredSize()));\r\n        add(comboBox1);\r\n        comboBox1.setBounds(new Rectangle(70,380,80,25));\r\n        comboBox1.addItem(\"全部商品\");\r\n        comboBox1.addItem(\"美味小食\");\r\n        comboBox1.addItem(\"招牌全鸡\");\r\n        comboBox1.addItem(\"超值套餐\");\r\n        comboBox1.addItem(\"缤纷饮品\");\r\n        comboBox1.addItem(\"精选主食\");\r\n        comboBox1.addActionListener(a->{\r\n            String str= String.valueOf(comboBox1.getSelectedItem());\r\n            ItemDao itemDao = new ItemDaoImpl();\r\n            ResultSet rs=null;\r\n            DefaultTableModel tableModel1=null;\r\n            //--参数比对\r\n            if(str.equals(\"全部商品\")){\r\n                System.out.println(\"all\");\r\n                try{\r\n\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectItem());\r\n                } catch (SQLException e) {\r\n                    e.printStackTrace();\r\n                } ;\r\n\r\n\r\n            }else if(str.equals(\"美味小食\")){\r\n                System.out.println(\"DeliciousStaple\");\r\n                try{\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectFoodType(str));\r\n                }catch (SQLException EX){\r\n                    EX.printStackTrace();\r\n                }\r\n            }else if(str.equals(\"招牌全鸡\")){\r\n                System.out.println(\"SignatureWholeChicken\");\r\n                try{\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectFoodType(str));\r\n                }catch (SQLException EX){\r\n                    EX.printStackTrace();\r\n                }\r\n            }else if(str.equals(\"超值套餐\")){\r\n                System.out.println(\"SignaturePackage\");\r\n                try{\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectFoodType(str));\r\n                }catch (SQLException EX){\r\n                    EX.printStackTrace();\r\n                }\r\n            }else if(str.equals(\"缤纷饮品\")){\r\n                System.out.println(\"ColorfulDrinks\");\r\n                try{\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectFoodType(str));\r\n                }catch (SQLException EX){\r\n                    EX.printStackTrace();\r\n                }\r\n            }else{\r\n                System.out.println(\"FeaturedStaples\");\r\n                try{\r\n                    jPanelTable.setVisible(false);\r\n                    ItemDao itemDao2 = new ItemDaoImpl();\r\n                    TableInit(itemDao2.SelectFoodType(str));\r\n                }catch (SQLException EX){\r\n                    EX.printStackTrace();\r\n                }\r\n            }\r\n        });\r\n\r\n        // --- 模糊搜索---\r\n        add(label4);\r\n        label4.setBounds(new Rectangle(new Point(15,420),label4.getPreferredSize()));\r\n        add(jTextField);\r\n        jTextField.setBounds(70,420,90,25);\r\n        add(button4);\r\n        button4.setBounds(new Rectangle(new Point(170,420),button4.getPreferredSize()));\r\n        button4.addActionListener(a->{\r\n            JOptionPane.showMessageDialog(this,\"这个功能还在开发中\",\"警告\",2);\r\n        });\r\n        //---- button1 ----\r\n        button1.setText(\"\\u52a0\\u5165\\u8d2d\\u7269\\u8f66\");\r\n        add(button1);\r\n        button1.setBounds(new Rectangle(new Point(170, 380), button1.getPreferredSize()));\r\n        button1.addActionListener(\r\n                (e)->{\r\n                    int rowNo = table1.getSelectedRow();//获取所选的行号，获取商品展示的全部信息，用于存入购物车表\r\n                    int Id=(int)table1.getValueAt(rowNo, 0);\r\n                    String FoodName=(String)table1.getValueAt(rowNo, 1);\r\n                    Float Price=(Float)table1.getValueAt(rowNo, 2);\r\n                    Float ProPrice=(Float) table1.getValueAt(rowNo, 3);\r\n                    int Sock=(int)table1.getValueAt(rowNo, 4);\r\n                    String Tastes=(String)table1.getValueAt(rowNo, 5);\r\n                    String FoodType=(String)table1.getValueAt(rowNo, 6);\r\n                    //String ImgUrl=(String)table1.getValueAt(rowNo,7); //转换为图片需要Jpanel容器，Jpanel不能转换为String类\r\n                    /* Item item=new Item(id,title,price,description,sales,img_url,FoodType);*/\r\n                    // 分表操作，默认每次行默认数量为1，手动修改数量，colnum初始设为1，事物提交自动增长\r\n                    //new 一个购物车单元对象，存放一个商品的部分信息\r\n                    ShopCar shopCar = new ShopCar();\r\n                    shopCar.setId(Id);\r\n                    shopCar.setPrice(ProPrice);\r\n                    shopCar.setNum(1); //默认数量为1,胃口应该没那么大,可自调\r\n                    shopCar.setTitle(FoodName);\r\n                    ItemDao itemDao = new ItemDaoImpl();\r\n                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true); //加入购物车\r\n                }\r\n        );\r\n\r\n        //---- button2 ----\r\n        button2.setText(\"我的购物车\");\r\n        add(button2);\r\n        button2.setBounds(new Rectangle(new Point(275, 380), button2.getPreferredSize()));\r\n        button2.addActionListener(a->{\r\n            try {\r\n                ModShopCart modShopCar = new ModShopCart();\r\n                modShopCar.setVisible(true);\r\n            } catch (SQLException e) {\r\n                e.printStackTrace();\r\n            }\r\n        });\r\n        //---- button3 ----\r\n        button3.setText(\"退出登录\");\r\n        add(button3);\r\n        button3.setBounds(new Rectangle(new Point(390, 380), button3.getPreferredSize()));\r\n        button3.addActionListener(a->{\r\n            System.out.println(\"--------注销--------\");\r\n            System.out.println(\"清理用户登录信息\");\r\n            //清除当前用户登录信息，每次登录只能有一个用户，加入购物车时支付生成订单和完成订单需要\r\n            // 若遇到多用户登录应用数据表更新脏读，再自己处理\r\n            //获取当前Frame对象--并结束程序进程--下次登录数据表更新\r\n            String sql = \"DELETE FROM currentuser\";\r\n            try {\r\n                conn = ConnectionHandler.getConn();\r\n                PreparedStatement pstmt = conn.prepareStatement(sql);\r\n                pstmt.executeUpdate();\r\n                ConnectionHandler.closeConnection();\r\n                this.frame.setVisible(false);\r\n\r\n            } catch (SQLException e) {\r\n                e.printStackTrace();\r\n            }\r\n\r\n\r\n        });\r\n\r\n        {\r\n            // compute preferred size\r\n            Dimension preferredSize = new Dimension();\r\n            for(int i = 0; i < getComponentCount(); i++) {\r\n                Rectangle bounds = getComponent(i).getBounds();\r\n                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n            }\r\n            Insets insets = getInsets();\r\n            preferredSize.width += insets.right;\r\n            preferredSize.height += insets.bottom;\r\n            setMinimumSize(preferredSize);\r\n            setPreferredSize(preferredSize);\r\n        }\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n    public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {\r\n        //外部提供结果集\r\n        java.util.List<Item> list = new ArrayList<Item>();\r\n\r\n        try {\r\n            while (rs.next()) {\r\n                Item item = new Item();\r\n                item.setId(rs.getInt(1));\r\n                item.setPro_name(rs.getString(4));\r\n                item.setPrice(rs.getFloat(5));\r\n                item.setPrefer_price(rs.getFloat(6));\r\n                item.setStock(rs.getInt(7));\r\n                item.setTaste(rs.getString(10));\r\n                item.setPro_cate(rs.getString(3));\r\n                item.setImg_url(rs.getString(8));\r\n                list.add(item);\r\n            }\r\n        } catch (SQLException throwables) {\r\n            throwables.printStackTrace();\r\n        } finally {\r\n            try {\r\n                rs.close();\r\n                ConnectionHandler.closeConnection();\r\n            } catch (SQLException throwables) {\r\n                throwables.printStackTrace();\r\n            }\r\n\r\n        }\r\n        // 把集合的数据（商品信息）转换成二维数组\r\n        data = new Object[list.size()][head.length];\r\n\r\n        for (int i = 0; i < list.size(); i++) {\r\n            for (int j = 0; j < head.length; j++) {\r\n                data[i][0] = list.get(i).getId();\r\n                data[i][1] = list.get(i).getPro_name();\r\n                data[i][2] = list.get(i).getPrice();\r\n                data[i][3] = list.get(i).getPrefer_price();\r\n                data[i][4] = list.get(i).getStock();\r\n                data[i][5] = list.get(i).getTaste();\r\n                data[i][6] = list.get(i).getPro_cate();\r\n                data[i][7] = TmageFollower(list.get(i).getImg_url()) ; //自行截获数据并根据它生成图片\r\n            }\r\n        }\r\n        return data;\r\n    }\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JLabel label1;\r\n    private JLabel FoodLabel;\r\n    private JLabel FoodJL;\r\n    private JPanel jPanelTable;  //布局用\r\n    private JPanel jPanelButton; //布局用\r\n    private JScrollPane scrollPane1;\r\n    private JScrollPane scrollPane2;  //用于放置多组图片\r\n    private String head[] = {\"id\",\"商品名称\",\"源价\",\"促销价\",\"库存\",\"口味\",\"类型\",\"图片\"};\r\n    private Object[][] data = null;\r\n    private JTable table1;\r\n    private JLabel label2;\r\n    private JTextField jTextField;\r\n    private JLabel label4;\r\n    private JButton button4;\r\n    private JLabel label3;  //图片标题\r\n    private JComboBox comboBox1;\r\n    private JButton button1;\r\n    private JButton button2;\r\n    private JButton button3;\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n    public Connection conn=null;\r\n    private TableColumn column;\r\n\r\n    //本界面显示菜品图片\r\n    public void ShowFood(String FoodUrl){\r\n        JLabel FoodJL;\r\n        ImageIcon image= new ImageIcon(FoodUrl);\r\n        image.setImage(image.getImage().getScaledInstance(100,80,Image.SCALE_DEFAULT));\r\n        FoodJL = new JLabel(image);\r\n        this.add(FoodJL);  //添加进Panel\r\n        FoodJL.setBounds(new Rectangle(new Point(30, 250), FoodJL.getPreferredSize()));\r\n    }\r\n    //调节单元格大小\r\n    public void JTRowSize(JTable table){\r\n        table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);// 以下设置表格列宽\r\n        for (int i = 0; i < 8; i++) {\r\n            column = table.getColumnModel().getColumn(i);\r\n            if (i == 0) {\r\n                column.setPreferredWidth(50);\r\n                table.setRowHeight(50);\r\n            }\r\n        }\r\n    }\r\n    //图片生成器--单元格显示图片\r\n    //参数选择Icon则显示图标\r\n    //参数选择ImageIcon显示图片\r\n    public JPanel TmageFollower(String url){\r\n        JLabel labelA = new JLabel();\r\n        ImageIcon imageIcon = new ImageIcon(url);\r\n        imageIcon.setImage(imageIcon.getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT));\r\n        labelA.setIcon(imageIcon);\r\n        JPanel jPanel = new JPanel();\r\n        jPanel.add(labelA);\r\n        return jPanel;\r\n    }\r\n    //表格生成嵌套工具\r\n    public void TableInit(ResultSet rs) throws SQLException {\r\n        jPanelTable = new JPanel();\r\n        //======== scrollPane1 ========\r\n        {\r\n            scrollPane1.setViewportView(table1);\r\n        }\r\n        jPanelTable.add(scrollPane1);\r\n        scrollPane1.setBounds(10, 45, 800, 320);\r\n        DefaultTableModel tableModel = new DefaultTableModel(getDataFromDatabase(rs), head) {\r\n            public boolean isCellEditable(int row, int column) {\r\n                return false;\r\n            }\r\n        };\r\n        table1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //展示默认列表\r\n        table1.setModel(tableModel);\r\n        JTRowSize(table1);\r\n        table1.getColumnModel().getColumn(7).setCellRenderer(new JTableCellRender());\r\n        this.add(jPanelTable).setVisible(true);\r\n        jPanelTable.setPreferredSize(new Dimension(815,595));\r\n        //======== this ========\r\n        jPanelTable.setLayout(null);\r\n        jPanelTable.setBounds(10,45,800,320);\r\n    }\r\n\r\n    //图标截获器配合生成器使用\r\n\r\n    public static void main(String[] args) throws SQLException {\r\n        // 界面测试\r\n        Frame frame=new Frame(\"MySalesPanel\");\r\n        frame.add(new MySalse2(frame),BorderLayout.CENTER);\r\n        frame.pack();\r\n        frame.setVisible(true);\r\n    }\r\n}\r\n\r\nclass JTableCellRender extends JPanel implements TableCellRenderer {\r\n\r\n    @Override\r\n    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {\r\n        return (JPanel)value;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java
+--- a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java	(date 1652187214296)
+@@ -84,7 +84,6 @@
+             if(str.equals("全部商品")){
+                 System.out.println("all");
+                 try{
+-
+                     jPanelTable.setVisible(false);
+                     ItemDao itemDao2 = new ItemDaoImpl();
+                     TableInit(itemDao2.SelectItem());
+@@ -201,7 +200,7 @@
+             //清除当前用户登录信息，每次登录只能有一个用户，加入购物车时支付生成订单和完成订单需要
+             // 若遇到多用户登录应用数据表更新脏读，再自己处理
+             //获取当前Frame对象--并结束程序进程--下次登录数据表更新
+-            String sql = "DELETE FROM currentuser";
++            String sql = "DELETE FROM CurrentUser";
+             try {
+                 conn = ConnectionHandler.getConn();
+                 PreparedStatement pstmt = conn.prepareStatement(sql);
+@@ -370,6 +369,7 @@
+     }
+ }
+ 
++//表格单元渲染器
+ class JTableCellRender extends JPanel implements TableCellRenderer {
+ 
+     @Override
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"xm\" />\r\n        <module name=\"Hamburg\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/.idea/compiler.xml	(date 1652187214603)
+@@ -11,4 +11,9 @@
+       </profile>
+     </annotationProcessing>
+   </component>
++  <component name="JavacSettings">
++    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
++      <module name="Hamburg" options="-parameters" />
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/com/lanqiao/hamburg/FoodManage/impl/DishesManageImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.FoodManage.impl;\r\n\r\n\r\n\r\nimport com.lanqiao.hamburg.FoodManage.FoodManagePanel;\r\nimport com.lanqiao.hamburg.Interface.dao.DishesManageDAO;\r\nimport com.lanqiao.hamburg.Jform.UpdateItemForm;\r\nimport com.lanqiao.hamburg.Tools.JDBCtil;\r\nimport com.lanqiao.hamburg.entity.Item;\r\nimport javax.swing.*;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.SQLException;\r\n\r\npublic class DishesManageImpl implements DishesManageDAO {\r\n    public JTable table1;\r\n    private JTextField textField1;\r\n    public static UpdateItemForm updateItemForm;\r\n    public DishesManageImpl(JTable table1) {\r\n        this.table1 = table1;\r\n    }\r\n    public DishesManageImpl(JTextField textField1) {\r\n        this.textField1 = textField1;\r\n    }\r\n    public DishesManageImpl(){\r\n    }\r\n    /**\r\n     * @方法说明 修改商品信息，获取表中信息并且传给窗口updateItemForm\r\n     * @author Binqing\r\n     * @date 2022/5/7 22:00\r\n     * @param\r\n     * @return void\r\n     */\r\n\r\n    @Override\r\n    public void modifyDishes() {\r\n        int rowNo = table1.getSelectedRow();//获取所选的行号\r\n        if (rowNo==-1){\r\n            JOptionPane.showMessageDialog(null, \"请选择需要修改的餐品！\");\r\n        }else{\r\n            //获取选中行中的各列信息\r\n            int id=(Integer) table1.getValueAt(rowNo, 0) ;\r\n            String product_id=(String)table1.getValueAt(rowNo, 1);\r\n            String pro_cate=(String) table1.getValueAt(rowNo, 2);\r\n            String pro_name=(String)table1.getValueAt(rowNo, 3);\r\n            float price=(Float) table1.getValueAt(rowNo, 4);\r\n            float prefer_price=(Float) table1.getValueAt(rowNo, 5);\r\n            int stock=(Integer) table1.getValueAt(rowNo, 6);\r\n            String img_url=String.valueOf(table1.getValueAt(rowNo, 7));\r\n            Item item=new Item(id,product_id,pro_cate,pro_name,price,prefer_price,stock,img_url);\r\n            updateItemForm =new UpdateItemForm(item);\r\n            updateItemForm.setVisible(true);\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * @方法说明 与数据库交互删除一条记录\r\n     * @author Binqing\r\n     * @date 2022/5/7 22:01\r\n     * @param\r\n     * @return void\r\n     */\r\n\r\n    @Override\r\n    public void deleteDishes() {\r\n        int rowNo = table1.getSelectedRow();//获取所选的行号\r\n        if (rowNo==-1){\r\n            JOptionPane.showMessageDialog(null, \"请选择需要删除的餐品！\");\r\n        }else{\r\n            int id=(int)table1.getValueAt(rowNo, 0);\r\n            Connection conn=null;\r\n            PreparedStatement pstmt = null;\r\n            String sql = \"DELETE  FROM item WHERE id = ?;\";\r\n            String sql2 = \"ALTER  TABLE  `item` DROP `id`;\";\r\n            String sql3 = \"ALTER  TABLE  `item` ADD id mediumint(6) PRIMARY KEY NOT NULL AUTO_INCREMENT FIRST;\";\r\n\r\n            try {\r\n                conn = JDBCtil.getConnection();\r\n                pstmt = conn.prepareStatement(sql);\r\n                pstmt.setInt(1,id);\r\n                System.out.println(sql);\r\n                pstmt.executeUpdate();\r\n                conn.prepareStatement(sql2).executeUpdate();\r\n                conn.prepareStatement(sql3).executeUpdate();\r\n\r\n                FoodManagePanel.updateTable(0);\r\n\r\n            } catch (SQLException ex) {\r\n                ex.printStackTrace();\r\n            }finally {\r\n                JDBCtil.close(conn,null,pstmt,null);\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void seekDishes() {\r\n\r\n        if (textField1.getText().trim().equals(\"\")){\r\n            JOptionPane.showMessageDialog(null, \"请输入有效信息！\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/DishesManageImpl.java b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/DishesManageImpl.java
+--- a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/DishesManageImpl.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/DishesManageImpl.java	(date 1652187214541)
+@@ -23,22 +23,17 @@
+         this.textField1 = textField1;
+     }
+     public DishesManageImpl(){
+-    }
+-    /**
+-     * @方法说明 修改商品信息，获取表中信息并且传给窗口updateItemForm
+-     * @author Binqing
+-     * @date 2022/5/7 22:00
+-     * @param
+-     * @return void
+-     */
+ 
++    }
+     @Override
+     public void modifyDishes() {
+-        int rowNo = table1.getSelectedRow();//获取所选的行号
++        System.out.println("ִ�е�����");
++        int rowNo = table1.getSelectedRow();//��ȡ��ѡ���к�
++
+         if (rowNo==-1){
+-            JOptionPane.showMessageDialog(null, "请选择需要修改的餐品！");
++            JOptionPane.showMessageDialog(null, "��ѡ����Ҫ�޸ĵĲ�Ʒ��");
+         }else{
+-            //获取选中行中的各列信息
++            //��ȡѡ����
+             int id=(Integer) table1.getValueAt(rowNo, 0) ;
+             String product_id=(String)table1.getValueAt(rowNo, 1);
+             String pro_cate=(String) table1.getValueAt(rowNo, 2);
+@@ -54,19 +49,11 @@
+ 
+     }
+ 
+-    /**
+-     * @方法说明 与数据库交互删除一条记录
+-     * @author Binqing
+-     * @date 2022/5/7 22:01
+-     * @param
+-     * @return void
+-     */
+-
+     @Override
+     public void deleteDishes() {
+-        int rowNo = table1.getSelectedRow();//获取所选的行号
++        int rowNo = table1.getSelectedRow();//��ȡ��ѡ���к�
+         if (rowNo==-1){
+-            JOptionPane.showMessageDialog(null, "请选择需要删除的餐品！");
++            JOptionPane.showMessageDialog(null, "��ѡ����Ҫɾ���Ĳ�Ʒ��");
+         }else{
+             int id=(int)table1.getValueAt(rowNo, 0);
+             Connection conn=null;
+@@ -99,7 +86,7 @@
+     public void seekDishes() {
+ 
+         if (textField1.getText().trim().equals("")){
+-            JOptionPane.showMessageDialog(null, "请输入有效信息！");
++            JOptionPane.showMessageDialog(null, "��������Ч��Ϣ��");
+         }
+     }
+ }
+Index: src/main/java/com/lanqiao/hamburg/Jform/AddItemForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Created by JFormDesigner on Fri May 06 13:19:16 CST 2022\r\n */\r\n\r\npackage com.lanqiao.hamburg.Jform;\r\n\r\nimport com.lanqiao.hamburg.FoodManage.FoodManagePanel;\r\nimport com.lanqiao.hamburg.Tools.JDBCtil;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.SQLException;\r\n\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 新增商品界面\r\n * @date 2022/5/7\r\n */\r\npublic class AddItemForm extends JFrame {\r\n    public AddItemForm() {\r\n        initComponents();\r\n    }\r\n\r\n    /**\r\n     * @方法说明 商品信息填完后，执行刷新，与数据库交互，添加一条记录\r\n     * @author Binqing\r\n     * @date 2022/5/7 21:57\r\n     * @param\r\n     * @return void\r\n     */\r\n\r\n    public void refreshItem(){\r\n\r\n        //只要新增界面没有填完信息，就会提示\r\n        if (textField1.getText().equals(\"\")||(textField2.getText().equals(\"\")||textField4.getText().equals(\"\")||textField6.getText().equals(\"\")\r\n                ||textField7.getText().equals(\"\")||textField8.getText().equals(\"\"))){\r\n            JOptionPane.showMessageDialog(null, \"请填完信息！\");\r\n        }else{\r\n            Connection conn = JDBCtil.getConnection();\r\n            String sql=\"INSERT INTO item VALUES(null,?,?,?,?,0,0,?,?,?,?)\";\r\n            PreparedStatement pstmt= null;\r\n            try {\r\n                pstmt = conn.prepareStatement(sql);\r\n                pstmt.setString(1,textField2.getText());\r\n                pstmt.setString(2,textField7.getText() );\r\n                pstmt.setString(3,textField1.getText());\r\n                pstmt.setFloat(4,Float.valueOf(textField3.getText()));\r\n                pstmt.setString(5,textField4.getText());\r\n                pstmt.setFloat(6,Float.valueOf( textField5.getText()));\r\n                pstmt.setString(7,textField8.getText());\r\n                pstmt.setString(8,textField6.getText());\r\n\r\n                System.out.println(sql);\r\n                pstmt.executeUpdate();\r\n\r\n                JOptionPane.showMessageDialog(null, \"已保存！\");\r\n\r\n                this.dispose();\r\n                FoodManagePanel.updateTable(0);\r\n            } catch (SQLException ex) {\r\n                ex.printStackTrace();\r\n            }finally {\r\n                JDBCtil.close(conn,null,pstmt,null);\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        label1 = new JLabel();\r\n        textField1 = new JTextField();\r\n        label2 = new JLabel();\r\n        textField2 = new JTextField();\r\n        label3 = new JLabel();\r\n        textField3 = new JTextField();\r\n        label4 = new JLabel();\r\n        label5 = new JLabel();\r\n        label6 = new JLabel();\r\n        label7 = new JLabel();\r\n        textField4 = new JTextField();\r\n        label8 = new JLabel();\r\n        textField5 = new JTextField();\r\n        label9 = new JLabel();\r\n        label10 = new JLabel();\r\n        textField6 = new JTextField();\r\n        button1 = new JButton();\r\n        textField7 = new JTextField();\r\n        textField8 = new JTextField();\r\n\r\n\r\n\r\n        //======== this ========\r\n        Container contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"\\u9910\\u54c1\\u7f16\\u53f7\\uff1a\");\r\n        contentPane.add(label1);\r\n        label1.setBounds(new Rectangle(new Point(90, 25), label1.getPreferredSize()));\r\n        contentPane.add(textField1);\r\n        textField1.setBounds(180, 65, 175, textField1.getPreferredSize().height);\r\n        contentPane.add(label2);\r\n        label2.setBounds(new Rectangle(new Point(35, 65), label2.getPreferredSize()));\r\n        contentPane.add(textField2);\r\n        textField2.setBounds(180, 25, 175, textField2.getPreferredSize().height);\r\n\r\n        //---- label3 ----\r\n        label3.setText(\"\\u9910\\u54c1\\u540d\\u79f0\\uff1a\");\r\n        contentPane.add(label3);\r\n        label3.setBounds(new Rectangle(new Point(90, 65), label3.getPreferredSize()));\r\n        contentPane.add(textField3);\r\n        textField3.setBounds(180, 145, 175, textField3.getPreferredSize().height);\r\n\r\n        //---- label4 ----\r\n        label4.setText(\"\\u9910\\u54c1\\u7c7b\\u522b\\uff1a\");\r\n        contentPane.add(label4);\r\n        label4.setBounds(new Rectangle(new Point(90, 105), label4.getPreferredSize()));\r\n\r\n        //---- label5 ----\r\n        label5.setText(\"\\u9910\\u54c1\\u4ef7\\u683c\\uff1a\");\r\n        contentPane.add(label5);\r\n        label5.setBounds(new Rectangle(new Point(90, 145), label5.getPreferredSize()));\r\n        contentPane.add(label6);\r\n        label6.setBounds(new Rectangle(new Point(95, 175), label6.getPreferredSize()));\r\n\r\n        //---- label7 ----\r\n        label7.setText(\"\\u56fe\\u7247\\uff1a\");\r\n        contentPane.add(label7);\r\n        label7.setBounds(new Rectangle(new Point(90, 225), label7.getPreferredSize()));\r\n        contentPane.add(textField4);\r\n        textField4.setBounds(180, 225, 175, textField4.getPreferredSize().height);\r\n\r\n        //---- label8 ----\r\n        label8.setText(\"\\u6210\\u672c\\uff1a\");\r\n        contentPane.add(label8);\r\n        label8.setBounds(new Rectangle(new Point(90, 185), label8.getPreferredSize()));\r\n        contentPane.add(textField5);\r\n        textField5.setBounds(180, 185, 175, textField5.getPreferredSize().height);\r\n\r\n        //---- label9 ----\r\n        label9.setText(\"\\u9910\\u54c1\\u7684\\u53e3\\u5473\\uff1a\");\r\n        contentPane.add(label9);\r\n        label9.setBounds(new Rectangle(new Point(90, 265), label9.getPreferredSize()));\r\n\r\n        //---- label10 ----\r\n        label10.setText(\"\\u9910\\u54c1\\u89c4\\u683c\\uff1a\");\r\n        contentPane.add(label10);\r\n        label10.setBounds(new Rectangle(new Point(90, 305), label10.getPreferredSize()));\r\n        contentPane.add(textField6);\r\n        textField6.setBounds(180, 305, 175, textField6.getPreferredSize().height);\r\n\r\n        //---- button1 ----\r\n        button1.setText(\"保存\");\r\n        contentPane.add(button1);\r\n        button1.setBounds(160, 360, 145, button1.getPreferredSize().height);\r\n        button1.addActionListener(e->{\r\n            refreshItem();\r\n\r\n\r\n        });\r\n        contentPane.add(textField7);\r\n        textField7.setBounds(180, 105, 175, textField7.getPreferredSize().height);\r\n        contentPane.add(textField8);\r\n        textField8.setBounds(180, 265, 175, textField8.getPreferredSize().height);\r\n\r\n        contentPane.setPreferredSize(new Dimension(500, 420));\r\n        pack();\r\n        setTitle(\"新增餐品\");\r\n        setLocationRelativeTo(getOwner());\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JLabel label1;\r\n    private JTextField textField1;\r\n    private JLabel label2;\r\n    private JTextField textField2;\r\n    private JLabel label3;\r\n    private JTextField textField3;\r\n    private JLabel label4;\r\n    private JLabel label5;\r\n    private JLabel label6;\r\n    private JLabel label7;\r\n    private JTextField textField4;\r\n    private JLabel label8;\r\n    private JTextField textField5;\r\n    private JLabel label9;\r\n    private JLabel label10;\r\n    private JTextField textField6;\r\n    private JButton button1;\r\n    private JTextField textField7;\r\n    private JTextField textField8;\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Jform/AddItemForm.java b/src/main/java/com/lanqiao/hamburg/Jform/AddItemForm.java
+--- a/src/main/java/com/lanqiao/hamburg/Jform/AddItemForm.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Jform/AddItemForm.java	(date 1652187214331)
+@@ -4,6 +4,8 @@
+ 
+ package com.lanqiao.hamburg.Jform;
+ 
++
++
+ import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
+ import com.lanqiao.hamburg.Tools.JDBCtil;
+ import javax.swing.*;
+@@ -12,34 +14,27 @@
+ import java.sql.PreparedStatement;
+ import java.sql.SQLException;
+ 
+-
+ /**
+- * @author Binqing
+- * @类说明 新增商品界面
+- * @date 2022/5/7
++ * 添加商品界面
+  */
+ public class AddItemForm extends JFrame {
+     public AddItemForm() {
+         initComponents();
+     }
+ 
+-    /**
+-     * @方法说明 商品信息填完后，执行刷新，与数据库交互，添加一条记录
+-     * @author Binqing
+-     * @date 2022/5/7 21:57
+-     * @param
+-     * @return void
+-     */
+-
+     public void refreshItem(){
+ 
+-        //只要新增界面没有填完信息，就会提示
+         if (textField1.getText().equals("")||(textField2.getText().equals("")||textField4.getText().equals("")||textField6.getText().equals("")
+                 ||textField7.getText().equals("")||textField8.getText().equals(""))){
+             JOptionPane.showMessageDialog(null, "请填完信息！");
++
++
+         }else{
+             Connection conn = JDBCtil.getConnection();
++            //  Statement stmt = null;
+             String sql="INSERT INTO item VALUES(null,?,?,?,?,0,0,?,?,?,?)";
++
++            // String sql = "UPDATE item SET product_name =? , product_category = ? , price = ? , img_url = ?, Preferential_price =? , product_id =?  WHERE id="+item.getId();
+             PreparedStatement pstmt= null;
+             try {
+                 pstmt = conn.prepareStatement(sql);
+@@ -54,17 +49,22 @@
+ 
+                 System.out.println(sql);
+                 pstmt.executeUpdate();
+-
+                 JOptionPane.showMessageDialog(null, "已保存！");
+ 
+                 this.dispose();
+                 FoodManagePanel.updateTable(0);
++
++
+             } catch (SQLException ex) {
+                 ex.printStackTrace();
+             }finally {
+                 JDBCtil.close(conn,null,pstmt,null);
++
+             }
++
++
+         }
++
+     }
+ 
+ 
+@@ -168,7 +168,6 @@
+ 
+         contentPane.setPreferredSize(new Dimension(500, 420));
+         pack();
+-        setTitle("新增餐品");
+         setLocationRelativeTo(getOwner());
+         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+     }
+@@ -194,4 +193,5 @@
+     private JTextField textField7;
+     private JTextField textField8;
+     // JFormDesigner - End of variables declaration  //GEN-END:variables
++
+ }
+Index: src/main/java/com/lanqiao/hamburg/Jform/UpdateItemForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Jform;\r\n\r\nimport com.lanqiao.hamburg.FoodManage.FoodManagePanel;\r\nimport com.lanqiao.hamburg.FoodManage.impl.DishesManageImpl;\r\nimport com.lanqiao.hamburg.Tools.JDBCtil;\r\nimport com.lanqiao.hamburg.entity.Item;\r\n\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.SQLException;\r\n\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 修改餐品界面\r\n * @date 2022/5/7\r\n */\r\npublic class UpdateItemForm extends JFrame {\r\n    Item item;\r\n\r\n    public UpdateItemForm(Item item)  {\r\n        this.item = item;\r\n        initComponents();\r\n    }\r\n\r\n\r\n    /**\r\n     * @方法说明 保存修改后的商品信息，与数据库交互\r\n     * @author Binqing\r\n     * @date 2022/5/7 20:34\r\n     * @param\r\n     * @return void\r\n     */\r\n    public void Savemodify() {\r\n        Connection conn = JDBCtil.getConnection();\r\n        String sql = \"UPDATE item SET product_name =? , product_category = ? , price = ? , img_url = ?, Preferential_price =? , product_id =?  WHERE id=\"+item.getId();\r\n        PreparedStatement pstmt= null;\r\n        try {\r\n            pstmt = conn.prepareStatement(sql);\r\n            pstmt.setString(1,textField2.getText());\r\n            pstmt.setString(2,textField1.getText());\r\n            pstmt.setFloat(3,Float.valueOf(textField3.getText()) );\r\n            pstmt.setString(4,textField4.getText());\r\n            pstmt.setFloat(5,Float.valueOf(textField6.getText()));\r\n            pstmt.setString(6,textField5.getText());\r\n\r\n            pstmt.executeUpdate();\r\n            JOptionPane.showMessageDialog(null, \"已保存！\");\r\n            this.dispose();//调用方法关闭当前窗口\r\n\r\n\r\n            FoodManagePanel.updateTable(0);\r\n        } catch (SQLException ex) {\r\n            ex.printStackTrace();\r\n        }finally {\r\n            JDBCtil.close(conn,null,pstmt,null);\r\n        }\r\n\r\n    }\r\n    private void initComponents() {\r\n        label1 = new JLabel();\r\n        textField1 = new JTextField();\r\n        label2 = new JLabel();\r\n        textField2 = new JTextField();\r\n        label3 = new JLabel();\r\n        textField3 = new JTextField();\r\n        label4 = new JLabel();\r\n        textField4 = new JTextField();\r\n        label5 = new JLabel();\r\n        textField5 = new JTextField();\r\n        label6 = new JLabel();\r\n        textField6 = new JTextField();\r\n        button1 = new JButton();\r\n\r\n        //======== this ========\r\n        JPanel contentPane = (JPanel) getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"餐品总类\");\r\n        contentPane.add(label1);\r\n        label1.setBounds(20, 20, 55, 20);\r\n        contentPane.add(textField1);\r\n        textField1.setBounds(70, 20, 130, 30);\r\n        textField1.setText(item.getPro_cate());\r\n\r\n        //---- label2 ----\r\n        label2.setText(\"餐品名称\");\r\n        contentPane.add(label2);\r\n        label2.setBounds(240, 20, 90, 20);\r\n        contentPane.add(textField2);\r\n        textField2.setBounds(300, 20, 130, 30);\r\n        textField2.setText(item.getPro_name());\r\n\r\n        //---- label3 ----\r\n        label3.setText(\"价格\");\r\n        contentPane.add(label3);\r\n        label3.setBounds(20, 80, 55, 20);\r\n        contentPane.add(textField3);\r\n        textField3.setBounds(70, 80, 130, 30);\r\n        textField3.setText(String.valueOf(item.getPrice()));\r\n\r\n        //---- label4 ----\r\n        label4.setText(\"图片\");\r\n        contentPane.add(label4);\r\n        label4.setBounds(240, 80, 90, 20);\r\n        contentPane.add(textField4);\r\n        textField4.setBounds(300, 80, 130, 30);\r\n        textField4.setText(item.getImg_url());\r\n\r\n        //---- label5 ----\r\n        label5.setText(\"餐品编号\");\r\n        contentPane.add(label5);\r\n        label5.setBounds(20, 140, 55, 20);\r\n        contentPane.add(textField5);\r\n        textField5.setBounds(70, 140, 130, 30);\r\n        textField5.setText(String.valueOf(item.getProduct_id()));\r\n\r\n        //---- label6 ----\r\n        label6.setText(\"优惠价\");\r\n        contentPane.add(label6);\r\n        label6.setBounds(240, 140, 90, 20);\r\n        contentPane.add(textField6);\r\n        textField6.setBounds(300, 140, 130, 30);\r\n        textField6.setText(String.valueOf( item.getPrefer_price()));\r\n\r\n        //---- button1 ----\r\n        button1.setText(\"保存\");\r\n        contentPane.add(button1);\r\n        button1.setBounds(200, 300, 100, 30);\r\n        button1.addActionListener((e)->Savemodify());\r\n        {\r\n            // compute preferred size\r\n            Dimension preferredSize = new Dimension();\r\n            for (int i = 0; i < contentPane.getComponentCount(); i++) {\r\n                Rectangle bounds = contentPane.getComponent(i).getBounds();\r\n                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n            }\r\n            Insets insets = contentPane.getInsets();\r\n            preferredSize.width += insets.right;\r\n            preferredSize.height += insets.bottom;\r\n            contentPane.setMinimumSize(preferredSize);\r\n            contentPane.setPreferredSize(preferredSize);\r\n        }\r\n        //pack();\r\n        setTitle(\"餐品信息修改\");\r\n        setLocationRelativeTo(null);\r\n        this.setBounds(600, 300, 480, 400);\r\n        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n    }\r\n\r\n\r\n\r\n    private JLabel label1;\r\n    private JTextField textField1;\r\n    private JLabel label2;\r\n    private JTextField textField2;\r\n    private JLabel label3;\r\n    private JTextField textField3;\r\n    private JLabel label4;\r\n    private JTextField textField4;\r\n    private JLabel label5;\r\n    private JTextField textField5;\r\n    private JLabel label6;\r\n    private JTextField textField6;\r\n    private JButton button1;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Jform/UpdateItemForm.java b/src/main/java/com/lanqiao/hamburg/Jform/UpdateItemForm.java
+--- a/src/main/java/com/lanqiao/hamburg/Jform/UpdateItemForm.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Jform/UpdateItemForm.java	(date 1652187214322)
+@@ -12,30 +12,21 @@
+ import java.sql.PreparedStatement;
+ import java.sql.SQLException;
+ 
+-
+ /**
+- * @author Binqing
+- * @类说明 修改餐品界面
+- * @date 2022/5/7
++ * 修改餐品界面
+  */
+ public class UpdateItemForm extends JFrame {
+     Item item;
++    //String s = "Hamburg/src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg";
+ 
+     public UpdateItemForm(Item item)  {
+         this.item = item;
+         initComponents();
+     }
+-
+-
+-    /**
+-     * @方法说明 保存修改后的商品信息，与数据库交互
+-     * @author Binqing
+-     * @date 2022/5/7 20:34
+-     * @param
+-     * @return void
+-     */
+     public void Savemodify() {
++       // System.out.println("准备保存");
+         Connection conn = JDBCtil.getConnection();
++        //  Statement stmt = null;
+         String sql = "UPDATE item SET product_name =? , product_category = ? , price = ? , img_url = ?, Preferential_price =? , product_id =?  WHERE id="+item.getId();
+         PreparedStatement pstmt= null;
+         try {
+@@ -47,16 +38,17 @@
+             pstmt.setFloat(5,Float.valueOf(textField6.getText()));
+             pstmt.setString(6,textField5.getText());
+ 
++            System.out.println(sql);
+             pstmt.executeUpdate();
+             JOptionPane.showMessageDialog(null, "已保存！");
+-            this.dispose();//调用方法关闭当前窗口
+-
++            DishesManageImpl.updateItemForm.setVisible(false);
+ 
+             FoodManagePanel.updateTable(0);
+         } catch (SQLException ex) {
+             ex.printStackTrace();
+         }finally {
+             JDBCtil.close(conn,null,pstmt,null);
++
+         }
+ 
+     }
+@@ -132,6 +124,9 @@
+         contentPane.add(button1);
+         button1.setBounds(200, 300, 100, 30);
+         button1.addActionListener((e)->Savemodify());
++
++
++
+         {
+             // compute preferred size
+             Dimension preferredSize = new Dimension();
+@@ -146,9 +141,8 @@
+             contentPane.setMinimumSize(preferredSize);
+             contentPane.setPreferredSize(preferredSize);
+         }
+-        //pack();
+-        setTitle("餐品信息修改");
+-        setLocationRelativeTo(null);
++        pack();
++        setLocationRelativeTo(getOwner());
+         this.setBounds(600, 300, 480, 400);
+         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+     }
+Index: src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Created by JFormDesigner on Fri Apr 29 14:44:50 CST 2022\r\n */\r\npackage com.lanqiao.hamburg.FoodManage;\r\n\r\nimport com.lanqiao.hamburg.FoodManage.impl.DishesManageImpl;\r\nimport com.lanqiao.hamburg.FoodManage.impl.GetDataFromDatabaseImpl;\r\nimport com.lanqiao.hamburg.FoodManage.impl.TableServiceImpl;\r\nimport com.lanqiao.hamburg.Interface.dao.DishesManageDAO;\r\nimport com.lanqiao.hamburg.Jform.AddItemForm;\r\nimport javax.swing.*;\r\nimport javax.swing.table.DefaultTableModel;\r\nimport java.awt.*;\r\n\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 餐品管理标签的面板JPanel\r\n * @date 2022/5/7\r\n */\r\npublic class FoodManagePanel extends JPanel {\r\n    public FoodManagePanel() {\r\n        initComponents();//面板的初始化，加载\r\n    }\r\n\r\n    /**\r\n     * @方法说明 刷新table表格中所显示内容\r\n     * @author Binqing\r\n     * @date 2022/5/7 20:35\r\n     * @param mark\r\n     * 当mark=0，获取数据库item表的全部内容\r\n     * 当mark=1，按照序号id筛选item表内容\r\n     * 当mark=10~15，分别按商品种类：（堡卷主食，炸鸡烤鸡，休闲小吃，超值套餐，特饮，调料）筛选\r\n     * @return void\r\n     */\r\n    public static void updateTable(int mark){\r\n        GetDataFromDatabaseImpl gDFT = null;//\r\n        if (mark>=10&&mark<=15) {\r\n            if (mark == 10) {\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button6.getText());\r\n            }else if (mark==11){\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button1.getText());\r\n\r\n            }else if (mark==12){\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button2.getText());\r\n\r\n            }else if (mark==13){\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button7.getText());\r\n\r\n            }else if (mark==14){\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button3.getText());\r\n\r\n            }else if (mark==15){\r\n                gDFT = new GetDataFromDatabaseImpl(mark, button5.getText());\r\n            }\r\n        }\r\n        if (mark==0){\r\n            gDFT = new GetDataFromDatabaseImpl(mark);\r\n        }\r\n\r\n        if (mark==1){\r\n            int id =Integer.valueOf(textField1.getText());\r\n            gDFT = new GetDataFromDatabaseImpl(mark,id);\r\n        }\r\n\r\n        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);//获取默认表模型，数据和表头\r\n        table1.setModel(model);//把模型传给table1\r\n        new TableServiceImpl().tableOptimize(table1,head);//优化table1\r\n        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());\r\n        scrollPane2.setViewportView(table1);//设置视口视图\r\n    }\r\n\r\n    /**\r\n     * @方法说明 初始化组件\r\n     * @author Binqing\r\n     * @date 2022/5/7 21:00\r\n     * @param\r\n     * @return void\r\n     */\r\n    public void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        GetDataFromDatabaseImpl gDFD = new GetDataFromDatabaseImpl(0);\r\n        scrollPane2 = new JScrollPane();\r\n         model = new DefaultTableModel(gDFD.getDataFromDatabase(), head);\r\n\r\n         table1 = new JTable(model) {\r\n            //重写方法，获取列的类，即：第七列返回的是图标类\r\n            public Class getColumnClass(int column) {\r\n                return (column == 7) ? Icon.class : Object.class;\r\n            }\r\n        };\r\n        button1 = new JButton();\r\n        button2 = new JButton();\r\n        button3 = new JButton();\r\n        button5 = new JButton();\r\n        button6 = new JButton();\r\n        button7 = new JButton();\r\n        textField1 = new JTextField();\r\n        button8 = new JButton();\r\n        button9 = new JButton();\r\n        button10 = new JButton();\r\n        button11 = new JButton();\r\n        button12 = new JButton();\r\n        label2 = new JLabel();\r\n\r\n        //======== this ========\r\n        setLayout(null);\r\n        {\r\n            new TableServiceImpl().tableOptimize(table1,head);\r\n            table1.setPreferredScrollableViewportSize(table1.getPreferredSize());\r\n            scrollPane2.setViewportView(table1);\r\n        }\r\n        add(scrollPane2);\r\n        scrollPane2.setBounds(0, 60, 800, 500);\r\n\r\n        //---- button1 ----\r\n        button1.setText(\"招牌全鸡\");\r\n        add(button1);\r\n        button1.setBounds(new Rectangle(new Point(120, 35), button1.getPreferredSize()));\r\n        button1.addActionListener(e->updateTable(11));\r\n\r\n        //---- button2 ----\r\n        button2.setText(\"美味小食\");\r\n        add(button2);\r\n        button2.setBounds(new Rectangle(new Point(240, 35), button2.getPreferredSize()));\r\n        button2.addActionListener(e->updateTable(12));\r\n\r\n        //---- button3 ----\r\n        button3.setText(\"缤纷饮品\");\r\n        add(button3);\r\n        button3.setBounds(new Rectangle(new Point(480, 35), button3.getPreferredSize()));\r\n        button3.addActionListener(e->updateTable(14));\r\n\r\n        //---- button5 ----\r\n        button5.setText(\"调料\");\r\n        add(button5);\r\n        button5.setBounds(new Rectangle(new Point(600, 35), button5.getPreferredSize()));\r\n        button5.addActionListener(e->updateTable(15));\r\n\r\n        //---- button6 ----\r\n        button6.setText(\"精选主食\");\r\n        add(button6);\r\n        button6.setBounds(new Rectangle(new Point(0, 35), button6.getPreferredSize()));\r\n        button6.addActionListener(e-> updateTable(10));\r\n\r\n        //---- button7 ----\r\n        button7.setText(\"超值套餐\");\r\n        add(button7);\r\n        button7.setBounds(new Rectangle(new Point(360, 35), button7.getPreferredSize()));\r\n        add(textField1);\r\n        textField1.setBounds(115, 600, 155, 28);\r\n        button7.addActionListener(e->updateTable(13));\r\n\r\n        //---- button8 ----\r\n        button8.setText(\"查询\");\r\n        add(button8);\r\n        button8.setBounds(new Rectangle(new Point(300, 600), button8.getPreferredSize()));\r\n        button8.addActionListener(e-> {\r\n            new DishesManageImpl(textField1).seekDishes();\r\n            if (!(textField1.getText().equals(\"\"))){\r\n                updateTable(1);\r\n            }\r\n        });\r\n\r\n        //---- button9 ----\r\n        button9.setText(\"新增\");\r\n        add(button9);\r\n        button9.setBounds(new Rectangle(new Point(500, 600), button9.getPreferredSize()));\r\n        button9.addActionListener(e->new AddItemForm().setVisible(true));\r\n\r\n        //---- button10 ----\r\n        button10.setText(\"删除\");\r\n        add(button10);\r\n        button10.setBounds(new Rectangle(new Point(400, 600), button10.getPreferredSize()));\r\n        button10.addActionListener(e->new DishesManageImpl(table1).deleteDishes());\r\n\r\n        //---- button11 ----\r\n        button11.setText(\"修改\");\r\n        add(button11);\r\n        button11.setBounds(new Rectangle(new Point(600, 600), button11.getPreferredSize()));\r\n        button11.addActionListener(e->{\r\n            DishesManageDAO dml = new DishesManageImpl(table1);\r\n            dml.modifyDishes();\r\n        });\r\n\r\n        //---- button12 ----\r\n        button12.setText(\"显示全部\");\r\n        add(button12);\r\n        button12.setBounds(new Rectangle(new Point(20, 600), button12.getPreferredSize()));\r\n        button12.addActionListener(e-> updateTable(0));\r\n\r\n        //---- label2 ----\r\n        label2.setText(\"是兄弟就来砍我(#^.^#)\");\r\n        label2.setMaximumSize(new Dimension(600, 50));\r\n        Font font=new Font(\"宋体\",Font.BOLD,36);\r\n        label2.setFont(font);\r\n        label2.setForeground(Color.green);\r\n\r\n        add(label2);\r\n        label2.setBounds(240, -5, 600, 50);\r\n        setPreferredSize(new Dimension(815, 595));\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    public static JScrollPane scrollPane2;\r\n    public static String head[] = {\"序号\", \"餐品编号\", \"餐品类别\", \"餐品名称\", \"原价\", \"优惠价\",\"库存\",\"图片\"};\r\n    public static JTable table1;\r\n    public static DefaultTableModel model;\r\n    private static JButton button1;\r\n    private static JButton button2;\r\n    private static JButton button3;\r\n    private static JButton button5;\r\n    private static   JButton button6;\r\n    private static   JButton button7;\r\n    static JTextField textField1;\r\n    private JButton button8;\r\n    private JButton button9;\r\n    private JButton button10;\r\n    private JButton button11;\r\n    private JButton button12;\r\n    private JLabel label2;\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java b/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java
+--- a/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java	(date 1652187214531)
+@@ -12,29 +12,19 @@
+ import javax.swing.table.DefaultTableModel;
+ import java.awt.*;
+ 
+-
+ /**
+- * @author Binqing
+- * @类说明 餐品管理标签的面板JPanel
+- * @date 2022/5/7
++ * ��Ʒ�����ǩ�����JPanel
+  */
+ public class FoodManagePanel extends JPanel {
+     public FoodManagePanel() {
+-        initComponents();//面板的初始化，加载
++        initComponents();//���ĳ�ʼ��������
+     }
+ 
+     /**
+-     * @方法说明 刷新table表格中所显示内容
+-     * @author Binqing
+-     * @date 2022/5/7 20:35
+-     * @param mark
+-     * 当mark=0，获取数据库item表的全部内容
+-     * 当mark=1，按照序号id筛选item表内容
+-     * 当mark=10~15，分别按商品种类：（堡卷主食，炸鸡烤鸡，休闲小吃，超值套餐，特饮，调料）筛选
+-     * @return void
++     * ����table����ʾ����
+      */
+     public static void updateTable(int mark){
+-        GetDataFromDatabaseImpl gDFT = null;//
++        GetDataFromDatabaseImpl gDFT = null;
+         if (mark>=10&&mark<=15) {
+             if (mark == 10) {
+                 gDFT = new GetDataFromDatabaseImpl(mark, button6.getText());
+@@ -52,41 +42,36 @@
+ 
+             }else if (mark==15){
+                 gDFT = new GetDataFromDatabaseImpl(mark, button5.getText());
++
+             }
+         }
+         if (mark==0){
+             gDFT = new GetDataFromDatabaseImpl(mark);
+         }
+-
+         if (mark==1){
+-            int id =Integer.valueOf(textField1.getText());
++            int id =Integer.valueOf(textField1.getText()) ;
+             gDFT = new GetDataFromDatabaseImpl(mark,id);
+         }
++        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);
++        table1.setModel(model);
+ 
+-        model = new DefaultTableModel(gDFT.getDataFromDatabase(),head);//获取默认表模型，数据和表头
+-        table1.setModel(model);//把模型传给table1
+-        new TableServiceImpl().tableOptimize(table1,head);//优化table1
++        new TableServiceImpl().tableOptimize(table1,head);
+         table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
+-        scrollPane2.setViewportView(table1);//设置视口视图
++        scrollPane2.setViewportView(table1);
+     }
+ 
+     /**
+-     * @方法说明 初始化组件
+-     * @author Binqing
+-     * @date 2022/5/7 21:00
+-     * @param
+-     * @return void
++     * ��ʼ��Panel
+      */
+     public void initComponents() {
+         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
++
+         GetDataFromDatabaseImpl gDFD = new GetDataFromDatabaseImpl(0);
+         scrollPane2 = new JScrollPane();
+          model = new DefaultTableModel(gDFD.getDataFromDatabase(), head);
+-
+          table1 = new JTable(model) {
+-            //重写方法，获取列的类，即：第七列返回的是图标类
+             public Class getColumnClass(int column) {
+-                return (column == 7) ? Icon.class : Object.class;
++                return (column == 7) ? Icon.class : Object.class;//��д������ָ���ڰ���ΪͼƬ����
+             }
+         };
+         button1 = new JButton();
+@@ -114,37 +99,37 @@
+         scrollPane2.setBounds(0, 60, 800, 500);
+ 
+         //---- button1 ----
+-        button1.setText("招牌全鸡");
++        button1.setText("ը������");
+         add(button1);
+         button1.setBounds(new Rectangle(new Point(120, 35), button1.getPreferredSize()));
+         button1.addActionListener(e->updateTable(11));
+ 
+         //---- button2 ----
+-        button2.setText("美味小食");
++        button2.setText("����С��");
+         add(button2);
+         button2.setBounds(new Rectangle(new Point(240, 35), button2.getPreferredSize()));
+         button2.addActionListener(e->updateTable(12));
+ 
+         //---- button3 ----
+-        button3.setText("缤纷饮品");
++        button3.setText("����");
+         add(button3);
+         button3.setBounds(new Rectangle(new Point(480, 35), button3.getPreferredSize()));
+         button3.addActionListener(e->updateTable(14));
+ 
+         //---- button5 ----
+-        button5.setText("调料");
++        button5.setText("����");
+         add(button5);
+         button5.setBounds(new Rectangle(new Point(600, 35), button5.getPreferredSize()));
+         button5.addActionListener(e->updateTable(15));
+ 
+         //---- button6 ----
+-        button6.setText("精选主食");
++        button6.setText("������ʳ");
+         add(button6);
+         button6.setBounds(new Rectangle(new Point(0, 35), button6.getPreferredSize()));
+         button6.addActionListener(e-> updateTable(10));
+ 
+         //---- button7 ----
+-        button7.setText("超值套餐");
++        button7.setText("��ֵ�ײ�");
+         add(button7);
+         button7.setBounds(new Rectangle(new Point(360, 35), button7.getPreferredSize()));
+         add(textField1);
+@@ -152,7 +137,7 @@
+         button7.addActionListener(e->updateTable(13));
+ 
+         //---- button8 ----
+-        button8.setText("查询");
++        button8.setText("��ѯ");
+         add(button8);
+         button8.setBounds(new Rectangle(new Point(300, 600), button8.getPreferredSize()));
+         button8.addActionListener(e-> {
+@@ -163,19 +148,19 @@
+         });
+ 
+         //---- button9 ----
+-        button9.setText("新增");
++        button9.setText("����");
+         add(button9);
+         button9.setBounds(new Rectangle(new Point(500, 600), button9.getPreferredSize()));
+         button9.addActionListener(e->new AddItemForm().setVisible(true));
+ 
+         //---- button10 ----
+-        button10.setText("删除");
++        button10.setText("ɾ��");
+         add(button10);
+         button10.setBounds(new Rectangle(new Point(400, 600), button10.getPreferredSize()));
+         button10.addActionListener(e->new DishesManageImpl(table1).deleteDishes());
+ 
+         //---- button11 ----
+-        button11.setText("修改");
++        button11.setText("�޸�");
+         add(button11);
+         button11.setBounds(new Rectangle(new Point(600, 600), button11.getPreferredSize()));
+         button11.addActionListener(e->{
+@@ -184,15 +169,15 @@
+         });
+ 
+         //---- button12 ----
+-        button12.setText("显示全部");
++        button12.setText("��ʾȫ��");
+         add(button12);
+         button12.setBounds(new Rectangle(new Point(20, 600), button12.getPreferredSize()));
+         button12.addActionListener(e-> updateTable(0));
+ 
+         //---- label2 ----
+-        label2.setText("是兄弟就来砍我(#^.^#)");
++        label2.setText("���ֵܾ�������(#^.^#)");
+         label2.setMaximumSize(new Dimension(600, 50));
+-        Font font=new Font("宋体",Font.BOLD,36);
++        Font font=new Font("����",Font.BOLD,36);
+         label2.setFont(font);
+         label2.setForeground(Color.green);
+ 
+@@ -203,7 +188,7 @@
+     }
+     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+     public static JScrollPane scrollPane2;
+-    public static String head[] = {"序号", "餐品编号", "餐品类别", "餐品名称", "原价", "优惠价","库存","图片"};
++    public static String head[] = {"���", "��Ʒ���", "��Ʒ���", "��Ʒ����", "ԭ��", "�Żݼ�","���","ͼƬ"};
+     public static JTable table1;
+     public static DefaultTableModel model;
+     private static JButton button1;
+Index: src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.MySaleShow.service.Impl;\r\n\r\nimport com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.Impl.UserDaoImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.ShopCarDao;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.UserDao;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.ShopCar;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.user;\r\nimport com.lanqiao.hamburg.MySaleShow.service.LoginService;\r\nimport com.lanqiao.hamburg.entity.User;\r\n\r\nimport java.sql.SQLException;\r\n\r\n/**\r\n * @version 1.0\r\n * @Author qin\r\n * @Date 2022/5/8 19:34\r\n */\r\npublic class LoginServiceImpl implements LoginService {\r\n    /**\r\n     * @description: 执行登录的查询比对与成功登录后记录登录数据的业务\r\n     * @param user: 传入在控制器被更新的user，获取在控制器截获的表单数据\r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/8 20:52\r\n     */\r\n\r\n    @Override\r\n    public int LoginAndRecord(user user) throws SQLException {\r\n        UserDao userDao = new UserDaoImpl();\r\n        CurrentUserDao currentUserDao = new CurrentUserDaoImpl();\r\n        user TestUser = userDao.LoginSelect(user);\r\n        currentUserDao.RegistrationRecord(TestUser);\r\n        if(TestUser.getUser_id()==0){\r\n            return 0; //说明userDaoImpl执行的返回user表未更新ID,即默认为0\r\n        }\r\n        System.out.println(\"恭喜\" + TestUser.getUser_name() + \"先生成功登录\");\r\n        return 1;  //成功登录\r\n    }\r\n\r\n    /**\r\n     * @description: 用户注册板块业务，判断有误用户有则拿出来ID加1，无则默认ID为1\r\n     * @param :传入的user由密码文本域提供\r\n     * @return void\r\n     * @author: DavidNan\r\n     * @date: 2022/5/10 11:04\r\n     */\r\n    @Override\r\n    public void RegisteredUser(user user) {\r\n        UserDao userDao = new UserDaoImpl();\r\n        int id = 1;  //默认为1若查询到有用户再设置\r\n        if((userDao.SelectEndID().getUser_id())!=0){\r\n            id=userDao.SelectEndID().getUser_id()+1; //获取最后一位用户并加1\r\n        }\r\n        user.setUser_id(id); //更新user的id\r\n        userDao.register(user); //参数为在文本域获取用户名和密码设置在user的对象\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java b/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java
+--- a/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/LoginServiceImpl.java	(date 1652187214280)
+@@ -20,7 +20,7 @@
+ public class LoginServiceImpl implements LoginService {
+     /**
+      * @description: 执行登录的查询比对与成功登录后记录登录数据的业务
+-     * @param user: 传入在控制器被更新的user，获取在控制器截获的表单数据
++     * @param user: 传入在控制器被更新的user，获取在控制器截获的表单数据,不成功则返回0
+      * @return void
+      * @author: DavidNan
+      * @date: 2022/5/8 20:52
+Index: src/main/java/com/lanqiao/hamburg/Interface/dao/GetDataFromDatabaseDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Interface.dao;\r\n\r\n\r\n/**\r\n * 从数据库读取数据的接口\r\n */\r\npublic interface GetDataFromDatabaseDAO {\r\n\r\n    Object[][] getDataFromDatabase();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Interface/dao/GetDataFromDatabaseDAO.java b/src/main/java/com/lanqiao/hamburg/Interface/dao/GetDataFromDatabaseDAO.java
+--- a/src/main/java/com/lanqiao/hamburg/Interface/dao/GetDataFromDatabaseDAO.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Interface/dao/GetDataFromDatabaseDAO.java	(date 1652187214339)
+@@ -2,7 +2,7 @@
+ 
+ 
+ /**
+- * 从数据库读取数据的接口
++ * 从数据库读取数据接口
+  */
+ public interface GetDataFromDatabaseDAO {
+ 
+Index: src/main/java/com/lanqiao/hamburg/Interface/service/TableService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Interface.service;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.table.DefaultTableModel;\r\n\r\npublic interface TableService {\r\n\r\n    //表的优化\r\n    void tableOptimize(JTable table1, String[] head);\r\n\r\n   // void updataTable(JTable table1,DefaultTableModel model,JScrollPane scrollPane2);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Interface/service/TableService.java b/src/main/java/com/lanqiao/hamburg/Interface/service/TableService.java
+--- a/src/main/java/com/lanqiao/hamburg/Interface/service/TableService.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Interface/service/TableService.java	(date 1652187214335)
+@@ -5,7 +5,6 @@
+ 
+ public interface TableService {
+ 
+-    //表的优化
+     void tableOptimize(JTable table1, String[] head);
+ 
+    // void updataTable(JTable table1,DefaultTableModel model,JScrollPane scrollPane2);
+Index: src/main/java/com/lanqiao/hamburg/Login/Login.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Login;\r\n\r\nimport com.lanqiao.hamburg.Jform.MainForm;\r\nimport java.awt.*;\r\nimport java.sql.*;\r\nimport javax.swing.*;\r\n/*\r\n * Created by JFormDesigner on Sat Apr 30 14:48:59 CST 2022\r\n */\r\n\r\n\r\n\r\n/**\r\n * @author 1\r\n */\r\npublic class Login extends JFrame {\r\n\r\n    public Login() {\r\n        initComponents();\r\n    }\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        label1 = new JLabel();\r\n        label2 = new JLabel();\r\n        label3 = new JLabel();\r\n        textField2 = new JTextField();\r\n        label4 = new JLabel();\r\n        textField3 = new JTextField();\r\n        button1 = new JButton();\r\n\r\n        //======== this ========\r\n        Container contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"\\u5929\\u5929\\u534e\\u83b1\\u58eb\");\r\n        contentPane.add(label1);\r\n        label1.setBounds(new Rectangle(new Point(165, 35), label1.getPreferredSize()));\r\n        contentPane.add(label2);\r\n        label2.setBounds(new Rectangle(new Point(150, 75), label2.getPreferredSize()));\r\n\r\n        //---- label3 ----\r\n        label3.setText(\"\\u7528\\u6237\\u540d\");\r\n        contentPane.add(label3);\r\n        label3.setBounds(new Rectangle(new Point(130, 85), label3.getPreferredSize()));\r\n        contentPane.add(textField2);\r\n        textField2.setBounds(180, 80, 95, textField2.getPreferredSize().height);\r\n\r\n        //---- label4 ----\r\n        label4.setText(\"\\u5bc6   \\u7801\");\r\n        contentPane.add(label4);\r\n        label4.setBounds(new Rectangle(new Point(130, 135), label4.getPreferredSize()));\r\n        contentPane.add(textField3);\r\n        textField3.setBounds(180, 130, 95, textField3.getPreferredSize().height);\r\n\r\n        //---- button1 ----\r\n        button1.setText(\"\\u767b\\u5165\");\r\n        contentPane.add(button1);\r\n        button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));\r\n        button1.addActionListener(\r\n                (e)->{\r\n/*\r\n                    瀹炵幇鐧诲綍\r\n                    1銆佸厛鎷垮埌鐧诲綍鐣岄潰鐨勭敤鎴峰悕鍜屽瘑鐮�\r\n                    2銆佸幓鏁版嵁搴撴瘮瀵圭敤鎴峰悕鍜屽瘑鐮�\r\n                    灏辨槸鍘绘墽琛屼竴鏉\uE4D9QL璇\uE15E彞锛屼絾鏄\uE21B槸浠�涔堟牱鐨凷QL璇\uE15E彞鍛\uE76E紵\r\n                     */\r\n                    String username = textField2.getText();\r\n                    String password = textField3.getText();\r\n\r\n                    String sql = \"SELECT * FROM user WHERE user_name='\" + username + \"' AND user_key='\" + password + \"'\";\r\n                    System.out.println(sql);\r\n\r\n                    /*\r\n                    1銆佽繛鎺ユ暟鎹\uE1BC簱锛堟坊鍔爉ysql鐨刴aven渚濊禆锛�\r\n                    2銆佹墽琛孲QL璇\uE15E彞锛岄獙璇佺敤鎴峰悕鍜屽瘑鐮�\r\n                     */\r\n                    Connection conn = null;\r\n                    String user = \"root\";\r\n                    String dbPassword = \"Binqing31\";\r\n                    String url = \"jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true\";\r\n\r\n                    Statement statement = null;//璇\uE15E彞瀵硅薄\r\n                    ResultSet rs = null;//缁撴灉闆嗭細娓告爣锛堣櫄鎷熺殑鎸囬拡锛�\r\n\r\n                    try {\r\n                        conn = DriverManager.getConnection(url, user, dbPassword);\r\n                        System.out.println(conn);\r\n\r\n                        statement = conn.createStatement();\r\n                        rs = statement.executeQuery(sql);//鍒氬垰鎵ц\uE511瀹屾煡璇㈢殑鏃跺�欙紝娓告爣涓嶆寚鍚戜换浣曡\uE187褰�\r\n\r\n                        // 濡備綍鍒ゆ柇鐢ㄦ埛鍚嶅拰瀵嗙爜鏄\uE21A惁姝ｇ‘锛�\r\n                        if (rs.next()) {\r\n                            //鐧诲叆鎴愬姛鎵撳紑涓荤晫闈�\r\n                            System.out.println(\"鐧诲綍鎴愬姛\");\r\n                            new MainForm().setVisible(true);\r\n                            login.setVisible(false);\r\n                        } else {\r\n                            System.out.println(\"鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒\uE1E4\");\r\n                        }\r\n                    } catch (SQLException ex) {\r\n                        ex.printStackTrace();\r\n                    }\r\n\r\n\r\n                }\r\n        );\r\n\r\n        {\r\n            // compute preferred size\r\n            Dimension preferredSize = new Dimension();\r\n            for(int i = 0; i < contentPane.getComponentCount(); i++) {\r\n                Rectangle bounds = contentPane.getComponent(i).getBounds();\r\n                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n            }\r\n            Insets insets = contentPane.getInsets();\r\n            preferredSize.width += insets.right;\r\n            preferredSize.height += insets.bottom;\r\n            contentPane.setMinimumSize(preferredSize);\r\n            contentPane.setPreferredSize(preferredSize);\r\n        }\r\n        pack();\r\n        setLocationRelativeTo(getOwner());\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n        setBounds(750, 350, 400, 300);\r\n\r\n        setResizable(false);\r\n\r\n    }\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JLabel label1;\r\n    private JLabel label2;\r\n    private JLabel label3;\r\n    private JTextField textField2;\r\n    private JLabel label4;\r\n    private JTextField textField3;\r\n    private JButton button1;\r\n    static Login login=new Login();\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n  /*  public static void main(String[] args) {\r\n        login.setVisible(true);\r\n    }*/\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Login/Login.java b/src/main/java/com/lanqiao/hamburg/Login/Login.java
+--- a/src/main/java/com/lanqiao/hamburg/Login/Login.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Login/Login.java	(date 1652187214309)
+@@ -1,6 +1,12 @@
+ package com.lanqiao.hamburg.Login;
+ 
+ import com.lanqiao.hamburg.Jform.MainForm;
++import com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;
++import com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;
++import com.lanqiao.hamburg.MySaleShow.entity.user;
++import com.lanqiao.hamburg.MySaleShow.service.Impl.LoginServiceImpl;
++import com.lanqiao.hamburg.MySaleShow.service.LoginService;
++
+ import java.awt.*;
+ import java.sql.*;
+ import javax.swing.*;
+@@ -22,128 +28,99 @@
+     private void initComponents() {
+         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+         label1 = new JLabel();
++        textField1 = new JTextField("tongxin");
+         label2 = new JLabel();
+-        label3 = new JLabel();
+-        textField2 = new JTextField();
+-        label4 = new JLabel();
+-        textField3 = new JTextField();
++        textField2 = new JTextField("123456");
+         button1 = new JButton();
++        button2 = new JButton();
++        button3 = new JButton();
+ 
+         //======== this ========
+-        Container contentPane = getContentPane();
++        var contentPane = getContentPane();
+         contentPane.setLayout(null);
+ 
+         //---- label1 ----
+-        label1.setText("\u5929\u5929\u534e\u83b1\u58eb");
++        label1.setText("\u7528\u6237\u540d\uff1a");
+         contentPane.add(label1);
+-        label1.setBounds(new Rectangle(new Point(165, 35), label1.getPreferredSize()));
++        label1.setBounds(new Rectangle(new Point(115, 90), label1.getPreferredSize()));
++        contentPane.add(textField1);
++        textField1.setBounds(185, 85, 100, textField1.getPreferredSize().height);
++
++        //---- label2 ----
++        label2.setText("\u5bc6\u7801\uff1a");
+         contentPane.add(label2);
+-        label2.setBounds(new Rectangle(new Point(150, 75), label2.getPreferredSize()));
+-
+-        //---- label3 ----
+-        label3.setText("\u7528\u6237\u540d");
+-        contentPane.add(label3);
+-        label3.setBounds(new Rectangle(new Point(130, 85), label3.getPreferredSize()));
++        label2.setBounds(new Rectangle(new Point(120, 125), label2.getPreferredSize()));
+         contentPane.add(textField2);
+-        textField2.setBounds(180, 80, 95, textField2.getPreferredSize().height);
+-
+-        //---- label4 ----
+-        label4.setText("\u5bc6   \u7801");
+-        contentPane.add(label4);
+-        label4.setBounds(new Rectangle(new Point(130, 135), label4.getPreferredSize()));
+-        contentPane.add(textField3);
+-        textField3.setBounds(180, 130, 95, textField3.getPreferredSize().height);
++        textField2.setBounds(185, 120, 100, textField2.getPreferredSize().height);
+ 
+         //---- button1 ----
+-        button1.setText("\u767b\u5165");
+-        contentPane.add(button1);
+-        button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));
+         button1.addActionListener(
+-                (e)->{
+-/*
+-                    瀹炵幇鐧诲綍
+-                    1銆佸厛鎷垮埌鐧诲綍鐣岄潰鐨勭敤鎴峰悕鍜屽瘑鐮�
+-                    2銆佸幓鏁版嵁搴撴瘮瀵圭敤鎴峰悕鍜屽瘑鐮�
+-                    灏辨槸鍘绘墽琛屼竴鏉QL璇彞锛屼絾鏄槸浠�涔堟牱鐨凷QL璇彞鍛紵
+-                     */
+-                    String username = textField2.getText();
+-                    String password = textField3.getText();
+-
+-                    String sql = "SELECT * FROM user WHERE user_name='" + username + "' AND user_key='" + password + "'";
+-                    System.out.println(sql);
+-
+-                    /*
+-                    1銆佽繛鎺ユ暟鎹簱锛堟坊鍔爉ysql鐨刴aven渚濊禆锛�
+-                    2銆佹墽琛孲QL璇彞锛岄獙璇佺敤鎴峰悕鍜屽瘑鐮�
+-                     */
+-                    Connection conn = null;
+-                    String user = "root";
+-                    String dbPassword = "Binqing31";
+-                    String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+-
+-                    Statement statement = null;//璇彞瀵硅薄
+-                    ResultSet rs = null;//缁撴灉闆嗭細娓告爣锛堣櫄鎷熺殑鎸囬拡锛�
+-
++                (e) -> {
++                    String username = textField1.getText();
++                    String password = textField2.getText();
++                    LoginService loginService = new LoginServiceImpl();
+                     try {
+-                        conn = DriverManager.getConnection(url, user, dbPassword);
+-                        System.out.println(conn);
+-
+-                        statement = conn.createStatement();
+-                        rs = statement.executeQuery(sql);//鍒氬垰鎵ц瀹屾煡璇㈢殑鏃跺�欙紝娓告爣涓嶆寚鍚戜换浣曡褰�
+-
+-                        // 濡備綍鍒ゆ柇鐢ㄦ埛鍚嶅拰瀵嗙爜鏄惁姝ｇ‘锛�
+-                        if (rs.next()) {
+-                            //鐧诲叆鎴愬姛鎵撳紑涓荤晫闈�
+-                            System.out.println("鐧诲綍鎴愬姛");
++                        user user = new user();
++                        user.setUser_name(username);
++                        user.setUser_key(password);   // 更新临时user表
++                        //删除先前用户--多用户登录时可能会出问题，主要是数据表会自动提交时出现，算了出bug再说
++                        CurrentUserDao cud = new CurrentUserDaoImpl();
++                        if((cud.QueryUser().getUser_name())!=null){
++                            //如果当前用户表内存在数据，则删除所有
++                            cud.DelLoginData();
++                        }
++                        if(loginService.LoginAndRecord(user)==1){ // 启动登录与记录服务)
++                            JOptionPane.showMessageDialog(this,"恭喜"+username+"成功登录","提示",JOptionPane.PLAIN_MESSAGE);
+                             new MainForm().setVisible(true);
+-                            login.setVisible(false);
+-                        } else {
+-                            System.out.println("鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒");
++                            this.setVisible(false);
++                        }else {
++                            JOptionPane.showMessageDialog(this,"用户名错误或密码错误","警告",2);
+                         }
++
+                     } catch (SQLException ex) {
+                         ex.printStackTrace();
+                     }
+ 
+-
+                 }
+         );
++        button1.setText("\u767b\u5f55");
++        contentPane.add(button1);
++        button1.setBounds(new Rectangle(new Point(90, 185), button1.getPreferredSize()));
+ 
+-        {
+-            // compute preferred size
+-            Dimension preferredSize = new Dimension();
+-            for(int i = 0; i < contentPane.getComponentCount(); i++) {
+-                Rectangle bounds = contentPane.getComponent(i).getBounds();
+-                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+-                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+-            }
+-            Insets insets = contentPane.getInsets();
+-            preferredSize.width += insets.right;
+-            preferredSize.height += insets.bottom;
+-            contentPane.setMinimumSize(preferredSize);
+-            contentPane.setPreferredSize(preferredSize);
+-        }
++        //---- 注册-----
++        button2.setText("注册");
++        contentPane.add(button2);
++        button2.setBounds(new Rectangle(new Point(170,185),button2.getPreferredSize()));
++        button2.addActionListener(a->{
++            JOptionPane.showMessageDialog(this,"联系管理员DavidNan:2926594808@qq.com","温馨提示",2);
++        });
++
++        //--- 忘记密码----
++        button3.setText("忘记密码");
++        contentPane.add(button3);
++        button3.setBounds(new Rectangle(new Point(260,185),button3.getPreferredSize()));
++        button3.addActionListener(a->{
++            JOptionPane.showMessageDialog(this,"联系管理员DavidNan:2926594808@qq.com","温馨提示",2);
++        });
++
++        contentPane.setPreferredSize(new Dimension(400, 300));
+         pack();
+         setLocationRelativeTo(getOwner());
+-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
+-        setBounds(750, 350, 400, 300);
+-
+-        setResizable(false);
+-
++        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++        this.setResizable(false);
++        this.setVisible(true);//设置组件可见
+     }
+ 
+-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+     private JLabel label1;
++    private JTextField textField1;
+     private JLabel label2;
+-    private JLabel label3;
+     private JTextField textField2;
+-    private JLabel label4;
+-    private JTextField textField3;
+     private JButton button1;
+-    static Login login=new Login();
+-    // JFormDesigner - End of variables declaration  //GEN-END:variables
+-  /*  public static void main(String[] args) {
+-        login.setVisible(true);
+-    }*/
++    private JButton button2; //注册
++    private JButton button3; //忘记密码
+ 
+-
++    public static void main(String[] args) {
++        new Login();
++    }
++    
+ }
+Index: src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.MySaleShow.controller;\r\n\r\nimport com.lanqiao.hamburg.MySaleShow.controller.Frame.MainForm;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;\r\nimport com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.entity.user;\r\nimport com.lanqiao.hamburg.MySaleShow.service.Impl.LoginServiceImpl;\r\nimport com.lanqiao.hamburg.MySaleShow.service.LoginService;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.SQLException;\r\n/*\r\n * Created by JFormDesigner on Sat Apr 02 15:41:52 CST 2022\r\n */\r\n\r\n\r\n/**\r\n * @author 1\r\n */\r\npublic class MyLogin extends JFrame {\r\n    public MyLogin() {\r\n        initComponents();\r\n    }\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        label1 = new JLabel();\r\n        textField1 = new JTextField(\"tongxin\");\r\n        label2 = new JLabel();\r\n        textField2 = new JTextField(\"123456\");\r\n        button1 = new JButton();\r\n\r\n        //======== this ========\r\n        var contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //---- label1 ----\r\n        label1.setText(\"\\u7528\\u6237\\u540d\\uff1a\");\r\n        contentPane.add(label1);\r\n        label1.setBounds(new Rectangle(new Point(115, 90), label1.getPreferredSize()));\r\n        contentPane.add(textField1);\r\n        textField1.setBounds(185, 85, 100, textField1.getPreferredSize().height);\r\n\r\n        //---- label2 ----\r\n        label2.setText(\"\\u5bc6\\u7801\\uff1a\");\r\n        contentPane.add(label2);\r\n        label2.setBounds(new Rectangle(new Point(120, 125), label2.getPreferredSize()));\r\n        contentPane.add(textField2);\r\n        textField2.setBounds(185, 120, 100, textField2.getPreferredSize().height);\r\n\r\n        //---- button1 ----\r\n        button1.addActionListener(\r\n                (e) -> {\r\n\r\n                    String username = textField1.getText();\r\n                    String password = textField2.getText();\r\n                    LoginService loginService = new LoginServiceImpl();\r\n                    try {\r\n                        user user = new user();\r\n                        user.setUser_name(username);\r\n                        user.setUser_key(password);   // 更新临时user表\r\n                        //删除先前用户--多用户登录时可能会出问题，主要是数据表会自动提交时出现，算了出bug再说\r\n                        CurrentUserDao cud = new CurrentUserDaoImpl();\r\n                        if((cud.QueryUser().getUser_name())!=null){\r\n                            //如果当前用户表内存在数据，则删除所有\r\n                            cud.DelLoginData();\r\n                        }\r\n                        if(loginService.LoginAndRecord(user)==1){ // 启动登录与记录服务)\r\n                            new MainForm().setVisible(true);\r\n                            this.setVisible(false);\r\n                        }\r\n\r\n                    } catch (SQLException ex) {\r\n                        ex.printStackTrace();\r\n                    }\r\n\r\n                }\r\n        );\r\n        button1.setText(\"\\u767b\\u5f55\");\r\n        contentPane.add(button1);\r\n        button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));\r\n\r\n\r\n        contentPane.setPreferredSize(new Dimension(400, 300));\r\n        pack();\r\n        setLocationRelativeTo(getOwner());\r\n        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        this.setResizable(false);\r\n        this.setVisible(true);//设置组件可见\r\n    }\r\n\r\n    private JLabel label1;\r\n    private JTextField textField1;\r\n    private JLabel label2;\r\n    private JTextField textField2;\r\n    private JButton button1;\r\n\r\n    public static void main(String[] args) {\r\n        new MyLogin();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java
+--- a/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java	(date 1652187214288)
+@@ -1,6 +1,6 @@
+ package com.lanqiao.hamburg.MySaleShow.controller;
+ 
+-import com.lanqiao.hamburg.MySaleShow.controller.Frame.MainForm;
++import com.lanqiao.hamburg.Jform.MainForm;
+ import com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;
+ import com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;
+ import com.lanqiao.hamburg.MySaleShow.entity.user;
+@@ -30,6 +30,8 @@
+         label2 = new JLabel();
+         textField2 = new JTextField("123456");
+         button1 = new JButton();
++        button2 = new JButton();
++        button3 = new JButton();
+ 
+         //======== this ========
+         var contentPane = getContentPane();
+@@ -79,8 +81,23 @@
+         );
+         button1.setText("\u767b\u5f55");
+         contentPane.add(button1);
+-        button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));
++        button1.setBounds(new Rectangle(new Point(90, 185), button1.getPreferredSize()));
+ 
++        //---- 注册-----
++        button2.setText("注册");
++        contentPane.add(button2);
++        button2.setBounds(new Rectangle(new Point(170,185),button2.getPreferredSize()));
++        button2.addActionListener(a->{
++            JOptionPane.showMessageDialog(this,"联系管理员:2446752626@qq.com","温馨提示",2);
++        });
++
++        //--- 忘记密码----
++        button3.setText("忘记密码");
++        contentPane.add(button3);
++        button3.setBounds(new Rectangle(new Point(260,185),button3.getPreferredSize()));
++        button3.addActionListener(a->{
++            JOptionPane.showMessageDialog(this,"联系管理员:2446752626@qq.com","温馨提示",2);
++        });
+ 
+         contentPane.setPreferredSize(new Dimension(400, 300));
+         pack();
+@@ -95,6 +112,8 @@
+     private JLabel label2;
+     private JTextField textField2;
+     private JButton button1;
++    private JButton button2; //注册
++    private JButton button3; //忘记密码
+ 
+     public static void main(String[] args) {
+         new MyLogin();
+Index: src/main/java/com/lanqiao/hamburg/Jform/MainForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.Jform;/*\r\n * Created by JFormDesigner on Fri Apr 29 19:27:41 CST 2022\r\n */\r\n\r\n\r\n\r\nimport com.lanqiao.hamburg.FoodManage.FoodManagePanel;\r\nimport com.lanqiao.hamburg.Tools.MyTabbedPaneUI;\r\n\r\n\r\nimport java.awt.*;\r\nimport javax.swing.*;\r\n\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 天天华莱士管理系统主界面窗口\r\n * @date 2022/5/7\r\n */\r\npublic class MainForm extends JFrame {\r\n    public MainForm() {\r\n        //初始化加载内容\r\n        initComponents();\r\n    }\r\n\r\n    /**\r\n     * @方法说明 初始化组件\r\n     * @author Binqing\r\n     * @date 2022/5/7 20:46\r\n     * @param\r\n     * @return void\r\n     */\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        tabbedPane1 = new JTabbedPane();\r\n        panel1 = new JPanel();\r\n        //label1 = new JLabel();\r\n        panel3 = new JPanel();\r\n        panel4 = new JPanel();\r\n        panel5 = new JPanel();\r\n        panel6 = new JPanel();\r\n        panel7 = new JPanel();\r\n        panel8 = new JPanel();\r\n\r\n        //======== this ========\r\n        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);//窗口关闭，程序退出\r\n        Container contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n        //setUndecorated(true);// 把边框去了，优化的效果能看的更明显\r\n\r\n        Font font=new Font(\"宋体\",Font.BOLD,12);\r\n        tabbedPane1.setFont(font);//设置选项卡式窗格字体的样式\r\n        tabbedPane1.setUI(new MyTabbedPaneUI());\r\n        //======== tabbedPane1 ========\r\n        {\r\n            tabbedPane1.setTabPlacement(SwingConstants.LEFT);\r\n\r\n            //======== panel1 ========\r\n            {\r\n                panel1.setLayout(null);\r\n                //panel1.add(label1);\r\n                //label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel1.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel1.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel1.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel1.setMinimumSize(preferredSize);\r\n                    panel1.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u7528\\u6237\\u4fe1\\u606f\\u7ba1\\u7406\", panel1);\r\n\r\n            //======== panel2 ========\r\n            /**\r\n             *给页签面板添加页签标题和内容\r\n             */\r\n            FoodManagePanel foodManagePanel = new FoodManagePanel();\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u7ba1\\u7406\", foodManagePanel);\r\n\r\n            //======== panel3 ========\r\n            {\r\n                panel3.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel3.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel3.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel3.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel3.setMinimumSize(preferredSize);\r\n                    panel3.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u4f9b\\u5e94\", panel3);\r\n\r\n            //======== panel4 ========\r\n            {\r\n                panel4.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel4.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel4.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel4.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel4.setMinimumSize(preferredSize);\r\n                    panel4.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u9500\\u552e\", panel4);\r\n\r\n            //======== panel5 ========\r\n            {\r\n                panel5.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel5.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel5.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel5.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel5.setMinimumSize(preferredSize);\r\n                    panel5.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u8ba2\\u5355\\u4e2d\\u5fc3\", panel5);\r\n\r\n            //======== panel6 ========\r\n            {\r\n                panel6.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel6.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel6.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel6.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel6.setMinimumSize(preferredSize);\r\n                    panel6.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u6d3b\\u52a8\\u4f18\\u60e0\", panel6);\r\n\r\n            //======== panel7 ========\r\n            {\r\n                panel7.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel7.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel7.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel7.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel7.setMinimumSize(preferredSize);\r\n                    panel7.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u5546\\u54c1\\u9500\\u91cf\", panel7);\r\n\r\n            //======== panel8 ========\r\n            {\r\n                panel8.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel8.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel8.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel8.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel8.setMinimumSize(preferredSize);\r\n                    panel8.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"利润统计\", panel8);\r\n        }\r\n        contentPane.add(tabbedPane1);\r\n        tabbedPane1.setBounds(0, 5, 1000, 700);\r\n\r\n        setTitle(\"天天华莱士管理系统界面\");\r\n        //contentPane.setPreferredSize(new Dimension(1000, 700));\r\n        setSize(1000, 700);//设置窗口的大小\r\n        setLocationRelativeTo(null);//设置窗口在屏幕中的位置\r\n       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );//窗口关闭，程序退出\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n\r\n\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JTabbedPane tabbedPane1;\r\n    private JPanel panel1;\r\n    private JPanel panel3;\r\n    private JPanel panel4;\r\n    private JPanel panel5;\r\n    private JPanel panel6;\r\n    private JPanel panel7;\r\n    private JPanel panel8;\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java
+--- a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java	(date 1652187214327)
+@@ -5,37 +5,27 @@
+ 
+ 
+ import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
++import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse2;
+ import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
+ 
+ 
+ import java.awt.*;
++import java.sql.SQLException;
+ import javax.swing.*;
+ 
+-
+ /**
+- * @author Binqing
+- * @类说明 天天华莱士管理系统主界面窗口
+- * @date 2022/5/7
++ * 系统主界面
+  */
+ public class MainForm extends JFrame {
+-    public MainForm() {
+-        //初始化加载内容
++    public MainForm() throws SQLException {
+         initComponents();
+     }
+ 
+-    /**
+-     * @方法说明 初始化组件
+-     * @author Binqing
+-     * @date 2022/5/7 20:46
+-     * @param
+-     * @return void
+-     */
+-
+-    private void initComponents() {
++    private void initComponents() throws SQLException {
+         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+         tabbedPane1 = new JTabbedPane();
+         panel1 = new JPanel();
+-        //label1 = new JLabel();
++        label1 = new JLabel();
+         panel3 = new JPanel();
+         panel4 = new JPanel();
+         panel5 = new JPanel();
+@@ -44,13 +34,13 @@
+         panel8 = new JPanel();
+ 
+         //======== this ========
+-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);//窗口关闭，程序退出
++        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+         Container contentPane = getContentPane();
+         contentPane.setLayout(null);
+         //setUndecorated(true);// 把边框去了，优化的效果能看的更明显
+ 
+         Font font=new Font("宋体",Font.BOLD,12);
+-        tabbedPane1.setFont(font);//设置选项卡式窗格字体的样式
++        tabbedPane1.setFont(font);
+         tabbedPane1.setUI(new MyTabbedPaneUI());
+         //======== tabbedPane1 ========
+         {
+@@ -59,8 +49,8 @@
+             //======== panel1 ========
+             {
+                 panel1.setLayout(null);
+-                //panel1.add(label1);
+-                //label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));
++                panel1.add(label1);
++                label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));
+ 
+                 {
+                     // compute preferred size
+@@ -109,6 +99,7 @@
+ 
+             //======== panel4 ========
+             {
++                panel4 = new MySalse2(this);
+                 panel4.setLayout(null);
+ 
+                 {
+@@ -210,16 +201,14 @@
+                     panel8.setPreferredSize(preferredSize);
+                 }
+             }
+-            tabbedPane1.addTab("利润统计", panel8);
++            tabbedPane1.addTab("\u5229\u6da6\u7edf\u8ba1", panel8);
+         }
+         contentPane.add(tabbedPane1);
+         tabbedPane1.setBounds(0, 5, 1000, 700);
+ 
+-        setTitle("天天华莱士管理系统界面");
+-        //contentPane.setPreferredSize(new Dimension(1000, 700));
+-        setSize(1000, 700);//设置窗口的大小
+-        setLocationRelativeTo(null);//设置窗口在屏幕中的位置
+-       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );//窗口关闭，程序退出
++        contentPane.setPreferredSize(new Dimension(1000, 700));
++        setSize(1000, 700);
++        setLocationRelativeTo(getOwner());
+         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+     }
+ 
+@@ -228,6 +217,7 @@
+     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+     private JTabbedPane tabbedPane1;
+     private JPanel panel1;
++    private JLabel label1;
+     private JPanel panel3;
+     private JPanel panel4;
+     private JPanel panel5;
+Index: src/main/java/com/lanqiao/hamburg/FoodManage/impl/GetDataFromDatabaseImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.FoodManage.impl;\r\n\r\n\r\n\r\nimport com.lanqiao.hamburg.Interface.dao.GetDataFromDatabaseDAO;\r\nimport com.lanqiao.hamburg.Tools.JDBCtil;\r\nimport com.lanqiao.hamburg.entity.Item;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.*;\r\nimport java.util.ArrayList;\r\n/**\r\n * @author Binqing\r\n * @类说明 实现GetDataFromDatabaseDAO接口，与数据库进行交互，获取数据库表的数据\r\n * @date 2022/5/7\r\n */\r\npublic class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {\r\n    private String head[] = {\"序号\", \"餐品编号\", \"餐品类别\", \"餐品名称\", \"价格\", \"优惠价\",\"库存\",\"图片\"};\r\n    private Object[][] data = null;\r\n    private int mark;\r\n    private int id;\r\n    private String buttonText;\r\n\r\n    public GetDataFromDatabaseImpl(int mark, String buttonText) {\r\n        this.buttonText = buttonText;\r\n        this.mark = mark;\r\n    }\r\n\r\n    public GetDataFromDatabaseImpl(int mark) {\r\n        this.mark = mark;\r\n    }\r\n\r\n    public GetDataFromDatabaseImpl(int mark, int id) {\r\n        this.mark = mark;\r\n        this.id =id;\r\n    }\r\n    public GetDataFromDatabaseImpl(){\r\n    }\r\n\r\n    public String[] getHead() {\r\n        return head;\r\n    }\r\n\r\n    public void setHead(String[] head) {\r\n        this.head = head;\r\n    }\r\n\r\n    public Object[][] getData() {\r\n        return data;\r\n    }\r\n\r\n    public void setData(Object[][] data) {\r\n        this.data = data;\r\n    }\r\n\r\n\r\n    /**\r\n     * @方法说明 从数据库中表中取获取数据，存储到二维数据中（一行接一行）\r\n     * @author Binqing\r\n     * @date 2022/5/7 21:06\r\n     * @param\r\n     * @return java.lang.Object[][]\r\n     */\r\n\r\n    @Override\r\n    public  Object[][] getDataFromDatabase() {\r\n        //集合list 存放一条获取出来的记录\r\n        java.util.List<Item> list = new ArrayList<>();\r\n        Connection conn=null;\r\n        String sql=null;\r\n        Statement stmt = null;\r\n        //通过mark 选择所要选择的sql语句\r\n        if (mark==0){\r\n            sql = \"SELECT * FROM item\";\r\n        }\r\n        if (mark==1){\r\n            sql = \"SELECT * FROM item where id\"+\"=\"+id;\r\n        }\r\n        if (mark>=10&&mark<=15){\r\n            sql = \"SELECT * FROM item where product_category\"+\"=\"+\"'\"+buttonText+\"'\";\r\n        }\r\n\r\n        ResultSet rs = null;\r\n        try {\r\n            conn = JDBCtil.getConnection();\r\n            //获取执行sql的对象Statement\r\n            stmt = conn.createStatement();\r\n\r\n            //执行sql，获取结果集\r\n            rs = stmt.executeQuery(sql);\r\n            ////处理结果集\r\n            while (rs.next()) {\r\n                Item item = new Item();//创建一个item实例并赋值\r\n                //获取每一行的字段数据，赋值给item\r\n                item.setId(rs.getInt(1));\r\n                item.setProduct_id(rs.getString(2));\r\n                item.setPro_cate(rs.getString(3));\r\n                item.setPro_name(rs.getString(4));\r\n                item.setPrice(rs.getFloat(5));\r\n                item.setPrefer_price(rs.getFloat(6));\r\n                item.setStock(rs.getInt(7));\r\n                item.setImg_url(rs.getString(8));\r\n                list.add(item);//把item一条数据存放到集合中\r\n            }\r\n        } catch (SQLException throwables) {\r\n            throwables.printStackTrace();\r\n        } finally {\r\n            JDBCtil.close(conn,stmt,null,rs);//关闭资源\r\n        }\r\n        // 把集合的数据（商品信息）转换成二维数组\r\n        data = new Object[list.size()][head.length];\r\n        for (int i = 0; i < list.size(); i++) {\r\n            for (int j = 0; j < head.length; j++) {\r\n                data[i][0] = list.get(i).getId();\r\n                data[i][1] = list.get(i).getProduct_id();\r\n                data[i][2] = list.get(i).getPro_cate();\r\n                data[i][3] = list.get(i).getPro_name();\r\n                data[i][4] = list.get(i).getPrice();\r\n                data[i][5] = list.get(i).getPrefer_price();\r\n                data[i][6] = list.get(i).getStock();\r\n\r\n                ImageIcon icon= new ImageIcon(list.get(i).getImg_url());//获取项目相对路径的图片\r\n                icon.setImage(icon.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));//设置图片的尺寸\r\n                data[i][7] =icon;\r\n\r\n                /**\r\n                 * 获取图片的三种方式\r\n                 * 一：绝对路径获取：必须给出照片的绝对路径\r\n                 eg：ImageIcon icon = new ImageIcon（\"C:\\Users\\Acer\\Desktop\\77777\\玫瑰.png\"）\r\n                 * 二：绝对路径\r\n                 eg：ImageIcon icon= new ImageIcon(src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg);\r\n                 * 三：网络图片：给出照片的URL地址\r\n                 eg：\r\n                 ImageIcon icon = null;\r\n                 icon = new ImageIcon(new URL(\"https://raw.githubusercontent.com/binqingqaq/Hamburg/master/%E9%A4%90%E5%93%81images/%E8%8C%89%E8%8E%89%E8%8A%B1.png\"));\r\n                 */\r\n            }\r\n        }\r\n        return data;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/GetDataFromDatabaseImpl.java b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/GetDataFromDatabaseImpl.java
+--- a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/GetDataFromDatabaseImpl.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/GetDataFromDatabaseImpl.java	(date 1652187214538)
+@@ -10,11 +10,7 @@
+ import java.awt.*;
+ import java.sql.*;
+ import java.util.ArrayList;
+-/**
+- * @author Binqing
+- * @类说明 实现GetDataFromDatabaseDAO接口，与数据库进行交互，获取数据库表的数据
+- * @date 2022/5/7
+- */
++
+ public class GetDataFromDatabaseImpl implements GetDataFromDatabaseDAO {
+     private String head[] = {"序号", "餐品编号", "餐品类别", "餐品名称", "价格", "优惠价","库存","图片"};
+     private Object[][] data = null;
+@@ -55,22 +51,12 @@
+     }
+ 
+ 
+-    /**
+-     * @方法说明 从数据库中表中取获取数据，存储到二维数据中（一行接一行）
+-     * @author Binqing
+-     * @date 2022/5/7 21:06
+-     * @param
+-     * @return java.lang.Object[][]
+-     */
+-
+     @Override
+     public  Object[][] getDataFromDatabase() {
+-        //集合list 存放一条获取出来的记录
+-        java.util.List<Item> list = new ArrayList<>();
++        java.util.List<Item> list = new ArrayList<Item>();
+         Connection conn=null;
+         String sql=null;
+         Statement stmt = null;
+-        //通过mark 选择所要选择的sql语句
+         if (mark==0){
+             sql = "SELECT * FROM item";
+         }
+@@ -84,15 +70,10 @@
+         ResultSet rs = null;
+         try {
+             conn = JDBCtil.getConnection();
+-            //获取执行sql的对象Statement
+             stmt = conn.createStatement();
+-
+-            //执行sql，获取结果集
+             rs = stmt.executeQuery(sql);
+-            ////处理结果集
+             while (rs.next()) {
+-                Item item = new Item();//创建一个item实例并赋值
+-                //获取每一行的字段数据，赋值给item
++                Item item = new Item();
+                 item.setId(rs.getInt(1));
+                 item.setProduct_id(rs.getString(2));
+                 item.setPro_cate(rs.getString(3));
+@@ -101,15 +82,22 @@
+                 item.setPrefer_price(rs.getFloat(6));
+                 item.setStock(rs.getInt(7));
+                 item.setImg_url(rs.getString(8));
+-                list.add(item);//把item一条数据存放到集合中
++                list.add(item);
+             }
+         } catch (SQLException throwables) {
+             throwables.printStackTrace();
+         } finally {
+-            JDBCtil.close(conn,stmt,null,rs);//关闭资源
++            try {
++                rs.close();
++                stmt.close();
++                conn.close();
++            } catch (SQLException throwables) {
++                throwables.printStackTrace();
++            }
+         }
+         // 把集合的数据（商品信息）转换成二维数组
+         data = new Object[list.size()][head.length];
++
+         for (int i = 0; i < list.size(); i++) {
+             for (int j = 0; j < head.length; j++) {
+                 data[i][0] = list.get(i).getId();
+@@ -119,22 +107,45 @@
+                 data[i][4] = list.get(i).getPrice();
+                 data[i][5] = list.get(i).getPrefer_price();
+                 data[i][6] = list.get(i).getStock();
++                data[i][7] = list.get(i).getImg_url();
++                //ImageIcon imageIcon = new ImageIcon(getClass().getResource("/com/sad/面板/img/dishes/兰花.png"));
++               // ImageIcon imageIcon = new ImageIcon(getClass().getResource("/com/sad/面板/img/dishes/兰花.png"));
++                //https://github.com/binqingqaq/Hamburg/blob/master/%E9%A4%90%E5%93%81images/%E5%85%B0%E8%8A%B1.png
++                //https://avatar.csdnimg.cn/3/F/F/3_toto1297488504_1548903051.jpg
++          /*      ImageIcon icon = null;
++                try {
++                    icon = new ImageIcon(new URL("https://raw.githubusercontent.com/binqingqaq/Hamburg/master/%E9%A4%90%E5%93%81images/%E8%8C%89%E8%8E%89%E8%8A%B1.png"));
++                } catch (MalformedURLException e) {
++                    e.printStackTrace();
++                }*/
++
++              //  ImageIcon imageIcon = new ImageIcon( list.get(i).getImg_url());
+ 
+-                ImageIcon icon= new ImageIcon(list.get(i).getImg_url());//获取项目相对路径的图片
+-                icon.setImage(icon.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));//设置图片的尺寸
+-                data[i][7] =icon;
++                //String url_dishes = "\""+list.get(i).getImg_url()+"\"";
++             //   String url_dishes = list.get(i).getImg_url();
++               // System.out.println( url_dishes);
++
++
++               // String path = "src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg";
++               // System.out.println(ClassLoader.getSystemResource(path));
++                ImageIcon icon= new ImageIcon(list.get(i).getImg_url());
++                //ImageIcon icon= new ImageIcon(path);
++                     //   new ImageIcon(ClassLoader.getSystemResource(path));
++
++
++                /*try {
++
++
++                    URL url1 = new URL("https://i.postimg.cc/yYdYbMX1/image.png");*/
++                  //  icon = new ImageIcon(this.getClass().getResource());
++
++
++                //imageIcon.setImage(imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
++                icon.setImage(icon.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
++                //icon.setImage(imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
++                data[i][7] = icon;
+ 
+-                /**
+-                 * 获取图片的三种方式
+-                 * 一：绝对路径获取：必须给出照片的绝对路径
+-                 eg：ImageIcon icon = new ImageIcon（"C:\Users\Acer\Desktop\77777\玫瑰.png"）
+-                 * 二：绝对路径
+-                 eg：ImageIcon icon= new ImageIcon(src/main/java/com/lanqiao/hamburg/image/dishes/两份鸡米花.jpg);
+-                 * 三：网络图片：给出照片的URL地址
+-                 eg：
+-                 ImageIcon icon = null;
+-                 icon = new ImageIcon(new URL("https://raw.githubusercontent.com/binqingqaq/Hamburg/master/%E9%A4%90%E5%93%81images/%E8%8C%89%E8%8E%89%E8%8A%B1.png"));
+-                 */
++                //System.out.println(data[i][7]);
+             }
+         }
+         return data;
+Index: src/main/java/com/lanqiao/hamburg/FoodManage/impl/TableServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lanqiao.hamburg.FoodManage.impl;\r\n\r\nimport com.lanqiao.hamburg.Interface.service.TableService;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.table.DefaultTableCellRenderer;\r\nimport javax.swing.table.JTableHeader;\r\nimport javax.swing.table.TableColumn;\r\nimport java.awt.*;\r\n\r\n/**\r\n * @author Binqing\r\n * @类说明 实现TableService  接口  对表操作\r\n * @date 2022/5/7\r\n */\r\npublic class TableServiceImpl implements TableService {\r\n\r\n    /**\r\n     * @方法说明 进行表的优化，包括行列大小字体样式的设置\r\n     * @author Binqing\r\n     * @date 2022/5/7 22:05\r\n     * @param table1 所要优化的表\r\n     * @param head 表头信息\r\n     * @return void\r\n     */\r\n\r\n    @Override\r\n    public void tableOptimize(JTable table1, String[] head) {\r\n\r\n        table1.setRowHeight(100);// 设置表格行宽\r\n        Font font=new Font(\"宋体\",Font.BOLD,20);\r\n        table1.setFont(font);\r\n        table1.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);// 以下设置表格列宽\r\n        for (int i = 0; i < 8; i++) {\r\n            TableColumn column = table1.getColumnModel().getColumn(i);\r\n            if (i == 0) {\r\n                column.setPreferredWidth(20);\r\n            }\r\n            if (i== 7){\r\n                column.setPreferredWidth(120);\r\n            }\r\n            if (i==6){\r\n                column.setPreferredWidth(20);\r\n            }\r\n        }\r\n        JTableHeader head1 = table1.getTableHeader(); // 创建表格标题对象\r\n        head1.setPreferredSize(new Dimension(head1.getWidth(), 50));// 设置表头大小\r\n        head1.setFont(new Font(\"楷体\", Font.PLAIN, 18));// 设置表格字体\r\n        DefaultTableCellRenderer ter = new DefaultTableCellRenderer()// 设置表格间隔色\r\n        {\r\n            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,\r\n                                                           boolean hasFocus, int row, int column) {\r\n                // table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);\r\n                if (row % 2 == 0)\r\n                    setBackground(Color.DARK_GRAY);\r\n                else if (row % 2 == 1)\r\n                    setBackground(Color.darkGray);\r\n                return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);\r\n            }\r\n        };\r\n        for (int i = 0; i < 7; i++) {\r\n            table1.getColumn(head[i]).setCellRenderer(ter);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/TableServiceImpl.java b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/TableServiceImpl.java
+--- a/src/main/java/com/lanqiao/hamburg/FoodManage/impl/TableServiceImpl.java	(revision b1b87dfcb708b38b6f9c6453eec2c06960c9f0ee)
++++ b/src/main/java/com/lanqiao/hamburg/FoodManage/impl/TableServiceImpl.java	(date 1652187214535)
+@@ -8,22 +8,8 @@
+ import javax.swing.table.TableColumn;
+ import java.awt.*;
+ 
+-/**
+- * @author Binqing
+- * @类说明 实现TableService  接口  对表操作
+- * @date 2022/5/7
+- */
+ public class TableServiceImpl implements TableService {
+ 
+-    /**
+-     * @方法说明 进行表的优化，包括行列大小字体样式的设置
+-     * @author Binqing
+-     * @date 2022/5/7 22:05
+-     * @param table1 所要优化的表
+-     * @param head 表头信息
+-     * @return void
+-     */
+-
+     @Override
+     public void tableOptimize(JTable table1, String[] head) {
+ 
+@@ -61,5 +47,9 @@
+         for (int i = 0; i < 7; i++) {
+             table1.getColumn(head[i]).setCellRenderer(ter);
+         }
++
+     }
++
++
++
+ }
