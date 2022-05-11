@@ -4,8 +4,8 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Main.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Frame/ModShopCart.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java" charset="UTF-8" />
@@ -24,6 +24,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Supply/Supply.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
