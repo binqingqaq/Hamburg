@@ -2,6 +2,8 @@ package com.lanqiao.hamburg.MySaleShow.controller.Panel;
 
 import com.lanqiao.hamburg.MySaleShow.controller.Dialog.ShopCarD;
 import com.lanqiao.hamburg.MySaleShow.controller.Frame.ModShopCart;
+import com.lanqiao.hamburg.MySaleShow.dao.CurrentUserDao;
+import com.lanqiao.hamburg.MySaleShow.dao.Impl.CurrentUserDaoImpl;
 import com.lanqiao.hamburg.MySaleShow.dao.Impl.ItemDaoImpl;
 import com.lanqiao.hamburg.MySaleShow.dao.ItemDao;
 import com.lanqiao.hamburg.MySaleShow.entity.Item;
@@ -9,31 +11,24 @@ import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
 import com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.io.File;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @author unknown
+ * @author DavidNan
  */
 public class MySalse extends JPanel {
 
-    Frame frame;
+    Frame frame;  //传入目标窗体对象，便于控制
     public MySalse(Frame frame) throws SQLException {
         this.frame=frame;
         initComponents();
-    }
-
-    public MySalse(){
-
     }
 
     private void initComponents() throws SQLException {
@@ -43,7 +38,7 @@ public class MySalse extends JPanel {
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         label2 = new JLabel();
-        label4 = new JLabel("Search:");
+        label4 = new JLabel("模糊查询:");
         jTextField = new JTextField();
         comboBox1 = new JComboBox();
         button1 = new JButton();
@@ -55,9 +50,11 @@ public class MySalse extends JPanel {
         setLayout(null);
 
         //---- label1 ----
-        label1.setText("\u5929\u5929\u83dc\u5355");
+        label1.setText("菜品销售");
+        label1.setFont(new Font("宋体",Font.BOLD,18));
+        label1.setForeground(Color.blue);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(330,20), label1.getPreferredSize()));
+        label1.setBounds(330,20,80,40);
         ItemDao itemDao1 =null;
         itemDao1=new ItemDaoImpl();
 
@@ -80,9 +77,6 @@ public class MySalse extends JPanel {
 
         comboBox1.addActionListener(a->{
             String str= String.valueOf(comboBox1.getSelectedItem());
-            ItemDao itemDao = new ItemDaoImpl();
-            ResultSet rs=null;
-            DefaultTableModel tableModel1=null;
             if(str.equals("All")){
                 System.out.println("all");
                 try{
@@ -160,20 +154,24 @@ public class MySalse extends JPanel {
         button1.addActionListener(
                 (e)->{
                     int rowNo = table1.getSelectedRow();
-                    int Id=(int)table1.getValueAt(rowNo, 0);
-                    String FoodName=(String)table1.getValueAt(rowNo, 1);
-                    Float Price=(Float)table1.getValueAt(rowNo, 2);
-                    Float ProPrice=(Float) table1.getValueAt(rowNo, 3);
-                    int Sock=(int)table1.getValueAt(rowNo, 4);
-                    String Tastes=(String)table1.getValueAt(rowNo, 5);
-                    String FoodType=(String)table1.getValueAt(rowNo, 6);
-                    ShopCar shopCar = new ShopCar();
-                    shopCar.setId(Id);
-                    shopCar.setPrice(ProPrice);
-                    shopCar.setNum(1);
-                    shopCar.setTitle(FoodName);
-                    ItemDao itemDao = new ItemDaoImpl();
-                    new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true);
+                    if(rowNo==-1){
+                        JOptionPane.showMessageDialog(this,"请在表格选择商品","错误",0);
+                    }else{
+                        int Id=(int)table1.getValueAt(rowNo, 0);
+                        String FoodName=(String)table1.getValueAt(rowNo, 1);
+                        Float Price=(Float)table1.getValueAt(rowNo, 2);
+                        Float ProPrice=(Float) table1.getValueAt(rowNo, 3);
+                        int Sock=(int)table1.getValueAt(rowNo, 4);
+                        String Tastes=(String)table1.getValueAt(rowNo, 5);
+                        String FoodType=(String)table1.getValueAt(rowNo, 6);
+                        ShopCar shopCar = new ShopCar();
+                        shopCar.setId(Id);
+                        shopCar.setPrice(ProPrice);
+                        shopCar.setNum(1);
+                        shopCar.setTitle(FoodName);
+                        ItemDao itemDao = new ItemDaoImpl();
+                        new ShopCarD(shopCar,itemDao.SelectImgAdd(shopCar.getTitle())).setVisible(true);
+                    }
                 }
         );
 
@@ -194,20 +192,8 @@ public class MySalse extends JPanel {
         add(button3);
         button3.setBounds(375,380,80,30);
         button3.addActionListener(a->{
-
-            String sql = "DELETE FROM CurrentUser";
-            try {
-                conn = ConnectionHandler.getConn();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.executeUpdate();
-                ConnectionHandler.closeConnection();
-                this.frame.setVisible(false);
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-
+            CurrentUserDao currentUserDao = new CurrentUserDaoImpl();
+            currentUserDao.DelLoginData();  //当前用户退出并销除当前用户登录数据
         });
 
         {
@@ -274,10 +260,7 @@ public class MySalse extends JPanel {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JLabel label1;
-    private JLabel FoodLabel;
-    private JLabel FoodJL;
     private JPanel jPanelTable;
-    private JPanel jPanelButton;
     private JScrollPane scrollPane1;
     private JScrollPane scrollPane2;
     private String head[] = {"Id","FoodName","Price","CPrice","Stock","Taste","Type","Pic"};
@@ -287,7 +270,6 @@ public class MySalse extends JPanel {
     private JTextField jTextField;
     private JLabel label4;
     private JButton button4;
-    private JLabel label3;
     private JComboBox comboBox1;
     private JButton button1;
     private JButton button2;
@@ -296,15 +278,6 @@ public class MySalse extends JPanel {
     public Connection conn=null;
     private TableColumn column;
 
-
-    public void ShowFood(String FoodUrl){
-        JLabel FoodJL;
-        ImageIcon image= new ImageIcon(FoodUrl);
-        image.setImage(image.getImage().getScaledInstance(100,80,Image.SCALE_DEFAULT));
-        FoodJL = new JLabel(image);
-        this.add(FoodJL);
-        FoodJL.setBounds(new Rectangle(new Point(30, 250), FoodJL.getPreferredSize()));
-    }
 
     public void JTRowSize(JTable table){
         table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
@@ -362,6 +335,7 @@ public class MySalse extends JPanel {
     }
 }
 
+//单元格渲染类
 class JTableCellRender extends JPanel implements TableCellRenderer {
 
     @Override

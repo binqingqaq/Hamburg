@@ -8,20 +8,16 @@
         <version>2.5.12</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lanqiao.Hamburg</groupId>
-    <artifactId>Hamburg</artifactId>
+    <groupId>cn.juntai</groupId>
+    <artifactId>wxpaydemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
+    <name>wxpaydemo</name>
+    <description>wxpaydemo</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.juntai</groupId>
-            <artifactId>wxpaydemo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -62,16 +58,10 @@
             <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf</artifactId>
-            <version>0.26</version>
-        </dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.21</version>
+    </dependency>
     </dependencies>
     <build>
         <plugins>

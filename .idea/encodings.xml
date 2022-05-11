@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true">
-    <file url="file://$PROJECT_DIR$" charset="GBK" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/FoodManage/FoodManagePanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Main.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/ShopCarD.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Frame/MainForm.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Frame/ModShopCart.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/MyLogin.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse2.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/CurrentUserDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/UserDaoImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/UserDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Supply/Supply.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/CurrentUserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/UserDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/UserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Supply/Supply.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

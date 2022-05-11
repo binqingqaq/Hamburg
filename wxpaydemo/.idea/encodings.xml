@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ImageDemo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MyMenuCarService/SalseItem/PayJDialog/MyPay.jfd" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MyMenuCarService/SalseItem/Save/Item.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MyMenuCarService/SalseItem/Save/user_car.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MyMenuCarService/SqlShare/SelectItem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MySaleShow/controller/Dialog/ModTool.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MySaleShow/controller/Dialog/MyPay.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MySaleShow/controller/Dialog/ShopCarD.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MySaleShow/controller/Frame/ModShopCart.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MySaleShow/controller/MyLogin.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
