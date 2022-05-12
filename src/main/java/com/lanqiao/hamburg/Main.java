@@ -11,18 +11,18 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, SQLException {
         /**
-         * ¸ø½çÃæÉèÖÃÖ÷Ìâ
+         * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
          */
-        //Ö÷ÌâÒ»
+        //ï¿½ï¿½ï¿½ï¿½Ò»
         //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        //Ö÷Ìâ¶þ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½
        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
-        //Ö÷ÌâÈý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
-        //Ö÷ÌâËÄ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //UIManager.setLookAndFeel( new FlatLightLaf() );
-        //Ö÷ÌâÎå£ººÚÉ«
+        //ï¿½ï¿½ï¿½ï¿½ï¿½å£ºï¿½ï¿½É«
         UIManager.setLookAndFeel( new FlatDarculaLaf() );
         new MyLogin();
     }

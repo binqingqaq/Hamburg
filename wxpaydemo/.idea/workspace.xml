@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4bbb3792-3cf8-4000-a755-67f1cc660b34" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../wxpaydemo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/MyPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/MyPay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShopCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShopCarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImageDemo/DavidNan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/WxpaydemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/IWXPayDomain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/DateUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/MD5Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/WxpaydemoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/WXPay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain$DomainInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants$SignType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$ReportInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/DateUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/MD5Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\qin" />
+        <option name="userSettingsFile" value="C:\apache-maven-3.8.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="28Kr1GNJXArfYUJGCFbb0Smnnz6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="问题" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qin\Desktop\项目集\wxpaydemo\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="MySaleShow.controller.Panel" />
+      <recent name="MySaleShow.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.WXPay">
+    <configuration name="Demo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.juntai.wxpaydemo.controller.Demo3" />
+      <module name="wxpaydemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.juntai.wxpaydemo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JPanelTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.juntai.wxpaydemo.controller.JPanelTest" />
+      <module name="wxpaydemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.juntai.wxpaydemo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MySaleShow.controller.MyLogin" />
+      <module name="wxpaydemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MySaleShow.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySalse2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MySaleShow.controller.Panel.MySalse2" />
+      <module name="wxpaydemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MySaleShow.controller.Dialog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WXPay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.juntai.wxpaydemo.pay.WXPay" />
+      <module name="wxpaydemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.juntai.wxpaydemo.pay.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WxpaydemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="wxpaydemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.juntai.wxpaydemo.WxpaydemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.WXPay" />
+        <item itemvalue="应用程序.Demo3" />
+        <item itemvalue="Spring Boot.WxpaydemoApplication" />
+        <item itemvalue="应用程序.JPanelTest" />
+        <item itemvalue="应用程序.MyLogin" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="4bbb3792-3cf8-4000-a755-67f1cc660b34" name="变更" comment="" />
+      <created>1650975904069</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650975904069</updated>
+      <workItem from="1650975905290" duration="2927000" />
+      <workItem from="1650979141682" duration="131000" />
+      <workItem from="1650979286270" duration="5112000" />
+      <workItem from="1651053034579" duration="3926000" />
+      <workItem from="1651106427595" duration="938000" />
+      <workItem from="1651485751908" duration="4847000" />
+      <workItem from="1651545609303" duration="3525000" />
+      <workItem from="1651759954727" duration="2959000" />
+      <workItem from="1651763135123" duration="2313000" />
+      <workItem from="1651767219295" duration="1064000" />
+      <workItem from="1651998508762" duration="28919000" />
+      <workItem from="1652063257331" duration="11273000" />
+      <workItem from="1652085149029" duration="18198000" />
+      <workItem from="1652148024611" duration="3673000" />
+      <workItem from="1652173143809" duration="3542000" />
+      <workItem from="1652234255184" duration="428000" />
+      <workItem from="1652328947723" duration="116000" />
+      <workItem from="1652329105771" duration="1282000" />
+      <workItem from="1652331673190" duration="23000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

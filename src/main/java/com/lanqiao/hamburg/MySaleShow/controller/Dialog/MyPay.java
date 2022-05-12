@@ -71,8 +71,9 @@ public class MyPay extends JDialog {
         button1.setBounds(new Rectangle(new Point(110, 145), button1.getPreferredSize()));
         button1.addActionListener(a->{
             try {
-                new WXPay().UsePay();
-                ImageIcon imageIcon  = new ImageIcon("src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg");
+                //new WXPay().UsePay((int) car.getPrice()); //真用的时候取消注释
+                new WXPay().UsePay(1);
+                ImageIcon imageIcon  = new ImageIcon("new.jpg");
                 imageIcon.setImage(imageIcon.getImage().getScaledInstance(120,120,Image.SCALE_DEFAULT));
                 JLabel Ma = new JLabel(imageIcon);
                 this.add(Ma);

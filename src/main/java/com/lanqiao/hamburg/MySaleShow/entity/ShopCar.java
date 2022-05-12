@@ -114,5 +114,5 @@ public class ShopCar {
         this.title = title;
     }
 
-    private String title; // ษฬฦทร๛ณฦ
+    private String title;
 }

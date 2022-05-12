@@ -17,36 +17,23 @@ import java.sql.SQLException;
  */
 public class ShopCarServiceImpl implements ShopCarService {
 
-    /**
-     * @description: 实现用户加入购物车的业务
-     * @param shopCar: 从控制器输入ShopCar类型数据
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 12:50
-     */
+
 
     @Override
     public void JoinCarService(ShopCar shopCar,int num) throws SQLException {
         CurrentUserDao currentUserDao = new CurrentUserDaoImpl();
-        ShopCarDao shopCarDao = new ShopCarDaoImpl();  // 数据生成器
-        shopCarDao.InsertToCart(currentUserDao.QueryUser(),shopCar,num); //输出到SQL
+        ShopCarDao shopCarDao = new ShopCarDaoImpl();  // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+        shopCarDao.InsertToCart(currentUserDao.QueryUser(),shopCar,num); //锟斤拷锟斤拷锟絊QL
     }
 
-    /**
-     * @description: 实现购物车的重置查询
-     * @param :
-     * @return java.sql.ResultSet
-     * @author: DavidNan
-     * @date: 2022/5/9 16:44
-     */
 
     @Override
     public ResultSet ResetQueryService() {
         ResultSet rs = null;
-        //先重置
+
         ShopCarDao shopCarDao = new ShopCarDaoImpl();
         shopCarDao.ResetQuery();
-        //查询返回结果集
+
         return shopCarDao.SelectAll();
     }
 
