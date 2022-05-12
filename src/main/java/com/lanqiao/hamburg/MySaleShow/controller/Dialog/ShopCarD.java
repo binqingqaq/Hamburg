@@ -4,6 +4,10 @@
 
 package com.lanqiao.hamburg.MySaleShow.controller.Dialog;
 
+import com.lanqiao.hamburg.MySaleShow.dao.Impl.ItemDaoImpl;
+import com.lanqiao.hamburg.MySaleShow.dao.Impl.ShopCarDaoImpl;
+import com.lanqiao.hamburg.MySaleShow.dao.ItemDao;
+import com.lanqiao.hamburg.MySaleShow.dao.ShopCarDao;
 import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
 import com.lanqiao.hamburg.MySaleShow.service.Impl.ShopCarServiceImpl;
 import com.lanqiao.hamburg.MySaleShow.service.ShopCarService;
@@ -73,6 +77,15 @@ public class ShopCarD extends JDialog {
         this.add(FoodJL);
         FoodJL.setBounds(new Rectangle(new Point(250, 30), FoodJL.getPreferredSize()));
 
+     /*   //插入前需要，保证主键的唯一性又要保证商品ID的唯一性，这个时候就会涉及到
+        //插入前判断购物车表是否含有该数据单元的信息，若有则启动更新程序，若无则直接插入
+        ShopCarDao shopCarDao = new ShopCarDaoImpl();
+        if(shopCarDao.SelectID(shopCar.getId())){ //返回true则添加
+            System.out.println("购物车里有了"); //直接添加
+        }else{
+
+        }*/
+
         //---- button1 ----
         button1.setText("OK");
         contentPane.add(button1);
@@ -80,8 +93,15 @@ public class ShopCarD extends JDialog {
         button1.addActionListener(a->{
 
             ShopCarService shopCarService = new ShopCarServiceImpl();
+            //库存不够提醒，库存等于或低于添加才放行加入购物
+            ItemDao itemDao = new ItemDaoImpl();
+            int stock=itemDao.SelectSock(textField2.getText());
             try {
-                shopCarService.JoinCarService(shopCar,Integer.parseInt(textField3.getText()));
+                if(stock>=Integer.parseInt(textField3.getText())){
+                    shopCarService.JoinCarService(shopCar,Integer.parseInt(textField3.getText()));
+                }else{
+                    JOptionPane.showMessageDialog(this,"你胃口真大!","警告",2);
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }

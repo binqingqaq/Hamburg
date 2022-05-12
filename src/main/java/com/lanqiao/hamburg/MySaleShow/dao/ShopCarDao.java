@@ -12,68 +12,26 @@ import java.sql.SQLException;
  * @Date 2022/5/9 11:25
  */
 public interface ShopCarDao {
-    /**
-     * @description: 将截获的数据插入ShopCar表
-     * @param : 
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 11:29
-     */
     
     public void InsertToCart(CurrentUser currentUser,ShopCar shopCar,int num) throws SQLException;
 
-    /**
-     * @description: 查询所有
-     * @param :
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 14:07
-     */
 
     public ResultSet SelectAll();
 
-    /**
-     * @description: 重置查询，避免增删改查时自动增长主键继增长
-     * @param :
-     * @return java.sql.ResultSet
-     * @author: DavidNan
-     * @date: 2022/5/9 14:14
-     */
 
     public void ResetQuery();
 
-    /**
-     * @description: 删除整行
-     * @param :
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 17:16
-     */
-
     public void DeleteRow(ShopCar car);
 
-    /**
-     * @description:
-     * @param : 修改数量
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 17:17
-     */
 
     public void UpdateNum(ShopCar car);
 
-    /**
-     * 结算购物车
-     */
     public ShopCar Settlement();
 
-    /**
-     * @description: 删除所有购物车--建议登录前或退出前执行
-     * @param :
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/9 19:16
-     */
-
     public void DelAll();
+
+    public boolean SelectID(int id);  //鏍规嵁椋熺墿ID鍒ゆ柇鍦ㄨ喘鐗╄溅涓槸鍚﹀瓨鍦紝鑻ュ瓨鍦ㄥ垯杩斿洖true
+
+    public void UpdateAddNum(ShopCar shopCar) throws SQLException;//鐪嬪疄鐜扮被
+
 }

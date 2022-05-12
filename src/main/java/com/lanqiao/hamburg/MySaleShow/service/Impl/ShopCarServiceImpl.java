@@ -18,12 +18,18 @@ import java.sql.SQLException;
 public class ShopCarServiceImpl implements ShopCarService {
 
 
-
+    //添加服务，若购物车有数据，则更新对应num,若无数据则直接插入
     @Override
     public void JoinCarService(ShopCar shopCar,int num) throws SQLException {
         CurrentUserDao currentUserDao = new CurrentUserDaoImpl();
-        ShopCarDao shopCarDao = new ShopCarDaoImpl();  // ����������
-        shopCarDao.InsertToCart(currentUserDao.QueryUser(),shopCar,num); //�����SQL
+        ShopCarDao shopCarDao = new ShopCarDaoImpl();
+        if(shopCarDao.SelectID(shopCar.getId())){  //购物车无对应ID
+            System.out.println("购物车有ID");
+            shopCarDao.UpdateAddNum(shopCar);
+        }else{
+            System.out.println(shopCar.getId()+"购物车无ID");
+            shopCarDao.InsertToCart(currentUserDao.QueryUser(),shopCar,num);
+        }
     }
 
 

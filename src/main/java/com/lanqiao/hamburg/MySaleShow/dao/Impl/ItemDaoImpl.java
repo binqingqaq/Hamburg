@@ -112,4 +112,24 @@ public class ItemDaoImpl implements ItemDao {
         }
         return rs;
     }
+
+    @Override
+    public int SelectSock(String name) {
+        int sk=0;
+        try {
+            String sql = "SELECT stock FROM item where product_name='"+name+"'";
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                sk=rs.getInt(1);
+            }
+            stmt.close();
+            rs.close();
+            ConnectionHandler.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sk;
+    }
 }

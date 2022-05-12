@@ -32,6 +32,9 @@ public class MyPay extends JDialog {
         label5 = new JLabel();
         textField1 = new JTextField();
         button1 = new JButton();
+        button2 = new JButton("OK");  // Send the scanner to get the code segment
+        label6 = new JLabel();
+        textField2 = new JTextField();
 
         //======== this ========
         setTitle("Pay");
@@ -65,10 +68,21 @@ public class MyPay extends JDialog {
         contentPane.add(textField1);
         textField1.setBounds(100, 90, 160, textField1.getPreferredSize().height);
 
+        //-----Scanner----
+        label6.setText("Scanner:");
+        contentPane.add(label6);
+        label6.setBounds(30,130,label6.getPreferredSize().width,17);
+        contentPane.add(textField2);
+        textField2.setBounds(100,130,160,textField2.getPreferredSize().height);
+        contentPane.add(button2);
+        button2.setBounds(270,130,60,25);
+        button2.addActionListener(a->{
+            JOptionPane.showMessageDialog(this,"条形码方式正在建设中！","提示",2);
+        });
         //---- button1 ----
         button1.setText("\u5fae\u4fe1\u652f\u4ed8");
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(110, 145), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(110, 180), button1.getPreferredSize()));
         button1.addActionListener(a->{
             try {
                 //new WXPay().UsePay((int) car.getPrice()); //真用的时候取消注释
@@ -77,7 +91,7 @@ public class MyPay extends JDialog {
                 imageIcon.setImage(imageIcon.getImage().getScaledInstance(120,120,Image.SCALE_DEFAULT));
                 JLabel Ma = new JLabel(imageIcon);
                 this.add(Ma);
-                Ma.setBounds(new Rectangle(new Point(150,220),Ma.getPreferredSize()));
+                Ma.setBounds(new Rectangle(new Point(120,240),Ma.getPreferredSize()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -108,7 +122,10 @@ public class MyPay extends JDialog {
     private JLabel label3;
     private JLabel label4;
     private JLabel label5;
+    private JLabel label6;
+    private JTextField textField2; //Scanner dedicated text field
     private JTextField textField1;
     private JButton button1;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

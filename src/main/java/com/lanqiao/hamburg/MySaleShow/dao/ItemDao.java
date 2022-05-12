@@ -50,5 +50,7 @@ public interface ItemDao {
     
     public ResultSet SelectFoodType();
 
+    public int SelectSock(String name);
+
 
 }

@@ -181,4 +181,41 @@ public class ShopCarDaoImpl implements ShopCarDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean SelectID(int id) {
+        String sql = "select * from ShopCar where id='"+id+"'";
+        try {
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    //有就拿出来，然后再在原来的基础上加上现有的数据
+    public void UpdateAddNum(ShopCar shopCar) throws SQLException {
+        conn = ConnectionHandler.getConn();
+        stmt = conn.createStatement();
+        String sql = "select num from ShopCar where id= '"+shopCar.getId()+"'";
+        rs = stmt.executeQuery(sql);
+        int num=0;
+        if(rs.next()){
+           num= rs.getInt(1);    //将当前商品ID查到的数量用num保存
+        }
+        String sql2 = "update ShopCar set num='"+(shopCar.getNum()+num)+"'"+"where id='"+shopCar.getId()+"'";
+        pstmt = conn.prepareStatement(sql2);
+        pstmt.executeUpdate(sql2);  //数据更新完毕
+        stmt.close();
+        pstmt.close();
+        ConnectionHandler.closeConnection();
+    }
+
 }
