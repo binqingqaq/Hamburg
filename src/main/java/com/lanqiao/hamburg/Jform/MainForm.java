@@ -8,6 +8,7 @@ import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
 import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
 import com.lanqiao.hamburg.Supply.Supply;
+import com.lanqiao.hamburg.manage.Manage;
 
 
 import java.awt.*;
@@ -25,7 +26,6 @@ public class MainForm extends JFrame {
         //初始化加载内容
         initComponents();
     }
-
     /**
      * @方法说明 初始化组件
      * @author Binqing
@@ -61,6 +61,7 @@ public class MainForm extends JFrame {
 
             //======== panel1 ========
             {
+                panel1 = new Manage();
                 panel1.setLayout(null);
                 //panel1.add(label1);
                 //label1.setBounds(new Rectangle(new Point(245, 70), label1.getPreferredSize()));
@@ -96,7 +97,8 @@ public class MainForm extends JFrame {
             tabbedPane1.addTab("\u83dc\u54c1\u4f9b\u5e94",supply);
 
             //======== panel4 ========
-            MySalse mySalse = new MySalse(this);
+            //---------菜品销售与微信支付---------
+            MySalse mySalse = new MySalse(this); //传入当前窗体对象便于控制窗体
             tabbedPane1.addTab("\u83dc\u54c1\u9500\u552e", mySalse);
 
             //======== panel5 ========

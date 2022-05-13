@@ -45,7 +45,7 @@ public class ShopCarServiceImpl implements ShopCarService {
         return shopCarDao.SelectAll();
     }
 
-    //payment link
+    //由于我只有临时库存表的权限，也就是说
     @Override
     public void Preorder() {
         ShopCarDao shopCarDao = new ShopCarDaoImpl();

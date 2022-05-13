@@ -16,8 +16,11 @@ import java.sql.SQLException;
 
 
 /**
- * @author 1
+ * @description: 登录窗体
+ * @author: DavidNan
+ * @date: 2022/5/13 21:20
  */
+
 public class MyLogin extends JFrame {
     public MyLogin() {
         initComponents();
@@ -52,7 +55,6 @@ public class MyLogin extends JFrame {
         //---- button1 ----
         button1.addActionListener(
                 (e) -> {
-
                     String username = textField1.getText();
                     String password = textField2.getText();
                     LoginService loginService = new LoginServiceImpl();
@@ -62,8 +64,7 @@ public class MyLogin extends JFrame {
                         user.setUser_key(password);
                         CurrentUserDao cud = new CurrentUserDaoImpl();
                         if((cud.QueryUser().getUser_name())!=null){
-
-                            cud.DelLoginData();
+                            cud.DelLoginData();  //删除之前登录用户的数据，操作的是CurrentUser表
                         }
                         if(loginService.LoginAndRecord(user)==1){
                             JOptionPane.showMessageDialog(this,"登录成功","提示",JOptionPane.PLAIN_MESSAGE);
@@ -82,8 +83,6 @@ public class MyLogin extends JFrame {
         button1.setText("\u767b\u5f55");
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(170, 185), button1.getPreferredSize()));
-
-
         contentPane.setPreferredSize(new Dimension(400, 300));
         pack();
         setLocationRelativeTo(getOwner());
@@ -98,6 +97,7 @@ public class MyLogin extends JFrame {
     private JTextField textField2;
     private JButton button1;
 
+    // ---- 测试窗体 -------
     public static void main(String[] args) {
         new MyLogin();
     }
