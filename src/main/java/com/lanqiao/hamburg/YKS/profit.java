@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
-
 /**
  * @author 1
  */
@@ -94,41 +93,35 @@ public class profit extends JPanel {
         }
         return conn;
     }
-    private static float getprice(float item_id){
-        float cost_price=0;
-        float num=0;
-        Connection conn = getCnnection();
-        String sql = "select * from item";
-        try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet res = stmt.executeQuery();
-            while (res.next()){
-                cost_price=Float.valueOf(res.getString(9));
-                num++;
-                if(num==item_id){
-                    return cost_price;
-                }
-            }
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        return cost_price;
-    }
     private static String getid(){
         Connection conn = getCnnection();
         String sql = "select * from order_info";
+        String sql1 = "select * from item";
+        float cost_price=0;
+        float num=0;            //计数
         float order_price;          //点单价格
         float amount;               //点单数量
         float sum_profit=0;            //总利润
-        float cost_price;           //点单菜品成本
+        float cost_price1;           //点单菜品成本
         float item_id;              //点单菜品ID
         String string_sum_profit;
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet res = stmt.executeQuery();
+
             while (res.next()){
+                PreparedStatement stmt1 = conn.prepareStatement(sql1);
+                ResultSet res1 = stmt1.executeQuery();
                 item_id=Float.valueOf(res.getString(7));//获取ID
-                cost_price=getprice(item_id);      //获取成本
+                while (res1.next()){
+                    cost_price1=Float.valueOf(res1.getString(9));
+                    num++;
+                    if(num==item_id){
+                        cost_price=cost_price1;
+                        break;
+                    }
+                }
+                num=0;
                 amount =Float.valueOf(res.getString(9));//获取菜品数量
                 order_price=Float.valueOf(res.getString(10));//菜品卖出的价格
                 sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);     //统计利润
@@ -137,10 +130,11 @@ public class profit extends JPanel {
             throwable.printStackTrace();
         }
         string_sum_profit=String.format("%.2f",sum_profit);       //保留2位小数
-        //System.out.println(sum_profit);
+        System.out.println(string_sum_profit);
         return string_sum_profit;
     }
     public static void main(String[] args){
         getid();
     }
 }
+
