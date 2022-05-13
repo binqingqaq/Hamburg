@@ -131,7 +131,7 @@ public class profit extends JPanel {
                 cost_price=getprice(item_id);      //获取成本
                 amount =Float.valueOf(res.getString(9));//获取菜品数量
                 order_price=Float.valueOf(res.getString(10));//菜品卖出的价格
-                sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);
+                sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);     //统计利润
             }
         } catch (SQLException throwable) {
             throwable.printStackTrace();
