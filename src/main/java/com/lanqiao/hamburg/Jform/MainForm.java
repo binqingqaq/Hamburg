@@ -4,7 +4,6 @@
 
 package com.lanqiao.hamburg.Jform;
 
-import com.lanqiao.hamburg.Main;
 import com.lanqiao.hamburg.YKS.profit;
 
 import java.awt.*;

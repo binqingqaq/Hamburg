@@ -4,7 +4,7 @@
 
 package com.lanqiao.hamburg.YKS;
 
-import com.lanqiao.hamburg.Jform.MainForm;
+import com.sun.org.apache.xpath.internal.objects.XString;
 
 import java.awt.*;
 import java.sql.*;
@@ -17,48 +17,29 @@ public class profit extends JPanel {
     public profit() {
         initComponents();
     }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label3 = new JLabel();
-        comboBox1 = new JComboBox();
         textArea1 = new JTextArea();
-        scrollPane1 = new JScrollPane();
-        list1 = new JList();
-        comboBox2 = new JComboBox();
-        label4 = new JLabel();
+        label1 = new JLabel();
+        label2 = new JLabel();
+        label3 = new JLabel();
 
         //======== this ========
         setLayout(null);
-
-        //---- label3 ----
-        label3.setText("\u9009\u62e9\u65e5\u671f");
-        add(label3);
-        label3.setBounds(new Rectangle(new Point(85, 55), label3.getPreferredSize()));
-
-        //---- comboBox1 ----
-        comboBox1.setToolTipText("\u6700\u4f4e\u65e5\u671f");
-        add(comboBox1);
-        comboBox1.setBounds(new Rectangle(new Point(145, 50), comboBox1.getPreferredSize()));
         add(textArea1);
         textArea1.setBounds(new Rectangle(new Point(435, 270), textArea1.getPreferredSize()));
 
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setViewportView(list1);
-        }
-        add(scrollPane1);
-        scrollPane1.setBounds(195, 125, 160, scrollPane1.getPreferredSize().height);
+        //---- label1 ----
+        label1.setText("\u603b\u5229\u6da6\u4e3a\uff1a");
+        add(label1);
+        label1.setBounds(new Rectangle(new Point(230, 200), label1.getPreferredSize()));
+        add(label2);
+        label2.setBounds(new Rectangle(new Point(195, 200), label2.getPreferredSize()));
 
-        //---- comboBox2 ----
-        comboBox2.setToolTipText("\u6700\u9ad8\u65e5\u671f");
-        add(comboBox2);
-        comboBox2.setBounds(new Rectangle(new Point(295, 50), comboBox2.getPreferredSize()));
-
-        //---- label4 ----
-        label4.setText("----");
-        add(label4);
-        label4.setBounds(new Rectangle(new Point(255, 55), label4.getPreferredSize()));
+        //---- label3 ----
+        label3.setText(getid());
+        add(label3);
+        label3.setBounds(new Rectangle(new Point(300, 200), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -76,18 +57,12 @@ public class profit extends JPanel {
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label3;
-    private JComboBox comboBox1;
     private JTextArea textArea1;
-    private JScrollPane scrollPane1;
-    private JList list1;
-    private JComboBox comboBox2;
-    private JLabel label4;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
-
     public static Connection getCnnection(){
         Connection conn = null;
         String name = "root";
@@ -102,17 +77,53 @@ public class profit extends JPanel {
         }
         return conn;
     }
-    public static void main(String[] args){
+    private static float getprice(float item_id){
+        float cost_price=0;
+        float num=0;
         Connection conn = getCnnection();
         String sql = "select * from item";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet res = stmt.executeQuery();
             while (res.next()){
-                System.out.println(res.getFloat(3));
+                cost_price=Float.valueOf(res.getString(9));
+                num++;
+                if(num==item_id){
+                    return cost_price;
+                }
             }
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+        return cost_price;
+    }
+    private static String getid(){
+        Connection conn = getCnnection();
+        String sql = "select * from order_info";
+        float order_price;          //点单价格
+        float amount;               //点单数量
+        float sum_profit=0;            //总利润
+        float cost_price;           //点单菜品成本
+        float item_id;              //点单菜品ID
+        String sum_profit1;
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet res = stmt.executeQuery();
+            while (res.next()){
+                item_id=Float.valueOf(res.getString(7));//获取ID
+                cost_price=getprice(item_id);      //获取成本
+                amount =Float.valueOf(res.getString(9));//获取菜品数量
+                order_price=Float.valueOf(res.getString(10));//菜品卖出的价格
+                sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        sum_profit1=String.valueOf(sum_profit);
+        System.out.println(sum_profit1);
+        return sum_profit1;
+    }
+    public static void main(String[] args){
+        getid();
     }
 }

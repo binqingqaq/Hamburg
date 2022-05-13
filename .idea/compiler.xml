@@ -10,5 +10,8 @@
         <module name="Hamburg" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wxpaydemo" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
