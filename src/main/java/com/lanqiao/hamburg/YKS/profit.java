@@ -47,7 +47,7 @@ public class profit extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //System.out.println(getid());
-                        label3.setText(getid());
+                        label3.setText(getprice());
                         add(label3);
                         label3.setBounds(new Rectangle(new Point(300, 200), label3.getPreferredSize()));
                     }
@@ -93,7 +93,7 @@ public class profit extends JPanel {
         }
         return conn;
     }
-    private static String getid(){
+    private static String getprice(){
         Connection conn = getCnnection();
         String sql = "select * from order_info";
         String sql1 = "select * from item";
@@ -108,7 +108,6 @@ public class profit extends JPanel {
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet res = stmt.executeQuery();
-
             while (res.next()){
                 PreparedStatement stmt1 = conn.prepareStatement(sql1);
                 ResultSet res1 = stmt1.executeQuery();
@@ -134,7 +133,7 @@ public class profit extends JPanel {
         return string_sum_profit;
     }
     public static void main(String[] args){
-        getid();
+        getprice();
     }
 }
 
