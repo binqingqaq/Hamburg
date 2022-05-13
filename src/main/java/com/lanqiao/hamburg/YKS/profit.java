@@ -38,15 +38,12 @@ public class profit extends JPanel {
         add(label2);
         label2.setBounds(new Rectangle(new Point(195, 200), label2.getPreferredSize()));
 
-
-
         //---- button1 ----
         button1.setText("\u67e5\u8be2");
         button1.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //System.out.println(getid());
                         label3.setText(getprice());
                         add(label3);
                         label3.setBounds(new Rectangle(new Point(300, 200), label3.getPreferredSize()));
