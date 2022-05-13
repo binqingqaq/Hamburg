@@ -1,0 +1,146 @@
+Index: src/main/java/com/lanqiao/hamburg/Jform/MainForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Created by JFormDesigner on Fri Apr 29 21:14:30 CST 2022\r\n */\r\n\r\npackage com.lanqiao.hamburg.Jform;\r\n\r\nimport com.lanqiao.hamburg.Main;\r\n\r\nimport java.awt.*;\r\nimport javax.swing.*;\r\n\r\n/**\r\n * @author 1\r\n */\r\npublic class MainForm extends JFrame {\r\n    public MainForm() {\r\n        initComponents();\r\n    }\r\n\r\n    private void initComponents() {\r\n        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents\r\n        tabbedPane1 = new JTabbedPane();\r\n        panel1 = new JPanel();\r\n        panel2 = new JPanel();\r\n        panel3 = new JPanel();\r\n        panel4 = new JPanel();\r\n        panel6 = new JPanel();\r\n        panel7 = new JPanel();\r\n        panel8 = new JPanel();\r\n        panel5 = new JPanel();\r\n\r\n        //======== this ========\r\n        Container contentPane = getContentPane();\r\n        contentPane.setLayout(null);\r\n\r\n        //======== tabbedPane1 ========\r\n        {\r\n            tabbedPane1.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);\r\n            tabbedPane1.setTabPlacement(SwingConstants.LEFT);\r\n\r\n            //======== panel1 ========\r\n            {\r\n                panel1.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel1.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel1.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel1.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel1.setMinimumSize(preferredSize);\r\n                    panel1.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u7528\\u6237\\u4fe1\\u606f\\u7ba1\\u7406\", panel1);\r\n\r\n            //======== panel2 ========\r\n            {\r\n                panel2.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel2.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel2.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel2.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel2.setMinimumSize(preferredSize);\r\n                    panel2.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u7ba1\\u7406\", panel2);\r\n\r\n            //======== panel3 ========\r\n            {\r\n                panel3.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel3.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel3.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel3.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel3.setMinimumSize(preferredSize);\r\n                    panel3.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u4f9b\\u5e94\", panel3);\r\n\r\n            //======== panel4 ========\r\n            {\r\n                panel4.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel4.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel4.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel4.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel4.setMinimumSize(preferredSize);\r\n                    panel4.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u83dc\\u54c1\\u9500\\u552e\", panel4);\r\n\r\n            //======== panel6 ========\r\n            {\r\n                panel6.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel6.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel6.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel6.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel6.setMinimumSize(preferredSize);\r\n                    panel6.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u6d3b\\u52a8\\u4f18\\u60e0\", panel6);\r\n\r\n            //======== panel7 ========\r\n            {\r\n                panel7.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel7.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel7.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel7.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel7.setMinimumSize(preferredSize);\r\n                    panel7.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u5546\\u54c1\\u9500\\u91cf\", panel7);\r\n\r\n            //======== panel8 ========\r\n            {\r\n                panel8.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel8.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel8.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel8.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel8.setMinimumSize(preferredSize);\r\n                    panel8.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u5229\\u6da6\\u7edf\\u8ba1\", panel8);\r\n\r\n            //======== panel5 ========\r\n            {\r\n                panel5.setLayout(null);\r\n\r\n                {\r\n                    // compute preferred size\r\n                    Dimension preferredSize = new Dimension();\r\n                    for(int i = 0; i < panel5.getComponentCount(); i++) {\r\n                        Rectangle bounds = panel5.getComponent(i).getBounds();\r\n                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n                    }\r\n                    Insets insets = panel5.getInsets();\r\n                    preferredSize.width += insets.right;\r\n                    preferredSize.height += insets.bottom;\r\n                    panel5.setMinimumSize(preferredSize);\r\n                    panel5.setPreferredSize(preferredSize);\r\n                }\r\n            }\r\n            tabbedPane1.addTab(\"\\u8ba2\\u5355\\u4e2d\\u5fc3\", panel5);\r\n        }\r\n        contentPane.add(tabbedPane1);\r\n        tabbedPane1.setBounds(0, 0, 910, 595);\r\n\r\n        {\r\n            // compute preferred size\r\n            Dimension preferredSize = new Dimension();\r\n            for(int i = 0; i < contentPane.getComponentCount(); i++) {\r\n                Rectangle bounds = contentPane.getComponent(i).getBounds();\r\n                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);\r\n                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);\r\n            }\r\n            Insets insets = contentPane.getInsets();\r\n            preferredSize.width += insets.right;\r\n            preferredSize.height += insets.bottom;\r\n            contentPane.setMinimumSize(preferredSize);\r\n            contentPane.setPreferredSize(preferredSize);\r\n        }\r\n        pack();\r\n        setLocationRelativeTo(getOwner());\r\n        // JFormDesigner - End of component initialization  //GEN-END:initComponents\r\n    }\r\n\r\n    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {\r\n        //UIManager.setLookAndFeel(\"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel\");\r\n        new MainForm().setVisible(true);\r\n    }\r\n\r\n    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables\r\n    private JTabbedPane tabbedPane1;\r\n    private JPanel panel1;\r\n    private JPanel panel2;\r\n    private JPanel panel3;\r\n    private JPanel panel4;\r\n    private JPanel panel6;\r\n    private JPanel panel7;\r\n    private JPanel panel8;\r\n    private JPanel panel5;\r\n    // JFormDesigner - End of variables declaration  //GEN-END:variables\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java
+--- a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java	
++++ b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.java	
+@@ -20,7 +20,6 @@
+     private void initComponents() {
+         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+         tabbedPane1 = new JTabbedPane();
+-        panel1 = new JPanel();
+         panel2 = new JPanel();
+         panel3 = new JPanel();
+         panel4 = new JPanel();
+@@ -28,6 +27,7 @@
+         panel7 = new JPanel();
+         panel8 = new JPanel();
+         panel5 = new JPanel();
++        panel1 = new JPanel();
+ 
+         //======== this ========
+         Container contentPane = getContentPane();
+@@ -38,27 +38,6 @@
+             tabbedPane1.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+             tabbedPane1.setTabPlacement(SwingConstants.LEFT);
+ 
+-            //======== panel1 ========
+-            {
+-                panel1.setLayout(null);
+-
+-                {
+-                    // compute preferred size
+-                    Dimension preferredSize = new Dimension();
+-                    for(int i = 0; i < panel1.getComponentCount(); i++) {
+-                        Rectangle bounds = panel1.getComponent(i).getBounds();
+-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+-                    }
+-                    Insets insets = panel1.getInsets();
+-                    preferredSize.width += insets.right;
+-                    preferredSize.height += insets.bottom;
+-                    panel1.setMinimumSize(preferredSize);
+-                    panel1.setPreferredSize(preferredSize);
+-                }
+-            }
+-            tabbedPane1.addTab("\u7528\u6237\u4fe1\u606f\u7ba1\u7406", panel1);
+-
+             //======== panel2 ========
+             {
+                 panel2.setLayout(null);
+@@ -205,6 +184,27 @@
+                 }
+             }
+             tabbedPane1.addTab("\u8ba2\u5355\u4e2d\u5fc3", panel5);
++
++            //======== panel1 ========
++            {
++                panel1.setLayout(null);
++
++                {
++                    // compute preferred size
++                    Dimension preferredSize = new Dimension();
++                    for(int i = 0; i < panel1.getComponentCount(); i++) {
++                        Rectangle bounds = panel1.getComponent(i).getBounds();
++                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
++                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
++                    }
++                    Insets insets = panel1.getInsets();
++                    preferredSize.width += insets.right;
++                    preferredSize.height += insets.bottom;
++                    panel1.setMinimumSize(preferredSize);
++                    panel1.setPreferredSize(preferredSize);
++                }
++            }
++            tabbedPane1.addTab("\u7528\u6237\u4fe1\u606f\u7ba1\u7406", panel1);
+         }
+         contentPane.add(tabbedPane1);
+         tabbedPane1.setBounds(0, 0, 910, 595);
+@@ -235,7 +235,6 @@
+ 
+     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+     private JTabbedPane tabbedPane1;
+-    private JPanel panel1;
+     private JPanel panel2;
+     private JPanel panel3;
+     private JPanel panel4;
+@@ -243,5 +242,6 @@
+     private JPanel panel7;
+     private JPanel panel8;
+     private JPanel panel5;
++    private JPanel panel1;
+     // JFormDesigner - End of variables declaration  //GEN-END:variables
+ }
+Index: src/main/java/com/lanqiao/hamburg/Jform/MainForm.jfd
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>JFDML JFormDesigner: \"7.0.2.4.305\" Java: \"11.0.4\" encoding: \"UTF-8\"\r\n\r\nnew FormModel {\r\n\tcontentType: \"form/swing\"\r\n\troot: new FormRoot {\r\n\t\tadd( new FormWindow( \"javax.swing.JFrame\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\tname: \"this\"\r\n\t\t\tadd( new FormContainer( \"javax.swing.JTabbedPane\", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {\r\n\t\t\t\tname: \"tabbedPane1\"\r\n\t\t\t\t\"tabLayoutPolicy\": 1\r\n\t\t\t\t\"tabPlacement\": 2\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel1\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"用户信息管理\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel2\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"菜品管理\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel3\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"菜品供应\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel4\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"菜品销售\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel6\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"活动优惠\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel7\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"商品销量\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel8\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"利润统计\"\r\n\t\t\t\t} )\r\n\t\t\t\tadd( new FormContainer( \"javax.swing.JPanel\", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {\r\n\t\t\t\t\tname: \"panel5\"\r\n\t\t\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\t\t\"title\": \"订单中心\"\r\n\t\t\t\t} )\r\n\t\t\t}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {\r\n\t\t\t\t\"x\": 0\r\n\t\t\t\t\"y\": 0\r\n\t\t\t\t\"width\": 910\r\n\t\t\t\t\"height\": 595\r\n\t\t\t} )\r\n\t\t}, new FormLayoutConstraints( null ) {\r\n\t\t\t\"location\": new java.awt.Point( 0, 0 )\r\n\t\t\t\"size\": new java.awt.Dimension( 910, 625 )\r\n\t\t} )\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.jfd b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.jfd
+--- a/src/main/java/com/lanqiao/hamburg/Jform/MainForm.jfd	
++++ b/src/main/java/com/lanqiao/hamburg/Jform/MainForm.jfd	
+@@ -1,4 +1,4 @@
+-JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.4" encoding: "UTF-8"
++JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.11" encoding: "UTF-8"
+ 
+ new FormModel {
+ 	contentType: "form/swing"
+@@ -9,11 +9,6 @@
+ 				name: "tabbedPane1"
+ 				"tabLayoutPolicy": 1
+ 				"tabPlacement": 2
+-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+-					name: "panel1"
+-				}, new FormLayoutConstraints( null ) {
+-					"title": "用户信息管理"
+-				} )
+ 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+ 					name: "panel2"
+ 				}, new FormLayoutConstraints( null ) {
+@@ -49,6 +44,11 @@
+ 				}, new FormLayoutConstraints( null ) {
+ 					"title": "订单中心"
+ 				} )
++				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
++					name: "panel1"
++				}, new FormLayoutConstraints( null ) {
++					"title": "用户信息管理"
++				} )
+ 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+ 				"x": 0
+ 				"y": 0
+@@ -56,7 +56,7 @@
+ 				"height": 595
+ 			} )
+ 		}, new FormLayoutConstraints( null ) {
+-			"location": new java.awt.Point( 0, 0 )
++			"location": new java.awt.Point( 105, 5 )
+ 			"size": new java.awt.Dimension( 910, 625 )
+ 		} )
+ 	}
