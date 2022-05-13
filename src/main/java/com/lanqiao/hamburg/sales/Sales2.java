@@ -166,6 +166,47 @@ public class Sales2<CalendarTest> extends JPanel {
         Statement stmt4 = null;
         Statement stmt5 = null;
         Statement stmt6 = null;
+        Statement stmt7 = null;
+        Statement stmt8 = null;
+        Statement stmt9 = null;
+        Statement stmt10 = null;
+        Statement stmt11 = null;
+        Statement stmt12 = null;
+        Statement stmt13 = null;
+        Statement stmt14 = null;
+        Statement stmt15 = null;
+        Statement stmt16 = null;
+        Statement stmt17 = null;
+        Statement stmt18 = null;
+        Statement stmt19 = null;
+        Statement stmt20 = null;
+        Statement stmt21 = null;
+        Statement stmt22 = null;
+        Statement stmt23 = null;
+        Statement stmt24 = null;
+        Statement stmt25 = null;
+        Statement stmt26 = null;
+        Statement stmt27 = null;
+        Statement stmt28 = null;
+        Statement stmt29 = null;
+        Statement stmt30 = null;
+        Statement stmt31 = null;
+        Statement stmt32 = null;
+        Statement stmt33 = null;
+        Statement stmt34 = null;
+        Statement stmt35 = null;
+        Statement stmt36 = null;
+        Statement stmt37 = null;
+        Statement stmt38 = null;
+        Statement stmt39 = null;
+        Statement stmt40 = null;
+        Statement stmt41 = null;
+        Statement stmt42 = null;
+        Statement stmt43 = null;
+        Statement stmt44 = null;
+        Statement stmt45 = null;
+        Statement stmt46 = null;
+
         String sql;
         ResultSet rs = null;
         ResultSet rs2 = null;
@@ -173,15 +214,58 @@ public class Sales2<CalendarTest> extends JPanel {
         ResultSet rs4 = null;
         ResultSet rs5 = null;
         ResultSet rs6 = null;
+        ResultSet rs7 = null;
+        ResultSet rs8 = null;
+        ResultSet rs9 = null;
+        ResultSet rs10 = null;
+        ResultSet rs11 = null;
+        ResultSet rs12 = null;
+        ResultSet rs13 = null;
+        ResultSet rs14 = null;
+        ResultSet rs15 = null;
+        ResultSet rs16 = null;
+        ResultSet rs17 = null;
+        ResultSet rs18 = null;
+        ResultSet rs19 = null;
+        ResultSet rs20 = null;
+        ResultSet rs21 = null;
+        ResultSet rs22 = null;
+        ResultSet rs23 = null;
+        ResultSet rs24 = null;
+        ResultSet rs25 = null;
+        ResultSet rs26 = null;
+        ResultSet rs27 = null;
+        ResultSet rs28 = null;
+        ResultSet rs29 = null;
+        ResultSet rs30 = null;
+        ResultSet rs31 = null;
+        ResultSet rs32 = null;
+        ResultSet rs33 = null;
+        ResultSet rs34 = null;
+        ResultSet rs35 = null;
+        ResultSet rs36 = null;
+        ResultSet rs37 = null;
+        ResultSet rs38 = null;
+        ResultSet rs39 = null;
+        ResultSet rs40 = null;
+        ResultSet rs41 = null;
+        ResultSet rs42 = null;
+        ResultSet rs43 = null;
+        ResultSet rs44 = null;
+        ResultSet rs45 = null;
 
-        int test [] =new int[20];
-        String test0 [] =new String[20];
-        int test1 [] =new int[6];
-        String test2 [] =new String[6];
-        int test3 [] =new int[6];
-        int test4 [] =new int[6];
-        int test5 [] =new int[6];
-        int num [] =new int[6];
+
+
+
+
+        int test [] =new int[60];
+        String test0 [] =new String[60];
+        int test1 [] =new int[60];
+        String test2 [] =new String[60];
+        int test3 [] =new int[60];
+        int test4 [] =new int[60];
+        int test5 [] =new int[60];
+        int num [] =new int[60];
 
         Calendar c = Calendar.getInstance();
         int y=c.get(Calendar.YEAR);//年
@@ -203,11 +287,13 @@ public class Sales2<CalendarTest> extends JPanel {
                 test3[test[0]]=rs.getInt(3);
                 test4[test[0]]=rs.getInt(4);
                 test5[test[0]]=rs.getInt(5);
+                System.out.println(test1[test[0]]);
                 test[0]++;
+
             }
 
 
-            String sql2 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[0]+"'";
+            String sql2 = "SELECT order_time,amount FROM order_info WHERE item_id='"+test1[0]+"'";
             stmt2 = conn.createStatement();
             rs2= stmt2.executeQuery(sql2);
             test5[0]=0;
@@ -230,7 +316,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
 
-            String sql3 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[1]+"'";
+            String sql3 = "SELECT order_time,amount FROM order_info WHERE item_id='"+test1[1]+"'";
             stmt3 = conn.createStatement();
             rs3= stmt3.executeQuery(sql3);
             test5[1]=0;
@@ -253,7 +339,7 @@ public class Sales2<CalendarTest> extends JPanel {
             }
 
 
-            String sql4 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[2]+"'";
+            String sql4 = "SELECT order_time,amount FROM order_info WHERE item_id='"+test1[2]+"'";
             stmt4 = conn.createStatement();
             rs4= stmt4.executeQuery(sql4);
             test5[2]=0;
@@ -275,7 +361,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
             }
 
-            String sql5 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[3]+"'";
+            String sql5 = "SELECT order_time,amount FROM order_info WHERE item_id='"+test1[3]+"'";
             stmt5 = conn.createStatement();
             rs5= stmt5.executeQuery(sql5);
             test5[3]=0;
@@ -297,7 +383,7 @@ public class Sales2<CalendarTest> extends JPanel {
                 }
             }
 
-            String sql6 = "SELECT order_time,amount FROM order_info WHERE transaction_id='"+test2[4]+"'";
+            String sql6 = "SELECT order_time,amount FROM order_info WHERE item_id='"+test1[4]+"'";
             stmt6 = conn.createStatement();
             rs6= stmt6.executeQuery(sql6);
             test5[4]=0;
@@ -423,7 +509,7 @@ public class Sales2<CalendarTest> extends JPanel {
             String sql1="SELECT * FROM Sale";
             conn = DriverManager.getConnection(url, user, dbPassword);
             stmt = conn.createStatement();
-             rs= stmt.executeQuery(sql1);
+            rs= stmt.executeQuery(sql1);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -441,16 +527,16 @@ public class Sales2<CalendarTest> extends JPanel {
 
 
         if(a==1){
-             sql = "SELECT * FROM Sale ORDER BY daily DESC";
+            sql = "SELECT * FROM Sale ORDER BY daily DESC";
         }
         else if(a==2){
-             sql = "SELECT * FROM Sale ORDER BY month DESC";
+            sql = "SELECT * FROM Sale ORDER BY month DESC";
         }
         else if(a==3){
-             sql = "SELECT * FROM Sale ORDER BY year DESC";
+            sql = "SELECT * FROM Sale ORDER BY year DESC";
         }
         else{
-             sql = "SELECT * FROM Sale ";}
+            sql = "SELECT * FROM Sale ";}
 
         try {
             conn = DriverManager.getConnection(url, user, dbPassword);
