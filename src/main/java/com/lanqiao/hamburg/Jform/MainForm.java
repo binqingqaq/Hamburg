@@ -4,6 +4,7 @@ package com.lanqiao.hamburg.Jform;/*
 
 
 
+import com.lanqiao.hamburg.Discount.DiscountForm;
 import com.lanqiao.hamburg.FoodManage.FoodManagePanel;
 import com.lanqiao.hamburg.MySaleShow.controller.Panel.MySalse;
 import com.lanqiao.hamburg.Tools.MyTabbedPaneUI;
@@ -124,6 +125,7 @@ public class MainForm extends JFrame {
 
             //======== panel6 ========
             {
+                panel6 = new DiscountForm();
                 panel6.setLayout(null);
 
                 {
@@ -166,6 +168,7 @@ public class MainForm extends JFrame {
 
             //======== panel8 ========
             {
+
                 panel8.setLayout(null);
 
                 {
