@@ -5,68 +5,84 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
-			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-				name: "scrollPane1"
-				add( new FormComponent( "javax.swing.JTable" ) {
-					name: "table1"
-				} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "打1折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 0
-				"y": 0
-				"width": 815
-				"height": 225
+				"x": 350
+				"y": 120
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "打2折"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 260
+				"y": 120
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label1"
-				"text": "打折"
+				name: "label5"
+				"text": "活动优惠"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 25
-				"y": 290
+				"x": 315
+				"y": 15
+				"width": 75
+				"height": 35
 			} )
-			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-				name: "scrollPane2"
-				add( new FormComponent( "javax.swing.JTextArea" ) {
-					name: "textArea1"
-				} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "打3折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 100
-				"y": 290
-				"width": 80
+				"x": 170
+				"y": 120
 			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "comboBox1"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "打4折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 100
-				"y": 235
+				"x": 80
+				"y": 120
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "商品"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "打5折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 25
-				"y": 240
+				"x": 440
+				"y": 80
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"text": "每单限购"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button6"
+				"text": "打6折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 15
-				"y": 340
-				"height": 15
+				"x": 350
+				"y": 80
 			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "radioButton1"
-				"text": "1份"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button7"
+				"text": "打7折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 95
-				"y": 335
+				"x": 260
+				"y": 80
 			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "radioButton2"
-				"text": "无限"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button8"
+				"text": "打8折"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 140
-				"y": 335
+				"x": 170
+				"y": 80
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button9"
+				"text": "打9折"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 80
+				"y": 80
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button10"
+				"text": "撤销打折"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 440
+				"y": 120
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

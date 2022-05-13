@@ -11,98 +11,10 @@ import javax.swing.*;
 /**
  * @author 1
  */
+
+
 public class DiscountForm extends JPanel {
-    public DiscountForm() {
-        initComponents();
-    }
 
-
-    private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        scrollPane1 = new JScrollPane();
-        table1 = new JTable();
-        label1 = new JLabel();
-        scrollPane2 = new JScrollPane();
-        textArea1 = new JTextArea();
-        comboBox1 = new JComboBox();
-        label2 = new JLabel();
-        label3 = new JLabel();
-        radioButton1 = new JRadioButton();
-        radioButton2 = new JRadioButton();
-
-        //======== this ========
-        setLayout(null);
-
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setViewportView(table1);
-        }
-        add(scrollPane1);
-        scrollPane1.setBounds(0, 0, 815, 225);
-
-        //---- label1 ----
-        label1.setText("\u6253\u6298");
-        add(label1);
-        label1.setBounds(new Rectangle(new Point(25, 290), label1.getPreferredSize()));
-
-        //======== scrollPane2 ========
-        {
-            scrollPane2.setViewportView(textArea1);
-        }
-        add(scrollPane2);
-        scrollPane2.setBounds(100, 290, 80, scrollPane2.getPreferredSize().height);
-        add(comboBox1);
-        comboBox1.setBounds(new Rectangle(new Point(100, 235), comboBox1.getPreferredSize()));
-
-        //---- label2 ----
-        label2.setText("\u5546\u54c1");
-        add(label2);
-        label2.setBounds(new Rectangle(new Point(25, 240), label2.getPreferredSize()));
-
-        //---- label3 ----
-        label3.setText("\u6bcf\u5355\u9650\u8d2d");
-        add(label3);
-        label3.setBounds(15, 340, label3.getPreferredSize().width, 15);
-
-        //---- radioButton1 ----
-        radioButton1.setText("1\u4efd");
-        add(radioButton1);
-        radioButton1.setBounds(new Rectangle(new Point(95, 335), radioButton1.getPreferredSize()));
-
-        //---- radioButton2 ----
-        radioButton2.setText("\u65e0\u9650");
-        add(radioButton2);
-        radioButton2.setBounds(new Rectangle(new Point(140, 335), radioButton2.getPreferredSize()));
-
-        {
-            // compute preferred size
-            Dimension preferredSize = new Dimension();
-            for(int i = 0; i < getComponentCount(); i++) {
-                Rectangle bounds = getComponent(i).getBounds();
-                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-            }
-            Insets insets = getInsets();
-            preferredSize.width += insets.right;
-            preferredSize.height += insets.bottom;
-            setMinimumSize(preferredSize);
-            setPreferredSize(preferredSize);
-        }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
-    }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JScrollPane scrollPane1;
-    private JTable table1;
-    private JLabel label1;
-    private JScrollPane scrollPane2;
-    private JTextArea textArea1;
-    private JComboBox comboBox1;
-    private JLabel label2;
-    private JLabel label3;
-    private JRadioButton radioButton1;
-    private JRadioButton radioButton2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static Connection getCnnection(){
         Connection conn = null;
         String name = "root";
@@ -121,6 +33,7 @@ public class DiscountForm extends JPanel {
     public static void main(String[] args){
         Connection conn = getCnnection();
         String sql = "select * from item";
+
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet res = stmt.executeQuery();
@@ -131,6 +44,215 @@ public class DiscountForm extends JPanel {
             throwables.printStackTrace();
         }
     }
+
+    public DiscountForm() {
+        initComponents();
+    }
+
+
+    private void initComponents() {
+        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        button1 = new JButton();
+        button2 = new JButton();
+        label5 = new JLabel();
+        button3 = new JButton();
+        button4 = new JButton();
+        button5 = new JButton();
+        button6 = new JButton();
+        button7 = new JButton();
+        button8 = new JButton();
+        button9 = new JButton();
+        button10 = new JButton();
+
+        //======== this ========
+        setLayout(null);
+
+        //---- button1 ----
+        button1.setText("\u62531\u6298");
+        add(button1);
+        button1.setBounds(new Rectangle(new Point(350, 120), button1.getPreferredSize()));
+
+        //---- button2 ----
+        button2.setText("\u62532\u6298");
+        add(button2);
+        button2.setBounds(new Rectangle(new Point(260, 120), button2.getPreferredSize()));
+
+        //---- label5 ----
+        label5.setText("\u6d3b\u52a8\u4f18\u60e0");
+        add(label5);
+        label5.setBounds(315, 15, 75, 35);
+
+        //---- button3 ----
+        button3.setText("\u62533\u6298");
+        add(button3);
+        button3.setBounds(new Rectangle(new Point(170, 120), button3.getPreferredSize()));
+
+        //---- button4 ----
+        button4.setText("\u62534\u6298");
+        add(button4);
+        button4.setBounds(new Rectangle(new Point(80, 120), button4.getPreferredSize()));
+
+        //---- button5 ----
+        button5.setText("\u62535\u6298");
+        add(button5);
+        button5.setBounds(new Rectangle(new Point(440, 80), button5.getPreferredSize()));
+
+        //---- button6 ----
+        button6.setText("\u62536\u6298");
+        add(button6);
+        button6.setBounds(new Rectangle(new Point(350, 80), button6.getPreferredSize()));
+
+        //---- button7 ----
+        button7.setText("\u62537\u6298");
+        add(button7);
+        button7.setBounds(new Rectangle(new Point(260, 80), button7.getPreferredSize()));
+
+        //---- button8 ----
+        button8.setText("\u62538\u6298");
+        add(button8);
+        button8.setBounds(new Rectangle(new Point(170, 80), button8.getPreferredSize()));
+
+        //---- button9 ----
+        button9.setText("\u62539\u6298");
+        add(button9);
+        button9.setBounds(new Rectangle(new Point(80, 80), button9.getPreferredSize()));
+
+        //---- button10 ----
+        button10.setText("\u64a4\u9500\u6253\u6298");
+        add(button10);
+        button10.setBounds(new Rectangle(new Point(440, 120), button10.getPreferredSize()));
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
+        // JFormDesigner - End of component initialization  //GEN-END:initComponents
+        button1.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.1";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button2.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.2";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button3.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.3";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button4.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.4";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button5.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.5";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button6.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.6";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button7.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.7";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button8.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.8";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button9.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price*0.9";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        button10.addActionListener(a->{
+            Connection conn = getCnnection();
+            String sql = "update item set Preferential_price=price";
+            try {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                int rest = stmt.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+    }
+
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JButton button1;
+    private JButton button2;
+    private JLabel label5;
+    private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    private JButton button6;
+    private JButton button7;
+    private JButton button8;
+    private JButton button9;
+    private JButton button10;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
+
 
 }
 
