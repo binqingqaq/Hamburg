@@ -4,23 +4,30 @@
 
 package com.lanqiao.hamburg.MySaleShow.controller.Dialog;
 
+import com.lanqiao.hamburg.MySaleShow.controller.Frame.ModShopCart;
 import com.lanqiao.hamburg.MySaleShow.dao.Impl.ItemDaoImpl;
 import com.lanqiao.hamburg.MySaleShow.dao.Impl.ShopCarDaoImpl;
 import com.lanqiao.hamburg.MySaleShow.dao.ItemDao;
 import com.lanqiao.hamburg.MySaleShow.dao.ShopCarDao;
 import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
+import com.lanqiao.hamburg.MySaleShow.service.Impl.ShopCarServiceImpl;
+import com.lanqiao.hamburg.MySaleShow.service.ShopCarService;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * @author DavidNan
  */
 public class ModTool extends JDialog {
     public ShopCar car;
-    public ModTool(ShopCar car) {
+    ModShopCart mdcar;
+    public ModTool(ShopCar car,ModShopCart mdcar) {
         this.car = car;
+        this.mdcar = mdcar;
         initComponents();
     }
 
@@ -107,6 +114,16 @@ public class ModTool extends JDialog {
         button1.addActionListener(a->{
             ShopCarDao shopCarDao = new ShopCarDaoImpl();
             shopCarDao.DeleteRow(this.car);
+            //传一个函数进来便于控制
+            mdcar.getTable1();
+            ShopCarService scs =new ShopCarServiceImpl();
+            DefaultTableModel tableModel1 = new DefaultTableModel(mdcar.getDataFromDatabase(scs.ResetQueryService()), mdcar.getHead()) {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            mdcar.getTable1().setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            mdcar.getTable1().setModel(tableModel1);
             this.setVisible(false);
         });
         //---- button2 ----
@@ -170,7 +187,11 @@ public class ModTool extends JDialog {
         JButton jb = new JButton("TestBT");
         jb.setBounds(10,10,100,20);
         jb.addActionListener(a->{
-            new ModTool(new ShopCar()).setVisible(true);
+            try {
+                new ModTool(new ShopCar(),new ModShopCart()).setVisible(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         });
         container.add(jb);
         jf.setTitle("");

@@ -11,6 +11,7 @@ import com.lanqiao.hamburg.MySaleShow.dao.ShopCarDao;
 import com.lanqiao.hamburg.MySaleShow.entity.Item;
 import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
 import com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -21,13 +22,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 /**
- * @description: 菜品销售与微信支付主面板
- * @author: DavidNan
- * @date: 2022/5/1 20:36
+ * @author DavidNan
  */
-
 public class MySalse extends JPanel {
 
     Frame frame;  //传入目标窗体对象，便于控制
@@ -35,6 +32,7 @@ public class MySalse extends JPanel {
         this.frame=frame;
         initComponents();
     }
+
     private void initComponents() throws SQLException {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel(String.valueOf(JLabel.CENTER));
@@ -42,7 +40,7 @@ public class MySalse extends JPanel {
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         label2 = new JLabel();
-        label4 = new JLabel("模糊查询:");  //-----暂不提供----//想要后期写一下
+        label4 = new JLabel("模糊查询:");
         jTextField = new JTextField();
         comboBox1 = new JComboBox();
         button1 = new JButton();
@@ -61,7 +59,7 @@ public class MySalse extends JPanel {
         label1.setBounds(330,20,80,40);
         ItemDao itemDao1 =null;
         itemDao1=new ItemDaoImpl();
-        //---- 默认初始化列表 ------
+
         TableInit(itemDao1.SelectItem());
 
         //---- label2 ----
@@ -70,9 +68,8 @@ public class MySalse extends JPanel {
         label2.setBounds(new Rectangle(new Point(15, 380), label2.getPreferredSize()));
         add(comboBox1);
         comboBox1.setBounds(new Rectangle(70,380,80,25));
-
-        //--------- 下拉菜单 ------------
-
+        ItemDao itemDaot = new ItemDaoImpl();
+        ResultSet rst = itemDaot.SelectFoodType();
         comboBox1.addItem("All");
         comboBox1.addItem("美味小食");
         comboBox1.addItem("招牌全鸡");
@@ -85,12 +82,15 @@ public class MySalse extends JPanel {
             if(str.equals("All")){
                 System.out.println("all");
                 try{
+
                     jPanelTable.setVisible(false);
                     ItemDao itemDao2 = new ItemDaoImpl();
                     TableInit(itemDao2.SelectItem());
                 } catch (SQLException e) {
                     e.printStackTrace();
-                }
+                } ;
+
+
             }else if(str.equals("美味小食")){
                 System.out.println("DeliciousStaple");
                 try{
@@ -196,7 +196,7 @@ public class MySalse extends JPanel {
         button3.addActionListener(a->{
             CurrentUserDao currentUserDao = new CurrentUserDaoImpl();
             currentUserDao.DelLoginData();  //当前用户退出并销除当前用户登录数据
-            this.setVisible(false);   //控制关闭主窗体
+            frame.setVisible(false);
         });
 
         {
@@ -215,16 +215,10 @@ public class MySalse extends JPanel {
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-    /**
-     * @description: rs是查询到的
-     * @param rs:
-     * @return java.lang.Object[][]
-     * @author: DavidNan
-     * @date: 2022/5/13 19:46
-     */
-
     public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
+
         java.util.List<Item> list = new ArrayList<Item>();
+
         try {
             while (rs.next()) {
                 Item item = new Item();
@@ -247,6 +241,7 @@ public class MySalse extends JPanel {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
+
         }
 
         data = new Object[list.size()][head.length];
@@ -297,14 +292,6 @@ public class MySalse extends JPanel {
             }
         }
     }
-    /**
-     * @description: 输入一个图片的地址位置，然后函数内对该路径下的图片
-     * 进行一系列初始化，并装入一个label标签，label标签在装入一个panel容器并返回
-     * @param url:
-     * @return javax.swing.JPanel
-     * @author: DavidNan
-     * @date: 2022/5/13 19:10
-     */
 
     public JPanel TmageFollower(String url){
         JLabel labelA = new JLabel();
@@ -315,15 +302,6 @@ public class MySalse extends JPanel {
         jPanel.add(labelA);
         return jPanel;
     }
-
-    /**
-     * @description: 输入一个游标，传入给getDataFromDatabase(rs)函数调用，内部设置单元格可重写便于改变
-     * 单元格的大小，即每次将单元格刷新时都会重新初始化表格
-     * @param rs: 游标数据，这里是有关与根据食物的类型查找到属于该类型的数据
-     * @return void
-     * @author: DavidNan
-     * @date: 2022/5/13 19:15
-     */
 
     public void TableInit(ResultSet rs) throws SQLException {
         jPanelTable = new JPanel();
@@ -340,9 +318,7 @@ public class MySalse extends JPanel {
         };
         table1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         table1.setModel(tableModel);
-        //重新设置单元格大小
         JTRowSize(table1);
-        //将第八列的表格渲染成jpanel,便于装入图片
         table1.getColumnModel().getColumn(7).setCellRenderer(new JTableCellRender());
         this.add(jPanelTable).setVisible(true);
         jPanelTable.setPreferredSize(new Dimension(815,595));
@@ -350,19 +326,17 @@ public class MySalse extends JPanel {
         jPanelTable.setLayout(null);
         jPanelTable.setBounds(10,45,800,320);
     }
-
-    //---------测试面板功能---------
+    
     public static void main(String[] args) throws SQLException {
+
         Frame frame=new Frame("MySalesPanel");
         frame.add(new MySalse(frame),BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
     }
-
 }
 
-//单元格渲染类,获取表格端元个渲染组件，因为最后一个表格需要需要刷新图片，因此需要将表格用一个容器来装载图片
-
+//单元格渲染类,改
 class JTableCellRender extends JPanel implements TableCellRenderer {
 
     @Override

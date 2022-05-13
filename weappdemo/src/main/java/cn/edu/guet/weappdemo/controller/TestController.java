@@ -13,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,7 +44,9 @@ public class TestController {
         log.info("response = {}", response);
         return response;
     }
-
+    public void CloseDialog(JDialog jDialog){
+        jDialog.setVisible(false); //响应式关闭
+    }
     @PostMapping("/result")
     public String result(HttpServletRequest request, HttpServletResponse res) {
 
@@ -86,7 +90,7 @@ public class TestController {
                 String transactionId = m.group(5);
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-                Timestamp timestamp = new Timestamp(sdf.parse(orderTime).getTime());
+                Timestamp timestamp = new Timestamp(sdf.parse(orderTime).getTime()+8*60*60*1000); //加成三个小时后
                 //支付那边只负责生成，本次交易的码单，不写涉及到具体商品，因此正则表达式可能需要修改一些
                 //这里的控制器在打包后给主工程调用，生成二维码并扫码后，二维码触发本次回调,这里
 

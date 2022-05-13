@@ -22,11 +22,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @description:修改购物车，显示窗体为我的购物车
- * @author: DavidNan
- * @date: 2022/5/1 20:59
+ * @author unknown
  */
-
 public class ModShopCart extends JFrame {
     public ModShopCart() throws SQLException {
         this.setTitle("MyCar");
@@ -43,16 +40,16 @@ public class ModShopCart extends JFrame {
         button3 = new JButton();
         button4 = new JButton();
 
-        //======== 表示获取该窗体的(this)内容窗格便于将容器添加进窗体 ========
+        //======== this ========
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
-        //---- label1:天天菜单头标签 ----
+        //---- label1 ----
         label1.setText("\u4f60\u7684\u8d2d\u7269\u8f66");
         contentPane.add(label1);
         label1.setBounds(new Rectangle(new Point(165, 20), label1.getPreferredSize()));
 
-        //======== scrollPane1:滚动窗格 ========
+        //======== scrollPane1 ========
         {
             scrollPane1.setViewportView(table1);
         }
@@ -70,55 +67,55 @@ public class ModShopCart extends JFrame {
         table1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         table1.setModel(tableModel);
 
-        //---- button1:查询按钮----
+        //---- button1 ----
         button1.setText("\u67e5\u8be2\u8d2d\u7269\u8f66");
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(40, 190), button1.getPreferredSize()));
         button1.addActionListener(a->{
-            try {
-                ShopCarService scs =new ShopCarServiceImpl();
-                DefaultTableModel tableModel1 = new DefaultTableModel(getDataFromDatabase(scs.ResetQueryService()), head) {
-                    public boolean isCellEditable(int row, int column) {
-                        return false;
-                    }
-                };
-                table1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-                table1.setModel(tableModel1);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            ShopCarService scs =new ShopCarServiceImpl();
+            DefaultTableModel tableModel1 = new DefaultTableModel(getDataFromDatabase(scs.ResetQueryService()), head) {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            table1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            table1.setModel(tableModel1);
         });
-        //------- button2:修改购物车按钮 -------
+        //---- button2 ----
         button2.setText("\u4fee\u6539\u8d2d\u7269\u8f66");
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(145, 190), button2.getPreferredSize()));
         button2.addActionListener(a->{
-            int rowNo = table1.getSelectedRow();
-            if(rowNo==-1){
-                JOptionPane.showMessageDialog(this,"请在表格选择商品","错误",0);
-            }else{
-                int colnum= (int) table1.getValueAt(rowNo,0);
-                int id = (int) table1.getValueAt(rowNo,1);
-                String title= (String) table1.getValueAt(rowNo,6);
-                Float price = (Float)table1.getValueAt(rowNo,2);
-                int num = (int)table1.getValueAt(rowNo,3);
-                int user_id = (int)table1.getValueAt(rowNo,4);
-                String name = (String) table1.getValueAt(rowNo,5);
-                Container container = this.getContentPane();
-                ShopCar shopCar = new ShopCar(colnum,id,price,num,user_id,name,title);
-                new ModTool(shopCar).setVisible(true);
-                container.add(button2);
-            }
+            int rowNo = table1.getSelectedRow();//????��???
+            int colnum= (int) table1.getValueAt(rowNo,0);
+            int id = (int) table1.getValueAt(rowNo,1);
+            String title= (String) table1.getValueAt(rowNo,6);
+            Float price = (Float)table1.getValueAt(rowNo,2);
+            int num = (int)table1.getValueAt(rowNo,3);
+            int user_id = (int)table1.getValueAt(rowNo,4);
+            String name = (String) table1.getValueAt(rowNo,5);
+            Container container = this.getContentPane();
+            ShopCar shopCar = new ShopCar(colnum,id,price,num,user_id,name,title);
+            new ModTool(shopCar,this).setVisible(true);
+            container.add(button2);
+
         });
-        //---- button3：订单确认 ----//
+        //---- button3 ----//
         button3.setText("\u786e\u8ba4\u8ba2\u5355");
         contentPane.add(button3);
         button3.setBounds(new Rectangle(new Point(250, 190), button3.getPreferredSize()));
         button3.addActionListener(a->{
-            //-----订单确认：懒得理了，可以骗一下自己已经完成了-----
-            JOptionPane.showMessageDialog(this,"订单已确认","提示",1);
+            Connection conn = null;
+            try {
+                conn = ConnectionHandler.getConn();
+                String sql = "select * from ShopCar";
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         });
-        //---- button4:弹出购物车结算窗体 ----//
+        //---- button4 ----//
         button4.setText("\u6e05\u7a7a\u8d2d\u7269\u8f66/\u652f\u4ed8");
         contentPane.add(button4);
         button4.setBounds(new Rectangle(new Point(210, 225), button4.getPreferredSize()));
@@ -127,6 +124,7 @@ public class ModShopCart extends JFrame {
              MyPay PAY=new MyPay( shopCarDao1.Settlement());
              PAY.setBounds(300,200,350,500);
              PAY.setVisible(true);
+            ;
         });
 
         {
@@ -148,7 +146,7 @@ public class ModShopCart extends JFrame {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    public Object[][] getDataFromDatabase(ResultSet rs) throws SQLException {
+    public Object[][] getDataFromDatabase(ResultSet rs){
         java.util.List<ShopCar> list = new ArrayList<ShopCar>();
 
         try {
@@ -191,6 +189,13 @@ public class ModShopCart extends JFrame {
         return data;
     }
 
+    public JTable getTable1(){
+        return this.table1;
+    }
+    public String[] getHead(){
+        return this.head;
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JLabel label1;
     private JScrollPane scrollPane1;
@@ -204,8 +209,6 @@ public class ModShopCart extends JFrame {
     private Object[][] data = null;
     Connection conn=null;
     static String name;
-
-    //------------ 测试窗体 -----------
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) throws SQLException {
         new ModShopCart().setVisible(true);

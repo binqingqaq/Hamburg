@@ -7,6 +7,7 @@ import com.lanqiao.hamburg.Jform.MainForm;
 import com.lanqiao.hamburg.MySaleShow.controller.MyLogin;
 import org.springframework.boot.SpringApplication;
 
+
 import javax.swing.*;
 import java.sql.SQLException;
 

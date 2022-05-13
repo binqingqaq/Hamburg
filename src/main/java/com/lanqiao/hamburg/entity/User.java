@@ -5,9 +5,7 @@ public class User {
     private String user_name;
     private String user_key;
     private int  user_power;
-    public User() {
 
-    }
     public int getUser_id() {
         return user_id;
     }
@@ -37,12 +35,6 @@ public class User {
     }
 
     public void setUser_power(int user_power) {
-        this.user_power = user_power;
-    }
-    public User(int user_id, String user_name, String user_key, int user_power) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.user_key = user_key;
         this.user_power = user_power;
     }
 }

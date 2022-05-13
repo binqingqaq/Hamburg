@@ -46,14 +46,14 @@ public class Login extends JFrame {
         label3.setBounds(new Rectangle(new Point(130, 85), label3.getPreferredSize()));
         contentPane.add(textField2);
         textField2.setBounds(180, 80, 95, textField2.getPreferredSize().height);
-        textField2.setText("tongxin");
+
         //---- label4 ----
         label4.setText("\u5bc6   \u7801");
         contentPane.add(label4);
         label4.setBounds(new Rectangle(new Point(130, 135), label4.getPreferredSize()));
         contentPane.add(textField3);
         textField3.setBounds(180, 130, 95, textField3.getPreferredSize().height);
-        textField3.setText("123456");
+
         //---- button1 ----
         button1.setText("\u767b\u5165");
         contentPane.add(button1);
@@ -139,9 +139,9 @@ public class Login extends JFrame {
     private JButton button1;
     static Login login=new Login();
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         login.setVisible(true);
-    }
+    }*/
 
 
 }

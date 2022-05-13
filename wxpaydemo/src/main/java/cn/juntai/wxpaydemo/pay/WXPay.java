@@ -29,7 +29,7 @@ public class WXPay {
 
     //二维码支付方法
     public void TwoCodePay(int price) throws Exception {
-
+        //调用此函数就可以让应用产生回调
         unifiedOrder(price);
             //测试获取当前路径
     }
@@ -37,6 +37,12 @@ public class WXPay {
     //一维码支付方法
     public void OneCodePay(String auth_code,int price) throws Exception {
         scanCodeToPay(auth_code,price);
+        unifiedOrder(price); // 这样一来如果用一维码支付就相当于用二维码支付，利用二维码的域名传输到
+        //wxappdemo的TestController实现回调数据并插入订单
+    }
+
+    public void MockCallback(){
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -70,6 +76,7 @@ public class WXPay {
         map.put("attach", "订单额外描述");
         map.put("auth_code", auth_code);
         map.put("body", "购物");
+        //map.put("notify_url", "http://4i802776s9.zicp.vip/result");
         map.put("device_info", "天天华莱士");
         map.put("nonce_str", WXPayUtil.generateNonceStr());
         map.put("out_trade_no", out_trade_no);
@@ -147,6 +154,7 @@ public class WXPay {
     /*
     下单：生成二维码
      */
+
     public static void unifiedOrder(int price) {
         Map<String, String> resultMap = new HashMap();
         String openid = "ouR0E1oP5UGTEBce8jZ_sChfH26g";

@@ -5,6 +5,7 @@
 package com.lanqiao.hamburg.MySaleShow.controller.Dialog;
 
 
+import cn.edu.guet.weappdemo.controller.TestController;
 import cn.juntai.wxpaydemo.pay.WXPay;
 import com.lanqiao.hamburg.MySaleShow.entity.ShopCar;
 import com.lanqiao.hamburg.MySaleShow.service.Impl.ShopCarServiceImpl;
@@ -13,6 +14,8 @@ import com.lanqiao.hamburg.MySaleShow.service.ShopCarService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author DavidNan
@@ -82,9 +85,11 @@ public class MyPay extends JDialog {
             //JOptionPane.showMessageDialog(this,"条形码方式正在建设中！","提示",2);
             ShopCarService scr = new ShopCarServiceImpl();
             scr.Preorder();  // 实现实时添加临时库存item_stock，提供给服务器端在收到支付成功后自动减少库存，并删除购物车数据
+            TestController testController = new TestController();
+
             try {
                 //实现一维码支付
-                new WXPay().OneCodePay(textField2.getText(), (int) car.getPrice());
+               new WXPay().OneCodePay(textField2.getText(),1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -100,7 +105,8 @@ public class MyPay extends JDialog {
                 ShopCarService scr = new ShopCarServiceImpl();
                 scr.Preorder();  // 实现实时添加临时库存item_stock，提供给服务器端在收到支付成功后自动减少库存，并删除购物车数据
                 //new WXPay().UsePay((int) car.getPrice()); //真用的时候取消注释--版本V1.8的的时候，现在忽略它哦
-                new WXPay().TwoCodePay((int) car.getPrice());  //正式版二维码支付环节
+               // new WXPay().TwoCodePay((int) car.getPrice());  //正式版二维码支付环节
+                new WXPay().TwoCodePay(1);  //正式版二维码支付环节
                 ImageIcon imageIcon  = new ImageIcon("pay.jpg");
                 imageIcon.setImage(imageIcon.getImage().getScaledInstance(120,120,Image.SCALE_DEFAULT));
                 JLabel Ma = new JLabel(imageIcon);
