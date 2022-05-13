@@ -8,13 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Hamburg" />
         <module name="weappdemo" />
-        <module name="xm" />
         <module name="wxpaydemo" />
+        <module name="xm" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17">
-      <module name="wxpaydemo (1)" target="17" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-encoding GBK" />
@@ -22,7 +20,6 @@
       <module name="Hamburg" options="-parameters" />
       <module name="weappdemo" options="-parameters" />
       <module name="wxpaydemo" options="-parameters" />
-      <module name="wxpaydemo (1)" options="-parameters" />
     </option>
   </component>
 </project>
