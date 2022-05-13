@@ -4,11 +4,13 @@
 
 package com.lanqiao.hamburg.YKS;
 
-
+import com.sun.org.apache.xpath.internal.objects.XString;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 import javax.swing.*;
-
 /**
  * @author 1
  */
@@ -16,36 +18,40 @@ public class profit extends JPanel {
     public profit() {
         initComponents();
     }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        textArea1 = new JTextArea();
         label1 = new JLabel();
         label2 = new JLabel();
-        textField1 = new JTextField();
         label3 = new JLabel();
+        button1 = new JButton();
 
         //======== this ========
         setLayout(null);
+        add(textArea1);
+        textArea1.setBounds(new Rectangle(new Point(435, 270), textArea1.getPreferredSize()));
 
         //---- label1 ----
-        label1.setText("\u65e5");
+        label1.setText("\u603b\u5229\u6da6\u4e3a\uff1a");
         add(label1);
-        label1.setBounds(180, 55, 35, label1.getPreferredSize().height);
-
-        //---- label2 ----
-        label2.setText("\u5468");
+        label1.setBounds(new Rectangle(new Point(230, 200), label1.getPreferredSize()));
         add(label2);
-        label2.setBounds(260, 55, 20, label2.getPreferredSize().height);
+        label2.setBounds(new Rectangle(new Point(195, 200), label2.getPreferredSize()));
 
-        //---- textField1 ----
-        textField1.setText("\u6708");
-        add(textField1);
-        textField1.setBounds(335, 50, 30, textField1.getPreferredSize().height);
-
-        //---- label3 ----
-        label3.setText("\u9009\u62e9\u65e5\u671f");
-        add(label3);
-        label3.setBounds(new Rectangle(new Point(85, 55), label3.getPreferredSize()));
+        //---- button1 ----
+        button1.setText("\u67e5\u8be2");
+        button1.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        label3.setText(getprice());
+                        add(label3);
+                        label3.setBounds(new Rectangle(new Point(300, 200), label3.getPreferredSize()));
+                    }
+                }
+        );
+        add(button1);
+        button1.setBounds(new Rectangle(new Point(240, 230), button1.getPreferredSize()));
 
         {
             // compute preferred size
@@ -63,13 +69,66 @@ public class profit extends JPanel {
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-        //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel")
-    }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JTextArea textArea1;
     private JLabel label1;
     private JLabel label2;
-    private JTextField textField1;
     private JLabel label3;
+    private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    public static Connection getCnnection(){
+        Connection conn = null;
+        String name = "root";
+        String password = "Binqing31";
+        String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "SELECT * FROM user WHERE user_name='" + name + "' AND user_key='" + password + "'";
+        System.out.println(sql);
+        try {
+            conn = DriverManager.getConnection(url,name,password);
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return conn;
+    }
+    private static String getprice(){
+        Connection conn = getCnnection();
+        String sql = "select * from order_info";
+        String sql1 = "select * from item";
+        float cost_price=0;        //点单菜品成本
+        float num=0;            //计数
+        float order_price;          //点单价格
+        float amount;               //点单数量
+        float sum_profit=0;            //总利润
+        float item_id;              //点单菜品ID
+        String string_sum_profit;
+        try {
+            PreparedStatement stmt_id = conn.prepareStatement(sql);
+            ResultSet res_id = stmt_id.executeQuery();
+            while (res_id.next()){
+                PreparedStatement stmt_price = conn.prepareStatement(sql1);
+                ResultSet res_price = stmt_price.executeQuery();
+                item_id=Float.valueOf(res_id.getString(7));//获取ID
+                while (res_price.next()){
+                    cost_price=Float.valueOf(res_price.getString(9));
+                    num++;
+                    if(num==item_id){
+                        break;
+                    }
+                }
+                num=0;
+                amount =Float.valueOf(res_id.getString(9));//获取菜品数量
+                order_price=Float.valueOf(res_id.getString(10));//菜品卖出的价格
+                sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);     //统计利润
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        string_sum_profit=String.format("%.2f",sum_profit);       //保留2位小数
+        System.out.println(string_sum_profit);
+        return string_sum_profit;
+    }
+    public static void main(String[] args){
+        getprice();
+    }
 }
+
