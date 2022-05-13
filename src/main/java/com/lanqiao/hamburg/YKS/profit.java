@@ -122,7 +122,7 @@ public class profit extends JPanel {
         float sum_profit=0;            //总利润
         float cost_price;           //点单菜品成本
         float item_id;              //点单菜品ID
-        String sum_profit1;
+        String string_sum_profit;
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet res = stmt.executeQuery();
@@ -136,10 +136,9 @@ public class profit extends JPanel {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        sum_profit1=String.format("%.2f",sum_profit);       //保留2位小数
-        sum_profit1=String.valueOf(sum_profit);
-        System.out.println(sum_profit1);
-        return sum_profit1;
+        string_sum_profit=String.format("%.2f",sum_profit);       //保留2位小数
+        //System.out.println(sum_profit);
+        return string_sum_profit;
     }
     public static void main(String[] args){
         getid();
