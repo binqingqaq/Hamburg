@@ -34,4 +34,5 @@ public interface ShopCarDao {
 
     public void UpdateAddNum(ShopCar shopCar) throws SQLException;//看实现类
 
+
 }

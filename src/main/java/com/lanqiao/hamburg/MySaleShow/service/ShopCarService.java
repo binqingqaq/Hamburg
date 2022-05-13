@@ -13,10 +13,11 @@ import java.sql.SQLException;
 public interface ShopCarService {
 
     //The code is a comment, the specific function depends on the implementation class
-
     public void JoinCarService(ShopCar shopCar,int num) throws SQLException;
 
     //The code is a comment, the specific function depends on the implementation class
-
     public ResultSet ResetQueryService();
+
+    //Prepare the order before payment, so as to provide the data required for the payment process
+    public void Preorder();
 }

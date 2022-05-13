@@ -5,73 +5,214 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bbb3792-3cf8-4000-a755-67f1cc660b34" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/../wxpaydemo-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/_gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__ch_qos_logback_logback_core_1_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_12_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_jayway_jsonpath_json_path_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_minidev_accessors_smart_2_4_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_minidev_json_smart_2_4_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_14_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_14_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_assertj_assertj_core_3_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_jdom_jdom_2_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_mockito_mockito_core_3_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_32.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_aop_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_beans_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_context_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_core_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_expression_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_jcl_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_test_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_web_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_springframework_spring_webmvc_5_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/libraries/Maven__org_yaml_snakeyaml_1_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/_mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/WeappdemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/bean/CurrentUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/bean/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/bean/ShopCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/ItemDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/ShopCarDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/StockDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/impl/ItemDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/impl/ShopCarDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/impl/StockDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/util/ConnectionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/util/WXPayUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/util/WXPayXmlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/java/cn/edu/guet/weappdemo/util/Xml2Json.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/main/resources/result.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/src/test/java/cn/edu/guet/weappdemo/WeappdemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/classes/result.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/surefire-reports/TEST-kn.edu.guet.weappdemo.WeappdemoApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/surefire-reports/kn.edu.guet.weappdemo.WeappdemoApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/weappdemo-0.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weappdemo/target/weappdemo-0.0.1.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ImageDemo/DavidNan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ImageDemo/new.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/WxpaydemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/controller/TestControllerAPP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/IWXPayDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/DateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/MD5Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cert/apiclient_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cert/apiclient_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/WxpaydemoApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/controller/TestControllerAPP.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/WXPay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain$DomainInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants$SignType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$ReportInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/DateUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/MD5Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cn.juntai.wxpaydemo.WxpaydemoApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/cn.juntai.wxpaydemo.WxpaydemoApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/wxpaydemo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/wxpaydemo-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeaShop" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/MyPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Dialog/MyPay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/entity/ShopCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShopCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/Impl/ShopCarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ImageDemo/DavidNan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/WxpaydemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/IWXPayDomain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayReport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/DateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/juntai/wxpaydemo/util/MD5Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_cert.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cert/apiclient_key.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_cert.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cert/apiclient_key.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/WxpaydemoApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/MyConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/pay/WXPay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain$DomainInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/IWXPayDomain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants$SignType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport$ReportInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayReport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/sdk/WXPayXmlUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/DateUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/juntai/wxpaydemo/util/MD5Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/cn/juntai/wxpaydemo/WxpaydemoApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wxpaydemo-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,21 +241,16 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="C:\Users\qin" />
-        <option name="userSettingsFile" value="C:\apache-maven-3.8.4\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="28Kr1GNJXArfYUJGCFbb0Smnnz6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -122,12 +258,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weappdemo/target/weappdemo-0.0.1.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="问题" />
+    <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -217,8 +353,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.WXPay" />
-        <item itemvalue="应用程序.Demo3" />
         <item itemvalue="Spring Boot.WxpaydemoApplication" />
+        <item itemvalue="应用程序.Demo3" />
         <item itemvalue="应用程序.JPanelTest" />
         <item itemvalue="应用程序.MyLogin" />
       </list>
@@ -249,13 +385,19 @@
       <workItem from="1652173143809" duration="3542000" />
       <workItem from="1652234255184" duration="428000" />
       <workItem from="1652328947723" duration="116000" />
-      <workItem from="1652329105771" duration="1282000" />
-      <workItem from="1652331673190" duration="23000" />
+      <workItem from="1652329105771" duration="443000" />
+      <workItem from="1652331758746" duration="364000" />
+      <workItem from="1652336463849" duration="789000" />
+      <workItem from="1652408294836" duration="4996000" />
+      <workItem from="1652419735064" duration="6638000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

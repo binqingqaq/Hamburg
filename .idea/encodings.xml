@@ -12,10 +12,10 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/controller/Panel/MySalse.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/CurrentUserDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/CurrentUserDaoImpl.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ItemDaoImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/ShopCarDaoImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/Impl/UserDaoImpl.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ItemDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/ShopCarDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/dao/UserDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/entity/Item.java" charset="UTF-8" />
@@ -24,10 +24,14 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShopCarService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/MySaleShow/service/ShowItemService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/lanqiao/hamburg/Supply/Supply.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weappdemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weappdemo/src/main/java/cn/edu/guet/weappdemo/WeappdemoApplication.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weappdemo/src/main/java/cn/edu/guet/weappdemo/bean/ShopCar.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weappdemo/src/main/java/cn/edu/guet/weappdemo/controller/TestController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/ShopCarDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../wxpaydemo/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
