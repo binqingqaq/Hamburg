@@ -198,7 +198,7 @@ public class profit extends JPanel {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        string_sum_amount = String.format("%.2f", sum_amount);       //保留2位小数
+        string_sum_amount = String.format("%.0f", sum_amount);       //保留2位小数
         System.out.println(string_sum_amount);
         return string_sum_amount;
     }
