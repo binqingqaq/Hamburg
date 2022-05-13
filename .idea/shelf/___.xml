@@ -1,0 +1,29 @@
+<changelist name="在变基之前未提交的更改_[变更]" date="1652273063917" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/shelved.patch" />
+  <option name="DESCRIPTION" value="在变基之前未提交的更改 [变更]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="wxpaydemo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/createdFiles.lst" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" />
+    <option name="AFTER_PATH" value="src/main/java/com/lanqiao/hamburg/image/dishes/new.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/new.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="wxpaydemo/target/wxpaydemo-0.0.1-SNAPSHOT.jar.original" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/wxpaydemo-0.0.1-SNAPSHOT.jar.original" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="wxpaydemo/target/wxpaydemo-0.0.1-SNAPSHOT.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/wxpaydemo-0.0.1-SNAPSHOT.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="wxpaydemo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/createdFiles1.lst" />
+  </binary>
+</changelist>
