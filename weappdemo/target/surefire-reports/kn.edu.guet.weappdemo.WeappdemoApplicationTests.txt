@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kn.edu.guet.weappdemo.WeappdemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.365 s - in kn.edu.guet.weappdemo.WeappdemoApplicationTests

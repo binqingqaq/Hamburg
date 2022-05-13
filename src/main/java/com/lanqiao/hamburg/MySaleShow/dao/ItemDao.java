@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 public interface ItemDao {
 
     /**
-     * @description: ²éÑ¯Item±í£¬ÓÃÓÚ¹¹½¨²Ëµ¥
+     * @description: æŸ¥è¯¢Itemè¡¨ï¼Œç”¨äºæ„å»ºèœå•
      * @param : 
      * @return void
      * @author: DavidNan
@@ -20,7 +20,7 @@ public interface ItemDao {
     public ResultSet SelectItem();
 
     /**
-     * @description: ²éÕÒÀàĞÍÊı¾İ
+     * @description: æŸ¥æ‰¾ç±»å‹æ•°æ®
      * @param ColName:
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -30,8 +30,8 @@ public interface ItemDao {
     public ResultSet SelectFoodType(String ColName);
 
     /**
-     * @description: ¼òµ¥¸ù¾İÊ³Îï½ĞÉ¶²éÕÒ¶ÔÓ¦µÄÍ¼Æ¬,
-     * Îª±ÜÃâ¹ÜÀíÔ±Ìí¼ÓÉÌÆ·²Ù×÷Ê§Îó£¬½¨ÒéÖ»·µ»Ø½á¹û¼¯µÄµÚÒ»ĞĞÊı¾İ
+     * @description: ç®€å•æ ¹æ®é£Ÿç‰©å«å•¥æŸ¥æ‰¾å¯¹åº”çš„å›¾ç‰‡,
+     * ä¸ºé¿å…ç®¡ç†å‘˜æ·»åŠ å•†å“æ“ä½œå¤±è¯¯ï¼Œå»ºè®®åªè¿”å›ç»“æœé›†çš„ç¬¬ä¸€è¡Œæ•°æ®
      * @param FoodName:
      * @return java.lang.String
      * @author: DavidNan
@@ -41,7 +41,7 @@ public interface ItemDao {
     public String SelectImgAdd(String FoodName);
     
     /**
-     * @description: Òò×Ö·û¼¯ÎÊÌâ¾Ã¾Ã²»ÄÜ½â¾ö£¬Ö»ÄÜµ÷ÓÃÊı¾İ¿âµÄ×Ö·ûÀ´±ÜÃâ
+     * @description: å› å­—ç¬¦é›†é—®é¢˜ä¹…ä¹…ä¸èƒ½è§£å†³ï¼Œåªèƒ½è°ƒç”¨æ•°æ®åº“çš„å­—ç¬¦æ¥é¿å…
      * @param : 
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -50,5 +50,9 @@ public interface ItemDao {
     
     public ResultSet SelectFoodType();
 
+    public int SelectSock(String name);
+
+    //ç”¨äºåˆ¤æ–­item_stockçš„åº“å­˜å¹¶é€‰ç”¨æ˜¯å¦æ’å…¥è¿˜æ˜¯æ›´æ–°
+    public void InventoryData(int stock,int item_id);
 
 }

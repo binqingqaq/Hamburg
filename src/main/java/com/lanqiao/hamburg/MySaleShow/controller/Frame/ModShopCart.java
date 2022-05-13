@@ -125,7 +125,7 @@ public class ModShopCart extends JFrame {
         button4.addActionListener(a->{
              ShopCarDao shopCarDao1=new ShopCarDaoImpl();
              MyPay PAY=new MyPay( shopCarDao1.Settlement());
-             PAY.setBounds(this.getBounds());
+             PAY.setBounds(300,200,350,500);
              PAY.setVisible(true);
             ;
         });

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8882eb7-3489-4770-b0e8-cc1bbd2c0a3f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$MAVEN_REPOSITORY$" />
+        <option name="mavenHome" value="/Applications/apache-maven-3.8.4" />
+        <option name="userSettingsFile" value="/Applications/apache-maven-3.8.4/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1wFHxTtcUF3po6aI9VS88bo4HaL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/bean" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/bean" />
+      <recent name="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo" />
+      <recent name="D:\weappdemo\src\main\java\cn\edu\guet\weappdemo\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.edu.guet.weappdemo.bean" />
+      <recent name="cn.edu.guet.weappdemo.util" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WeappdemoApplication">
+    <configuration name="XML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.util.XML" />
+      <module name="weappdemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeappdemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="weappdemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.edu.guet.weappdemo.WeappdemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.XML" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8882eb7-3489-4770-b0e8-cc1bbd2c0a3f" name="Default Changelist" comment="" />
+      <created>1628047662391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628047662391</updated>
+      <workItem from="1628047663743" duration="7252000" />
+      <workItem from="1628071577667" duration="1305000" />
+      <workItem from="1628076771255" duration="3989000" />
+      <workItem from="1648808699496" duration="3243000" />
+      <workItem from="1649028677911" duration="2245000" />
+      <workItem from="1649293926176" duration="1915000" />
+      <workItem from="1649296160942" duration="1221000" />
+      <workItem from="1650459649914" duration="2629000" />
+      <workItem from="1650462319979" duration="44000" />
+      <workItem from="1650462464994" duration="1135000" />
+      <workItem from="1650546562117" duration="835000" />
+      <workItem from="1650547828105" duration="1362000" />
+      <workItem from="1650612093069" duration="364000" />
+      <workItem from="1650677384494" duration="4456000" />
+      <workItem from="1650691584609" duration="1449000" />
+      <workItem from="1650698123312" duration="4000" />
+      <workItem from="1650706274816" duration="1305000" />
+      <workItem from="1650724377605" duration="32000" />
+      <workItem from="1650764197831" duration="10066000" />
+      <workItem from="1650784276602" duration="617000" />
+      <workItem from="1650785335971" duration="18000" />
+      <workItem from="1650785428842" duration="12777000" />
+      <workItem from="1650886293012" duration="8886000" />
+      <workItem from="1650973691371" duration="6709000" />
+      <workItem from="1650985162955" duration="1055000" />
+      <workItem from="1651030080501" duration="627000" />
+      <workItem from="1651060831029" duration="5218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

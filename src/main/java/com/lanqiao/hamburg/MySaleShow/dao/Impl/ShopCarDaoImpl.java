@@ -19,7 +19,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     /**
-     * @description: Ïò¹ºÎï³µ²åÈëÊı¾İ
+     * @description: å‘è´­ç‰©è½¦æ’å…¥æ•°æ®
      * @param currentUser: 
      * @return void
      * @author: DavidNan
@@ -43,7 +43,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
     }
 
     /**
-     * @description: ²éÑ¯ËùÓĞ¹ºÎï³µ±íÊı¾İ
+     * @description: æŸ¥è¯¢æ‰€æœ‰è´­ç‰©è½¦è¡¨æ•°æ®
      * @param :
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -65,7 +65,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
     }
 
     /**
-     * @description: ÖØÖÃÖ÷¼ü£¬±ÜÃâ×Ô¶¯Ôö³¤´íĞò
+     * @description: é‡ç½®ä¸»é”®ï¼Œé¿å…è‡ªåŠ¨å¢é•¿é”™åº
      * @param :
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -89,7 +89,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
     }
 
     /**
-     * @description: É¾³ıÌØ¶¨ĞĞÊı¾İ
+     * @description: åˆ é™¤ç‰¹å®šè¡Œæ•°æ®
      * @param : 
      * @return void
      * @author: DavidNan
@@ -111,7 +111,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
         }
     }
     /**
-     * @description: ¸üĞÂ¼ÓÈë¹ºÎï³µµÄÉÌÆ·ÊıÁ¿
+     * @description: æ›´æ–°åŠ å…¥è´­ç‰©è½¦çš„å•†å“æ•°é‡
      * @param :
      * @return void
      * @author: DavidNan
@@ -135,7 +135,7 @@ public class ShopCarDaoImpl implements ShopCarDao {
     }
 
     /**
-     * @description: ½áËã¹ºÎï³µ·¢³öÇåÀí¹ºÎïÇëÇó
+     * @description: ç»“ç®—è´­ç‰©è½¦å‘å‡ºæ¸…ç†è´­ç‰©è¯·æ±‚
      * @param :
      * @return void
      * @author: DavidNan
@@ -148,14 +148,14 @@ public class ShopCarDaoImpl implements ShopCarDao {
                 "from ShopCar where user_name=" +
                 "(select distinct c.user_name " +
                 "from CurrentUser c) GROUP BY(user_name)";
-        //½¨Ò»¸öShopCar±ãÓÚ·µ»Ø¸ø±ğÈËµ÷ÓÃ
+        //å»ºä¸€ä¸ªShopCarä¾¿äºè¿”å›ç»™åˆ«äººè°ƒç”¨
         ShopCar carA = new ShopCar();
         try {
             conn = ConnectionHandler.getConn();
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             while(rs.next()){
-                //Ö»Éú³ÉÒ»ĞĞ
+                //åªç”Ÿæˆä¸€è¡Œ
                 carA.setUser_name(rs.getString(1));
                 carA.setPrice(rs.getFloat(2));
             }
@@ -181,4 +181,41 @@ public class ShopCarDaoImpl implements ShopCarDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean SelectID(int id) {
+        String sql = "select * from ShopCar where id='"+id+"'";
+        try {
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    //æœ‰å°±æ‹¿å‡ºæ¥ï¼Œç„¶åå†åœ¨åŸæ¥çš„åŸºç¡€ä¸ŠåŠ ä¸Šç°æœ‰çš„æ•°æ®
+    public void UpdateAddNum(ShopCar shopCar) throws SQLException {
+        conn = ConnectionHandler.getConn();
+        stmt = conn.createStatement();
+        String sql = "select num from ShopCar where id= '"+shopCar.getId()+"'";
+        rs = stmt.executeQuery(sql);
+        int num=0;
+        if(rs.next()){
+           num= rs.getInt(1);    //å°†å½“å‰å•†å“IDæŸ¥åˆ°çš„æ•°é‡ç”¨numä¿å­˜
+        }
+        String sql2 = "update ShopCar set num='"+(shopCar.getNum()+num)+"'"+"where id='"+shopCar.getId()+"'";
+        pstmt = conn.prepareStatement(sql2);
+        pstmt.executeUpdate(sql2);  //æ•°æ®æ›´æ–°å®Œæ¯•
+        stmt.close();
+        pstmt.close();
+        ConnectionHandler.closeConnection();
+    }
+
 }

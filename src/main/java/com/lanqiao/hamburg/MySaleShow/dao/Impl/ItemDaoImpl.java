@@ -3,10 +3,7 @@ package com.lanqiao.hamburg.MySaleShow.dao.Impl;
 import com.lanqiao.hamburg.MySaleShow.dao.ItemDao;
 import com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * @version 1.0
@@ -18,9 +15,10 @@ public class ItemDaoImpl implements ItemDao {
     Connection conn = null;
     Statement stmt=null;
     ResultSet rs = null;
+    PreparedStatement pstmt = null;
 
     /**
-     * @description: ²éÑ¯Item±íÊı¾İ
+     * @description: æŸ¥è¯¢Itemè¡¨æ•°æ®
      * @param : 
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -43,7 +41,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
    /**
-    * @description: ¸ù¾İÉÌÆ·ÀàĞÍ²éÕÒÏà¹ØÉÌÆ·Êı¾İ
+    * @description: æ ¹æ®å•†å“ç±»å‹æŸ¥æ‰¾ç›¸å…³å•†å“æ•°æ®
     * @param ColName: 
     * @return java.sql.ResultSet
     * @author: DavidNan
@@ -67,9 +65,9 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     /**
-     * @description: ¸ù¾İ¸ø¶¨ÉÌÆ·Ãû²éÑ¯Í¼Æ¬µÄÏà¶ÔµØÖ·Î»
+     * @description: æ ¹æ®ç»™å®šå•†å“åæŸ¥è¯¢å›¾ç‰‡çš„ç›¸å¯¹åœ°å€ä½
      * @param FoodName:
-     * @return ImgPath:·µ»ØÍ¼Æ¬µÄÏà¶ÔµØÖ·
+     * @return ImgPath:è¿”å›å›¾ç‰‡çš„ç›¸å¯¹åœ°å€
      * @author: DavidNan
      * @date: 2022/5/9 11:13
      */
@@ -93,7 +91,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     /**
-     * @description: ½â¾ö×Ö·û¼¯ÎÊÌâ£¬±ÜÃâÖĞÎÄ×Ö·ûÒì³£
+     * @description: è§£å†³å­—ç¬¦é›†é—®é¢˜ï¼Œé¿å…ä¸­æ–‡å­—ç¬¦å¼‚å¸¸
      * @param :
      * @return java.sql.ResultSet
      * @author: DavidNan
@@ -111,5 +109,47 @@ public class ItemDaoImpl implements ItemDao {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    @Override
+    public int SelectSock(String name) {
+        int sk=0;
+        try {
+            String sql = "SELECT stock FROM item where product_name='"+name+"'";
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                sk=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sk;
+    }
+
+    @Override
+    public void InventoryData(int stock,int item_id) {
+        String sql="select * from item_stock where item_id="+item_id;
+        String sql1="insert into item_stock(stock,item_id) values(?,?)";
+        try {
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                //è‹¥è¿‡æŸ¥åˆ°çš„è¡Œä¸ºéç©ºé›†åˆ™è·³è¿‡æœ¬æ¬¡æ’å…¥
+                System.out.println("InventoryDataæµ‹è¯•item_stockè¡¨å¯¹åº”æ•°æ®ä¸ä¸ºç©º");
+            }else{
+                //è‹¥æŸ¥åˆ°çš„ä¸ºç©ºé›†ï¼Œåˆ™ç›´æ¥æ’å…¥
+                System.out.println("InventoryDataæµ‹è¯•item_stockè¡¨å¯¹åº”æ•°æ®ä¸ºç©º");
+                pstmt =conn.prepareStatement(sql1);
+                pstmt.setInt(1,stock);
+                pstmt.setInt(2,item_id);
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

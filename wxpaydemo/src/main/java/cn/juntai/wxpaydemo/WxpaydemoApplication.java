@@ -1,5 +1,5 @@
 package cn.juntai.wxpaydemo;
-
+//import kn.edu.guet.weappdemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

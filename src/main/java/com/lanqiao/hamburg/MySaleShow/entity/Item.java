@@ -2,19 +2,17 @@ package com.lanqiao.hamburg.MySaleShow.entity;
 
 import java.util.Objects;
 
-/**
- * 数据库表 item的实体类
- */
+
 public class Item {
-    private int id;//序号
-    private String product_id;//餐品编号
-    private String pro_cate;//餐品种类
-    private String pro_name;//菜品名称
-    private Float price;//价格
-    private Float prefer_price;//优惠价
-    private int stock;//库存
-    private String img_url;//图片路径
-    private float cost_price;//成本价
+    private int id;
+    private String product_id;
+    private String pro_cate;
+    private String pro_name;
+    private Float price;
+    private Float prefer_price;
+    private int stock;
+    private String img_url;
+    private float cost_price;
     private String taste;
     private String specification;
 

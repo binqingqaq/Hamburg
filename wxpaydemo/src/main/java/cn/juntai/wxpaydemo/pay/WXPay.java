@@ -27,9 +27,16 @@ public class WXPay {
     private static final String PAY_SUCCESS = "SUCCESS";
     private static final String PAY_USERPAYING = "USERPAYING";
 
-    public void UsePay() throws Exception {
-        scanCodeToPay("133819286798799636");
-        unifiedOrder();
+    //二维码支付方法
+    public void TwoCodePay(int price) throws Exception {
+
+        unifiedOrder(price);
+            //测试获取当前路径
+    }
+
+    //一维码支付方法
+    public void OneCodePay(String auth_code,int price) throws Exception {
+        scanCodeToPay(auth_code,price);
     }
 
     public static void main(String[] args) throws Exception {
@@ -37,8 +44,9 @@ public class WXPay {
         // 生成二维码，完成支付
         // unifiedOrder();
         // 商家扫用户手机的条形码
-        scanCodeToPay("133819286798799636");
-        unifiedOrder();
+        //scanCodeToPay("133819286798799636",1);  一维码支付
+         unifiedOrder(1);
+
     }
 
     /**
@@ -46,7 +54,7 @@ public class WXPay {
      *
      * @throws Exception
      */
-    public static String scanCodeToPay(String auth_code) throws Exception {
+    public static String scanCodeToPay(String auth_code,int price) throws Exception {
         InetAddress addr = null;
         try {
             addr = InetAddress.getLocalHost();
@@ -61,12 +69,12 @@ public class WXPay {
         Map<String, String> map = new HashMap<>(16);
         map.put("attach", "订单额外描述");
         map.put("auth_code", auth_code);
-        map.put("body", "小米手机");
-        map.put("device_info", "桂电1号店");
+        map.put("body", "购物");
+        map.put("device_info", "天天华莱士");
         map.put("nonce_str", WXPayUtil.generateNonceStr());
         map.put("out_trade_no", out_trade_no);
         map.put("spbill_create_ip", spbill_create_ip);
-        map.put("total_fee", "1");
+        map.put("total_fee", String.valueOf(price));   //可通过依赖包的数据传入并生成
         //生成签名
         String sign = WXPayUtil.generateSignature(map, config.getKey());
         map.put("sign", sign);
@@ -139,7 +147,7 @@ public class WXPay {
     /*
     下单：生成二维码
      */
-    public static void unifiedOrder() {
+    public static void unifiedOrder(int price) {
         Map<String, String> resultMap = new HashMap();
         String openid = "ouR0E1oP5UGTEBce8jZ_sChfH26g";
         MyConfig config = null;
@@ -162,9 +170,9 @@ public class WXPay {
         }
         String spbill_create_ip = addr.getHostAddress();
         //支付金额，需要转成字符串类型，否则后面的签名会失败
-        int total_fee = 1;//100分：1块钱
+        int total_fee = price;//100分：1块钱
         //商品描述
-        String body = "路由器";
+        String body = "天天华莱士";
         //商户订单号
         String out_trade_no = WXPayUtil.generateNonceStr();
         //统一下单接口参数
@@ -180,7 +188,7 @@ public class WXPay {
         data.put("trade_type", "NATIVE");//支付类型
         data.put("total_fee", String.valueOf(total_fee));
         //data.put("openid", openid);
-        data.put("attach","id,11111;price,18.00;amount,1;");
+        data.put("attach","id,11111;price,18.00;amount,1;");//可以不用管的，后面wxappdemo利用数据库处理
 
         try {
             Map<String, String> rMap = wxpay.unifiedOrder(data);
@@ -193,7 +201,9 @@ public class WXPay {
 
     public static void createQRCode(Map<String, String> map) throws Exception {
 
-        File outputFile = new File("src/main/java/com/lanqiao/hamburg/image/dishes" + File.separator + "new.jpg");
+        File directory = new File("");//设定为当前文件夹
+        System.out.println(directory.getAbsolutePath());//获取绝对路径;
+        File outputFile = new File(directory.getAbsolutePath()+ File.separator + "pay.jpg");
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         String url = map.get("code_url");
         System.out.println("生成二维码url:" + url);
