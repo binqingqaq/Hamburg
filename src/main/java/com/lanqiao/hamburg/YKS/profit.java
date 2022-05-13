@@ -97,32 +97,30 @@ public class profit extends JPanel {
         Connection conn = getCnnection();
         String sql = "select * from order_info";
         String sql1 = "select * from item";
-        float cost_price=0;
+        float cost_price=0;        //点单菜品成本
         float num=0;            //计数
         float order_price;          //点单价格
         float amount;               //点单数量
         float sum_profit=0;            //总利润
-        float cost_price1;           //点单菜品成本
         float item_id;              //点单菜品ID
         String string_sum_profit;
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet res = stmt.executeQuery();
-            while (res.next()){
-                PreparedStatement stmt1 = conn.prepareStatement(sql1);
-                ResultSet res1 = stmt1.executeQuery();
-                item_id=Float.valueOf(res.getString(7));//获取ID
-                while (res1.next()){
-                    cost_price1=Float.valueOf(res1.getString(9));
+            PreparedStatement stmt_id = conn.prepareStatement(sql);
+            ResultSet res_id = stmt_id.executeQuery();
+            while (res_id.next()){
+                PreparedStatement stmt_price = conn.prepareStatement(sql1);
+                ResultSet res_price = stmt_price.executeQuery();
+                item_id=Float.valueOf(res_id.getString(7));//获取ID
+                while (res_price.next()){
+                    cost_price=Float.valueOf(res_price.getString(9));
                     num++;
                     if(num==item_id){
-                        cost_price=cost_price1;
                         break;
                     }
                 }
                 num=0;
-                amount =Float.valueOf(res.getString(9));//获取菜品数量
-                order_price=Float.valueOf(res.getString(10));//菜品卖出的价格
+                amount =Float.valueOf(res_id.getString(9));//获取菜品数量
+                order_price=Float.valueOf(res_id.getString(10));//菜品卖出的价格
                 sum_profit=sum_profit+(amount*order_price)-(amount*cost_price);     //统计利润
             }
         } catch (SQLException throwable) {
