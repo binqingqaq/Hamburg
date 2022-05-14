@@ -195,7 +195,7 @@ public class NowOrder extends JFrame {
         return data;
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variable
     private JScrollPane scrollPane1;
     private JTable table1;
     private JLabel label1;
