@@ -72,15 +72,15 @@ public class Supply extends JPanel {
         }
         //---- label1 ----
         label1.setText("  请输入商品id：");
-        label2.setText("请输入补货数量：");
+        label2.setText("输入补货数量：");
         
         
         add(label1);
         label1.setBounds(25, 10, 100, label1.getPreferredSize().height);
         add(label2);
-        label2.setBounds(25, 40, 100, label2.getPreferredSize().height);
+        label2.setBounds(26, 40, 100, label2.getPreferredSize().height);
         add(label3);
-        label3.setBounds(290, 40, 200, label3.getPreferredSize().height);
+        label3.setBounds(290, 40, 220, label3.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("查询");
