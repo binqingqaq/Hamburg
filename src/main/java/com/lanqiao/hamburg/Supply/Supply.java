@@ -94,6 +94,7 @@ public class Supply extends JPanel {
 
         button1.addActionListener(e -> {
             try {
+                textField2.setText("");
                 selectStock();
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -119,6 +120,8 @@ public class Supply extends JPanel {
                 Rectangle(new Point(385, 5),button2.
                 getPreferredSize()));
         button2.addActionListener(e -> {
+            textField1.setText("");
+            textField2.setText("");
             tableModel = new DefaultTableModel(queryData(),head){
                 public boolean isCellEditable(int row, int column) {
                     return false;
@@ -148,7 +151,7 @@ public class Supply extends JPanel {
 
 
         button3.addActionListener(e -> {
-
+            textField1.setText("");
             int index1 = table1.getSelectedRow();//获取选中行
             System.out.println(index1);
 
@@ -159,10 +162,11 @@ public class Supply extends JPanel {
             int stock=Integer.valueOf(textField2.getText());
             try {
                 updateStock(product_id,stock,current_stock);
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-
+//            textField2=null;
 
 
             tableModel = new DefaultTableModel(queryData(),head){
@@ -172,6 +176,7 @@ public class Supply extends JPanel {
             };
             table1.setModel(tableModel);
             scrollPane1.setViewportView(table1);
+
         });
 
         //---- button4 ----
@@ -183,6 +188,8 @@ public class Supply extends JPanel {
         setPreferredSize(new Dimension(565, 390));
         button4.addActionListener(e -> {
             try {
+                textField1.setText("");
+                textField2.setText("");
                 selectStock1();
                 System.out.println();
             } catch (SQLException ex) {
@@ -242,12 +249,13 @@ public class Supply extends JPanel {
             String sql2 = "SELECT * FROM item WHERE product_id="+"'"+product_id+"'";
             PreparedStatement pstmt1 = conn.prepareStatement(sql2);
             pstmt1.executeQuery();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new SQLException("查询失败");
         }
-    }
 
+    }
 
     private void selectStock1()  throws  SQLException {
         try {
@@ -452,7 +460,6 @@ public class Supply extends JPanel {
         return data;
 
     }
-    
 
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
