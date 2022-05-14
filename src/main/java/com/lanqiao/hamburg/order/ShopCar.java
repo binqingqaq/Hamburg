@@ -1,3 +1,5 @@
+package com.lanqiao.hamburg.order;
+
 import java.util.Objects;
 
 public class ShopCar {

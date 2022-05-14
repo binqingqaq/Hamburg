@@ -1,3 +1,5 @@
+package com.lanqiao.hamburg.order;
+
 import java.awt.*;
 import java.sql.*;
 import java.text.DateFormat;

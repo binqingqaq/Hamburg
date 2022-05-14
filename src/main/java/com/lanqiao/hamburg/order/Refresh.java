@@ -1,3 +1,5 @@
+package com.lanqiao.hamburg.order;
+
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.text.SimpleDateFormat;

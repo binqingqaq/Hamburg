@@ -1,3 +1,7 @@
+package com.lanqiao.hamburg.order;
+
+import com.lanqiao.hamburg.order.order_info;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
