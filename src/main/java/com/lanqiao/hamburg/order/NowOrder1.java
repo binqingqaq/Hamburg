@@ -1,18 +1,14 @@
-
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.TimeZone;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+        import java.awt.event.ActionEvent;
+        import java.awt.event.ActionListener;
+        import java.sql.*;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
+        import java.util.Calendar;
+        import javax.swing.*;
+        import javax.swing.table.DefaultTableModel;
 /*
- * Created by JFormDesigner on Sat Apr 30 10:14:47 CST 2022
+ * Created by JFormDesigner on Sun May 01 17:12:17 CST 2022
  */
 
 
@@ -20,19 +16,19 @@ import javax.swing.table.DefaultTableModel;
 /**
  * @author 1
  */
-public class NowOrder extends JFrame {
-    public NowOrder() {
+public class NowOrder1 extends JPanel {
+    public NowOrder1() {
         initComponents();
     }
 
     private void initComponents() {
-
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        label1 = new JLabel();
         scrollPane1 = new JScrollPane();
         table1 = new JTable();
-        label1 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
+        button3 = new JButton();
         DefaultTableModel tableModel = new DefaultTableModel(queryData(), head) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -42,33 +38,37 @@ public class NowOrder extends JFrame {
         table1.setModel(tableModel);
 
         //======== this ========
-        Container contentPane = getContentPane();
-        contentPane.setLayout(null);
+        setLayout(null);
+
+        //---- label1 ----
+        label1.setText("\u5f53\u524d\u8ba2\u5355");
+        add(label1);
+        label1.setBounds(new Rectangle(new Point(385, 30), label1.getPreferredSize()));
 
         //======== scrollPane1 ========
         {
             scrollPane1.setViewportView(table1);
         }
-        contentPane.add(scrollPane1);
-        scrollPane1.setBounds(10, 45, 650, 500);
-
-        //---- label1 ----
-        label1.setText("\u5f53\u524d\u8ba2\u5355");
-        contentPane.add(label1);
-        label1.setBounds(320, 5, 55, 35);
+        add(scrollPane1);
+        scrollPane1.setBounds(25, 75, 660, 455);
 
         //---- button1 ----
         button1.setText("\u786e\u8ba4\u6536\u8d27");
-        contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(700, 50), button1.getPreferredSize()));
+        add(button1);
+        button1.setBounds(new Rectangle(new Point(710, 105), button1.getPreferredSize()));
         button1.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("确认收货");
                         int rowNo = table1.getSelectedRow();//获取所选的行号
-                        int colunm = (int)table1.getValueAt(rowNo,0);
-                        String sql = "DELETE from ShopCar WHERE colnum = " + colunm;
+                        int colnum = (int)table1.getValueAt(rowNo,0);
+                        int id = (int)table1.getValueAt(rowNo,1);
+                        int num = (int)table1.getValueAt(rowNo,3);
+                        Float price = (Float)table1.getValueAt(rowNo,4);
+                        Receive receive = new Receive();
+                        receive.insert(id,num,price);
+                        String sql = "DELETE from ShopCar WHERE colnum = " + colnum;
                         Connection conn = null;
                         String user = "root";
                         String dbPassword = "Binqing31";
@@ -83,6 +83,39 @@ public class NowOrder extends JFrame {
                             ex.printStackTrace();
                         }
                         Refresh refresh = new Refresh();
+                        DefaultTableModel tableModel = new DefaultTableModel(refresh.queryData("SELECT * FROM ShopCar "), head) {
+                            public boolean isCellEditable(int row, int column) {
+                                return false;
+                            }
+                        };
+                        table1.setModel(tableModel);
+                    }
+                }
+        );
+
+        //---- button2 ----
+        button2.setText("\u5386\u53f2\u8ba2\u5355");
+        add(button2);
+        button2.setBounds(new Rectangle(new Point(710, 285), button2.getPreferredSize()));
+        button2.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("进入历史订单");
+                        HistoryOrder historyOrder = new HistoryOrder();
+                        historyOrder.setVisible(true);
+                    }
+                }
+        );
+
+        //---- button3 ----
+        button3.setText("刷新");
+        add(button3);
+        button3.setBounds(710, 465, 55, button3.getPreferredSize().height);
+        button3.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Refresh refresh = new Refresh();
                         DefaultTableModel tableModel = new DefaultTableModel(refresh.queryData("SELECT * FROM ShopCar"), head) {
                             public boolean isCellEditable(int row, int column) {
                                 return false;
@@ -93,27 +126,21 @@ public class NowOrder extends JFrame {
                 }
         );
 
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
 
-        //---- button2 ----
-        button2.setText("\u5386\u53f2\u8ba2\u5355");
-        button2.addActionListener(
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        System.out.println("进入历史订单");
-                        HistoryOrder historyOrder = new HistoryOrder();
-                        historyOrder.setVisible(true);
-                    }
-                }
-        );
-        contentPane.add(button2);
-        button2.setBounds(new Rectangle(new Point(700, 110), button2.getPreferredSize()));
-
-
-        contentPane.setPreferredSize(new Dimension(815, 595));
-        pack();
-        setLocationRelativeTo(getOwner());
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -125,7 +152,7 @@ public class NowOrder extends JFrame {
         String dbPassword = "Binqing31";
         String url = "jdbc:mysql://39.108.193.41:3306/hamburger?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         Statement stmt = null;//SQL语句对象，拼SQL
-        String sql = "SELECT * FROM ShopCar";
+        String sql = "SELECT * FROM order_info WHERE out_trade_no = '0'";
         System.out.println("即将执行的sql：" + sql);
         ResultSet rs = null;
         try {
@@ -134,7 +161,6 @@ public class NowOrder extends JFrame {
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 //每循环一次就是一个对象，把这个对象放入容器（List（有序可重复）、Set（无序不可重复）、Map（key、value结构）
-                //order_info order = new order_info();
                 ShopCar shopCar = new ShopCar();
                 shopCar.setColnum(rs.getInt(1));
                 shopCar.setId(rs.getInt(2));
@@ -184,32 +210,20 @@ public class NowOrder extends JFrame {
                 data[i][2] = list.get(i).getTitle();
                 data[i][3] = list.get(i).getNum();
                 data[i][4] = list.get(i).getPrice();
-                /*data[i][1] = list.get(i).getItem_id();
-                data[i][2] = list.get(i).getTransaction_id();
-                data[i][3] = list.get(i).getItem_price();
-                data[i][4] = list.get(i).getAmount();
-                data[i][5] = list.get(i).getOrder_price();
-                data[i][6] = list.get(i).getOrder_time();*/
             }
         }
         return data;
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JLabel label1;
     private JScrollPane scrollPane1;
     private JTable table1;
-    private JLabel label1;
     private JButton button1;
     private JButton button2;
+    private JButton button3;
     private String head[] = {"序号","商品id","商品名称","数量","价钱"};
     private Object[][] data = null;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    public static void main(String[] args) {
-        new NowOrder();
-    }
+
 }
-
-
-
-
-
