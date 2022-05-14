@@ -11,18 +11,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  * @author 1
  */
 class time{
     public static String startime="2022-05-13 00:00:00";
     public static String endtime="2022-05-14 23:59:59";
+    public static int flag=-1;
+
 }
 
 class price{
     public static float sum_amount=0;               //点单数量
     public static float sum_sales=0;               //点单数量
 }
+
+
 
 public class profit extends JPanel {
     public profit() {
@@ -43,6 +52,7 @@ public class profit extends JPanel {
         label14 = new JLabel();
         textField1 = new JTextField(time.startime);
         textField2 = new JTextField(time.endtime);
+        label1 = new JLabel();
 
         //======== this ========
         setLayout(null);
@@ -50,6 +60,9 @@ public class profit extends JPanel {
         textArea1.setBounds(new Rectangle(new Point(435, 270), textArea1.getPreferredSize()));
         add(label2);
         label2.setBounds(new Rectangle(new Point(195, 200), label2.getPreferredSize()));
+
+
+
 
         //---- button1 ----
         button1.setText("\u67e5\u8be2");
@@ -64,23 +77,57 @@ public class profit extends JPanel {
                         time.startime=star_time;
                         time.endtime=end_time;
 
+                        String date2 = time.startime;
+                        String date1 = time.endtime;
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        //返回1 表示date1大于date2 ,返回-1表示date1小于date2 ,返回0表示日期相等
+                        time.flag = ComMpareMethodOne(date1, date2, dateFormat);
+                        System.out.println(time.flag);
 
-                        //---- label12 ----
-                        label12.setText(getprice());
-                        add(label12);
-                        label12.setBounds(new Rectangle(new Point(295, 200), label12.getPreferredSize()));
+                        if(time.flag==1) {
+                            //---- label12 ----
+                            label12.setText(getprice());
+                            add(label12);
+                            label12.setBounds(new Rectangle(new Point(295, 200), label12.getPreferredSize()));
 
 
-                        //---- label10 ----
-                        label10.setText(getsum());
-                        add(label10);
-                        label10.setBounds(new Rectangle(new Point(295, 140), label10.getPreferredSize()));
+                            //---- label10 ----
+                            label10.setText(getsum());
+                            add(label10);
+                            label10.setBounds(new Rectangle(new Point(295, 140), label10.getPreferredSize()));
 
-                        //---- label11 ----
-                        label11.setText(getsales());
-                        add(label11);
-                        label11.setBounds(new Rectangle(new Point(295, 170), label11.getPreferredSize()));
+                            //---- label11 ----
+                            label11.setText(getsales());
+                            add(label11);
+                            label11.setBounds(new Rectangle(new Point(295, 170), label11.getPreferredSize()));
 
+
+                            //---- label1 ----
+                            label1.setText("查询成功！");
+                            add(label1);
+                            label1.setBounds(new Rectangle(new Point(295, 285), label1.getPreferredSize()));
+                        }
+                        else {
+                            //---- label12 ----
+                            label12.setText("查询失败");
+                            add(label12);
+                            label12.setBounds(new Rectangle(new Point(295, 200), label12.getPreferredSize()));
+
+
+                            //---- label10 ----
+                            label10.setText("查询失败");
+                            add(label10);
+                            label10.setBounds(new Rectangle(new Point(295, 140), label10.getPreferredSize()));
+
+                            //---- label11 ----
+                            label11.setText("查询失败");
+                            add(label11);
+                            label11.setBounds(new Rectangle(new Point(295, 170), label11.getPreferredSize()));
+                            //---- label1 ----
+                            label1.setText("查询失败！请检查输入格式");
+                            add(label1);
+                            label1.setBounds(new Rectangle(new Point(295, 285), label1.getPreferredSize()));
+                        }
                         price.sum_sales=0;
                         price.sum_amount=0;
 
@@ -106,6 +153,7 @@ public class profit extends JPanel {
         label9.setBounds(new Rectangle(new Point(215, 200), label9.getPreferredSize()));
 
 
+
         //---- label13 ----
         label13.setText("\u5f00\u59cb\u65f6\u95f4");
         add(label13);
@@ -118,9 +166,10 @@ public class profit extends JPanel {
 
 
         add(textField1);
-        textField1.setBounds(280, 55, 150, textField1.getPreferredSize().height);
+        textField1.setBounds(280, 50, 150, textField1.getPreferredSize().height);
         add(textField2);
-        textField2.setBounds(280, 90, 150, textField2.getPreferredSize().height);
+        textField2.setBounds(280, 85, 150, textField2.getPreferredSize().height);
+
 
         {
             // compute preferred size
@@ -140,6 +189,7 @@ public class profit extends JPanel {
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JTextArea textArea1;
+    private JLabel label1;
     private JLabel label2;
     private JButton button1;
     private JLabel label7;
@@ -152,6 +202,7 @@ public class profit extends JPanel {
     private JLabel label14;
     private JTextField textField1;
     private JTextField textField2;
+
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static Connection getCnnection(){
         Connection conn = null;
@@ -225,6 +276,19 @@ public class profit extends JPanel {
         getprice();
         getsales();
         getsum();
+
     }
+    private static int ComMpareMethodOne(String date1, String date2, SimpleDateFormat dateFormat) {
+        int result = 200;
+        try {
+            Date parse = dateFormat.parse(date1);
+            Date parse1 = dateFormat.parse(date2);
+            result = parse.compareTo(parse1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
 

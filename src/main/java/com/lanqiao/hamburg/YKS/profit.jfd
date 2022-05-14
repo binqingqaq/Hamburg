@@ -95,6 +95,14 @@ new FormModel {
 				"y": 85
 				"width": 105
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "4"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 295
+				"y": 285
+				"width": 10
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 130, 85 )
 			"size": new java.awt.Dimension( 600, 465 )
