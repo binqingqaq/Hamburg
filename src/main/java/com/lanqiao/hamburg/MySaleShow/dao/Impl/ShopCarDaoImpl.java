@@ -13,7 +13,6 @@ import java.sql.*;
  * @Date 2022/5/9 11:26
  */
 public class ShopCarDaoImpl implements ShopCarDao {
-
     Connection conn = null;
     Statement stmt = null;
     ResultSet rs = null;
@@ -39,7 +38,6 @@ public class ShopCarDaoImpl implements ShopCarDao {
         pstmt.setString(6,currentUser.getUser_name());
         pstmt.setString(7, shopCar.getTitle());
         pstmt.executeUpdate();
-
     }
 
     /**
@@ -143,11 +141,9 @@ public class ShopCarDaoImpl implements ShopCarDao {
      */
 
     @Override
-    public ShopCar Settlement() {
+    public ShopCar Settlement(String name) {
         String sql = "select user_name,sum(price*num) " +
-                "from ShopCar where user_name=" +
-                "(select distinct c.user_name " +
-                "from CurrentUser c) GROUP BY(user_name)";
+                "from ShopCar where user_name='"+name+"'";
         //建一个ShopCar便于返回给别人调用
         ShopCar carA = new ShopCar();
         try {
@@ -198,6 +194,22 @@ public class ShopCarDaoImpl implements ShopCarDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public String SelectName(int id) {
+        String sql = "select * from ShopCar where Colnum='"+id+"'";
+        try {
+            conn = ConnectionHandler.getConn();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                return rs.getString(6);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "tongxin";
     }
 
     //有就拿出来，然后再在原来的基础上加上现有的数据

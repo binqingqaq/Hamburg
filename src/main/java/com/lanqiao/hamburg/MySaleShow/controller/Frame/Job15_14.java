@@ -1,7 +1,6 @@
 package com.lanqiao.hamburg.MySaleShow.controller.Frame;
 
 import com.lanqiao.hamburg.MySaleShow.util.ConnectionHandler;
-import com.mysql.cj.xdevapi.Statement;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,16 +14,14 @@ import java.sql.SQLException;
  * @Date 2022/5/14 4:00
  */
 public class Job15_14 extends JFrame {
-
     public Job15_14() throws HeadlessException {
         Job1514 job1514 = new Job1514();
         job1514.setBackground(Color.WHITE);
         add(job1514);
     }
-
     public static void main(String[] args) {
         Job15_14 frame = new Job15_14();
-        frame.setTitle("课后作业15.14");
+        frame.setTitle("测试报表");
         frame.setSize(500, 200);// job15
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,8 +32,6 @@ public class Job15_14 extends JFrame {
         int HEIGHT = 250;
         int offsetY = 14;
         Font font = new Font("Times", Font.PLAIN, 14);
-
-
         //传入购物车的结果集
         @Override
         protected void paintComponent(Graphics g) {

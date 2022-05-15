@@ -32,7 +32,7 @@
     <file url="file://$PROJECT_DIR$/weappdemo/src/main/java/cn/edu/guet/weappdemo/dao/ShopCarDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/MyConfig.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/wxpaydemo/src/main/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wxpaydemo/src/test/java/cn/juntai/wxpaydemo/pay/WXPay.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

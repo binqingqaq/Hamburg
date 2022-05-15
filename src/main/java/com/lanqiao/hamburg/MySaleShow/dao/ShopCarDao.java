@@ -15,22 +15,21 @@ public interface ShopCarDao {
     
     public void InsertToCart(CurrentUser currentUser,ShopCar shopCar,int num) throws SQLException;
 
-
     public ResultSet SelectAll();
-
 
     public void ResetQuery();
 
     public void DeleteRow(ShopCar car);
 
-
     public void UpdateNum(ShopCar car);
 
-    public ShopCar Settlement();
+    public ShopCar Settlement(String name);
 
     public void DelAll();
 
     public boolean SelectID(int id);  //根据食物ID判断在购物车中是否存在，若存在则返回true
+
+    public String SelectName(int id);
 
     public void UpdateAddNum(ShopCar shopCar) throws SQLException;//看实现类
 

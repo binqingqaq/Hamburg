@@ -2,7 +2,6 @@ package com.lanqiao.hamburg.MySaleShow.dao;
 
 import com.lanqiao.hamburg.MySaleShow.entity.CurrentUser;
 import com.lanqiao.hamburg.MySaleShow.entity.user;
-
 import java.sql.SQLException;
 
 /**
@@ -12,8 +11,8 @@ import java.sql.SQLException;
  */
 public interface CurrentUserDao {
     /**
-     * @description: ÓÃÓÚµÇÂ¼¼ÇÂ¼
-     * @param user: Äã¶®µÄ
+     * @description: ï¿½ï¿½ï¿½Úµï¿½Â¼ï¿½ï¿½Â¼
+     * @param user: ï¿½ã¶®ï¿½ï¿½
      * @return void
      * @author: DavidNan
      * @date: 2022/5/8 19:27
@@ -22,7 +21,7 @@ public interface CurrentUserDao {
     public void RegistrationRecord(user user) throws SQLException;
 
     /**
-     * @description: ²éÑ¯ÓÃ»§ºÍID
+     * @description: ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ID
      * @param :
      * @return void
      * @author: DavidNan
@@ -32,7 +31,7 @@ public interface CurrentUserDao {
     public CurrentUser QueryUser() throws SQLException;
     
     /**
-     * @description: Çå³ýµÇÂ¼Êý¾Ý
+     * @description: ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
      * @param : 
      * @return void
      * @author: DavidNan

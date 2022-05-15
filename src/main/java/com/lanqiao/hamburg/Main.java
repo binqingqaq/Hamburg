@@ -27,7 +27,7 @@ public class Main {
         //UIManager.setLookAndFeel( new FlatLightLaf() );
         //�����壺��ɫ
         UIManager.setLookAndFeel( new FlatDarculaLaf() );
-        SpringApplication.run(WeappdemoApplication.class, args);  //调用wxappdemo
         new MyLogin();
+        SpringApplication.run(WeappdemoApplication.class, args);  //调用wxappdemo
     }
 }
